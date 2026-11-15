@@ -1,0 +1,169 @@
+{
+  "release": "R33",
+  "date": "2026-10-20",
+  "source": "MOSH_R32_FULL_NAV_CLEANUP.zip",
+  "source_sha256": "b3daca1a779fcc7ec8b15f5eb806152b0f2ada2d69012a4bcc0d6c42ff704d7a",
+  "original_files_preserved": 9189,
+  "changed_original_files": [
+    "MOSH_VANILLA_FRONTEND/index.html",
+    "MOSH_VANILLA_FRONTEND/api-map.json",
+    "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+    "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+    "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+    "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+    "MOSH_VANILLA_FRONTEND/js/r31-it.js",
+    "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+    "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+    "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+    "MOSH_VANILLA_FRONTEND/js/r29-workflows.js"
+  ],
+  "original_backend_changed": false,
+  "backend_matches_R31_1": true,
+  "protected_file_count": 8614,
+  "protected_differences": [],
+  "new_browser_checks": 204,
+  "all_suite_checks_including_overlaps": 693,
+  "suites": [
+    {
+      "suite": "navigation",
+      "label": "التنقل والحسابات والعرض",
+      "boundary": "واجهة Chromium الأصلية وAPI مصطنعة",
+      "passed": 110,
+      "total": 110,
+      "seconds": 43.89
+    },
+    {
+      "suite": "boot_transport",
+      "label": "بدء التشغيل وعميل الاتصال والتحديث",
+      "boundary": "api-boot وapi-client وfetch الأصلية؛ ردود مسارات اختبار داخل Chromium",
+      "passed": 14,
+      "total": 14,
+      "seconds": 9.72
+    },
+    {
+      "suite": "subviews",
+      "label": "القوائم الفرعية والاعتمادات والتقارير",
+      "boundary": "فحص فتح وتنقل ببيانات مصطنعة؛ لا يثبت ترحيل القيود المالية",
+      "passed": 72,
+      "total": 72,
+      "seconds": 39.59
+    },
+    {
+      "suite": "task_edges",
+      "label": "فتح المهمة غير المحمّلة وفلاتر الاعتماد",
+      "boundary": "منطق سجل المهمة والحفظ في الواجهة، دون SQL",
+      "passed": 8,
+      "total": 8,
+      "seconds": 8.06
+    },
+    {
+      "suite": "php_upload_chunks",
+      "label": "تجميع المرفقات والتحقق منها",
+      "boundary": "نظام ملفات مؤقت وSHA-256 فعليان؛ دون Laravel HTTP",
+      "passed": 54,
+      "total": 54,
+      "seconds": 0.52
+    },
+    {
+      "suite": "php_it_security",
+      "label": "صلاحيات خزنة IT والتشفير",
+      "boundary": "دوال صلاحيات وتشفير فعلية بهوية وتخزين محاكيين",
+      "passed": 26,
+      "total": 26,
+      "seconds": 2.43
+    },
+    {
+      "suite": "php_r28_acceptance",
+      "label": "قواعد الإدارة والنشر — R28",
+      "boundary": "قواعد التطبيق الفعلية بحدود تخزين ومزوّد محاكية",
+      "passed": 68,
+      "total": 68,
+      "seconds": 0.03
+    },
+    {
+      "suite": "php_r29_domain",
+      "label": "الحسابات وقواعد HR والعملاء",
+      "boundary": "دوال حساب فعلية بمدخلات اختبار",
+      "passed": 60,
+      "total": 60,
+      "seconds": 0.02
+    },
+    {
+      "suite": "php_r29_security_payroll",
+      "label": "الصلاحيات والعقود والرواتب",
+      "boundary": "قواعد الوصول والتسوية مع تخزين وهوية مصطنعين",
+      "passed": 27,
+      "total": 27,
+      "seconds": 0.02
+    },
+    {
+      "suite": "php_instagram_regression",
+      "label": "قواعد إنستغرام والاعتماد — رجوعي",
+      "boundary": "محاكاة Meta؛ لم يُنشر أي محتوى فعلي",
+      "passed": 73,
+      "total": 73,
+      "seconds": 0.02
+    },
+    {
+      "suite": "node_frontend",
+      "label": "الساعة والاستلام ويوم العمل",
+      "boundary": "دوال JavaScript معزولة",
+      "passed": 38,
+      "total": 38,
+      "seconds": 0.39
+    },
+    {
+      "suite": "node_r29_model",
+      "label": "نماذج الإجازات والتقييم والاستعجال",
+      "boundary": "دوال JavaScript معزولة",
+      "passed": 12,
+      "total": 12,
+      "seconds": 0.15
+    },
+    {
+      "suite": "node_upload_model",
+      "label": "نموذج الرفع والتجزئة",
+      "boundary": "دوال JavaScript ومقارنة SHA-256",
+      "passed": 11,
+      "total": 11,
+      "seconds": 0.36
+    },
+    {
+      "suite": "browser_it_upload",
+      "label": "IT والمرفقات — واجهة ونقل",
+      "boundary": "نقل HTTP محلي فعلي إلى PHP/ChunkStorage؛ سجلات IT والمهام محاكية",
+      "passed": 33,
+      "total": 33,
+      "seconds": 12.42
+    },
+    {
+      "suite": "browser_navigation_legacy",
+      "label": "رجوعي: القوائم والمظهر والصلاحيات",
+      "boundary": "الواجهة كاملة بخادم بيانات محاكي",
+      "passed": 42,
+      "total": 42,
+      "seconds": 22.91
+    },
+    {
+      "suite": "browser_hr_customers_legacy",
+      "label": "رجوعي: HR والعملاء والنماذج",
+      "boundary": "الواجهة كاملة بخادم بيانات محاكي",
+      "passed": 45,
+      "total": 45,
+      "seconds": 18.67
+    }
+  ],
+  "syntax": {
+    "php": 165,
+    "javascript": 88,
+    "inline_javascript": 3
+  },
+  "sqlite_read_only_checks": 4,
+  "limitations": [
+    "No integrated Laravel HTTP/session/CSRF/SQL run: Composer requires >=8.5.0 and available PHP is 8.4.24. Vendor and requirements were not changed.",
+    "No company server visited or modified.",
+    "No real Meta publishing, Instagram authorization or ZKTeco device test.",
+    "Counts include overlapping regression assertions and are not a count of distinct business functions.",
+    "Navigation smoke tests do not establish correctness of all financial postings or all historical data."
+  ]
+}

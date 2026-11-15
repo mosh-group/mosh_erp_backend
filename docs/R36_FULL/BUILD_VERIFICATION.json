@@ -1,0 +1,343 @@
+{
+  "package": "MOSH_R36_FULL_FROM_YOUR_SERVER.zip",
+  "release": "R36",
+  "build_kind": "full_two_folder_build_from_user_snapshot",
+  "source_archive": "mosh(3).rar",
+  "source_sha256": "5ab8302c3c0a4f3fd25a613ab310d16afc7356e5c48520f0bb866610c126c94e",
+  "merge": {
+    "base": "mosh(3).rar",
+    "base_rar_sha256": "5ab8302c3c0a4f3fd25a613ab310d16afc7356e5c48520f0bb866610c126c94e",
+    "source_files": 9377,
+    "changed_code_files": [
+      "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialAccess.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R34/Hierarchy.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookHub.php",
+      "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+      "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+      "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+      "MOSH_LARAVEL_BACKEND/resources/api-spec.json",
+      "MOSH_VANILLA_FRONTEND/api-map.json",
+      "MOSH_VANILLA_FRONTEND/css/r33-navigation.css",
+      "MOSH_VANILLA_FRONTEND/css/r36-fixes.css",
+      "MOSH_VANILLA_FRONTEND/index.html",
+      "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+      "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+      "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+      "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+      "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+      "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+      "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+      "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+      "MOSH_VANILLA_FRONTEND/js/61-mosh-r14-system-polish.js",
+      "MOSH_VANILLA_FRONTEND/js/62-mosh-r16-field-fixes.js",
+      "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "MOSH_VANILLA_FRONTEND/js/r19-hr.js",
+      "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+      "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+      "MOSH_VANILLA_FRONTEND/js/r25-marketing-customers.js",
+      "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+      "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+      "MOSH_VANILLA_FRONTEND/js/r31-it.js",
+      "MOSH_VANILLA_FRONTEND/js/r34-chat.js",
+      "MOSH_VANILLA_FRONTEND/js/r34-governance.js",
+      "MOSH_VANILLA_FRONTEND/js/r34-social.js",
+      "MOSH_VANILLA_FRONTEND/js/r35-density.js",
+      "MOSH_VANILLA_FRONTEND/js/r35-navigation.js",
+      "MOSH_VANILLA_FRONTEND/js/r36-customer-names.js",
+      "MOSH_VANILLA_FRONTEND/js/r36-social-department.js"
+    ],
+    "new_code_files": [
+      "MOSH_VANILLA_FRONTEND/css/r36-fixes.css",
+      "MOSH_VANILLA_FRONTEND/js/r36-customer-names.js",
+      "MOSH_VANILLA_FRONTEND/js/r36-social-department.js"
+    ],
+    "unchanged_original_files": 9340,
+    "protected_files": 8626,
+    "missing_original_files": [],
+    "unexpected_changes": [],
+    "production_database_changed": false,
+    "source_snapshot_only": true
+  },
+  "database_readonly_audit": [
+    {
+      "file": "database-before-dummy-data.sqlite",
+      "sha256": "47af079a5b7682993b0f4d5905c1d49c7657354b83a955b0f572f6cc256e0d72",
+      "quick_check": [
+        [
+          "ok"
+        ]
+      ],
+      "counts": {
+        "employees": 1,
+        "users": 1,
+        "tasks": 0,
+        "customers": 0,
+        "file_links": 0,
+        "audit_events": 1,
+        "settings": 15
+      }
+    },
+    {
+      "file": "database.backup-20260921-120137.sqlite",
+      "sha256": "04acf737893fc3dd2470dd071016eaab3985dc23389c1927fd5f0cebb787539c",
+      "quick_check": [
+        [
+          "ok"
+        ]
+      ],
+      "counts": {
+        "employees": 2,
+        "users": 1,
+        "tasks": 0,
+        "customers": 0,
+        "file_links": 0,
+        "audit_events": 8,
+        "settings": 15
+      }
+    },
+    {
+      "file": "database.before-cleanup-20260922-164942.sqlite",
+      "sha256": "0959cec955bbad2062fa323306c45f4a57f201f129daa41b7ecdd40e9770cc10",
+      "quick_check": [
+        [
+          "ok"
+        ]
+      ],
+      "counts": {
+        "employees": 62,
+        "users": 16,
+        "tasks": 100,
+        "customers": 30,
+        "file_links": 25,
+        "audit_events": 81,
+        "settings": 19
+      }
+    },
+    {
+      "file": "database.sqlite",
+      "sha256": "3d57cb0a4c005cf50f3cb492b20961362a49fedbaf153b54dc3bfe9569b08297",
+      "quick_check": [
+        [
+          "ok"
+        ]
+      ],
+      "counts": {
+        "employees": 31,
+        "users": 6,
+        "tasks": 25,
+        "customers": 18,
+        "file_links": 5,
+        "audit_events": 1653,
+        "settings": 23
+      }
+    }
+  ],
+  "syntax": {
+    "counts": {
+      "php": 165,
+      "js": 99,
+      "inline-js": 3
+    },
+    "failures": []
+  },
+  "script_assets": {
+    "scripts": 96,
+    "missing": [],
+    "duplicates": 0
+  },
+  "current_ui_suites": {
+    "browser_py": {
+      "total": 48,
+      "passed": 48
+    },
+    "employee_final": {
+      "total": 20,
+      "passed": 20
+    },
+    "startup_py": {
+      "total": 12,
+      "passed": 12
+    },
+    "staging_paths_py": {
+      "total": 9,
+      "passed": 9
+    }
+  },
+  "backend_rules": {
+    "total": 17,
+    "passed": 17,
+    "boundary": "actual methods; mocked Laravel identity/models"
+  },
+  "hierarchy_clock": {
+    "total": 10,
+    "passed": 10,
+    "boundary": "actual rules and clock with isolated model layer"
+  },
+  "isolated_regression_suites": [
+    {
+      "suite": "rules_R35_branding.php",
+      "returncode": 0,
+      "seconds": 0.04
+    },
+    {
+      "suite": "rules_R34_domain.php",
+      "returncode": 0,
+      "seconds": 0.08
+    },
+    {
+      "suite": "rules_R34_facebook.php",
+      "returncode": 0,
+      "seconds": 0.03
+    },
+    {
+      "suite": "rules_R31_chunks.php",
+      "returncode": 0,
+      "seconds": 0.27
+    },
+    {
+      "suite": "rules_R31_security.php",
+      "returncode": 0,
+      "seconds": 1.46
+    },
+    {
+      "suite": "rules_R28_acceptance.php",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "suite": "rules_R29_domain.php",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "suite": "rules_R29_security_payroll.php",
+      "returncode": 0,
+      "seconds": 0.05
+    },
+    {
+      "suite": "rules_R29_instagram_regression.php",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "suite": "node_frontend",
+      "returncode": 0,
+      "seconds": 0.36
+    },
+    {
+      "suite": "node_r29",
+      "returncode": 0,
+      "seconds": 0.18
+    },
+    {
+      "suite": "node_upload",
+      "returncode": 0,
+      "seconds": 0.33
+    },
+    {
+      "suite": "node_hash",
+      "returncode": 0,
+      "seconds": 1.26
+    }
+  ],
+  "http_upload": {
+    "passed": 17,
+    "total": 17,
+    "checks": [
+      {
+        "name": "Start accepts 34603008 bytes",
+        "passed": true
+      },
+      {
+        "name": "Identical part response retry safe 34603008",
+        "passed": true
+      },
+      {
+        "name": "Resume retains accepted parts 34603008",
+        "passed": true
+      },
+      {
+        "name": "Actual HTTP completes 34603008 bytes",
+        "passed": true
+      },
+      {
+        "name": "Original hash preserved on disk 34603008",
+        "passed": true
+      },
+      {
+        "name": "Lost complete response retry same object 34603008",
+        "passed": true
+      },
+      {
+        "name": "Another owner cannot access upload 34603008",
+        "passed": true
+      },
+      {
+        "name": "Transient parts removed after finalization 34603008",
+        "passed": true
+      },
+      {
+        "name": "Start accepts 268697600 bytes",
+        "passed": true
+      },
+      {
+        "name": "Identical part response retry safe 268697600",
+        "passed": true
+      },
+      {
+        "name": "Resume retains accepted parts 268697600",
+        "passed": true
+      },
+      {
+        "name": "Actual HTTP completes 268697600 bytes",
+        "passed": true
+      },
+      {
+        "name": "Original hash preserved on disk 268697600",
+        "passed": true
+      },
+      {
+        "name": "Lost complete response retry same object 268697600",
+        "passed": true
+      },
+      {
+        "name": "Another owner cannot access upload 268697600",
+        "passed": true
+      },
+      {
+        "name": "Transient parts removed after finalization 268697600",
+        "passed": true
+      },
+      {
+        "name": "Transfer exceeded old 999-part route shape",
+        "passed": true
+      }
+    ],
+    "boundary": "Real PHP local HTTP and filesystem. QA router, not Laravel session/SQL."
+  },
+  "integration": {
+    "live_server": false,
+    "laravel_session_sql_http": false,
+    "blocker": "PHP runtime 8.4.24; unchanged source Composer platform check requires >=8.5.0; missing runtime extensions also not repaired by modifying vendor",
+    "production_meta_or_fingerprint": false
+  },
+  "qa_notes": [
+    "Test fixtures are detached from delivery data. Real UI used with synthetic APIs; no production access.",
+    "Initial employee test incorrectly required a metadata input to remain visible even when the approved disclosure is collapsed. Updated acceptance to check the visible same employee task dialog/title/actions across redraw; extra stability check added. Runtime code was not changed to satisfy the test.",
+    "An attempted broad legacy browser runner did not complete within its execution time limit. A separate R35 browser run wrote 83 passing assertions but its cleanup exceeded the process limit. Neither run is counted as a completed passing regression suite.",
+    "13 isolated rule/model regression groups completed with return code zero. These do not imply full Laravel integration.",
+    "RAR was extracted entry-by-entry because the installed libarchive rejected one multi-entry block. Every one of 9377 files matched the uploaded archive entry size/CRC. No missing bytes were substituted from older packages."
+  ],
+  "data": {
+    "preserves_uploaded_snapshot_only": true,
+    "does_not_include_later_live_changes": true,
+    "missing_employees_restored": false,
+    "new_migrations": false,
+    "account_password_changes": false,
+    "source_DB_unchanged": true
+  }
+}

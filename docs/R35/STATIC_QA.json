@@ -1,0 +1,60 @@
+{
+  "php_files": 186,
+  "js_files": 97,
+  "lint_errors": [],
+  "inline": [
+    {
+      "index": 0,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "index": 1,
+      "ok": true,
+      "error": ""
+    },
+    {
+      "index": 2,
+      "ok": true,
+      "error": ""
+    }
+  ],
+  "css_errors": [],
+  "missing_assets": [],
+  "manifest_script_count": 94,
+  "manifest_unique": true,
+  "sqlite": [
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database.before-cleanup-20260922-164942.sqlite",
+      "ok": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+      "ok": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database.backup-20260921-120137.sqlite",
+      "ok": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database-before-dummy-data.sqlite",
+      "ok": true
+    }
+  ],
+  "original_files": 9313,
+  "changed_original": [
+    "MOSH_LARAVEL_BACKEND/routes/web.php",
+    "MOSH_VANILLA_FRONTEND/api-map.json",
+    "MOSH_VANILLA_FRONTEND/index.html",
+    "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+    "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+    "MOSH_VANILLA_FRONTEND/js/api-boot.js"
+  ],
+  "missing_original": [],
+  "protected_count": 8613,
+  "protected_mismatch": [],
+  "removed_test_outputs": 1,
+  "restored_original_outputs": 13,
+  "laravel_exit": 255,
+  "php_version": "PHP 8.4.24 (cli) (built: Jul 31 2026 05:11:11) (NTS)"
+}

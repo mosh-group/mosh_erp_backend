@@ -1,0 +1,97 @@
+[
+  {
+    "suite": "navigation",
+    "returncode": 0,
+    "seconds": 46.0
+  },
+  {
+    "suite": "boot_transport",
+    "returncode": 0,
+    "seconds": 11.6
+  },
+  {
+    "suite": "subviews",
+    "returncode": 0,
+    "seconds": 60.1
+  },
+  {
+    "suite": "task_edges",
+    "returncode": 0,
+    "seconds": 7.3
+  },
+  {
+    "suite": "legacy_navigation",
+    "returncode": 0,
+    "seconds": 23.1
+  },
+  {
+    "suite": "legacy_hr",
+    "returncode": 0,
+    "seconds": 12.0
+  },
+  {
+    "suite": "r34_browser",
+    "returncode": 0,
+    "seconds": 26.1
+  },
+  {
+    "suite": "R34_domain",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R34_facebook",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R31_chunks",
+    "returncode": 0,
+    "seconds": 0.3
+  },
+  {
+    "suite": "R31_security",
+    "returncode": 0,
+    "seconds": 1.3
+  },
+  {
+    "suite": "R28_acceptance",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R29_domain",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R29_security_payroll",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R29_instagram_regression",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "node_frontend",
+    "returncode": 0,
+    "seconds": 0.3
+  },
+  {
+    "suite": "node_r29",
+    "returncode": 0,
+    "seconds": 0.1
+  },
+  {
+    "suite": "node_upload",
+    "returncode": 0,
+    "seconds": 0.2
+  },
+  {
+    "suite": "node_largehash",
+    "returncode": 0,
+    "seconds": 1.1
+  }
+]

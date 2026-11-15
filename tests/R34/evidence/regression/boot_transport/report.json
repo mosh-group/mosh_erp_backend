@@ -1,0 +1,79 @@
+{
+  "total": 14,
+  "passed": 14,
+  "checks": [
+    {
+      "name": "Original api-boot loads complete R33 manifest through fetch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Original API transport remains unmodified in the browser",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Original transport requests auth/status and bootstrap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Every current manifest script loaded once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Boot cover removed and dashboard visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "admin: real API refresh preserves current visible section",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Administration employees remain selected during data refresh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Explicit Administration click resets dashboard after refresh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "marketing: real API refresh preserves current visible section",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "it: real API refresh preserves current visible section",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "IT subscriptions survive bootstrap data refresh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Explicit IT department click resets dashboard after refresh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No uncaught JavaScript error during actual loader/transport execution",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "No production company or Meta URL was requested",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "boundary": "Real original api-client/api-boot and browser fetch, with local file responses and API fixtures routed in Chromium. Not HTTP/Laravel/SQL integration."
+}

@@ -1,0 +1,146 @@
+{
+  "source": "R33",
+  "modifiedExistingFiles": [
+    {
+      "path": "MOSH_VANILLA_FRONTEND/api-map.json",
+      "sourceSha256": "8a8484b172e671fb61b1869c0f765eb3760eb668835e67ab7f930394a339793f",
+      "r34Sha256": "08e574d9fa9a8f646fc5a102984372a43caffc44be008ddd8112d18daf9efd54"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/index.html",
+      "sourceSha256": "cadc87698d8a739c31bd9e6d1ac9c98a3303e67ee5e73dc7955bf44a8d6c003e",
+      "r34Sha256": "86ffe2f625dde985cef0b10a11cf06cbbd1ba13fc92702ed639042ca4a709200"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "sourceSha256": "0c01f94b1b4d8302bd59e074f8971bc7352cc05ad8b1440e9722b1f5c97c4e8e",
+      "r34Sha256": "58fd04a425ba560148d7cc937fa446cc3ebb16400629718a32aae46674974ba1"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r31-upload.js",
+      "sourceSha256": "b75528aeabe09079edd55b2a92a384b831ed7c759b91cbacb868a20b08312330",
+      "r34Sha256": "f2064257bcec59437dd8c47fad5a77b5b6006e880e928d9dd645517bf6e2c85f"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r31-it.js",
+      "sourceSha256": "7378af2ada402909bdf0e69d6b006339324663b8c741380c1279e71e413d0f47",
+      "r34Sha256": "6fd7e86836530e699a5e520f279e10317565f4bdbead70262c92447451b64e2b"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+      "sourceSha256": "8b1c56a3f483bec67c395de5f205f1b927675559249d8ce0f1f79bf5b774fdfa",
+      "r34Sha256": "441afb44c0789fe0c7219b8ca9280ebcd38508cff31d77478ad10177a31ce598"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "sourceSha256": "ec8327bd549f700647b7b95dac107c888ed505a88dcaa65f7a55c058b2c954db",
+      "r34Sha256": "616c6d2a0fb724afe6d403f16a6d2c4ff99c414ac49feaad755206e2044669ca"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+      "sourceSha256": "44d5e78b5ae64b8f3ddd57c1b9e0e17573378c10338f19e54dd32f35f19e535a",
+      "r34Sha256": "ea8d8c2a44443b4d6222e22ce198196f6623c93790e6916dcacc96344b01751b"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+      "sourceSha256": "821b3437c56d1e336ae9c82be61424f0cb9cf5a34409ac368a415de8f99f3d47",
+      "r34Sha256": "1c5bdbb6268aeb05699c37087db23bdd66a0846b2d0610a12d5b8ffc8de2e568"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+      "sourceSha256": "7917bbf935b43c96c7842994cadd05c923c3ef7ac0fe13c0910e13df1c423013",
+      "r34Sha256": "cf4654886eeaf85e59075f105ca5903c875128bcbaab651cc04b02b24cdf1946"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+      "sourceSha256": "e8a5a6f5da2421999f6bb3f5e2b8c78226bf62615a48dcd244ad12929b8ef2d7",
+      "r34Sha256": "cb5b1258c85f9ba40bcbc7fdf1a34b6066e5a8cbc683294bc1fa4c50ffc2bda7"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/resources/api-spec.json",
+      "sourceSha256": "c37bff53113cb6725ec79f6a44e010415c0f3f8bc7b9c46f4eff1caaddeea4e3",
+      "r34Sha256": "def53b36c792453965d8222a3703362b96d4eeae6da6ceec5795d59d3da92a35"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/mosh.php",
+      "sourceSha256": "a5044ad042a54db16178671601ed12bfdefe125c0f46cdebb42ef1b2733cf1f2",
+      "r34Sha256": "6fd002bca2be5ea713e3ed5c11c8a4f5000704fcaa185522f2954f9e1b9898b8"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/r31.php",
+      "sourceSha256": "26590e5064e6b0c6c44ce29669d46aea64e3ed44821258233df50b1a4c8d03bf",
+      "r34Sha256": "81be82842228f811d6160ed4715ab262b89b374be9a61058f439be0336361cd9"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/api.php",
+      "sourceSha256": "d2eb429f3e8fe38da0db47016d9b34ba1257054e8948ca8c07ce8e1988dba499",
+      "r34Sha256": "917f100358223065758e1877ff127496ace69b33459fa2f6663e5d564c77efb5"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/console.php",
+      "sourceSha256": "506d54e6fa9841344a0e24ec904bb8394f9f8720961e664456431591c61857c1",
+      "r34Sha256": "7bd2081f197bb6a19a0af2e6ec2cdcbeeff0de26bed049495aea1a6c89e95dda"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "sourceSha256": "0434a43b3326078c70d8e8a18203edeaefdcd289582622dcd6719392620b4169",
+      "r34Sha256": "bc5c95e278d47999008f98f658999ee5ad2c855d457eb8fc027c74d1effa32d3"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+      "sourceSha256": "61042ddf5c0039d91d50850d7240d74355e7ea257f8f26a76f1b6bfeba51405e",
+      "r34Sha256": "44ab52fe64e707cc29e7ef0bd06363bc3dbaf088e9fcec6bdb306afae4bc45fa"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+      "sourceSha256": "9ab9041353707e704b4eb4b4871a27e3e1d8f304c3711dd3a240a582f3bfe3a4",
+      "r34Sha256": "28df64e731a43ab3af9782ebb9c1bc74e02c9ad8cf40db511e19a5e71da64987"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19HrAccess.php",
+      "sourceSha256": "e2c093dd67a72987e0562d8ded975747cd40844b49752e90358a214b58f3581b",
+      "r34Sha256": "4f754d3dd6664715cfbec73e6ba0d2a2f0c8c6c0d10d6a493e00fcbadb1aa49f"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/StockRules.php",
+      "sourceSha256": "f7566cc0ccf5cc8731ea2560effe121d549df685d26a71609e0d014679e0aed0",
+      "r34Sha256": "55141e137f866489d6cbff00ecfcd008f349e11dfc183732e167dd179569006c"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+      "sourceSha256": "fa63cedaed3849eee5694e725dbf20b82f0b49dcb17fc0c81537b766cd2d2e7c",
+      "r34Sha256": "b371e2a7e9967469d1ee81c7eb29711d3ecec25f7f105e1ce7a46d391d5731b9"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+      "sourceSha256": "32a333458d12c8cc5a29d0a0f8bf400dbcee90c2c479c6d28a19ecbe4422ceb6",
+      "r34Sha256": "47a41d4525fa03d65f6b341d668df0fa1883663c14174e7e78c15dff82c8e9e7"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31UploadController.php",
+      "sourceSha256": "fd21d945cbc29054eeb4b24a3ca8fb7a8ee9b42419a671396f441e549d96fec6",
+      "r34Sha256": "e68cfc6a794a657195518f30b5c9405d77381cfa6124e5d11e839913571935a6"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24PurchasingController.php",
+      "sourceSha256": "472f1088a3df2127bb65649b1dfeba1d9562f16407c9e780fc636978bee9b4f7",
+      "r34Sha256": "6763e8598d381ffc45e7725c771b4851eafd5667884ace6a3d4d593d15f3b2f3"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+      "sourceSha256": "83bed5f22d07a5a080dbb5099ad80e3ba315f3a80e6a82b36d5d2f956d383fbd",
+      "r34Sha256": "a4bb2b3041a2d08df56d350d986a570ad25584344ba134c97da504b959afc37d"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R31/ChunkStorage.php",
+      "sourceSha256": "adf881e2c2d04621067a5abc8432f62fba64eaded05a85aa778a2a98288adb28",
+      "r34Sha256": "549031e744a52c1df87a4bb93ba47d685fecc1dafeb86c0f62ff7936b8efa965"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/CustomerWork.php",
+      "sourceSha256": "3e7a58fd00d2af2ff9e76687b3a5661ec188b84d3fc8087ffc07d6e9e21ca57b",
+      "r34Sha256": "c949c85725aca32af48b5b29dc47436697d438637861e1a44ace8558352e085b"
+    }
+  ],
+  "note": "No original data/settings/vendor changes. New R34 files are listed in the outer package verification."
+}

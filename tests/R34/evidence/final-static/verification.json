@@ -1,0 +1,1540 @@
+{
+  "checks": [
+    {
+      "name": "All R33 source files retained",
+      "passed": true,
+      "count": 9226,
+      "missing": []
+    },
+    {
+      "name": "Protected source data/settings/libraries byte-identical",
+      "passed": true,
+      "count": 8614,
+      "differences": []
+    },
+    {
+      "name": "PHP syntax",
+      "passed": true,
+      "count": 181
+    },
+    {
+      "name": "JavaScript syntax",
+      "passed": true,
+      "count": 93
+    },
+    {
+      "name": "Index inline scripts syntax",
+      "passed": true,
+      "count": 3
+    },
+    {
+      "name": "Manifest scripts unique",
+      "passed": true,
+      "count": 90
+    },
+    {
+      "name": "All local entrypoint assets exist",
+      "passed": true,
+      "count": 131,
+      "missing": []
+    },
+    {
+      "name": "SQLite read-only integrity database/database-before-dummy-data.sqlite",
+      "passed": true
+    },
+    {
+      "name": "SQLite read-only integrity database/database.sqlite",
+      "passed": true
+    },
+    {
+      "name": "SQLite read-only integrity database/database.backup-20260921-120137.sqlite",
+      "passed": true
+    },
+    {
+      "name": "SQLite read-only integrity database/database.before-cleanup-20260922-164942.sqlite",
+      "passed": true
+    }
+  ],
+  "passed": 11,
+  "total": 11,
+  "phpFiles": 181,
+  "jsFiles": 93,
+  "syntaxResults": [
+    {
+      "file": "MOSH_LARAVEL_BACKEND/CHECK_R8.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/mosh.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/logging.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/app.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/database.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/mosh_facebook.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/session.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/queue.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/mail.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/cors.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/cache.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/hashing.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/auth.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/services.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/mosh_social.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/zkteco.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/config/filesystems.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r31.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r34_facebook.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r24_admin.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r19_hr.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r29.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/api.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/console.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r19_notifications.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r34.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/r28_instagram.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/public/index.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/TestCase.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/R19Store.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/R19TaskPriority.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayHistory.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/R24PurchaseRules.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/TaskExecutionClock.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/R19HrWorkflow.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/R19Attendance.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/FinanceRules.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/JournalRules.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/R19HrAccess.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/Audit.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/StockRules.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/DepartmentManagers.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayReport.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/R19Notifications.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Support/Money.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/FieldTemplate.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoDevice.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Warehouse.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/WorkPresence.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/StoredFile.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Reservation.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/PayrollRun.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/FieldWork.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/FileLink.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/ExecutiveReport.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/PayrollHours.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/QuotationTemplate.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/AuditEvent.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Service.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/ServiceContract.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/AdminMeeting.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Requisition.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoAttendanceEvent.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Setting.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/AdminDecision.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Wisdom.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/SalesTeam.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Role.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Task.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Customer.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/PrintLayout.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Quotation.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/HrRequest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/EmploymentContract.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoEmployeeMapping.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Invoice.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Payment.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/DataRecord.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Employee.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Announcement.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/StockItem.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Recognition.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/JournalEntry.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/FinancialDocument.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/CashAccount.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/SupportRequest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/HrApproval.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/StockMovement.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/OffboardingCase.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Supplier.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Models/Salesperson.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Providers/AppServiceProvider.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ApiSession.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ZktecoBridgeAuth.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/VerifyCsrfToken.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/RedirectIfAuthenticated.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/EncryptCookies.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/TrimStrings.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AccountController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AuthController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ZktecoAdminController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ZktecoBridgeController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31UploadController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R29Controller.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/InstagramController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/DepartmentManagerController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24PurchasingController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/BootstrapController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FacebookController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24StationeryController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24AdminController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31ItController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/TransactionController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R19NotificationController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/Controller.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R19HrController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ReportController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R34WorkflowController.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookProvider.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Social/Publisher.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookSettings.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Social/Registry.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookHub.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookWorker.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookException.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R31/ItArchive.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R31/ChunkStorage.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaClient.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialWorker.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialPolicy.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialSettings.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaException.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialAccess.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialHub.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/Cancellation.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/TaskConversation.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/Deadline.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/CommandContext.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/Approvals.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/HierarchyRules.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/Hierarchy.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R34/TaskPolicy.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/ZKTeco/ZktecoService.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R29/CustomerWork.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R29/PayrollAdjustments.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R29/Rules.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R29/Certificates.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R29/QrCode.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R29/HrWorkflow.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/app/Services/R29/Guards.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/R19NotificationTest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/ZktecoIntegrationTest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/R19HrWorkflowTest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/ApiTest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/DomainTest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/WorkdayR8Test.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/TaskTimerR7Test.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/Feature/BackendAuditTest.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R31/chunks.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R31/http_router.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R31/security.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R28/acceptance.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R34/facebook.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R34/harness.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R34/domain.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R34/php_autoload.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R29/instagram_regression.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R29/security_payroll.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/tests/R29/domain.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/lang/en/validation.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/lang/en/passwords.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/lang/en/pagination.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/lang/en/auth.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/62-mosh-r16-field-fixes.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r31-upload.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r20-employee-portal.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r20-attendance-header.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/63-mosh-mini-workdesk.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-mini.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/61-mosh-zkteco-admin.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-home.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-overdue.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r25-marketing-customers.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r29-model.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r34-customers-deadline.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-hr.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-dashboard.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r22-theme.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r31-it.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r34-ui.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r33-navigation.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r34-chat.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/61-mosh-r14-system-polish.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r34-governance.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r34-social.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-common.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+      "ok": true,
+      "output": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+      "ok": true,
+      "output": ""
+    }
+  ],
+  "inline": [
+    {
+      "ok": true,
+      "error": ""
+    },
+    {
+      "ok": true,
+      "error": ""
+    },
+    {
+      "ok": true,
+      "error": ""
+    }
+  ],
+  "sourceFiles": 9226,
+  "sourceMissing": [],
+  "sourceChanged": [
+    "MOSH_VANILLA_FRONTEND/api-map.json",
+    "MOSH_VANILLA_FRONTEND/index.html",
+    "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+    "MOSH_VANILLA_FRONTEND/js/r31-upload.js",
+    "MOSH_VANILLA_FRONTEND/js/r31-it.js",
+    "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+    "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+    "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+    "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+    "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+    "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+    "MOSH_LARAVEL_BACKEND/resources/api-spec.json",
+    "MOSH_LARAVEL_BACKEND/config/mosh.php",
+    "MOSH_LARAVEL_BACKEND/routes/r31.php",
+    "MOSH_LARAVEL_BACKEND/routes/api.php",
+    "MOSH_LARAVEL_BACKEND/routes/console.php",
+    "MOSH_LARAVEL_BACKEND/routes/web.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/R19HrAccess.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/StockRules.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+    "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31UploadController.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24PurchasingController.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R31/ChunkStorage.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R29/CustomerWork.php",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-social-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/browser-results.json",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-social-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-social-mobile.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-customer-work.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-leave-desktop.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-customers-mobile.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-marketing-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-hr-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-marketing-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-dashboard-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-hr-mobile.png"
+  ],
+  "added": [
+    "MOSH_LARAVEL_BACKEND/START_SOCIAL_WORKER.bat",
+    "MOSH_VANILLA_FRONTEND/css/r34-workflows.css",
+    "MOSH_VANILLA_FRONTEND/js/r34-customers-deadline.js",
+    "MOSH_VANILLA_FRONTEND/js/r34-ui.js",
+    "MOSH_VANILLA_FRONTEND/js/r34-chat.js",
+    "MOSH_VANILLA_FRONTEND/js/r34-governance.js",
+    "MOSH_VANILLA_FRONTEND/js/r34-social.js",
+    "MOSH_LARAVEL_BACKEND/config/mosh_facebook.php",
+    "MOSH_LARAVEL_BACKEND/routes/r34_facebook.php",
+    "MOSH_LARAVEL_BACKEND/routes/r34.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FacebookController.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R34WorkflowController.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookProvider.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Social/Publisher.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookSettings.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Social/Registry.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookHub.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookWorker.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookException.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/Cancellation.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/TaskConversation.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/Deadline.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/CommandContext.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/Approvals.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/HierarchyRules.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/Hierarchy.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/R34/TaskPolicy.php",
+    "MOSH_LARAVEL_BACKEND/tests/R34/run_regression.py",
+    "MOSH_LARAVEL_BACKEND/tests/R34/debug_ui.py",
+    "MOSH_LARAVEL_BACKEND/tests/R34/facebook.php",
+    "MOSH_LARAVEL_BACKEND/tests/R34/large_http.py",
+    "MOSH_LARAVEL_BACKEND/tests/R34/verify_source.py",
+    "MOSH_LARAVEL_BACKEND/tests/R34/harness.php",
+    "MOSH_LARAVEL_BACKEND/tests/R34/hash.test.cjs",
+    "MOSH_LARAVEL_BACKEND/tests/R34/domain.php",
+    "MOSH_LARAVEL_BACKEND/tests/R34/browser_features.py",
+    "MOSH_LARAVEL_BACKEND/tests/R34/php_autoload.php",
+    "MOSH_LARAVEL_BACKEND/tests/R33/__pycache__/ui_fixture.cpython-313.pyc"
+  ],
+  "protectedFiles": 8614,
+  "protectedChanged": [],
+  "laravelBoot": {
+    "returncode": 255,
+    "completed": false,
+    "evidence": "laravel_boot.txt"
+  },
+  "sourceArchiveSha256": "6c7566cd313aeb856f82270c801e2dd02fdfc27686236537d0bf43e6c1c83cba"
+}

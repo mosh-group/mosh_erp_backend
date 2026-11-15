@@ -1,0 +1,83 @@
+TAP version 13
+# Subtest: Strict real calendar dates
+ok 1 - Strict real calendar dates
+  ---
+  duration_ms: 2.142835
+  type: 'test'
+  ...
+# Subtest: Inclusive leap-year range
+ok 2 - Inclusive leap-year range
+  ---
+  duration_ms: 0.447442
+  type: 'test'
+  ...
+# Subtest: Calendar year has no legacy carry-forward
+ok 3 - Calendar year has no legacy carry-forward
+  ---
+  duration_ms: 0.416245
+  type: 'test'
+  ...
+# Subtest: Prior use is counted in chosen year only
+ok 4 - Prior use is counted in chosen year only
+  ---
+  duration_ms: 0.265995
+  type: 'test'
+  ...
+# Subtest: Cross-year leave prorates by calendar days
+ok 5 - Cross-year leave prorates by calendar days
+  ---
+  duration_ms: 1.416355
+  type: 'test'
+  ...
+# Subtest: Pending request counted once
+ok 6 - Pending request counted once
+  ---
+  duration_ms: 0.425712
+  type: 'test'
+  ...
+# Subtest: Approved duplicate record counted once
+ok 7 - Approved duplicate record counted once
+  ---
+  duration_ms: 0.623629
+  type: 'test'
+  ...
+# Subtest: Five scores are a simple average
+ok 8 - Five scores are a simple average
+  ---
+  duration_ms: 0.469514
+  type: 'test'
+  ...
+# Subtest: Invalid scores and duplicate labels rejected
+ok 9 - Invalid scores and duplicate labels rejected
+  ---
+  duration_ms: 0.930721
+  type: 'test'
+  ...
+# Subtest: Urgent sorting stable before pagination
+ok 10 - Urgent sorting stable before pagination
+  ---
+  duration_ms: 2.453674
+  type: 'test'
+  ...
+# Subtest: Explicit urgent flag has precedence
+ok 11 - Explicit urgent flag has precedence
+  ---
+  duration_ms: 0.229146
+  type: 'test'
+  ...
+# Subtest: Probation reminders seven days and expiry, not drafts
+ok 12 - Probation reminders seven days and expiry, not drafts
+  ---
+  duration_ms: 0.369347
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 108.759652
+

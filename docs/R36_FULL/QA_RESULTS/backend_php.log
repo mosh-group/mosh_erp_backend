@@ -1,0 +1,93 @@
+PASS Social department maps consistently
+PASS Plain marketing member not automatically granted social workspace
+PASS Existing explicitly granted connector keeps access to moved hub
+PASS Connector permission does not grant direct publishing
+PASS Explicit social denial overrides old marketing access
+PASS Social-only worker can compose with explicit rights
+PASS Must-change account cannot publish
+PASS Inactive account cannot open social module
+PASS Server task ownership prefers assigneeId to obsolete employeeId
+PASS Paused own task remains readable without department-wide rights
+PASS Former employeeId does not leak reassigned task
+PASS Explicit unassigned record not claimed by legacy employeeId
+PASS Legacy ID-only assignment supported read-only
+PASS Explicit denial still blocks own task details
+PASS Employee hard delete blocked staff
+PASS Employee hard delete blocked root
+PASS Both customer aliases persist in allowed fields
+{
+    "checks": [
+        {
+            "name": "Social department maps consistently",
+            "passed": true
+        },
+        {
+            "name": "Plain marketing member not automatically granted social workspace",
+            "passed": true
+        },
+        {
+            "name": "Existing explicitly granted connector keeps access to moved hub",
+            "passed": true
+        },
+        {
+            "name": "Connector permission does not grant direct publishing",
+            "passed": true
+        },
+        {
+            "name": "Explicit social denial overrides old marketing access",
+            "passed": true
+        },
+        {
+            "name": "Social-only worker can compose with explicit rights",
+            "passed": true
+        },
+        {
+            "name": "Must-change account cannot publish",
+            "passed": true
+        },
+        {
+            "name": "Inactive account cannot open social module",
+            "passed": true
+        },
+        {
+            "name": "Server task ownership prefers assigneeId to obsolete employeeId",
+            "passed": true
+        },
+        {
+            "name": "Paused own task remains readable without department-wide rights",
+            "passed": true
+        },
+        {
+            "name": "Former employeeId does not leak reassigned task",
+            "passed": true
+        },
+        {
+            "name": "Explicit unassigned record not claimed by legacy employeeId",
+            "passed": true
+        },
+        {
+            "name": "Legacy ID-only assignment supported read-only",
+            "passed": true
+        },
+        {
+            "name": "Explicit denial still blocks own task details",
+            "passed": true
+        },
+        {
+            "name": "Employee hard delete blocked staff",
+            "passed": true
+        },
+        {
+            "name": "Employee hard delete blocked root",
+            "passed": true
+        },
+        {
+            "name": "Both customer aliases persist in allowed fields",
+            "passed": true
+        }
+    ],
+    "passed": 17,
+    "total": 17,
+    "boundary": "Actual rule methods; synthetic model attributes and identity, no Laravel SQL\/HTTP."
+}
+

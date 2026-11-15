@@ -1,0 +1,1902 @@
+{
+  "release": "R31.1",
+  "assembledAt": "2026-10-19T18:11:10.457063+00:00",
+  "recovery": "Backend recovered CRC/hash verified; frontend rebuilt against R31 backend on intact R30 source. Not a byte-identical recovery of missing R31 frontend.",
+  "validation": {
+    "syntax": {
+      "PHP": 136,
+      "JavaScript": 87
+    },
+    "syntaxErrors": [],
+    "SQLiteReadOnlyChecks": [
+      {
+        "file": "database.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      },
+      {
+        "file": "database.backup-20260921-120137.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      },
+      {
+        "file": "database.before-cleanup-20260922-164942.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      },
+      {
+        "file": "database-before-dummy-data.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      }
+    ],
+    "scriptReferences": 84,
+    "missingAssets": [],
+    "baseFileCount": 9146,
+    "missingOriginal": [],
+    "changedOriginalCount": 17,
+    "protectedFilesChecked": 8610,
+    "protectedMismatches": [],
+    "recoveredBackendSourceFilesVerified": 10,
+    "elapsed": 5.305561780929565
+  },
+  "tests": [
+    {
+      "name": "R31_chunks.php",
+      "passed": 54,
+      "total": 54,
+      "boundary": "Actual temporary filesystem and SHA256; application authentication, ORM and Laravel HTTP not invoked.",
+      "details": {
+        "passed": 54,
+        "total": 54,
+        "checks": [
+          {
+            "name": "Start accepts 1 bytes",
+            "passed": true
+          },
+          {
+            "name": "Incomplete completion rejected 1",
+            "passed": true
+          },
+          {
+            "name": "Resume lists accepted parts 1",
+            "passed": true
+          },
+          {
+            "name": "Actual assembled bytes exact 1",
+            "passed": true
+          },
+          {
+            "name": "Complete lost-response retry finalizes once 1",
+            "passed": true
+          },
+          {
+            "name": "Start accepts 1024 bytes",
+            "passed": true
+          },
+          {
+            "name": "Incomplete completion rejected 1024",
+            "passed": true
+          },
+          {
+            "name": "Resume lists accepted parts 1024",
+            "passed": true
+          },
+          {
+            "name": "Actual assembled bytes exact 1024",
+            "passed": true
+          },
+          {
+            "name": "Complete lost-response retry finalizes once 1024",
+            "passed": true
+          },
+          {
+            "name": "Start accepts 262144 bytes",
+            "passed": true
+          },
+          {
+            "name": "Incomplete completion rejected 262144",
+            "passed": true
+          },
+          {
+            "name": "Resume lists accepted parts 262144",
+            "passed": true
+          },
+          {
+            "name": "Actual assembled bytes exact 262144",
+            "passed": true
+          },
+          {
+            "name": "Complete lost-response retry finalizes once 262144",
+            "passed": true
+          },
+          {
+            "name": "Start accepts 262145 bytes",
+            "passed": true
+          },
+          {
+            "name": "Incomplete completion rejected 262145",
+            "passed": true
+          },
+          {
+            "name": "Resume lists accepted parts 262145",
+            "passed": true
+          },
+          {
+            "name": "Actual assembled bytes exact 262145",
+            "passed": true
+          },
+          {
+            "name": "Complete lost-response retry finalizes once 262145",
+            "passed": true
+          },
+          {
+            "name": "Start accepts 5242880 bytes",
+            "passed": true
+          },
+          {
+            "name": "Incomplete completion rejected 5242880",
+            "passed": true
+          },
+          {
+            "name": "Resume lists accepted parts 5242880",
+            "passed": true
+          },
+          {
+            "name": "Actual assembled bytes exact 5242880",
+            "passed": true
+          },
+          {
+            "name": "Complete lost-response retry finalizes once 5242880",
+            "passed": true
+          },
+          {
+            "name": "Start accepts 26214400 bytes",
+            "passed": true
+          },
+          {
+            "name": "Incomplete completion rejected 26214400",
+            "passed": true
+          },
+          {
+            "name": "Resume lists accepted parts 26214400",
+            "passed": true
+          },
+          {
+            "name": "Actual assembled bytes exact 26214400",
+            "passed": true
+          },
+          {
+            "name": "Complete lost-response retry finalizes once 26214400",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename bad.php",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename bad.php.jpg",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename ../image.jpg",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename bad.js",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename x.svg",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename x.html",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename C:\\x.jpg",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename no-extension",
+            "passed": true
+          },
+          {
+            "name": "Disallowed filename x.exe.png",
+            "passed": true
+          },
+          {
+            "name": "Allowed filename اختبار (2).JPG",
+            "passed": true
+          },
+          {
+            "name": "Allowed filename file.pdf",
+            "passed": true
+          },
+          {
+            "name": "Allowed filename file.mp4",
+            "passed": true
+          },
+          {
+            "name": "Allowed filename file.psd",
+            "passed": true
+          },
+          {
+            "name": "Allowed filename voice.webm",
+            "passed": true
+          },
+          {
+            "name": "Zero bytes rejected",
+            "passed": true
+          },
+          {
+            "name": "25 MB + 1 rejected",
+            "passed": true
+          },
+          {
+            "name": "Identical part retry is safe",
+            "passed": true
+          },
+          {
+            "name": "Changed part rejected",
+            "passed": true
+          },
+          {
+            "name": "Cross-owner upload cannot be read",
+            "passed": true
+          },
+          {
+            "name": "Out-of-range part rejected",
+            "passed": true
+          },
+          {
+            "name": "Path traversal in session ID rejected",
+            "passed": true
+          },
+          {
+            "name": "Full-file hash mismatch rejected",
+            "passed": true
+          },
+          {
+            "name": "Cancelled session cannot complete",
+            "passed": true
+          },
+          {
+            "name": "Per-user active quota enforced",
+            "passed": true
+          }
+        ],
+        "boundary": "Actual temporary filesystem and SHA256; application authentication, ORM and Laravel HTTP not invoked."
+      }
+    },
+    {
+      "name": "R31_security.php",
+      "passed": 26,
+      "total": 26,
+      "boundary": "Real production User, ItArchive access/reveal, HTTPS guard and Laravel encryption primitive; synthetic ORM/store/identity/Request/DB. Not Laravel integration, SQL or real HTTPS.",
+      "details": {
+        "passed": 26,
+        "checks": [
+          {
+            "name": "Real Laravel encryption round trip preserves exact whitespace",
+            "passed": true
+          },
+          {
+            "name": "Ciphertext excludes cleartext",
+            "passed": true
+          },
+          {
+            "name": "Fresh IV gives distinct ciphertext",
+            "passed": true
+          },
+          {
+            "name": "Tampering rejected",
+            "passed": true
+          },
+          {
+            "name": "Wrong key rejected",
+            "passed": true
+          },
+          {
+            "name": "IT canonical department maps to real module",
+            "passed": true
+          },
+          {
+            "name": "General all-scope administrator has no implicit vault grant",
+            "passed": true
+          },
+          {
+            "name": "General administrator has no implicit credential-write grant",
+            "passed": true
+          },
+          {
+            "name": "IT manager scope alone cannot reveal secrets",
+            "passed": true
+          },
+          {
+            "name": "Wrong current password gives no secret",
+            "passed": true
+          },
+          {
+            "name": "Denied reveal is audited",
+            "passed": true
+          },
+          {
+            "name": "Explicit grant plus current password permits reveal",
+            "passed": true
+          },
+          {
+            "name": "Audit rows never contain secret or entered password",
+            "passed": true
+          },
+          {
+            "name": "Explicit module details denial overrides vault grant",
+            "passed": true
+          },
+          {
+            "name": "Inactive holder of grant blocked",
+            "passed": true
+          },
+          {
+            "name": "Forced password change blocks vault",
+            "passed": true
+          },
+          {
+            "name": "Grant revoked while acquiring business lock is rechecked",
+            "passed": true
+          },
+          {
+            "name": "Public record strips credential fields",
+            "passed": true
+          },
+          {
+            "name": "List-only role receives no record internals or ciphertext",
+            "passed": true
+          },
+          {
+            "name": "Authorized IT file link can be read",
+            "passed": true
+          },
+          {
+            "name": "Attachment explicit deny honored",
+            "passed": true
+          },
+          {
+            "name": "Unknown file resource blocked",
+            "passed": true
+          },
+          {
+            "name": "Missing IT record has no file access",
+            "passed": true
+          },
+          {
+            "name": "Actual controller blocks reveal over HTTP",
+            "passed": true
+          },
+          {
+            "name": "Actual controller blocks secret creation over HTTP",
+            "passed": true
+          },
+          {
+            "name": "Controller secure-transport check accepts HTTPS",
+            "passed": true
+          }
+        ],
+        "total": 26,
+        "boundary": "Real production User, ItArchive access/reveal, HTTPS guard and Laravel encryption primitive; synthetic ORM/store/identity/Request/DB. Not Laravel integration, SQL or real HTTPS."
+      }
+    },
+    {
+      "name": "R28_acceptance.php",
+      "passed": 68,
+      "total": 68,
+      "boundary": "Production policy/manager/outbox/approval code with simulated persistence, provider, identity, clock and file boundaries; no SQL, HTTP, encryption implementation or live Meta validation.",
+      "details": {
+        "passed": 68,
+        "total": 68,
+        "checks": [
+          {
+            "name": "Assign fourth department preserves all existing assignments",
+            "passed": true
+          },
+          {
+            "name": "Manager replacement is not an in-place mutation",
+            "passed": true
+          },
+          {
+            "name": "Remove one department keeps other assignments",
+            "passed": true
+          },
+          {
+            "name": "Same-department stale write is rejected",
+            "passed": true
+          },
+          {
+            "name": "Changes in different departments merge without losing either",
+            "passed": true
+          },
+          {
+            "name": "Legacy empty array normalizes without inventing managers",
+            "passed": true
+          },
+          {
+            "name": "Object maps and numeric IDs normalize safely",
+            "passed": true
+          },
+          {
+            "name": "draft status respects direct permission granted",
+            "passed": true
+          },
+          {
+            "name": "draft status respects direct permission denied",
+            "passed": true
+          },
+          {
+            "name": "publish status respects direct permission granted",
+            "passed": true
+          },
+          {
+            "name": "publish status respects direct permission denied",
+            "passed": true
+          },
+          {
+            "name": "schedule status respects direct permission granted",
+            "passed": true
+          },
+          {
+            "name": "schedule status respects direct permission denied",
+            "passed": true
+          },
+          {
+            "name": "Unknown publishing mode rejected",
+            "passed": true
+          },
+          {
+            "name": "publishing cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "reconciling cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "uncertain cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "published cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "Scheduled content cannot be edited before explicit cancellation",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL http://qa.invalid",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL https://user:pass@qa.invalid",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL https://qa.invalid?secret=x",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL https://qa.invalid#x",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL javascript:alert(1)",
+            "passed": true
+          },
+          {
+            "name": "HTTPS base URL accepted",
+            "passed": true
+          },
+          {
+            "name": "Public account excludes token and grants",
+            "passed": true
+          },
+          {
+            "name": "Public post excludes lease/provider credentials",
+            "passed": true
+          },
+          {
+            "name": "Valid provider signature accepted",
+            "passed": true
+          },
+          {
+            "name": "Wrong signing key rejected",
+            "passed": true
+          },
+          {
+            "name": "Tampered callback rejected",
+            "passed": true
+          },
+          {
+            "name": "Oversized callback rejected",
+            "passed": true
+          },
+          {
+            "name": "Provider rejects non-approved host",
+            "passed": true
+          },
+          {
+            "name": "Provider rejects injected graph paths",
+            "passed": true
+          },
+          {
+            "name": "Provider rejects malformed API version",
+            "passed": true
+          },
+          {
+            "name": "Provider-confirmed image is published with actual media ID",
+            "passed": true
+          },
+          {
+            "name": "One publication call for success",
+            "passed": true
+          },
+          {
+            "name": "Repeated processing never republishes confirmed content",
+            "passed": true
+          },
+          {
+            "name": "Container and publishing intent persisted",
+            "passed": true
+          },
+          {
+            "name": "Reels wait for provider processing",
+            "passed": true
+          },
+          {
+            "name": "Lost publish response is reconciled, not marked successful",
+            "passed": true
+          },
+          {
+            "name": "FINISHED after lost response does not repeat media_publish",
+            "passed": true
+          },
+          {
+            "name": "Long ambiguous result becomes uncertain without automatic retry",
+            "passed": true
+          },
+          {
+            "name": "Lost authorization after ambiguous publish becomes uncertain instead of waiting forever",
+            "passed": true
+          },
+          {
+            "name": "Provider PUBLISHED confirms a lost response without another POST",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits draft",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits pending_approval",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits published",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits uncertain",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits cancelled",
+            "passed": true
+          },
+          {
+            "name": "Future schedule does not publish early",
+            "passed": true
+          },
+          {
+            "name": "Active lease blocks another execution",
+            "passed": true
+          },
+          {
+            "name": "Revoked direct permission blocks publishing",
+            "passed": true
+          },
+          {
+            "name": "Approval permission is independent of direct publishing",
+            "passed": true
+          },
+          {
+            "name": "Inactive authorizer cannot publish",
+            "passed": true
+          },
+          {
+            "name": "Lost customer access blocks publishing",
+            "passed": true
+          },
+          {
+            "name": "Cross-customer account rejected by worker",
+            "passed": true
+          },
+          {
+            "name": "Permission rechecked immediately before irreversible publish",
+            "passed": true
+          },
+          {
+            "name": "Invalidated lease prevents a late worker from overwriting revocation",
+            "passed": true
+          },
+          {
+            "name": "Idle worker refreshes expiring accounts with no due posts",
+            "passed": true
+          },
+          {
+            "name": "Independent reviewer advances to queued",
+            "passed": true
+          },
+          {
+            "name": "Idempotent approval has one decision history row",
+            "passed": true
+          },
+          {
+            "name": "Reviewer cannot approve own submission",
+            "passed": true
+          },
+          {
+            "name": "Expired schedule must be returned for a new time",
+            "passed": true
+          },
+          {
+            "name": "Approval cannot schedule when worker inactive",
+            "passed": true
+          },
+          {
+            "name": "Cannot cancel after publishing begins",
+            "passed": true
+          },
+          {
+            "name": "Signed deletion removes token and provider identity",
+            "passed": true
+          },
+          {
+            "name": "Deletion fences in-flight worker and preserves uncertain result",
+            "passed": true
+          },
+          {
+            "name": "Deletion preserves company-owned source content",
+            "passed": true
+          }
+        ],
+        "boundary": "Production policy/manager/outbox/approval code with simulated persistence, provider, identity, clock and file boundaries; no SQL, HTTP, encryption implementation or live Meta validation."
+      }
+    },
+    {
+      "name": "R29_domain.php",
+      "passed": 60,
+      "total": 60,
+      "boundary": "Pure production calculations; no HTTP, ORM, database or live accounts.",
+      "details": {
+        "passed": 60,
+        "checks": [
+          {
+            "name": "Contract is not an activation requirement",
+            "passed": true
+          },
+          {
+            "name": "Activation requires name",
+            "passed": true
+          },
+          {
+            "name": "Activation requires department",
+            "passed": true
+          },
+          {
+            "name": "Activation requires jobTitle",
+            "passed": true
+          },
+          {
+            "name": "Activation requires hireDate",
+            "passed": true
+          },
+          {
+            "name": "Activation requires workdayHours",
+            "passed": true
+          },
+          {
+            "name": "Fingerprint mode requires enrollment",
+            "passed": true
+          },
+          {
+            "name": "Fingerprint employee complete",
+            "passed": true
+          },
+          {
+            "name": "Daily exemption does not require fixed hours",
+            "passed": true
+          },
+          {
+            "name": "Draft remains inactive without employment details",
+            "passed": true
+          },
+          {
+            "name": "Incomplete new employee cannot activate",
+            "passed": true
+          },
+          {
+            "name": "Existing active employee cannot lose required detail",
+            "passed": true
+          },
+          {
+            "name": "Legacy incomplete active employee not disabled on install",
+            "passed": true
+          },
+          {
+            "name": "Enrollment cannot coexist with exemption",
+            "passed": true
+          },
+          {
+            "name": "Leap day accepted",
+            "passed": true
+          },
+          {
+            "name": "Impossible date rejected",
+            "passed": true
+          },
+          {
+            "name": "Invalid formatted date rejected",
+            "passed": true
+          },
+          {
+            "name": "Inclusive leap-year day count",
+            "passed": true
+          },
+          {
+            "name": "Overnight weekly schedule allowed",
+            "passed": true
+          },
+          {
+            "name": "Duplicate weekly day rejected",
+            "passed": true
+          },
+          {
+            "name": "Invalid weekday rejected",
+            "passed": true
+          },
+          {
+            "name": "Equal clock times rejected",
+            "passed": true
+          },
+          {
+            "name": "Invalid monthly date rejected",
+            "passed": true
+          },
+          {
+            "name": "Calendar Jan-Dec boundaries",
+            "passed": true
+          },
+          {
+            "name": "Previous use counted once",
+            "passed": true
+          },
+          {
+            "name": "Pending annual requests reserve balance",
+            "passed": true
+          },
+          {
+            "name": "No leave carry-forward or previous-year usage",
+            "passed": true
+          },
+          {
+            "name": "Duplicate leave IDs counted once",
+            "passed": true
+          },
+          {
+            "name": "Cross-year leave prorated correctly",
+            "passed": true
+          },
+          {
+            "name": "Legacy opening balance never silently carried",
+            "passed": true
+          },
+          {
+            "name": "Five criteria accepted",
+            "passed": true
+          },
+          {
+            "name": "Equal weighted average",
+            "passed": true
+          },
+          {
+            "name": "Four criteria rejected",
+            "passed": true
+          },
+          {
+            "name": "Duplicate criterion rejected",
+            "passed": true
+          },
+          {
+            "name": "Score above 100 rejected",
+            "passed": true
+          },
+          {
+            "name": "Negative score rejected",
+            "passed": true
+          },
+          {
+            "name": "Missing score rejected",
+            "passed": true
+          },
+          {
+            "name": "Evaluation stores criteria snapshot",
+            "passed": true
+          },
+          {
+            "name": "No probation alert before seven days",
+            "passed": true
+          },
+          {
+            "name": "Seven-day event only",
+            "passed": true
+          },
+          {
+            "name": "Separate expiry event",
+            "passed": true
+          },
+          {
+            "name": "Probation stable acknowledgement identity",
+            "passed": true
+          },
+          {
+            "name": "Inactive employees receive no probation events",
+            "passed": true
+          },
+          {
+            "name": "Exact signed installment sum 1",
+            "passed": true
+          },
+          {
+            "name": "Exact signed installment sum 2",
+            "passed": true
+          },
+          {
+            "name": "Exact signed installment sum 3",
+            "passed": true
+          },
+          {
+            "name": "Exact signed installment sum 12",
+            "passed": true
+          },
+          {
+            "name": "Exact signed installment sum 60",
+            "passed": true
+          },
+          {
+            "name": "Installment year boundary",
+            "passed": true
+          },
+          {
+            "name": "Zero installments rejected",
+            "passed": true
+          },
+          {
+            "name": "Full month salary delta",
+            "passed": true
+          },
+          {
+            "name": "Multi-month salary delta",
+            "passed": true
+          },
+          {
+            "name": "Negative salary delta",
+            "passed": true
+          },
+          {
+            "name": "Actual-day partial month",
+            "passed": true
+          },
+          {
+            "name": "Thirty-day partial month",
+            "passed": true
+          },
+          {
+            "name": "No invented prorating convention",
+            "passed": true
+          },
+          {
+            "name": "Reversed retro period rejected",
+            "passed": true
+          },
+          {
+            "name": "QR finder dimensions",
+            "passed": true
+          },
+          {
+            "name": "QR self-contained SVG",
+            "passed": true
+          },
+          {
+            "name": "QR oversized URL rejected",
+            "passed": true
+          }
+        ],
+        "total": 60,
+        "boundary": "Pure production calculations; no HTTP, ORM, database or live accounts."
+      }
+    },
+    {
+      "name": "R29_security_payroll.php",
+      "passed": 27,
+      "total": 27,
+      "boundary": "Actual RecordAccess/HrWorkflow/file gate/payroll functions with synthetic identity and in-memory storage; not ORM/SQL/HTTP integration.",
+      "details": {
+        "passed": 27,
+        "checks": [
+          {
+            "name": "Employee cannot read own archived contract",
+            "passed": true
+          },
+          {
+            "name": "Employee cannot list own archived contract",
+            "passed": true
+          },
+          {
+            "name": "Employee cannot edit own contract",
+            "passed": true
+          },
+          {
+            "name": "HR permission alone outside HR department does not expose contracts",
+            "passed": true
+          },
+          {
+            "name": "Authorized HR can read contract",
+            "passed": true
+          },
+          {
+            "name": "Explicit HR contract read denial honored",
+            "passed": true
+          },
+          {
+            "name": "Inactive HR cannot read contracts",
+            "passed": true
+          },
+          {
+            "name": "File owner cannot bypass contract link restriction",
+            "passed": true
+          },
+          {
+            "name": "Employee blocked from signed contract scan bytes",
+            "passed": true
+          },
+          {
+            "name": "Authorized HR can open linked signed scan",
+            "passed": true
+          },
+          {
+            "name": "Direct department manager can evaluate team member",
+            "passed": true
+          },
+          {
+            "name": "Manager cannot self evaluate",
+            "passed": true
+          },
+          {
+            "name": "Inactive manager cannot evaluate",
+            "passed": true
+          },
+          {
+            "name": "Administration read-only tracking capability",
+            "passed": true
+          },
+          {
+            "name": "Administration can read minimal customer without Sales write grant",
+            "passed": true
+          },
+          {
+            "name": "Read-only tracking does not grant customer edits",
+            "passed": true
+          },
+          {
+            "name": "Read-only tracking does not grant cross-department task edits",
+            "passed": true
+          },
+          {
+            "name": "Approved credit and deduction use exact minor units",
+            "passed": true
+          },
+          {
+            "name": "Approval reserves installment to one hours record",
+            "passed": true
+          },
+          {
+            "name": "Reserved installment not counted in a different draft",
+            "passed": true
+          },
+          {
+            "name": "Approved record reuses its frozen adjustments",
+            "passed": true
+          },
+          {
+            "name": "Superseded eligible hours release installment reservation",
+            "passed": true
+          },
+          {
+            "name": "Pending/rejected adjustments never affect payroll",
+            "passed": true
+          },
+          {
+            "name": "No cross-currency settlement mixing",
+            "passed": true
+          },
+          {
+            "name": "No cross-employee settlement mixing",
+            "passed": true
+          },
+          {
+            "name": "Future installment not applied early",
+            "passed": true
+          },
+          {
+            "name": "Deduction exceeding net salary blocked",
+            "passed": true
+          }
+        ],
+        "total": 27,
+        "boundary": "Actual RecordAccess/HrWorkflow/file gate/payroll functions with synthetic identity and in-memory storage; not ORM/SQL/HTTP integration."
+      }
+    },
+    {
+      "name": "R29_instagram_regression.php",
+      "passed": 73,
+      "total": 73,
+      "boundary": "Production policy/manager/outbox/approval code with simulated persistence, provider, identity, clock and file boundaries; no SQL, HTTP, encryption implementation or live Meta validation.",
+      "details": {
+        "passed": 73,
+        "total": 73,
+        "checks": [
+          {
+            "name": "Assign fourth department preserves all existing assignments",
+            "passed": true
+          },
+          {
+            "name": "Manager replacement is not an in-place mutation",
+            "passed": true
+          },
+          {
+            "name": "Remove one department keeps other assignments",
+            "passed": true
+          },
+          {
+            "name": "Same-department stale write is rejected",
+            "passed": true
+          },
+          {
+            "name": "Changes in different departments merge without losing either",
+            "passed": true
+          },
+          {
+            "name": "Legacy empty array normalizes without inventing managers",
+            "passed": true
+          },
+          {
+            "name": "Object maps and numeric IDs normalize safely",
+            "passed": true
+          },
+          {
+            "name": "draft status respects direct permission granted",
+            "passed": true
+          },
+          {
+            "name": "draft status respects direct permission denied",
+            "passed": true
+          },
+          {
+            "name": "publish status respects direct permission granted",
+            "passed": true
+          },
+          {
+            "name": "publish status respects direct permission denied",
+            "passed": true
+          },
+          {
+            "name": "schedule status respects direct permission granted",
+            "passed": true
+          },
+          {
+            "name": "schedule status respects direct permission denied",
+            "passed": true
+          },
+          {
+            "name": "Unknown publishing mode rejected",
+            "passed": true
+          },
+          {
+            "name": "publishing cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "reconciling cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "uncertain cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "published cannot be edited or cancelled",
+            "passed": true
+          },
+          {
+            "name": "Scheduled content cannot be edited before explicit cancellation",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL http://qa.invalid",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL https://user:pass@qa.invalid",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL https://qa.invalid?secret=x",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL https://qa.invalid#x",
+            "passed": true
+          },
+          {
+            "name": "Reject unsafe media/config URL javascript:alert(1)",
+            "passed": true
+          },
+          {
+            "name": "HTTPS base URL accepted",
+            "passed": true
+          },
+          {
+            "name": "Public account excludes token and grants",
+            "passed": true
+          },
+          {
+            "name": "Public post excludes lease/provider credentials",
+            "passed": true
+          },
+          {
+            "name": "Valid provider signature accepted",
+            "passed": true
+          },
+          {
+            "name": "Wrong signing key rejected",
+            "passed": true
+          },
+          {
+            "name": "Tampered callback rejected",
+            "passed": true
+          },
+          {
+            "name": "Oversized callback rejected",
+            "passed": true
+          },
+          {
+            "name": "Provider rejects non-approved host",
+            "passed": true
+          },
+          {
+            "name": "Provider rejects injected graph paths",
+            "passed": true
+          },
+          {
+            "name": "Provider rejects malformed API version",
+            "passed": true
+          },
+          {
+            "name": "Provider-confirmed image is published with actual media ID",
+            "passed": true
+          },
+          {
+            "name": "One publication call for success",
+            "passed": true
+          },
+          {
+            "name": "Repeated processing never republishes confirmed content",
+            "passed": true
+          },
+          {
+            "name": "Container and publishing intent persisted",
+            "passed": true
+          },
+          {
+            "name": "Reels wait for provider processing",
+            "passed": true
+          },
+          {
+            "name": "Lost publish response is reconciled, not marked successful",
+            "passed": true
+          },
+          {
+            "name": "FINISHED after lost response does not repeat media_publish",
+            "passed": true
+          },
+          {
+            "name": "Long ambiguous result becomes uncertain without automatic retry",
+            "passed": true
+          },
+          {
+            "name": "Lost authorization after ambiguous publish becomes uncertain instead of waiting forever",
+            "passed": true
+          },
+          {
+            "name": "Provider PUBLISHED confirms a lost response without another POST",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits draft",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits pending_approval",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits published",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits uncertain",
+            "passed": true
+          },
+          {
+            "name": "Worker never submits cancelled",
+            "passed": true
+          },
+          {
+            "name": "Future schedule does not publish early",
+            "passed": true
+          },
+          {
+            "name": "Active lease blocks another execution",
+            "passed": true
+          },
+          {
+            "name": "Revoked direct permission blocks publishing",
+            "passed": true
+          },
+          {
+            "name": "Approval permission is independent of direct publishing",
+            "passed": true
+          },
+          {
+            "name": "Inactive authorizer cannot publish",
+            "passed": true
+          },
+          {
+            "name": "Lost customer access blocks publishing",
+            "passed": true
+          },
+          {
+            "name": "Cross-customer account rejected by worker",
+            "passed": true
+          },
+          {
+            "name": "Permission rechecked immediately before irreversible publish",
+            "passed": true
+          },
+          {
+            "name": "Invalidated lease prevents a late worker from overwriting revocation",
+            "passed": true
+          },
+          {
+            "name": "Idle worker refreshes expiring accounts with no due posts",
+            "passed": true
+          },
+          {
+            "name": "Independent reviewer advances to queued",
+            "passed": true
+          },
+          {
+            "name": "Idempotent approval has one decision history row",
+            "passed": true
+          },
+          {
+            "name": "Reviewer cannot approve own submission",
+            "passed": true
+          },
+          {
+            "name": "Expired schedule must be returned for a new time",
+            "passed": true
+          },
+          {
+            "name": "Approval cannot schedule when worker inactive",
+            "passed": true
+          },
+          {
+            "name": "Cannot cancel after publishing begins",
+            "passed": true
+          },
+          {
+            "name": "Signed deletion removes token and provider identity",
+            "passed": true
+          },
+          {
+            "name": "Deletion fences in-flight worker and preserves uncertain result",
+            "passed": true
+          },
+          {
+            "name": "Deletion preserves company-owned source content",
+            "passed": true
+          },
+          {
+            "name": "Return permits future edit and preserves legacy status",
+            "passed": true
+          },
+          {
+            "name": "Final reject is terminal and distinct",
+            "passed": true
+          },
+          {
+            "name": "Final rejection history does not reinterpret legacy rejects",
+            "passed": true
+          },
+          {
+            "name": "Schedule direct grant works without publish direct grant",
+            "passed": true
+          },
+          {
+            "name": "Publish direct cannot bypass denied schedule direct",
+            "passed": true
+          }
+        ],
+        "boundary": "Production policy/manager/outbox/approval code with simulated persistence, provider, identity, clock and file boundaries; no SQL, HTTP, encryption implementation or live Meta validation."
+      }
+    },
+    {
+      "name": "IT and uploads",
+      "passed": 33,
+      "total": 33,
+      "details": {
+        "checks": [
+          {
+            "name": "Real PHP 1 MB post limit rejects whole 5 MB multipart",
+            "passed": true
+          },
+          {
+            "name": "Real styled IT department navigation opens",
+            "passed": true
+          },
+          {
+            "name": "IT department offers five native tabs",
+            "passed": true
+          },
+          {
+            "name": "IT is in real employee/task department options",
+            "passed": true
+          },
+          {
+            "name": "Two independent vault permission labels in user panel source",
+            "passed": true
+          },
+          {
+            "name": "Equipment create receives confirmed server ID/version",
+            "passed": true
+          },
+          {
+            "name": "Equipment form sends idempotency request ID",
+            "passed": true
+          },
+          {
+            "name": "Equipment assignment form sends employee and expected version",
+            "passed": true
+          },
+          {
+            "name": "Device details open with history",
+            "passed": true
+          },
+          {
+            "name": "Password storage fields disabled on HTTP/nonsecure page",
+            "passed": true
+          },
+          {
+            "name": "Editing metadata never pre-fills passwords",
+            "passed": true
+          },
+          {
+            "name": "Company account metadata saves without credentials",
+            "passed": true
+          },
+          {
+            "name": "Subscription forms persist billing/reminder/account data",
+            "passed": true
+          },
+          {
+            "name": "Renewal action distinct from metadata edit",
+            "passed": true
+          },
+          {
+            "name": "Archive keeps account and history",
+            "passed": true
+          },
+          {
+            "name": "Restore reuses same account ID",
+            "passed": true
+          },
+          {
+            "name": "IT uses existing task workspace and manager mapping",
+            "passed": true
+          },
+          {
+            "name": "Multiple varied-size JPGs saved to real filesystem",
+            "passed": true
+          },
+          {
+            "name": "Task gets exactly three confirmed file links/chat records",
+            "passed": true
+          },
+          {
+            "name": "5 MB SHA256 matches all original browser bytes",
+            "passed": true
+          },
+          {
+            "name": "Lost chunk reply retried without corrupting payload",
+            "passed": true
+          },
+          {
+            "name": "Lost task reply reuses idempotency and creates no duplicate messages",
+            "passed": true
+          },
+          {
+            "name": "Upload progress reaches server-confirmed completion",
+            "passed": true
+          },
+          {
+            "name": "Confirmed attachments remain after actual frontend refresh",
+            "passed": true
+          },
+          {
+            "name": "Denied task commit never displays phantom success",
+            "passed": true
+          },
+          {
+            "name": "Retry attaches the already-uploaded file once",
+            "passed": true
+          },
+          {
+            "name": "Forbidden extensions rejected by actual backend chunk rules",
+            "passed": true
+          },
+          {
+            "name": "Client blocks files above configured 25 MB",
+            "passed": true
+          },
+          {
+            "name": "Chunk session cannot be used by another test owner",
+            "passed": true
+          },
+          {
+            "name": "IT workspace avoids horizontal page overflow on mobile",
+            "passed": true
+          },
+          {
+            "name": "Account write controls hidden without independent grant",
+            "passed": true
+          },
+          {
+            "name": "Logout clears IT data and pending uploads",
+            "passed": true
+          },
+          {
+            "name": "Actual new scripts have no uncaught browser exceptions",
+            "passed": true
+          }
+        ],
+        "passed": 33,
+        "total": 33,
+        "pageErrors": [],
+        "httpBoundary": "Actual PHP CLI server at loopback, 1 MB POST limit and production ChunkStorage; not Laravel/SQL/session/CSRF/FileController. Browser full HTML/JS/CSS in memory, proxy to real test HTTP for binary protocol; IT/task records explicitly mocked.",
+        "calls": 66
+      }
+    },
+    {
+      "name": "Navigation/theme",
+      "passed": 42,
+      "total": 42,
+      "details": {
+        "boundary": "Actual source HTML/CSS/scripts in Chromium memory with synthetic API. Browser navigation is blocked by environment policy; no real HTTP/Laravel/company server/Meta exercised.",
+        "checks": [
+          {
+            "name": "Global sidebar has no loose R29/purchasing buttons",
+            "passed": true
+          },
+          {
+            "name": "Sidebar department label is administrative services",
+            "passed": true
+          },
+          {
+            "name": "Sidebar tooltip uses renamed department",
+            "passed": true
+          },
+          {
+            "name": "App release is R31, not overwritten by older modules",
+            "passed": true
+          },
+          {
+            "name": "Document title identifies R31",
+            "passed": true
+          },
+          {
+            "name": "Old no-work session remains a warning, not a guessed counter",
+            "passed": true
+          },
+          {
+            "name": "Customer tracking is nested in Marketing rail",
+            "passed": true
+          },
+          {
+            "name": "Customer tracking has an icon and styled component button",
+            "passed": true
+          },
+          {
+            "name": "Marketing entry opens actual customer workflow via API fixture",
+            "passed": true
+          },
+          {
+            "name": "Customer tracking still presents read-only task action",
+            "passed": true
+          },
+          {
+            "name": "Advanced files is nested in HR rail",
+            "passed": true
+          },
+          {
+            "name": "HR entry opens the full nine-tab workflow",
+            "passed": true
+          },
+          {
+            "name": "Department form preserves canonical value and shows alias",
+            "passed": true
+          },
+          {
+            "name": "Purchasing inbox belongs to its existing section rail",
+            "passed": true
+          },
+          {
+            "name": "Purchasing inbox absent from top actions",
+            "passed": true
+          },
+          {
+            "name": "Purchasing inbox still uses the original queue workflow",
+            "passed": true
+          },
+          {
+            "name": "Service department rail and heading are renamed",
+            "passed": true
+          },
+          {
+            "name": "Logistics application key and request types remain intact",
+            "passed": true
+          },
+          {
+            "name": "Admin tools retain customer tracking and purchasing access",
+            "passed": true
+          },
+          {
+            "name": "Admin tasks is not duplicated in tools dropdown",
+            "passed": true
+          },
+          {
+            "name": "Manager tools retain team-file access",
+            "passed": true
+          },
+          {
+            "name": "Own requests retains purchase inbox for an eligible user",
+            "passed": true
+          },
+          {
+            "name": "Marketing entry uses readable dark theme",
+            "passed": true
+          },
+          {
+            "name": "Marketing entry uses readable light theme",
+            "passed": true
+          },
+          {
+            "name": "Light theme updates root tokens and top-action contrast",
+            "passed": true
+          },
+          {
+            "name": "Light HR rail and dashboard labels have readable contrast",
+            "passed": true
+          },
+          {
+            "name": "Light HR layout surface stays light after navigation",
+            "passed": true
+          },
+          {
+            "name": "HR dialog fits mobile viewport",
+            "passed": true
+          },
+          {
+            "name": "Theme toggle preserves saved settings and restores dark tokens",
+            "passed": true
+          },
+          {
+            "name": "Repeated navigation/refresh does not recreate global loose buttons",
+            "passed": true
+          },
+          {
+            "name": "Exactly one customer and HR section entry after repeated refresh",
+            "passed": true
+          },
+          {
+            "name": "Sidebar order retains existing departments with IT inserted",
+            "passed": true
+          },
+          {
+            "name": "No-work session was not reset or rewritten by UI repair",
+            "passed": true
+          },
+          {
+            "name": "Old no-work session remains reviewable after navigation",
+            "passed": true
+          },
+          {
+            "name": "No uncaught script exceptions during root workflow",
+            "passed": true
+          },
+          {
+            "name": "Limited employee does not get Marketing/HR admin entry",
+            "passed": true
+          },
+          {
+            "name": "Unassigned limited employee does not get purchase inbox",
+            "passed": true
+          },
+          {
+            "name": "Assigned approver outside Purchasing retains own-request inbox",
+            "passed": true
+          },
+          {
+            "name": "Assigned approver can open original review action",
+            "passed": true
+          },
+          {
+            "name": "Late queue result cannot reopen private data after logout",
+            "passed": true
+          },
+          {
+            "name": "Logout removes private HR/CRM dialogs and section entries",
+            "passed": true
+          },
+          {
+            "name": "All new UI workflows finished without uncaught errors",
+            "passed": true
+          }
+        ],
+        "passed": 42,
+        "total": 42,
+        "pageErrors": [],
+        "externalRequestsBlocked": 0
+      }
+    },
+    {
+      "name": "R29 regression",
+      "passed": 45,
+      "total": 45,
+      "details": {
+        "checks": [
+          {
+            "name": "Actual full frontend loads R28",
+            "passed": true
+          },
+          {
+            "name": "CRM and social panels are not stacked",
+            "passed": true
+          },
+          {
+            "name": "Verified account visible",
+            "passed": true
+          },
+          {
+            "name": "Legacy history not counted as official published",
+            "passed": true
+          },
+          {
+            "name": "Manager map retains both departments",
+            "passed": true
+          },
+          {
+            "name": "Manager getter does not mutate assignments",
+            "passed": true
+          },
+          {
+            "name": "Manager assignment uses dedicated server endpoint",
+            "passed": true
+          },
+          {
+            "name": "Assigning third department preserves employment and both existing departments",
+            "passed": true
+          },
+          {
+            "name": "All three assignments survive actual frontend refresh with synthetic server data",
+            "passed": true
+          },
+          {
+            "name": "Scoped manager can access both additional departments",
+            "passed": true
+          },
+          {
+            "name": "Explicit module denial overrides added manager scope",
+            "passed": true
+          },
+          {
+            "name": "Backdrop click does not close composer",
+            "passed": true
+          },
+          {
+            "name": "Draft saved with server response",
+            "passed": true
+          },
+          {
+            "name": "Draft has idempotency key",
+            "passed": true
+          },
+          {
+            "name": "Ambiguous server response is not shown as published",
+            "passed": true
+          },
+          {
+            "name": "Unavailable metric displays dash",
+            "passed": true
+          },
+          {
+            "name": "App secret never returned to browser",
+            "passed": true
+          },
+          {
+            "name": "Text-only publish is blocked client-side",
+            "passed": true
+          },
+          {
+            "name": "Approval controls hidden without grant",
+            "passed": true
+          },
+          {
+            "name": "Switching customer clears other customer data",
+            "passed": true
+          },
+          {
+            "name": "Social content has no horizontal overflow at mobile width",
+            "passed": true
+          },
+          {
+            "name": "Marketing navigation restored",
+            "passed": true
+          },
+          {
+            "name": "R29 actual workspace opens with server profile",
+            "passed": true
+          },
+          {
+            "name": "All nine HR workflow tabs registered",
+            "passed": true
+          },
+          {
+            "name": "Draft employee status is available",
+            "passed": true
+          },
+          {
+            "name": "Unused canonical department preserved and renamed for display",
+            "passed": true
+          },
+          {
+            "name": "Criteria uses versioned dedicated API",
+            "passed": true
+          },
+          {
+            "name": "Five scores live average is 80",
+            "passed": true
+          },
+          {
+            "name": "Server-confirmed evaluation rendered with snapshot",
+            "passed": true
+          },
+          {
+            "name": "Clock start sends no client timestamp",
+            "passed": true
+          },
+          {
+            "name": "Clock end renders recorded attendance hours",
+            "passed": true
+          },
+          {
+            "name": "Previous leave saved by calendar year",
+            "passed": true
+          },
+          {
+            "name": "Settlement lines reveal on type change",
+            "passed": true
+          },
+          {
+            "name": "Customer sequential numbers visible",
+            "passed": true
+          },
+          {
+            "name": "Read-only customer work includes multiple departments",
+            "passed": true
+          },
+          {
+            "name": "Customer work has no legacy edit-task button",
+            "passed": true
+          },
+          {
+            "name": "Actual workChat renders in read-only conversation",
+            "passed": true
+          },
+          {
+            "name": "Read-only task has no writing controls",
+            "passed": true
+          },
+          {
+            "name": "Customer archive keeps original ID and history",
+            "passed": true
+          },
+          {
+            "name": "R29 workspace has no horizontal page overflow",
+            "passed": true
+          },
+          {
+            "name": "New workflow survives reopening with server data",
+            "passed": true
+          },
+          {
+            "name": "R29 scripts produced no uncaught errors",
+            "passed": true
+          },
+          {
+            "name": "Logout clears all R29 private dialogs",
+            "passed": true
+          },
+          {
+            "name": "Logout clears retained social dialogs",
+            "passed": true
+          },
+          {
+            "name": "No Meta publish/connect endpoint invoked during tests",
+            "passed": true
+          }
+        ],
+        "pageErrors": [],
+        "networkCalls": 51,
+        "externalRequestsBlocked": 0,
+        "passed": 45,
+        "total": 45,
+        "testBoundary": "Actual complete frontend scripts/styles rendered in memory (Chromium navigation blocked), synthetic API adapter; no real HTTP transport, production server or Meta calls."
+      }
+    }
+  ],
+  "nodeTests": {
+    "passed": 61,
+    "total": 61
+  },
+  "laravelIntegrated": false,
+  "archiveIntegrity": "See MOSH_R31_1_ARCHIVE_CHECK.json outside the ZIP after final packaging.",
+  "warnings": [
+    "No production server access or deployment.",
+    "No Laravel SQL/session/CSRF integration test.",
+    "Source database is older than any post-upload live changes.",
+    "Legacy test reports retained as history; use R31_1_QA.json for this reconstruction."
+  ]
+}

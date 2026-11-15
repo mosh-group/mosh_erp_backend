@@ -1,0 +1,128 @@
+{
+  "base": "R30",
+  "target": "R31",
+  "preservedOriginalFiles": 9146,
+  "unchangedOriginalFiles": 9131,
+  "modifiedOriginalFiles": 15,
+  "protectedFilesMatched": 8615,
+  "missing": [],
+  "protectedMismatch": [],
+  "changes": [
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+      "baseSha256": "01682ebcc1e43b12259e1dc637d0c5473809efcea446c8f50248399822baef26",
+      "r31Sha256": "83bed5f22d07a5a080dbb5099ad80e3ba315f3a80e6a82b36d5d2f956d383fbd"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31ItController.php",
+      "baseSha256": null,
+      "r31Sha256": "f6aa37e52d96c208e15ba79b526596f405aff5d74d566ad7ff6c15efaab59aee"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31UploadController.php",
+      "baseSha256": null,
+      "r31Sha256": "fd21d945cbc29054eeb4b24a3ca8fb7a8ee9b42419a671396f441e549d96fec6"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+      "baseSha256": "10781cb00a03a471647d2710368d5332a342c37c9b9d89d3bb248b6979f413a6",
+      "r31Sha256": "32a333458d12c8cc5a29d0a0f8bf400dbcee90c2c479c6d28a19ecbe4422ceb6"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R31/ChunkStorage.php",
+      "baseSha256": null,
+      "r31Sha256": "adf881e2c2d04621067a5abc8432f62fba64eaded05a85aa778a2a98288adb28"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R31/ItArchive.php",
+      "baseSha256": null,
+      "r31Sha256": "4313a3363840e7d89b10e4f83ac4546f96a9f2db7ba029b5a0317606312a64aa"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+      "baseSha256": "a7d3827f120f07a21500c9f14e2fd43a85cded541a339e57b804ed9704c4c61d",
+      "r31Sha256": "9ab9041353707e704b4eb4b4871a27e3e1d8f304c3711dd3a240a582f3bfe3a4"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+      "baseSha256": "a3b55067366942b916d4b4ed201b76b6470f3671e9d340b085f2a9c5f2a209af",
+      "r31Sha256": "e8a5a6f5da2421999f6bb3f5e2b8c78226bf62615a48dcd244ad12929b8ef2d7"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/r31.php",
+      "baseSha256": null,
+      "r31Sha256": "26590e5064e6b0c6c44ce29669d46aea64e3ed44821258233df50b1a4c8d03bf"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "baseSha256": "bfc7ff0e6d202a1c96a5158ea6a46e519519b5e3a3ae0f9c7236ffa74cc41a8c",
+      "r31Sha256": "0434a43b3326078c70d8e8a18203edeaefdcd289582622dcd6719392620b4169"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/api-map.json",
+      "baseSha256": "8f26b1138896e080b4495e9cfe61bfa038a2eee780bdf61d3fe4e534f6c0cf7c",
+      "r31Sha256": "d245fefb297e088eb48a6805e60a58200ebe630525edd5df3808763c0b73988a"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/css/r31-it.css",
+      "baseSha256": null,
+      "r31Sha256": "6e023e10b224e4b61b69da7d7220caf4c4b9dd343a14129af12c6bb89303b5fd"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/index.html",
+      "baseSha256": "4391aae5a91f8a3bc79f343658ce7f72650244d7ed7a420bdd15bf86c5745722",
+      "r31Sha256": "012ca256e0d60d1af81627c7f5d04423e3bfdab05735679198f79741c609157a"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "baseSha256": "fa9b3f432ffc830b55718c6a1990792d2dccdc46a038de41d3384fabe67568e8",
+      "r31Sha256": "e9fcf422be558a3810098c7e435a6794e9c3880fe0aee44cb6588135af753d42"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+      "baseSha256": "1bde915b55c43a518e3573cbd3fd345ba1a2ca24c8fdf248d58a1bdd3a6a02ef",
+      "r31Sha256": "d2f0377f452d3e5172a02cfb23f1b24100e07956b740431f51730a5565696a95"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "baseSha256": "da1211e7c3ec147373cae015e2f748a24866854d6e6dc3601a38ba6d718e523c",
+      "r31Sha256": "f0219f7399fd33681916525cfc15264285db3d3438242fafcd305892fad9397a"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "baseSha256": "b4747c8292f5909ad35f5c5ecfdb6b48d9bb790a7fb5fd79605f6234d2f16761",
+      "r31Sha256": "b6714c3916559ce9fbcc6b3d3ff26e2f58cdc1e2916b9f2bf42bf4a0295969c9"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "baseSha256": "22027c8a174f378282d3d984a9ea48eb599209c90d24826170e6364e2cc6974d",
+      "r31Sha256": "b94c7622dec2bd42b123525e54c263313f027e061d3875189f1bf4921256ccde"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+      "baseSha256": "562dcd16589d24e624b5c79b642095862897ac2dba206931a4a7f183b9893e36",
+      "r31Sha256": "16725b8ffe5b59a264c8effcea60dae5b697e3ba50854eb02ba8bac13115d046"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+      "baseSha256": "60d9d6c3eb2652a2049e65985b3d9ab2936c7e13dbe13feb05cef15369f1ac2f",
+      "r31Sha256": "92f07ade2137b45e5eed9c9ec8db7b158324fb3aad3d327403ac1afb7e98d559"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+      "baseSha256": "ac0969ce3f73b05ed93ce5692ca2e87c27f39ae2501001d539686c521f979e4f",
+      "r31Sha256": "b3d69b39af1673586bc47f690f1c7ca6865f1dd82363f82c47c76d9373114594"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r31-it.js",
+      "baseSha256": null,
+      "r31Sha256": "a17e656a9f184e8e9e0e86413488d40458a7cdd2edb34b707a38c582ea5195e3"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r31-upload.js",
+      "baseSha256": null,
+      "r31Sha256": "0a2c49133dcd83e57fdcad8af70cd8736d97d7622879ce23022f4840cf9b4494"
+    }
+  ],
+  "warning_ar": "قائمة الكود فقط. لا تستبدل قاعدة السيرفر الأحدث أو .env أو APP_KEY أو storage أو vendor أو config.js. الخلفية والواجهة تتغيران في R31."
+}

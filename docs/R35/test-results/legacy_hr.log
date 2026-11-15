@@ -1,0 +1,332 @@
+set-content
+set-content-done
+loaded js/r29-model.js?v=r35-v2-1
+loaded js/r19-common.js?v=r35-v2-1
+loaded js/60-mosh-task-presentation-r6.js?v=r35-v2-1
+loaded js/55-mosh-workday-model.js?v=r35-v2-1
+loaded js/01-mosh-auth-v37-prelock.js?v=r35-v2-1
+loaded js/02-mosh-core-runtime-14.js?v=r35-v2-1
+loaded js/03-inline.js?v=r35-v2-1
+loaded js/04-v206-hr-enterprise-js.js?v=r35-v2-1
+loaded js/05-v207-safe-dashboard-js.js?v=r35-v2-1
+loaded js/06-v208-employee-portal-js.js?v=r35-v2-1
+loaded js/07-v209-hr-unified-js.js?v=r35-v2-1
+loaded js/08-v211-employee-daily-hub-js.js?v=r35-v2-1
+loaded js/09-work-evidence-v2161-js.js?v=r35-v2-1
+loaded js/10-step2-exec-reports-js.js?v=r35-v2-1
+loaded js/11-step3-department-exec-report-js.js?v=r35-v2-1
+loaded js/12-design-work-report-safe-v8a.js?v=r35-v2-1
+loaded js/13-mosh-department-dashboards-v9-js.js?v=r35-v2-1
+loaded js/14-hr-notices-v10-js.js?v=r35-v2-1
+loaded js/15-employee-space-v11-js-transport.js?v=r35-v2-1
+loaded js/16-mosh-hr13-runtime.js?v=r35-v2-1
+loaded js/17-mosh-documents-14-runtime.js?v=r35-v2-1
+loaded js/18-mosh-hr14-complete.js?v=r35-v2-1
+loaded js/19-mosh-v15-runtime.js?v=r35-v2-1
+loaded js/20-mosh-v16-runtime.js?v=r35-v2-1
+loaded js/21-mosh-handbook-v17-js.js?v=r35-v2-1
+loaded js/22-mosh-ops18-js.js?v=r35-v2-1
+loaded js/23-mosh-calm19-runtime.js?v=r35-v2-1
+loaded js/24-mosh-finance22-js.js?v=r35-v2-1
+loaded js/25-mosh-v25-dark-controls-js.js?v=r35-v2-1
+loaded js/26-mosh-wisdom-v26-js.js?v=r35-v2-1
+loaded js/27-mosh-sidebar-order-v27a.js?v=r35-v2-1
+loaded js/28-v27d-wisdom-merge.js?v=r35-v2-1
+loaded js/29-v27e-wisdom-layout-fix-js.js?v=r35-v2-1
+loaded js/30-mosh-manager-approvals-v28-js.js?v=r35-v2-1
+loaded js/31-mosh-request-results-v28b-js.js?v=r35-v2-1
+loaded js/32-mosh-v28c-request-routing-repair.js?v=r35-v2-1
+loaded js/33-mosh-v28e-request-actions-js.js?v=r35-v2-1
+loaded js/34-mosh-marketing-v29-js.js?v=r35-v2-1
+loaded js/35-mosh-field-work-v30b-js.js?v=r35-v2-1
+loaded js/36-mosh-v30c-field-admin-sync-js.js?v=r35-v2-1
+loaded js/37-mosh-v32-systematic-shared-distribution-js.js?v=r35-v2-1
+loaded js/38-mosh-v32c-runtime-safety.js?v=r35-v2-1
+loaded js/39-mosh-v32e-manager-inline-js.js?v=r35-v2-1
+loaded js/40-mosh-marketing-v33-js.js?v=r35-v2-1
+loaded js/41-mosh-marketing-v34-js.js?v=r35-v2-1
+loaded js/42-mosh-v36-prebeta-stability-js.js?v=r35-v2-1
+loaded js/43-mosh-auth-v37-js.js?v=r35-v2-1
+loaded js/44-mosh-v38-my-tasks-enforcement-js.js?v=r35-v2-1
+loaded js/45-mosh-v41-employee-task-sync-js.js?v=r35-v2-1
+loaded js/46-mosh-v42-employee-link-reconcile-js.js?v=r35-v2-1
+loaded js/47-mosh-v44-task-assignment-account-fix.js?v=r35-v2-1
+loaded js/48-mosh-v45-employee-tasks-unified-marker.js?v=r35-v2-1
+loaded js/49-mosh-v46-employee-task-open-nav-marker.js?v=r35-v2-1
+loaded js/50-mosh-v47-employee-task-overlay-js.js?v=r35-v2-1
+loaded js/51-mosh-v48-employee-task-workflow-js.js?v=r35-v2-1
+loaded js/52-mosh-v48-marker.js?v=r35-v2-1
+loaded js/53-mosh-task-receipts-model.js?v=r35-v2-1
+loaded js/54-mosh-task-inbox.js?v=r35-v2-1
+loaded js/56-mosh-workdesk.js?v=r35-v2-1
+loaded js/57-mosh-reminder-model.js?v=r35-v2-1
+loaded js/58-mosh-activity-reminder.js?v=r35-v2-1
+loaded js/59-mosh-home-notices.js?v=r35-v2-1
+loaded js/61-mosh-zkteco-admin.js?v=r35-v2-1
+loaded js/61-mosh-r14-system-polish.js?v=r35-v2-1
+loaded js/62-mosh-r16-field-fixes.js?v=r35-v2-1
+loaded js/63-mosh-mini-workdesk.js?v=r35-v2-1
+loaded js/r19-home.js?v=r35-v2-1
+loaded js/r19-hr.js?v=r35-v2-1
+loaded js/r19-notifications.js?v=r35-v2-1
+loaded js/r19-mini.js?v=r35-v2-1
+loaded js/r19-review-ui.js?v=r35-v2-1
+loaded js/r19-review-overdue.js?v=r35-v2-1
+loaded js/r19-review-dashboard.js?v=r35-v2-1
+loaded js/r19-review-nav.js?v=r35-v2-1
+loaded js/r20-attendance-header.js?v=r35-v2-1
+loaded js/r20-employee-portal.js?v=r35-v2-1
+loaded js/r21-theme.js?v=r35-v2-1
+loaded js/r24-admin.js?v=r35-v2-1
+loaded js/r24-purchase-portal.js?v=r35-v2-1
+loaded js/r25-marketing-customers.js?v=r35-v2-1
+loaded js/r28-instagram.js?v=r35-v2-1
+loaded js/r29-workflows.js?v=r35-v2-1
+loaded js/r31-upload.js?v=r35-v2-1
+loaded js/r31-it.js?v=r35-v2-1
+loaded js/r33-navigation.js?v=r35-v2-1
+loaded js/r34-ui.js?v=r35-v2-1
+loaded js/r34-chat.js?v=r35-v2-1
+loaded js/r34-customers-deadline.js?v=r35-v2-1
+loaded js/r34-governance.js?v=r35-v2-1
+loaded js/r34-social.js?v=r35-v2-1
+loaded js/r35-navigation.js?v=r35-v2-1
+loaded js/r35-density.js?v=r35-v2-1
+loaded js/r35-workspace.js?v=r35-v2-1
+loaded js/r35-branding.js?v=r35-v2-1
+CHECK Actual full frontend loads R28 True
+CHECK CRM and social panels are not stacked True
+CHECK Verified account visible True
+CHECK Legacy history not counted as official published True
+CHECK Manager map retains both departments True
+CHECK Manager getter does not mutate assignments True
+CHECK Manager assignment uses dedicated server endpoint True
+CHECK Assigning third department preserves employment and both existing departments True
+CHECK All three assignments survive actual frontend refresh with synthetic server data True
+CHECK Scoped manager can access both additional departments True
+CHECK Explicit module denial overrides added manager scope True
+CHECK Backdrop click does not close composer True
+CHECK Draft saved with server response True
+CHECK Draft has idempotency key True
+CHECK Ambiguous server response is not shown as published True
+CHECK Unavailable metric displays dash True
+CHECK App secret never returned to browser True
+CHECK Text-only publish is blocked client-side True
+CHECK Approval controls hidden without grant True
+CHECK Switching customer clears other customer data True
+CHECK Social content has no horizontal overflow at mobile width True
+CHECK Marketing navigation restored True
+CHECK R29 actual workspace opens with server profile True
+CHECK All nine HR workflow tabs registered True
+CHECK Draft employee status is available True
+CHECK Unused canonical department preserved and renamed for display True
+CHECK Criteria uses versioned dedicated API True
+CHECK Five scores live average is 80 True
+CHECK Server-confirmed evaluation rendered with snapshot True
+CHECK Clock start sends no client timestamp True
+CHECK Clock end renders recorded attendance hours True
+CHECK Previous leave saved by calendar year True
+CHECK Settlement lines reveal on type change True
+CHECK Customer sequential numbers visible True
+CHECK Read-only customer work includes multiple departments True
+CHECK Customer work has no legacy edit-task button True
+CHECK Actual workChat renders in read-only conversation True
+CHECK Read-only task has no writing controls True
+CHECK Customer archive keeps original ID and history True
+CHECK R29 workspace has no horizontal page overflow True
+CHECK New workflow survives reopening with server data True
+CHECK R29 scripts produced no uncaught errors True
+CHECK Logout clears all R29 private dialogs True
+CHECK Logout clears retained social dialogs True
+CHECK No Meta publish/connect endpoint invoked during tests True
+{
+  "checks": [
+    {
+      "name": "Actual full frontend loads R28",
+      "passed": true
+    },
+    {
+      "name": "CRM and social panels are not stacked",
+      "passed": true
+    },
+    {
+      "name": "Verified account visible",
+      "passed": true
+    },
+    {
+      "name": "Legacy history not counted as official published",
+      "passed": true
+    },
+    {
+      "name": "Manager map retains both departments",
+      "passed": true
+    },
+    {
+      "name": "Manager getter does not mutate assignments",
+      "passed": true
+    },
+    {
+      "name": "Manager assignment uses dedicated server endpoint",
+      "passed": true
+    },
+    {
+      "name": "Assigning third department preserves employment and both existing departments",
+      "passed": true
+    },
+    {
+      "name": "All three assignments survive actual frontend refresh with synthetic server data",
+      "passed": true
+    },
+    {
+      "name": "Scoped manager can access both additional departments",
+      "passed": true
+    },
+    {
+      "name": "Explicit module denial overrides added manager scope",
+      "passed": true
+    },
+    {
+      "name": "Backdrop click does not close composer",
+      "passed": true
+    },
+    {
+      "name": "Draft saved with server response",
+      "passed": true
+    },
+    {
+      "name": "Draft has idempotency key",
+      "passed": true
+    },
+    {
+      "name": "Ambiguous server response is not shown as published",
+      "passed": true
+    },
+    {
+      "name": "Unavailable metric displays dash",
+      "passed": true
+    },
+    {
+      "name": "App secret never returned to browser",
+      "passed": true
+    },
+    {
+      "name": "Text-only publish is blocked client-side",
+      "passed": true
+    },
+    {
+      "name": "Approval controls hidden without grant",
+      "passed": true
+    },
+    {
+      "name": "Switching customer clears other customer data",
+      "passed": true
+    },
+    {
+      "name": "Social content has no horizontal overflow at mobile width",
+      "passed": true
+    },
+    {
+      "name": "Marketing navigation restored",
+      "passed": true
+    },
+    {
+      "name": "R29 actual workspace opens with server profile",
+      "passed": true
+    },
+    {
+      "name": "All nine HR workflow tabs registered",
+      "passed": true
+    },
+    {
+      "name": "Draft employee status is available",
+      "passed": true
+    },
+    {
+      "name": "Unused canonical department preserved and renamed for display",
+      "passed": true
+    },
+    {
+      "name": "Criteria uses versioned dedicated API",
+      "passed": true
+    },
+    {
+      "name": "Five scores live average is 80",
+      "passed": true
+    },
+    {
+      "name": "Server-confirmed evaluation rendered with snapshot",
+      "passed": true
+    },
+    {
+      "name": "Clock start sends no client timestamp",
+      "passed": true
+    },
+    {
+      "name": "Clock end renders recorded attendance hours",
+      "passed": true
+    },
+    {
+      "name": "Previous leave saved by calendar year",
+      "passed": true
+    },
+    {
+      "name": "Settlement lines reveal on type change",
+      "passed": true
+    },
+    {
+      "name": "Customer sequential numbers visible",
+      "passed": true
+    },
+    {
+      "name": "Read-only customer work includes multiple departments",
+      "passed": true
+    },
+    {
+      "name": "Customer work has no legacy edit-task button",
+      "passed": true
+    },
+    {
+      "name": "Actual workChat renders in read-only conversation",
+      "passed": true
+    },
+    {
+      "name": "Read-only task has no writing controls",
+      "passed": true
+    },
+    {
+      "name": "Customer archive keeps original ID and history",
+      "passed": true
+    },
+    {
+      "name": "R29 workspace has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "New workflow survives reopening with server data",
+      "passed": true
+    },
+    {
+      "name": "R29 scripts produced no uncaught errors",
+      "passed": true
+    },
+    {
+      "name": "Logout clears all R29 private dialogs",
+      "passed": true
+    },
+    {
+      "name": "Logout clears retained social dialogs",
+      "passed": true
+    },
+    {
+      "name": "No Meta publish/connect endpoint invoked during tests",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "networkCalls": 63,
+  "externalRequestsBlocked": 0,
+  "passed": 45,
+  "total": 45,
+  "testBoundary": "Actual complete frontend scripts/styles rendered in memory (Chromium navigation blocked), synthetic API adapter; no real HTTP transport, production server or Meta calls."
+}
+

@@ -1,0 +1,190 @@
+{
+  "checks": [
+    {
+      "name": "Actual full frontend loads R28",
+      "passed": true
+    },
+    {
+      "name": "CRM and social panels are not stacked",
+      "passed": true
+    },
+    {
+      "name": "Verified account visible",
+      "passed": true
+    },
+    {
+      "name": "Legacy history not counted as official published",
+      "passed": true
+    },
+    {
+      "name": "Manager map retains both departments",
+      "passed": true
+    },
+    {
+      "name": "Manager getter does not mutate assignments",
+      "passed": true
+    },
+    {
+      "name": "Manager assignment uses dedicated server endpoint",
+      "passed": true
+    },
+    {
+      "name": "Assigning third department preserves employment and both existing departments",
+      "passed": true
+    },
+    {
+      "name": "All three assignments survive actual frontend refresh with synthetic server data",
+      "passed": true
+    },
+    {
+      "name": "Scoped manager can access both additional departments",
+      "passed": true
+    },
+    {
+      "name": "Explicit module denial overrides added manager scope",
+      "passed": true
+    },
+    {
+      "name": "Backdrop click does not close composer",
+      "passed": true
+    },
+    {
+      "name": "Draft saved with server response",
+      "passed": true
+    },
+    {
+      "name": "Draft has idempotency key",
+      "passed": true
+    },
+    {
+      "name": "Ambiguous server response is not shown as published",
+      "passed": true
+    },
+    {
+      "name": "Unavailable metric displays dash",
+      "passed": true
+    },
+    {
+      "name": "App secret never returned to browser",
+      "passed": true
+    },
+    {
+      "name": "Text-only publish is blocked client-side",
+      "passed": true
+    },
+    {
+      "name": "Approval controls hidden without grant",
+      "passed": true
+    },
+    {
+      "name": "Switching customer clears other customer data",
+      "passed": true
+    },
+    {
+      "name": "Social content has no horizontal overflow at mobile width",
+      "passed": true
+    },
+    {
+      "name": "Marketing navigation restored",
+      "passed": true
+    },
+    {
+      "name": "R29 actual workspace opens with server profile",
+      "passed": true
+    },
+    {
+      "name": "All nine HR workflow tabs registered",
+      "passed": true
+    },
+    {
+      "name": "Draft employee status is available",
+      "passed": true
+    },
+    {
+      "name": "Unused canonical department preserved and renamed for display",
+      "passed": true
+    },
+    {
+      "name": "Criteria uses versioned dedicated API",
+      "passed": true
+    },
+    {
+      "name": "Five scores live average is 80",
+      "passed": true
+    },
+    {
+      "name": "Server-confirmed evaluation rendered with snapshot",
+      "passed": true
+    },
+    {
+      "name": "Clock start sends no client timestamp",
+      "passed": true
+    },
+    {
+      "name": "Clock end renders recorded attendance hours",
+      "passed": true
+    },
+    {
+      "name": "Previous leave saved by calendar year",
+      "passed": true
+    },
+    {
+      "name": "Settlement lines reveal on type change",
+      "passed": true
+    },
+    {
+      "name": "Customer sequential numbers visible",
+      "passed": true
+    },
+    {
+      "name": "Read-only customer work includes multiple departments",
+      "passed": true
+    },
+    {
+      "name": "Customer work has no legacy edit-task button",
+      "passed": true
+    },
+    {
+      "name": "Actual workChat renders in read-only conversation",
+      "passed": true
+    },
+    {
+      "name": "Read-only task has no writing controls",
+      "passed": true
+    },
+    {
+      "name": "Customer archive keeps original ID and history",
+      "passed": true
+    },
+    {
+      "name": "R29 workspace has no horizontal page overflow",
+      "passed": true
+    },
+    {
+      "name": "New workflow survives reopening with server data",
+      "passed": true
+    },
+    {
+      "name": "R29 scripts produced no uncaught errors",
+      "passed": true
+    },
+    {
+      "name": "Logout clears all R29 private dialogs",
+      "passed": true
+    },
+    {
+      "name": "Logout clears retained social dialogs",
+      "passed": true
+    },
+    {
+      "name": "No Meta publish/connect endpoint invoked during tests",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "networkCalls": 51,
+  "externalRequestsBlocked": 0,
+  "passed": 45,
+  "total": 45,
+  "testBoundary": "Actual complete frontend scripts/styles rendered in memory (Chromium navigation blocked), synthetic API adapter; no real HTTP transport, production server or Meta calls."
+}

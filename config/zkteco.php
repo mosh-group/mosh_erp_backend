@@ -1,0 +1,2 @@
+<?php
+return ['enabled'=>env('ZKTECO_ENABLED',false),'bridge_token'=>env('ZKTECO_BRIDGE_TOKEN'),'require_employee_mapping'=>env('ZKTECO_REQUIRE_EMPLOYEE_MAPPING',false),'primary_device'=>['id'=>env('ZKTECO_PRIMARY_DEVICE_ID','zkteco-primary'),'name'=>env('ZKTECO_PRIMARY_DEVICE_NAME','Primary ZKTeco Terminal'),'serial'=>env('ZKTECO_PRIMARY_DEVICE_SERIAL','SFM1092440386'),'ip'=>env('ZKTECO_PRIMARY_DEVICE_IP','192.168.1.20'),'port'=>(int)env('ZKTECO_PRIMARY_DEVICE_PORT',4370),'timezone'=>env('ZKTECO_PRIMARY_DEVICE_TIMEZONE',env('APP_TIMEZONE','UTC'))]];

@@ -1,0 +1,111 @@
+{
+    "passed": 26,
+    "checks": [
+        {
+            "name": "Real Laravel encryption round trip preserves exact whitespace",
+            "passed": true
+        },
+        {
+            "name": "Ciphertext excludes cleartext",
+            "passed": true
+        },
+        {
+            "name": "Fresh IV gives distinct ciphertext",
+            "passed": true
+        },
+        {
+            "name": "Tampering rejected",
+            "passed": true
+        },
+        {
+            "name": "Wrong key rejected",
+            "passed": true
+        },
+        {
+            "name": "IT canonical department maps to real module",
+            "passed": true
+        },
+        {
+            "name": "General all-scope administrator has no implicit vault grant",
+            "passed": true
+        },
+        {
+            "name": "General administrator has no implicit credential-write grant",
+            "passed": true
+        },
+        {
+            "name": "IT manager scope alone cannot reveal secrets",
+            "passed": true
+        },
+        {
+            "name": "Wrong current password gives no secret",
+            "passed": true
+        },
+        {
+            "name": "Denied reveal is audited",
+            "passed": true
+        },
+        {
+            "name": "Explicit grant plus current password permits reveal",
+            "passed": true
+        },
+        {
+            "name": "Audit rows never contain secret or entered password",
+            "passed": true
+        },
+        {
+            "name": "Explicit module details denial overrides vault grant",
+            "passed": true
+        },
+        {
+            "name": "Inactive holder of grant blocked",
+            "passed": true
+        },
+        {
+            "name": "Forced password change blocks vault",
+            "passed": true
+        },
+        {
+            "name": "Grant revoked while acquiring business lock is rechecked",
+            "passed": true
+        },
+        {
+            "name": "Public record strips credential fields",
+            "passed": true
+        },
+        {
+            "name": "List-only role receives no record internals or ciphertext",
+            "passed": true
+        },
+        {
+            "name": "Authorized IT file link can be read",
+            "passed": true
+        },
+        {
+            "name": "Attachment explicit deny honored",
+            "passed": true
+        },
+        {
+            "name": "Unknown file resource blocked",
+            "passed": true
+        },
+        {
+            "name": "Missing IT record has no file access",
+            "passed": true
+        },
+        {
+            "name": "Actual controller blocks reveal over HTTP",
+            "passed": true
+        },
+        {
+            "name": "Actual controller blocks secret creation over HTTP",
+            "passed": true
+        },
+        {
+            "name": "Controller secure-transport check accepts HTTPS",
+            "passed": true
+        }
+    ],
+    "total": 26,
+    "boundary": "Real production User, ItArchive access\/reveal, HTTPS guard and Laravel encryption primitive; synthetic ORM\/store\/identity\/Request\/DB. Not Laravel integration, SQL or real HTTPS."
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "suite": "navigation",
+    "returncode": 0,
+    "seconds": 58.5
+  },
+  {
+    "suite": "boot_transport",
+    "returncode": 0,
+    "seconds": 16.4
+  },
+  {
+    "suite": "subviews",
+    "returncode": 0,
+    "seconds": 54.8
+  },
+  {
+    "suite": "task_edges",
+    "returncode": 0,
+    "seconds": 11.1
+  },
+  {
+    "suite": "legacy_navigation",
+    "returncode": 0,
+    "seconds": 27.8
+  },
+  {
+    "suite": "legacy_hr",
+    "returncode": 0,
+    "seconds": 16.9
+  },
+  {
+    "suite": "R31_chunks",
+    "returncode": 0,
+    "seconds": 0.4
+  },
+  {
+    "suite": "R31_security",
+    "returncode": 0,
+    "seconds": 1.7
+  },
+  {
+    "suite": "R28_acceptance",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R29_domain",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R29_security_payroll",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "R29_instagram_regression",
+    "returncode": 0,
+    "seconds": 0.0
+  },
+  {
+    "suite": "node_frontend",
+    "returncode": 0,
+    "seconds": 0.5
+  },
+  {
+    "suite": "node_r29",
+    "returncode": 0,
+    "seconds": 0.2
+  },
+  {
+    "suite": "node_upload",
+    "returncode": 0,
+    "seconds": 0.4
+  }
+]

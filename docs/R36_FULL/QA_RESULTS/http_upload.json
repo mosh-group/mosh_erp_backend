@@ -1,0 +1,75 @@
+{
+  "passed": 17,
+  "total": 17,
+  "checks": [
+    {
+      "name": "Start accepts 34603008 bytes",
+      "passed": true
+    },
+    {
+      "name": "Identical part response retry safe 34603008",
+      "passed": true
+    },
+    {
+      "name": "Resume retains accepted parts 34603008",
+      "passed": true
+    },
+    {
+      "name": "Actual HTTP completes 34603008 bytes",
+      "passed": true
+    },
+    {
+      "name": "Original hash preserved on disk 34603008",
+      "passed": true
+    },
+    {
+      "name": "Lost complete response retry same object 34603008",
+      "passed": true
+    },
+    {
+      "name": "Another owner cannot access upload 34603008",
+      "passed": true
+    },
+    {
+      "name": "Transient parts removed after finalization 34603008",
+      "passed": true
+    },
+    {
+      "name": "Start accepts 268697600 bytes",
+      "passed": true
+    },
+    {
+      "name": "Identical part response retry safe 268697600",
+      "passed": true
+    },
+    {
+      "name": "Resume retains accepted parts 268697600",
+      "passed": true
+    },
+    {
+      "name": "Actual HTTP completes 268697600 bytes",
+      "passed": true
+    },
+    {
+      "name": "Original hash preserved on disk 268697600",
+      "passed": true
+    },
+    {
+      "name": "Lost complete response retry same object 268697600",
+      "passed": true
+    },
+    {
+      "name": "Another owner cannot access upload 268697600",
+      "passed": true
+    },
+    {
+      "name": "Transient parts removed after finalization 268697600",
+      "passed": true
+    },
+    {
+      "name": "Transfer exceeded old 999-part route shape",
+      "passed": true
+    }
+  ],
+  "boundary": "Real PHP local HTTP and filesystem. QA router, not Laravel session/SQL."
+}

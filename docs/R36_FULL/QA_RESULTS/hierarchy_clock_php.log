@@ -1,0 +1,58 @@
+PASS Executive not listed as department manager still reports to GM
+PASS Heads may report to different approved higher managers
+PASS Hierarchy does not overwrite existing department managers
+PASS Both executive and GM employee records preserved
+PASS Same person cannot fill both independent positions
+PASS Executive personal leave goes to GM not self
+PASS Real clock closes pause session and preserves about 4:15
+PASS Pause leaves task status and assignment unchanged
+PASS Repeated paused document accrues no paused time
+PASS Resume starts new interval without zeroing total
+{
+    "passed": 10,
+    "total": 10,
+    "checks": [
+        {
+            "name": "Executive not listed as department manager still reports to GM",
+            "passed": true
+        },
+        {
+            "name": "Heads may report to different approved higher managers",
+            "passed": true
+        },
+        {
+            "name": "Hierarchy does not overwrite existing department managers",
+            "passed": true
+        },
+        {
+            "name": "Both executive and GM employee records preserved",
+            "passed": true
+        },
+        {
+            "name": "Same person cannot fill both independent positions",
+            "passed": true
+        },
+        {
+            "name": "Executive personal leave goes to GM not self",
+            "passed": true
+        },
+        {
+            "name": "Real clock closes pause session and preserves about 4:15",
+            "passed": true
+        },
+        {
+            "name": "Pause leaves task status and assignment unchanged",
+            "passed": true
+        },
+        {
+            "name": "Repeated paused document accrues no paused time",
+            "passed": true
+        },
+        {
+            "name": "Resume starts new interval without zeroing total",
+            "passed": true
+        }
+    ],
+    "boundary": "Actual services; in-memory ORM\/identity\/HTTP provider and validation doubles. Not Laravel HTTP\/SQL."
+}
+

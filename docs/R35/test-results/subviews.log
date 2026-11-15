@@ -1,0 +1,74 @@
+PASS hr: existing manager approval opens
+PASS sales: existing manager approval opens
+PASS marketing: existing manager approval opens
+PASS design: existing manager approval opens
+PASS photo: existing manager approval opens
+PASS editing: existing manager approval opens
+PASS promotion: existing manager approval opens
+PASS logistics: existing manager approval opens
+PASS purchases: existing manager approval opens
+PASS warehouses: existing manager approval opens
+PASS accounting: existing manager approval opens
+PASS hr: HR employees opens without uncaught script error
+PASS hr: HR requests opens without uncaught script error
+PASS hr: HR attendance opens without uncaught script error
+PASS hr: HR wisdom opens without uncaught script error
+PASS hr: HR recruitment opens without uncaught script error
+PASS hr: HR performance opens without uncaught script error
+PASS hr: HR reports opens without uncaught script error
+PASS sales: quotes opens without uncaught script error
+PASS sales: orders opens without uncaught script error
+PASS sales: cancelledquotes opens without uncaught script error
+PASS sales: servicecontracts opens without uncaught script error
+PASS sales: customergroup opens without uncaught script error
+PASS sales: servicelist opens without uncaught script error
+PASS sales: reports15 opens without uncaught script error
+PASS sales: settings15 opens without uncaught script error
+PASS purchases: requests opens without uncaught script error
+PASS purchases: orders opens without uncaught script error
+PASS purchases: suppliers opens without uncaught script error
+PASS purchases: reports opens without uncaught script error
+PASS logistics: requests opens without uncaught script error
+PASS logistics: schedule opens without uncaught script error
+PASS logistics: reservations opens without uncaught script error
+PASS warehouses: scan opens without uncaught script error
+PASS warehouses: inbound opens without uncaught script error
+PASS warehouses: warehouses opens without uncaught script error
+PASS warehouses: stock opens without uncaught script error
+PASS warehouses: customers opens without uncaught script error
+PASS warehouses: custody opens without uncaught script error
+PASS accounting: customers22 opens without uncaught script error
+PASS accounting: vendors22 opens without uncaught script error
+PASS accounting: vendorStatement23 opens without uncaught script error
+PASS accounting: employees23 opens without uncaught script error
+PASS accounting: statements22 opens without uncaught script error
+PASS accounting: invoices opens without uncaught script error
+PASS accounting: vendors opens without uncaught script error
+PASS accounting: payroll23 opens without uncaught script error
+PASS accounting: hours23 opens without uncaught script error
+PASS accounting: employees opens without uncaught script error
+PASS accounting: expenses opens without uncaught script error
+PASS accounting: cash opens without uncaught script error
+PASS accounting: trial22 opens without uncaught script error
+PASS accounting: income23 opens without uncaught script error
+PASS accounting: balance23 opens without uncaught script error
+PASS accounting: journal22 opens without uncaught script error
+PASS accounting: reconcile22 opens without uncaught script error
+PASS accounting: chart22 opens without uncaught script error
+PASS accounting: print23 opens without uncaught script error
+PASS accounting: packages opens without uncaught script error
+PASS accounting: billing opens without uncaught script error
+PASS accounting: settings opens without uncaught script error
+PASS admin: employees opens with current data fixture
+PASS admin: approvals opens with current data fixture
+PASS admin: purchases opens with current data fixture
+PASS admin: reports opens with current data fixture
+PASS admin: decisions opens with current data fixture
+PASS admin: alerts opens with current data fixture
+PASS admin: archive opens with current data fixture
+PASS Admin network failure is shown with retry, not successful empty data
+PASS Admin retry recovers the dashboard
+PASS Stale failed customer list cannot replace newer Administration task list
+PASS Entire submenu sweep has no uncaught JavaScript errors
+RESULT 72 72
+

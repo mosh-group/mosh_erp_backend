@@ -1,0 +1,173 @@
+{
+    "checks": [
+        {
+            "name": "PNG exact bytes and dimensions",
+            "passed": true
+        },
+        {
+            "name": "JPEG exact bytes and dimensions",
+            "passed": true
+        },
+        {
+            "name": "WebP exact bytes and dimensions",
+            "passed": true
+        },
+        {
+            "name": "SVG rejected",
+            "passed": true
+        },
+        {
+            "name": "HTML rejected",
+            "passed": true
+        },
+        {
+            "name": "File URL rejected",
+            "passed": true
+        },
+        {
+            "name": "Non-base64 rejected",
+            "passed": true
+        },
+        {
+            "name": "False MIME rejected",
+            "passed": true
+        },
+        {
+            "name": "Corrupt bytes rejected",
+            "passed": true
+        },
+        {
+            "name": "Too large rejected",
+            "passed": true
+        },
+        {
+            "name": "Too wide rejected",
+            "passed": true
+        },
+        {
+            "name": "Unsafe storage path rejected: ..\/.env",
+            "passed": true
+        },
+        {
+            "name": "Unsafe storage path rejected: r35-branding\/..\/.env",
+            "passed": true
+        },
+        {
+            "name": "Unsafe storage path rejected: storage\/attachments\/a.png",
+            "passed": true
+        },
+        {
+            "name": "Unsafe storage path rejected: https:\/\/example.invalid\/a.png",
+            "passed": true
+        },
+        {
+            "name": "Unsafe storage path rejected: r35-branding\/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.svg",
+            "passed": true
+        },
+        {
+            "name": "Anonymous cannot manage",
+            "passed": true
+        },
+        {
+            "name": "Inactive root cannot manage",
+            "passed": true
+        },
+        {
+            "name": "Plain active employee cannot manage",
+            "passed": true
+        },
+        {
+            "name": "Specific appearance grant can manage",
+            "passed": true
+        },
+        {
+            "name": "Specific customization grant can manage",
+            "passed": true
+        },
+        {
+            "name": "Anonymous read denied",
+            "passed": true
+        },
+        {
+            "name": "Inactive read denied",
+            "passed": true
+        },
+        {
+            "name": "Unconfigured read does not write",
+            "passed": true
+        },
+        {
+            "name": "Employee cannot write branding",
+            "passed": true
+        },
+        {
+            "name": "Inactive root cannot write branding",
+            "passed": true
+        },
+        {
+            "name": "Anonymous write rejected without 500",
+            "passed": true
+        },
+        {
+            "name": "Explicit authorized save creates version 1",
+            "passed": true
+        },
+        {
+            "name": "Stored image bytes identical",
+            "passed": true
+        },
+        {
+            "name": "Other authenticated employee sees same company logo",
+            "passed": true
+        },
+        {
+            "name": "Lost-reply retry does not duplicate audit\/version",
+            "passed": true
+        },
+        {
+            "name": "Concurrent stale different logo rejected",
+            "passed": true
+        },
+        {
+            "name": "Conflict retains saved logo",
+            "passed": true
+        },
+        {
+            "name": "Versioned replacement works",
+            "passed": true
+        },
+        {
+            "name": "Previous original retained",
+            "passed": true
+        },
+        {
+            "name": "Disk failure is explicit 503",
+            "passed": true
+        },
+        {
+            "name": "Disk failure cannot overwrite setting",
+            "passed": true
+        },
+        {
+            "name": "Removal reverts to text without deleting archive",
+            "passed": true
+        },
+        {
+            "name": "Image mode requires existing image",
+            "passed": true
+        },
+        {
+            "name": "Malformed stored paths cannot read arbitrary files",
+            "passed": true
+        },
+        {
+            "name": "Every update uses row + business locking",
+            "passed": true
+        },
+        {
+            "name": "Audit contains no raw image payload",
+            "passed": true
+        }
+    ],
+    "boundary": "Actual controller and real temporary filesystem; mocked framework, identity, ORM\/transaction, not Laravel HTTP\/SQL."
+}

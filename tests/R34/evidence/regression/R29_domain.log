@@ -1,0 +1,247 @@
+{
+    "passed": 60,
+    "checks": [
+        {
+            "name": "Contract is not an activation requirement",
+            "passed": true
+        },
+        {
+            "name": "Activation requires name",
+            "passed": true
+        },
+        {
+            "name": "Activation requires department",
+            "passed": true
+        },
+        {
+            "name": "Activation requires jobTitle",
+            "passed": true
+        },
+        {
+            "name": "Activation requires hireDate",
+            "passed": true
+        },
+        {
+            "name": "Activation requires workdayHours",
+            "passed": true
+        },
+        {
+            "name": "Fingerprint mode requires enrollment",
+            "passed": true
+        },
+        {
+            "name": "Fingerprint employee complete",
+            "passed": true
+        },
+        {
+            "name": "Daily exemption does not require fixed hours",
+            "passed": true
+        },
+        {
+            "name": "Draft remains inactive without employment details",
+            "passed": true
+        },
+        {
+            "name": "Incomplete new employee cannot activate",
+            "passed": true
+        },
+        {
+            "name": "Existing active employee cannot lose required detail",
+            "passed": true
+        },
+        {
+            "name": "Legacy incomplete active employee not disabled on install",
+            "passed": true
+        },
+        {
+            "name": "Enrollment cannot coexist with exemption",
+            "passed": true
+        },
+        {
+            "name": "Leap day accepted",
+            "passed": true
+        },
+        {
+            "name": "Impossible date rejected",
+            "passed": true
+        },
+        {
+            "name": "Invalid formatted date rejected",
+            "passed": true
+        },
+        {
+            "name": "Inclusive leap-year day count",
+            "passed": true
+        },
+        {
+            "name": "Overnight weekly schedule allowed",
+            "passed": true
+        },
+        {
+            "name": "Duplicate weekly day rejected",
+            "passed": true
+        },
+        {
+            "name": "Invalid weekday rejected",
+            "passed": true
+        },
+        {
+            "name": "Equal clock times rejected",
+            "passed": true
+        },
+        {
+            "name": "Invalid monthly date rejected",
+            "passed": true
+        },
+        {
+            "name": "Calendar Jan-Dec boundaries",
+            "passed": true
+        },
+        {
+            "name": "Previous use counted once",
+            "passed": true
+        },
+        {
+            "name": "Pending annual requests reserve balance",
+            "passed": true
+        },
+        {
+            "name": "No leave carry-forward or previous-year usage",
+            "passed": true
+        },
+        {
+            "name": "Duplicate leave IDs counted once",
+            "passed": true
+        },
+        {
+            "name": "Cross-year leave prorated correctly",
+            "passed": true
+        },
+        {
+            "name": "Legacy opening balance never silently carried",
+            "passed": true
+        },
+        {
+            "name": "Five criteria accepted",
+            "passed": true
+        },
+        {
+            "name": "Equal weighted average",
+            "passed": true
+        },
+        {
+            "name": "Four criteria rejected",
+            "passed": true
+        },
+        {
+            "name": "Duplicate criterion rejected",
+            "passed": true
+        },
+        {
+            "name": "Score above 100 rejected",
+            "passed": true
+        },
+        {
+            "name": "Negative score rejected",
+            "passed": true
+        },
+        {
+            "name": "Missing score rejected",
+            "passed": true
+        },
+        {
+            "name": "Evaluation stores criteria snapshot",
+            "passed": true
+        },
+        {
+            "name": "No probation alert before seven days",
+            "passed": true
+        },
+        {
+            "name": "Seven-day event only",
+            "passed": true
+        },
+        {
+            "name": "Separate expiry event",
+            "passed": true
+        },
+        {
+            "name": "Probation stable acknowledgement identity",
+            "passed": true
+        },
+        {
+            "name": "Inactive employees receive no probation events",
+            "passed": true
+        },
+        {
+            "name": "Exact signed installment sum 1",
+            "passed": true
+        },
+        {
+            "name": "Exact signed installment sum 2",
+            "passed": true
+        },
+        {
+            "name": "Exact signed installment sum 3",
+            "passed": true
+        },
+        {
+            "name": "Exact signed installment sum 12",
+            "passed": true
+        },
+        {
+            "name": "Exact signed installment sum 60",
+            "passed": true
+        },
+        {
+            "name": "Installment year boundary",
+            "passed": true
+        },
+        {
+            "name": "Zero installments rejected",
+            "passed": true
+        },
+        {
+            "name": "Full month salary delta",
+            "passed": true
+        },
+        {
+            "name": "Multi-month salary delta",
+            "passed": true
+        },
+        {
+            "name": "Negative salary delta",
+            "passed": true
+        },
+        {
+            "name": "Actual-day partial month",
+            "passed": true
+        },
+        {
+            "name": "Thirty-day partial month",
+            "passed": true
+        },
+        {
+            "name": "No invented prorating convention",
+            "passed": true
+        },
+        {
+            "name": "Reversed retro period rejected",
+            "passed": true
+        },
+        {
+            "name": "QR finder dimensions",
+            "passed": true
+        },
+        {
+            "name": "QR self-contained SVG",
+            "passed": true
+        },
+        {
+            "name": "QR oversized URL rejected",
+            "passed": true
+        }
+    ],
+    "total": 60,
+    "boundary": "Pure production calculations; no HTTP, ORM, database or live accounts."
+}

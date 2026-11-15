@@ -1,0 +1,112 @@
+PASS Release identity is R33
+PASS Original complete frontend boots without JS errors
+PASS Marketing dashboard is prepared exactly once per section entry
+PASS Hidden Administration productive dashboard is not prepared
+PASS Dashboard/employee tabs reuse fresh overview without duplicate requests
+PASS Explicit Administration refresh requests current server data
+PASS Clicking already-active Administration resets to its dashboard
+PASS admin: exactly one active application
+PASS admin: non-empty visible section
+PASS hr: exactly one active application
+PASS hr: non-empty visible section
+PASS hr: task navigation label only
+PASS hr: task action remains running
+PASS hr: department entry returns to dashboard
+PASS sales: exactly one active application
+PASS sales: non-empty visible section
+PASS sales: task navigation label only
+PASS sales: task action remains running
+PASS sales: department entry returns to dashboard
+PASS marketing: exactly one active application
+PASS marketing: non-empty visible section
+PASS marketing: task navigation label only
+PASS marketing: task action remains running
+PASS marketing: department entry returns to dashboard
+PASS design: exactly one active application
+PASS design: non-empty visible section
+PASS design: task navigation label only
+PASS design: task action remains running
+PASS design: department entry returns to dashboard
+PASS photo: exactly one active application
+PASS photo: non-empty visible section
+PASS photo: task navigation label only
+PASS photo: task action remains running
+PASS photo: department entry returns to dashboard
+PASS editing: exactly one active application
+PASS editing: non-empty visible section
+PASS editing: task navigation label only
+PASS editing: task action remains running
+PASS editing: department entry returns to dashboard
+PASS promotion: exactly one active application
+PASS promotion: non-empty visible section
+PASS promotion: task navigation label only
+PASS promotion: task action remains running
+PASS promotion: department entry returns to dashboard
+PASS logistics: exactly one active application
+PASS logistics: non-empty visible section
+PASS logistics: task navigation label only
+PASS logistics: task action remains running
+PASS logistics: department entry returns to dashboard
+PASS purchases: exactly one active application
+PASS purchases: non-empty visible section
+PASS purchases: task navigation label only
+PASS purchases: task action remains running
+PASS purchases: department entry returns to dashboard
+PASS warehouses: exactly one active application
+PASS warehouses: non-empty visible section
+PASS warehouses: task navigation label only
+PASS warehouses: task action remains running
+PASS warehouses: department entry returns to dashboard
+PASS accounting: exactly one active application
+PASS accounting: non-empty visible section
+PASS accounting: task navigation label only
+PASS accounting: task action remains running
+PASS accounting: department entry returns to dashboard
+PASS platform: exactly one active application
+PASS platform: non-empty visible section
+PASS platform: task navigation label only
+PASS platform: task action remains running
+PASS platform: department entry returns to dashboard
+PASS it: exactly one active application
+PASS it: non-empty visible section
+PASS IT: assets view remains visible after selection
+PASS IT: accounts view remains visible after selection
+PASS IT: subscriptions view remains visible after selection
+PASS IT: tasks view remains visible after selection
+PASS IT: re-entry resets dashboard
+PASS Admin task opens in visible tasks application, not purchases
+PASS Admin task opens the exact selected task
+PASS Task provides explicit return to Administration task list
+PASS Return opens Administration task list and correct background
+PASS Social view is isolated from Marketing customer workspace
+PASS Returning to Marketing shows only its dashboard
+PASS Legacy Marketing root remains hidden
+PASS Marketing discovery: workspace remains present
+PASS Marketing guide: workspace remains present
+PASS Marketing plan: workspace remains present
+PASS Marketing notes: workspace remains present
+PASS Marketing tasks: workspace remains present
+PASS Marketing dashboard: workspace remains present
+PASS Late IT response does not replace currently selected Marketing section
+PASS Rapid navigation keeps last section: admin,it,marketing
+PASS Rapid navigation keeps last section: marketing,admin,design
+PASS Rapid navigation keeps last section: it,photo,admin
+PASS Rapid navigation keeps last section: admin,marketing,it
+PASS Old account overview request is pending for ownership test
+PASS New account starts separate overview request
+PASS Late old-account response cannot overwrite current dashboard
+PASS admin: visible in dark mode
+PASS marketing: visible in dark mode
+PASS it: visible in dark mode
+PASS admin: visible in light mode
+PASS marketing: visible in light mode
+PASS it: visible in light mode
+PASS IT mobile content has no horizontal overflow
+PASS Limited employee can enter assigned department
+PASS Personal-task view stays personal, not renamed as a department-wide grant
+PASS Denied Administration navigation does not open the section
+PASS Denied IT navigation does not expose the vault or registry
+PASS Queued personal-task rendering cannot redirect after leaving department
+PASS No uncaught JavaScript errors in full navigation/roles sweep
+RESULT 110 110
+

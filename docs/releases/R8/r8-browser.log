@@ -1,0 +1,28 @@
+PASS 1 Frontend R8 boots without runtime errors
+PASS 2 All three empty-day activity cards show true zero
+PASS 3 Waste waits for attendance only
+PASS 4 Workday start does not start task
+PASS 5 Receipt does not start timer
+PASS 6 Start confirms task on server
+PASS 7 Live task daily card ticks without waiting for next fetch
+PASS 8 Break stops execution
+PASS 9 Live break card ticks from saved open interval
+PASS 10 No-work closes break
+PASS 11 Live no-work card ticks
+PASS 12 End stops no-work without fingerprint
+PASS 13 Persisted daily task total
+PASS 14 Persisted daily break total
+PASS 15 Persisted daily no_work total
+PASS 16 Daily log opens with no attendance
+PASS 17 Daily task breakdown contains actual30minutes
+PASS 18 Daily log contains all three recorded segments
+PASS 19 No errors after all transitions
+PASS 20 Fresh browser preserves task total
+PASS 21 Fresh browser preserves break total
+PASS 22 Fresh browser preserves no_work total
+PASS 23 Stopped time does not accrue while browser was closed
+PASS 24 Resume old task works
+PASS 25 Resume adds only new execution
+PASS 26 Pause interval excluded from task execution
+PASS 27 No synthetic attendance rows
+PASS 28 No frontend runtime errors after fresh browser

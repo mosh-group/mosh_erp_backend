@@ -1,0 +1,177 @@
+{
+  "passed": 42,
+  "total": 42,
+  "checks": [
+    {
+      "name": "Full app uses R34 release identity",
+      "passed": true
+    },
+    {
+      "name": "Marketing main customer table has serial column",
+      "passed": true
+    },
+    {
+      "name": "Current and previous customer tabs are in actual marketing workspace",
+      "passed": true
+    },
+    {
+      "name": "Customer archive form sends reason before controls disable",
+      "passed": true
+    },
+    {
+      "name": "Archived customer visible in previous tab",
+      "passed": true
+    },
+    {
+      "name": "Reactivation retains original customer ID",
+      "passed": true
+    },
+    {
+      "name": "Hierarchy form transmits configured people and relations",
+      "passed": true
+    },
+    {
+      "name": "Task has new staged chat composer",
+      "passed": true
+    },
+    {
+      "name": "Selecting files does not upload or send",
+      "passed": true
+    },
+    {
+      "name": "Unsent remove leaves no chat tombstone",
+      "passed": true
+    },
+    {
+      "name": "Explicit send uploads selected file and handles lost reply",
+      "passed": true
+    },
+    {
+      "name": "Retry confirms same send without duplicates",
+      "passed": true
+    },
+    {
+      "name": "Successful send clears staged files",
+      "passed": true
+    },
+    {
+      "name": "Edited message shows struck original and new text",
+      "passed": true
+    },
+    {
+      "name": "Deleted text remains struck and names actual deleter",
+      "passed": true
+    },
+    {
+      "name": "Deleted file card stays visible and download removed",
+      "passed": true
+    },
+    {
+      "name": "Existing task editor gets duration choices",
+      "passed": true
+    },
+    {
+      "name": "Relative date preview supplied by server",
+      "passed": true
+    },
+    {
+      "name": "Reopened editor discards transient selection but preserves saved deadline origin",
+      "passed": true
+    },
+    {
+      "name": "Cancellation request sends reason and does not cancel immediately",
+      "passed": true
+    },
+    {
+      "name": "Requester inbox never exposes executive code",
+      "passed": true
+    },
+    {
+      "name": "Confirmed cancellation keeps original chat record",
+      "passed": true
+    },
+    {
+      "name": "Cancelled tasks archive renders retained task",
+      "passed": true
+    },
+    {
+      "name": "Existing Instagram view provides platform switch",
+      "passed": true
+    },
+    {
+      "name": "Facebook page shown in separate official workspace",
+      "passed": true
+    },
+    {
+      "name": "Facebook configuration does not return stored app secret",
+      "passed": true
+    },
+    {
+      "name": "Facebook configuration form transmits only entered settings",
+      "passed": true
+    },
+    {
+      "name": "Official candidate selection sends exact chosen page",
+      "passed": true
+    },
+    {
+      "name": "Facebook draft submits explicit page and mode",
+      "passed": true
+    },
+    {
+      "name": "Facebook publish submits explicit page and mode",
+      "passed": true
+    },
+    {
+      "name": "Facebook schedule submits explicit page and mode",
+      "passed": true
+    },
+    {
+      "name": "Choosing Facebook media alone does not upload",
+      "passed": true
+    },
+    {
+      "name": "Facebook file uploads only on explicit save and is linked to draft",
+      "passed": true
+    },
+    {
+      "name": "Unavailable Facebook insight is not invented as zero",
+      "passed": true
+    },
+    {
+      "name": "Facebook return for correction remains editable",
+      "passed": true
+    },
+    {
+      "name": "Final rejected Facebook request has no edit or cancel control",
+      "passed": true
+    },
+    {
+      "name": "Switching back preserves existing Instagram workspace",
+      "passed": true
+    },
+    {
+      "name": "Future platforms not presented as connected",
+      "passed": true
+    },
+    {
+      "name": "Social workspace remains in light",
+      "passed": true
+    },
+    {
+      "name": "Social workspace remains in dark",
+      "passed": true
+    },
+    {
+      "name": "Facebook workspace fits narrow viewport",
+      "passed": true
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "boundary": "Actual complete HTML/CSS/JS with synthetic records/API. No Laravel SQL/Meta."
+}

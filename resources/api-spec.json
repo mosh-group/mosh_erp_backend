@@ -1,0 +1,1791 @@
+{
+  "status": "design-before-implementation",
+  "basePath": "/api",
+  "resources": {
+    "customers": {
+      "model": "Customer",
+      "statePath": "customers",
+      "module": "sales",
+      "fields": [
+        "type",
+        "name",
+        "legalName",
+        "industry",
+        "contact",
+        "jobTitle",
+        "phone",
+        "alternatePhone",
+        "whatsapp",
+        "email",
+        "website",
+        "country",
+        "city",
+        "address",
+        "billingAddress",
+        "deliveryAddress",
+        "taxNumber",
+        "commercialRegister",
+        "paymentTerms",
+        "currency",
+        "salesperson",
+        "source",
+        "preferredContact",
+        "notes",
+        "active",
+        "secondaryContacts",
+        "marketingProfile",
+        "accountCode22",
+        "paymentDays",
+        "archiveHistory",
+        "nameAr",
+        "nameEn"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "شركة العميل",
+        "type": "company",
+        "active": true,
+        "currency": "USD",
+        "secondaryContacts": []
+      },
+      "behavior": "Normalized name is unique; optional emails must be valid; contact names are required for populated secondary-contact rows. Marketing profile writes require marketing permissions; finance master fields require accounting permission. Renames retain stable customer links. Marketing plans enforce draft/rejected → review → approved/rejected and manager-only decisions.",
+      "source": "02,19,24,34,40,41",
+      "mode": "array",
+      "delete": true
+    },
+    "services": {
+      "model": "Service",
+      "statePath": "services",
+      "module": "sales",
+      "fields": [
+        "name",
+        "category",
+        "serviceDescription",
+        "active",
+        "serviceCode"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "جلسة تصوير",
+        "category": "التصوير",
+        "serviceDescription": "تصوير منتجات",
+        "active": true
+      },
+      "behavior": "Unique normalized name. References survive edits.",
+      "source": "02,19",
+      "mode": "array",
+      "delete": true
+    },
+    "salespeople": {
+      "model": "Salesperson",
+      "statePath": "salespeople",
+      "module": "sales",
+      "fields": [
+        "name",
+        "phone",
+        "email",
+        "jobTitle",
+        "salesTeam",
+        "active",
+        "notes"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "مندوب مبيعات",
+        "active": true
+      },
+      "behavior": "Validate optional email and known team when assigned.",
+      "source": "02",
+      "mode": "array",
+      "delete": true
+    },
+    "sales-teams": {
+      "model": "SalesTeam",
+      "statePath": "salesTeamsCfg",
+      "module": "sales",
+      "fields": [
+        "name",
+        "leader",
+        "members",
+        "active",
+        "notes"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "فريق المبيعات",
+        "members": [],
+        "active": true
+      },
+      "behavior": "Members and leader must identify existing salespeople; no duplicate members.",
+      "source": "02",
+      "mode": "array",
+      "delete": true
+    },
+    "quotation-templates": {
+      "model": "QuotationTemplate",
+      "statePath": "quoteTemplates",
+      "module": "sales",
+      "fields": [
+        "name",
+        "style",
+        "validityDays",
+        "defaultNotes",
+        "isDefault",
+        "active"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "رسمي",
+        "style": "official",
+        "validityDays": 7,
+        "isDefault": false,
+        "active": true
+      },
+      "behavior": "style: official/compact/detailed; validityDays is nonnegative; exactly one active default when defaults exist.",
+      "source": "02",
+      "mode": "array",
+      "delete": true
+    },
+    "service-contracts": {
+      "model": "ServiceContract",
+      "statePath": "serviceContracts",
+      "module": "sales",
+      "fields": [
+        "contractNumber",
+        "contractTitle",
+        "customer",
+        "customerId",
+        "customerRepresentative",
+        "customerRepresentativeTitle",
+        "moshRepresentative",
+        "status",
+        "startDate",
+        "endDate",
+        "autoRenew",
+        "renewalPeriod",
+        "noticeDays",
+        "currency",
+        "billingCycle",
+        "paymentDueDays",
+        "taxRate",
+        "lines",
+        "scopeText",
+        "moshObligations",
+        "clientObligations",
+        "confidentiality",
+        "intellectualProperty",
+        "termination",
+        "forceMajeure",
+        "disputes",
+        "additionalTerms",
+        "clientSignatory",
+        "clientSignatoryTitle",
+        "moshSignatory",
+        "moshSignatoryTitle"
+      ],
+      "required": [
+        "contractTitle",
+        "customer"
+      ],
+      "example": {
+        "contractTitle": "عقد خدمات",
+        "customer": "شركة العميل",
+        "status": "draft",
+        "currency": "USD",
+        "taxRate": 0,
+        "lines": []
+      },
+      "behavior": "status: draft/active/expired/cancelled; endDate ≥ startDate; active contracts need at least one line. Each line has service, description, qty > 0 and price ≥ 0; taxRate 0–100; the existing renderer calculates displayed totals from stored lines.",
+      "source": "02",
+      "mode": "array",
+      "delete": false
+    },
+    "quotations": {
+      "model": "Quotation",
+      "statePath": "quotations",
+      "module": "sales",
+      "fields": [
+        "number",
+        "title",
+        "status",
+        "customer",
+        "customerId",
+        "invoiceAddress",
+        "deliveryAddress",
+        "template",
+        "expiration",
+        "pricelist",
+        "paymentTerms",
+        "salesperson",
+        "salesTeam",
+        "company",
+        "onlineSignature",
+        "onlinePayment",
+        "prepayment",
+        "deliveryDate",
+        "fiscalPosition",
+        "customerReference",
+        "sourceDocument",
+        "campaign",
+        "medium",
+        "source",
+        "lines",
+        "optional",
+        "notes",
+        "quoteBuilder",
+        "quoteFollowup",
+        "salesFollowup",
+        "followupNotes",
+        "chatter",
+        "invoiceCreated",
+        "sentAt",
+        "confirmedAt",
+        "cancelledAt"
+      ],
+      "required": [
+        "customer"
+      ],
+      "example": {
+        "customer": "شركة العميل",
+        "status": "draft",
+        "lines": [
+          {
+            "type": "product",
+            "product": "جلسة تصوير",
+            "description": "تصوير",
+            "qty": 1,
+            "price": 100,
+            "discount": 0,
+            "tax": 0,
+            "cost": 50
+          }
+        ],
+        "optional": [],
+        "notes": ""
+      },
+      "behavior": "Stages: draft/sent/order/cancel. Product rows require qty > 0, price/cost ≥ 0, discount/tax 0–100; section/note rows require description. Displayed quote totals are calculated from persisted product lines; invoice totals are independently recalculated on the server. Order confirmation is an authorized status operation; linked orders cannot be deleted while tasks/invoices exist. Optional rows require product, positive qty and nonnegative price. Chatter is stored with the quotation; all mutations also receive an independent authenticated server audit event.",
+      "source": "02,19,24",
+      "mode": "array",
+      "delete": true
+    },
+    "tasks": {
+      "model": "Task",
+      "statePath": "salesTasks",
+      "module": "tasks",
+      "fields": [
+        "number",
+        "taskNo",
+        "parentTaskId",
+        "parentTaskNo",
+        "parentTaskTitle",
+        "salesOrderId",
+        "salesOrderNo",
+        "origin",
+        "customer",
+        "customerId",
+        "title",
+        "description",
+        "department",
+        "assignee",
+        "assigneeId",
+        "assignmentMode",
+        "employeeState",
+        "reviewManager",
+        "returnedForRevision",
+        "dueDate",
+        "notes",
+        "attachments",
+        "status",
+        "history",
+        "workChat",
+        "workTiming",
+        "sharedDistributionRoot",
+        "sharedDistributionMode",
+        "sharedDistributionVersion",
+        "sharedOriginalDepartment",
+        "sharedLeadDepartment",
+        "sharedCreatedAt",
+        "sharedCreatedBy",
+        "sharedReady",
+        "sharedReadyAt",
+        "sharedPreviousDepartment",
+        "sharedDistributionChild",
+        "sharedNodeType",
+        "sharedRootTaskId",
+        "sharedDepartment",
+        "sharedVersion",
+        "sharedTeamContainer",
+        "sharedTeamLead",
+        "sharedLead",
+        "packageReady",
+        "packageReadyAt",
+        "closedFromDepartment",
+        "closedAt",
+        "closedBy",
+        "completedAt",
+        "completedBy",
+        "archiveBillingType",
+        "archivedAt",
+        "archivedBy",
+        "finalizedAccountingAt",
+        "finalizedAccountingBy",
+        "invoicedAt",
+        "noInvoiceAt",
+        "restoredAt",
+        "restoredBy",
+        "restoredFromArchiveStatus",
+        "restoredToDepartment",
+        "finance21InvoiceId",
+        "finance21ExternalInvoice",
+        "finance21Reason",
+        "serviceCode",
+        "serviceDescription",
+        "isUrgent",
+        "urgent",
+        "priority",
+        "urgentUpdatedAt",
+        "urgentUpdatedBy",
+        "urgentUpdatedByName",
+        "urgentReason",
+        "dueRule",
+        "cancellation"
+      ],
+      "required": [
+        "title",
+        "customer",
+        "department"
+      ],
+      "example": {
+        "title": "تصوير المنتج",
+        "customer": "شركة العميل",
+        "department": "التصوير",
+        "status": "in_progress",
+        "assignmentMode": "manager",
+        "employeeState": "new",
+        "assignee": "",
+        "attachments": []
+      },
+      "behavior": "Scoped by mine/department/all and module action. Assignee must be an active linked employee in the target department or its appointed manager. Customer and optional order/parent must exist. Enforce task transitions and server-owned timing/history; shared children cannot escape their root or introduce cycles. Submitted work returns only to the assignee or completes through the manager/accounting route. Validate completed children before package billing.",
+      "source": "02,09,24,30,37,44–51",
+      "mode": "array",
+      "delete": true
+    },
+    "employees": {
+      "model": "Employee",
+      "statePath": "staffProfiles",
+      "module": "hr",
+      "fields": [
+        "employeeNo",
+        "username",
+        "name",
+        "department",
+        "jobTitle",
+        "employmentType",
+        "hireDate",
+        "employmentStatus",
+        "active",
+        "phone",
+        "email",
+        "notes",
+        "directManager",
+        "isManager",
+        "documents",
+        "statusHistory",
+        "resignationHistory",
+        "resignationDate",
+        "resignationReason",
+        "leaveRecords",
+        "attendanceRecords",
+        "delayRecords",
+        "disciplinaryRecords",
+        "rewardRecords",
+        "evaluationRecords",
+        "payrollRecords",
+        "fatherName",
+        "motherName",
+        "nationalId",
+        "nationality",
+        "birthDate",
+        "birthPlace",
+        "gender",
+        "maritalStatus",
+        "identifyingMarks",
+        "personalEmail",
+        "hasHealthCondition",
+        "healthDetails",
+        "emergencyPhone",
+        "emergencyContactName",
+        "emergencyRelation",
+        "address",
+        "city",
+        "country",
+        "company",
+        "branch",
+        "workMode",
+        "contractType",
+        "probationMonths",
+        "probationEndDate",
+        "contractEndDate",
+        "serviceEndReasonType",
+        "lastWorkDay",
+        "hasRelatives",
+        "relativesDetails",
+        "corporateEmail",
+        "extension",
+        "systemUsername",
+        "issuedAssets",
+        "educationDegree",
+        "educationUniversity",
+        "educationSpecialization",
+        "graduationYear",
+        "drivingLicenseType",
+        "drivingLicenseNumber",
+        "drivingLicenseExpiry",
+        "offboarding",
+        "assets",
+        "auditTrail",
+        "plannedTimeCoefficient",
+        "annualLeaveDays",
+        "sickLeaveDays",
+        "workdayHours",
+        "leaveOpeningBalance",
+        "leaveBalanceAdjustment",
+        "performanceWeights",
+        "hrNoticeArchive",
+        "fieldWorkTemplateId",
+        "fieldTemplateId",
+        "salary",
+        "basicSalary",
+        "hourlyRate",
+        "currency",
+        "payrollCurrency",
+        "payrollBasis",
+        "monthlySalary",
+        "expectedMonthlyHours",
+        "passportNumber",
+        "residenceNumber",
+        "zktecoEnrollmentNumber",
+        "zktecoExempt",
+        "attendanceMode",
+        "leaveUsedBeforeSystemByYear"
+      ],
+      "required": [
+        "name",
+        "department"
+      ],
+      "example": {
+        "name": "موظف تجريبي",
+        "department": "التصوير",
+        "jobTitle": "مصور",
+        "employmentStatus": "active",
+        "active": true,
+        "hireDate": "2026-01-01",
+        "documents": [],
+        "leaveRecords": [],
+        "attendanceRecords": []
+      },
+      "behavior": "HR profile writes are atomic, including staged leave/attendance/document changes. Own/manager directory projections must omit unauthorized private fields. Protect current/root profile; reject deletion with live tasks or signed contracts. Status active/inactive/resigned; resigned needs date/reason. Validate emails, dates, leave overlap, attendance duplicates/breaks; the staged HR editor calculates entitlement and requests overrides, documents, evaluations 0–100, disciplinary reasons and linked approvals. R29 adds draft, gated activation and server-protected attendance/evaluations. Contract not required for activation.",
+      "source": "02,16–19,35",
+      "mode": "array",
+      "delete": true
+    },
+    "hr-requests": {
+      "model": "HrRequest",
+      "statePath": "hrProRequests",
+      "module": "hr",
+      "fields": [
+        "type",
+        "employeeId",
+        "employeeName",
+        "department",
+        "manager",
+        "createdDate",
+        "status",
+        "route",
+        "stageIndex",
+        "reason",
+        "data",
+        "history",
+        "completedAt",
+        "managerDecision",
+        "managerDecisionAt",
+        "managerDecisionBy",
+        "managerDecisionNote",
+        "finalSeenAt",
+        "finalSeenBy",
+        "resultSeenAt",
+        "resultSeenBy",
+        "employeeSeenAt",
+        "employeeSeenBy",
+        "managerNote",
+        "r34Approval"
+      ],
+      "required": [
+        "type",
+        "employeeId",
+        "reason"
+      ],
+      "example": {
+        "type": "annual_leave",
+        "employeeId": "EMP-1",
+        "reason": "إجازة",
+        "data": {
+          "startDate": "2026-10-01",
+          "endDate": "2026-10-02"
+        },
+        "status": "pending"
+      },
+      "behavior": "Types/routes are the exact HR request table below. Route and actor are server-derived. Only the current manager/department stage can approve/reject; once final, source effects apply once. Self-service cannot impersonate another employee. Final-result acknowledgement is limited to the affected employee. Type-specific dates, times, amount, destination and documents are validated.",
+      "source": "04,16,30–33",
+      "mode": "array",
+      "delete": false
+    },
+    "hr-approvals": {
+      "model": "HrApproval",
+      "statePath": "hrApprovals",
+      "module": "hr",
+      "fields": [
+        "type",
+        "employeeId",
+        "employeeName",
+        "sourceId",
+        "title",
+        "payload",
+        "levels",
+        "currentLevel",
+        "status",
+        "history",
+        "completedAt",
+        "r34Approval"
+      ],
+      "required": [
+        "type",
+        "employeeId",
+        "title"
+      ],
+      "example": {
+        "type": "leave_override",
+        "employeeId": "EMP-1",
+        "title": "تجاوز رصيد إجازة",
+        "payload": {
+          "days": 2
+        },
+        "status": "pending"
+      },
+      "behavior": "Legacy approval kinds: leave_override/disciplinary/reward/termination. Stage, source record and actor are validated; source effect applies once. No arbitrary employee-provided approval level.",
+      "source": "02,20",
+      "mode": "array",
+      "delete": false
+    },
+    "requisitions": {
+      "model": "Requisition",
+      "statePath": "hrRecruitmentRequisitions",
+      "module": "hr",
+      "fields": [
+        "title",
+        "department",
+        "headcount",
+        "status",
+        "approved",
+        "candidates"
+      ],
+      "required": [
+        "title",
+        "department",
+        "headcount"
+      ],
+      "example": {
+        "title": "مصور",
+        "department": "التصوير",
+        "headcount": 1,
+        "status": "open",
+        "candidates": []
+      },
+      "behavior": "headcount is a positive integer; status open/closed. Candidates have unique IDs, name/contact/stage/notes/interviewDate/interviewTime/interviewer/interviewLocation/interviewStatus/decisionAt/history. Interview requires date/time; accepted requires completed interview; rejection before interview requires reason.",
+      "source": "04,16,19,20",
+      "mode": "array",
+      "delete": true
+    },
+    "offboarding": {
+      "model": "OffboardingCase",
+      "statePath": "hrOffboardingCases",
+      "module": "hr",
+      "fields": [
+        "employeeId",
+        "employeeName",
+        "reason",
+        "lastWorkDay",
+        "hr",
+        "logistics",
+        "accounting",
+        "system",
+        "status",
+        "requestId"
+      ],
+      "required": [
+        "employeeId",
+        "reason"
+      ],
+      "example": {
+        "employeeId": "EMP-1",
+        "reason": "انتهاء التعاقد",
+        "lastWorkDay": "2026-10-01",
+        "hr": false,
+        "logistics": false,
+        "accounting": false,
+        "system": false,
+        "status": "open"
+      },
+      "behavior": "Each clearance is restricted to its responsible department or authorized administration; close only after all required clearances, then set employee resigned/inactive. Retain tasks and audit.",
+      "source": "04,16",
+      "mode": "array",
+      "delete": false
+    },
+    "recognition": {
+      "model": "Recognition",
+      "statePath": "hrRecognition",
+      "module": "hr",
+      "fields": [
+        "type",
+        "employeeId",
+        "employeeName",
+        "reason",
+        "month"
+      ],
+      "required": [
+        "type",
+        "employeeId",
+        "reason"
+      ],
+      "example": {
+        "type": "appreciation",
+        "employeeId": "EMP-1",
+        "reason": "إنجاز المهمة",
+        "month": "2026-09"
+      },
+      "behavior": "Recognition generated from approved requests must keep its source ID and cannot be applied twice.",
+      "source": "04",
+      "mode": "array",
+      "delete": true
+    },
+    "announcements": {
+      "model": "Announcement",
+      "statePath": "hrAnnouncements",
+      "module": "hr",
+      "fields": [
+        "type",
+        "title",
+        "message",
+        "targetType",
+        "targetValue",
+        "targetName",
+        "sourceDepartment",
+        "active",
+        "readBy",
+        "readAtBy",
+        "recipientSnapshots",
+        "recipientIds",
+        "deletedAt",
+        "deletedBy",
+        "createdById"
+      ],
+      "required": [
+        "type",
+        "title",
+        "message",
+        "targetType"
+      ],
+      "example": {
+        "type": "announcement",
+        "title": "تعميم",
+        "message": "نص التعميم",
+        "targetType": "all",
+        "targetValue": "",
+        "active": true
+      },
+      "behavior": "Snapshot eligible recipients at send time. Own read receipts are idempotent and cannot acknowledge for others. Alert copies are preserved in employee archives; deleting one copy is scoped to that employee. Deleting the original soft-deletes its visible copies but retains audit.",
+      "source": "08,14,19",
+      "mode": "array",
+      "delete": true
+    },
+    "employment-contracts": {
+      "model": "EmploymentContract",
+      "statePath": "employeeContracts",
+      "module": "hr",
+      "fields": [
+        "number",
+        "employeeId",
+        "employeeName",
+        "employeeNo",
+        "company",
+        "companyRepresentative",
+        "companyAddress",
+        "jobTitle",
+        "department",
+        "type",
+        "employmentType",
+        "workMode",
+        "startDate",
+        "endDate",
+        "salary",
+        "currency",
+        "payCycle",
+        "workHours",
+        "weeklyDays",
+        "annualLeave",
+        "probationMonths",
+        "workLocation",
+        "jurisdiction",
+        "duties",
+        "noticeTerms",
+        "benefits",
+        "employerRepresentative",
+        "employeeAddress",
+        "nationalId",
+        "clauses",
+        "terms",
+        "notes",
+        "signatures",
+        "status",
+        "parentContractId",
+        "version",
+        "templateType",
+        "commonClauses",
+        "typeClauses",
+        "customClauses",
+        "dutyClauses",
+        "conditionClauses",
+        "templateVersion"
+      ],
+      "required": [
+        "employeeId",
+        "employeeName",
+        "company",
+        "jobTitle",
+        "type",
+        "startDate"
+      ],
+      "example": {
+        "employeeId": "EMP-1",
+        "employeeName": "موظف تجريبي",
+        "company": "Mosh Group",
+        "jobTitle": "مصور",
+        "type": "دائم",
+        "startDate": "2026-01-01",
+        "salary": 500,
+        "currency": "USD",
+        "workHours": 8,
+        "status": "draft",
+        "signatures": {}
+      },
+      "behavior": "Employee must exist; salary ≥ 0; workHours 1–24; end ≥ start; temporary/probation/training needs endDate. Once any signature exists terms are immutable. Signature side employer/employee is write-once, name and bounded strokes required; the dialog requires consent, strokes bounded. Both signed → signed; one → pending_signature. Signed DELETE is rejected; PATCH status=archived archives; duplication clears signatures and creates next version.",
+      "source": "18,19",
+      "mode": "array",
+      "delete": true
+    },
+    "executive-reports": {
+      "model": "ExecutiveReport",
+      "statePath": "executiveReports",
+      "module": "admin",
+      "fields": [
+        "department",
+        "departmentKey",
+        "type",
+        "title",
+        "priority",
+        "period",
+        "sender",
+        "summary",
+        "executiveNeed",
+        "status",
+        "review",
+        "reviewNote",
+        "reviewedAt",
+        "reviewedBy"
+      ],
+      "required": [
+        "title",
+        "summary",
+        "department"
+      ],
+      "example": {
+        "title": "تقرير القسم",
+        "summary": "ملخص العمل",
+        "department": "التصوير",
+        "departmentKey": "photo",
+        "type": "تقرير تنفيذي",
+        "priority": "للاطلاع فقط",
+        "status": "جديد"
+      },
+      "behavior": "Department submitters can create and read their reports; management reviews status/comments without rewriting the original author/summary.",
+      "source": "10,11,20",
+      "mode": "array",
+      "delete": false
+    },
+    "admin-decisions": {
+      "model": "AdminDecision",
+      "statePath": "adminDecisions16",
+      "module": "admin",
+      "fields": [
+        "title",
+        "status",
+        "date",
+        "time",
+        "owner",
+        "department",
+        "location",
+        "participants",
+        "body",
+        "notes",
+        "history"
+      ],
+      "required": [
+        "title"
+      ],
+      "example": {
+        "title": "اجتماع الإدارة",
+        "status": "draft",
+        "date": "2026-09-21",
+        "body": "محضر الاجتماع"
+      },
+      "behavior": "Administration writes only; keep prior revisions in audit. Date/time must be valid.",
+      "source": "20",
+      "mode": "array",
+      "delete": true
+    },
+    "admin-meetings": {
+      "model": "AdminMeeting",
+      "statePath": "adminMeetings16",
+      "module": "admin",
+      "fields": [
+        "title",
+        "status",
+        "date",
+        "time",
+        "owner",
+        "department",
+        "location",
+        "participants",
+        "body",
+        "notes",
+        "history"
+      ],
+      "required": [
+        "title"
+      ],
+      "example": {
+        "title": "اجتماع الإدارة",
+        "status": "draft",
+        "date": "2026-09-21",
+        "body": "محضر الاجتماع"
+      },
+      "behavior": "Administration writes only; keep prior revisions in audit. Date/time must be valid.",
+      "source": "20",
+      "mode": "array",
+      "delete": true
+    },
+    "work-presence": {
+      "model": "WorkPresence",
+      "statePath": "workEvidence",
+      "module": "dashboard",
+      "fields": [
+        "name",
+        "mode",
+        "startedAt",
+        "breakAt",
+        "endedAt",
+        "pausedTaskId",
+        "noWork",
+        "noWorkAt",
+        "updatedAt",
+        "employeeId"
+      ],
+      "required": [
+        "mode"
+      ],
+      "example": {
+        "mode": "active",
+        "noWork": false,
+        "id": "id:EMP-1"
+      },
+      "behavior": "Own record only for writes. Server sets employee/actor/time; the existing action submits task pause/resume and presence changes together; server recomputes task elapsed time. Manager/admin reads are scoped.",
+      "source": "09,15,35,36",
+      "mode": "map",
+      "delete": false
+    },
+    "field-work": {
+      "model": "FieldWork",
+      "statePath": "fieldWorkV30B.employees",
+      "module": "dashboard",
+      "fields": [
+        "employeeId",
+        "employeeName",
+        "name",
+        "currentStatus",
+        "statusAt",
+        "workState",
+        "activities",
+        "fieldTemplateId",
+        "fieldTemplateLabel",
+        "startedAt",
+        "endedAt",
+        "updatedAt",
+        "department",
+        "shiftStartAt"
+      ],
+      "required": [],
+      "example": {
+        "currentStatus": "",
+        "workState": "working",
+        "activities": [],
+        "id": "EMP-1",
+        "employeeId": "EMP-1",
+        "fieldTemplateId": "FIELD-TEMPLATE-1"
+      },
+      "behavior": "Own assigned active template only. Status and activity identifiers must belong to it. Event actor and timestamps are server-controlled.",
+      "source": "35,36",
+      "mode": "map",
+      "delete": false
+    },
+    "field-templates": {
+      "model": "FieldTemplate",
+      "statePath": "fieldWorkSettingsV30B.templates",
+      "module": "hr",
+      "fields": [
+        "label",
+        "active",
+        "statuses",
+        "activities"
+      ],
+      "required": [
+        "label"
+      ],
+      "example": {
+        "label": "مصور",
+        "active": true,
+        "statuses": [
+          {
+            "id": "office",
+            "label": "بالشركة",
+            "active": true,
+            "order": 1
+          }
+        ],
+        "activities": []
+      },
+      "behavior": "Template item IDs unique, label nonempty, active flag boolean. Templates and their item ordering are stored independently; deactivate templates that should no longer be assigned.",
+      "source": "35",
+      "mode": "array",
+      "delete": true
+    },
+    "wisdom": {
+      "model": "Wisdom",
+      "statePath": "wisdom.items",
+      "module": "hr",
+      "fields": [
+        "text",
+        "enabled"
+      ],
+      "required": [
+        "text"
+      ],
+      "example": {
+        "text": "معاً نصنع الفرق.",
+        "enabled": true
+      },
+      "behavior": "Trim and deduplicate text; preserve ordering and enable/disable behavior. Do not reseed deleted real content.",
+      "source": "20,26,28",
+      "mode": "array",
+      "delete": true
+    },
+    "support-requests": {
+      "model": "SupportRequest",
+      "statePath": "supportRequests",
+      "module": "purchases",
+      "fields": [
+        "requestNo",
+        "type",
+        "taskId",
+        "taskNo",
+        "taskTitle",
+        "customer",
+        "sourceDepartment",
+        "destinationDepartment",
+        "item",
+        "quantity",
+        "details",
+        "neededDate",
+        "neededTime",
+        "priority",
+        "title",
+        "location",
+        "logisticsType",
+        "status",
+        "assignedTo",
+        "attachments",
+        "history",
+        "operation18",
+        "responseNote",
+        "supplier",
+        "createdById"
+      ],
+      "required": [
+        "type",
+        "title",
+        "details"
+      ],
+      "example": {
+        "type": "purchase",
+        "title": "شراء معدات",
+        "details": "معدات لمهمة تصوير",
+        "priority": "normal",
+        "status": "new",
+        "operation18": {
+          "phase": "new",
+          "version": 1,
+          "lines": [
+            {
+              "id": "L1",
+              "name": "بطارية",
+              "qty": 1,
+              "unit": "قطعة",
+              "kind": "goods",
+              "spec": ""
+            }
+          ],
+          "quotes": [],
+          "receipts": []
+        }
+      },
+      "behavior": "type purchase/logistics. Creator identity and source task are checked. Purchase transitions, quoted version, offer expiry, reasons, approval authority, accepted quantities and stock effects are transactional. Logistics scheduling rejects resource/person overlaps and other-customer goods. Complete requires receiver/proof; unresolved linked purchases block execution.",
+      "source": "02,22",
+      "mode": "array",
+      "delete": false
+    },
+    "warehouses": {
+      "model": "Warehouse",
+      "statePath": "operations18.warehouses",
+      "module": "warehouses",
+      "fields": [
+        "name",
+        "kind",
+        "location",
+        "managerId",
+        "active"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "مستودع المعدات",
+        "kind": "equipment",
+        "location": "دمشق",
+        "managerId": "",
+        "active": true
+      },
+      "behavior": "Unique name; manager is active employee; cannot deactivate with stock, active reservations or outstanding custody. kind accepts general (default), equipment, internal and customer, preserving original seeded definitions.",
+      "source": "22",
+      "mode": "array",
+      "delete": false
+    },
+    "stock-items": {
+      "model": "StockItem",
+      "statePath": "operations18.items",
+      "module": "warehouses",
+      "fields": [
+        "sku",
+        "barcode",
+        "name",
+        "unit",
+        "category",
+        "tracking",
+        "owner",
+        "customer",
+        "serial",
+        "minQty",
+        "notes",
+        "active"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "كاميرا",
+        "unit": "قطعة",
+        "category": "equipment",
+        "tracking": "serial",
+        "owner": "company",
+        "serial": "CAM-001",
+        "barcode": "12345",
+        "minQty": 0,
+        "active": true
+      },
+      "behavior": "Unique normalized serial/barcode; serial tracking needs serial; customer ownership requires existing customer; minQty ≥ 0. tracking: serial/returnable/consumable.",
+      "source": "22",
+      "mode": "array",
+      "delete": false
+    },
+    "stock-movements": {
+      "model": "StockMovement",
+      "statePath": "operations18.movements",
+      "module": "warehouses",
+      "fields": [
+        "number",
+        "type",
+        "itemId",
+        "qty",
+        "from",
+        "to",
+        "date",
+        "employeeId",
+        "employeeName",
+        "party",
+        "reason",
+        "condition",
+        "authorization",
+        "dueDate",
+        "refMoveId",
+        "logisticsId",
+        "purchaseId",
+        "receiptId",
+        "purchaseLineId",
+        "at",
+        "by",
+        "byId",
+        "voided",
+        "voidedAt",
+        "voidedBy",
+        "voidReason"
+      ],
+      "required": [
+        "type",
+        "itemId",
+        "qty",
+        "date"
+      ],
+      "example": {
+        "type": "opening",
+        "itemId": "ITEM-1",
+        "qty": 1,
+        "from": "",
+        "to": "WH-1",
+        "date": "2026-09-21",
+        "reason": "افتتاحية"
+      },
+      "behavior": "Types: opening/receipt/purchase_receipt/transfer/issue/return/consume/customer_return/damage. Positive qty, serial exactly 1; never negative available stock. Validate direction, warehouse authority, related approval, customer ownership, reservations and custody remainder. Entry is immutable except authorized eligible reversal; linked purchase/custody movements cannot reverse independently.",
+      "source": "22",
+      "mode": "array",
+      "delete": false
+    },
+    "reservations": {
+      "model": "Reservation",
+      "statePath": "operations18.reservations",
+      "module": "logistics",
+      "fields": [
+        "logisticsId",
+        "itemId",
+        "warehouseId",
+        "qty",
+        "start",
+        "end",
+        "status",
+        "movementId",
+        "at",
+        "by"
+      ],
+      "required": [
+        "logisticsId",
+        "itemId",
+        "warehouseId",
+        "qty",
+        "start",
+        "end"
+      ],
+      "example": {
+        "logisticsId": "LOG-1",
+        "itemId": "ITEM-1",
+        "warehouseId": "WH-1",
+        "qty": 1,
+        "start": "2026-09-21T09:00:00",
+        "end": "2026-09-21T12:00:00",
+        "status": "reserved"
+      },
+      "behavior": "Positive qty; end > start; validate active item/warehouse and peak overlap availability. Status reserved/released/issued/completed; fulfillment links an authorized stock issue.",
+      "source": "22",
+      "mode": "array",
+      "delete": false
+    },
+    "suppliers": {
+      "model": "Supplier",
+      "statePath": "operations18.suppliers",
+      "module": "purchases",
+      "fields": [
+        "name",
+        "contact",
+        "phone",
+        "email",
+        "address",
+        "notes",
+        "active",
+        "taxNumber",
+        "currency",
+        "paymentDays",
+        "accountCode22"
+      ],
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "مورد معدات",
+        "active": true,
+        "currency": "USD",
+        "paymentDays": 30
+      },
+      "behavior": "Unique normalized name; valid email; paymentDays 0–3650. Catalog shared with accounting.",
+      "source": "22,24",
+      "mode": "array",
+      "delete": false
+    },
+    "invoices": {
+      "model": "Invoice",
+      "statePath": "invoices",
+      "module": "accounting",
+      "fields": [
+        "number",
+        "customer",
+        "source",
+        "total",
+        "currency",
+        "status",
+        "finance21"
+      ],
+      "required": [
+        "customer"
+      ],
+      "example": {
+        "customer": "شركة العميل",
+        "currency": "USD",
+        "finance21": {
+          "kind": "customer",
+          "status": "draft",
+          "currency": "USD",
+          "date": "2026-09-21",
+          "dueDate": "2026-10-21",
+          "lines": [
+            {
+              "name": "خدمة",
+              "qty": 1,
+              "price": 100,
+              "discount": 0,
+              "tax": 0
+            }
+          ],
+          "notes": ""
+        }
+      },
+      "behavior": "Server calculates integer minor-unit finance totals. Active source order can have only one linked invoice. Posted document cannot edit; cancellation requires no payments and no archived billed task. Existing UI uses INV:<id> finance identity.",
+      "source": "02,24",
+      "mode": "array",
+      "delete": false
+    },
+    "financial-documents": {
+      "model": "FinancialDocument",
+      "statePath": "finance21.documents",
+      "module": "accounting",
+      "fields": [
+        "number",
+        "kind",
+        "status",
+        "party",
+        "partyId",
+        "sourceId",
+        "sourceLabel",
+        "approvalId",
+        "reference",
+        "currency",
+        "date",
+        "dueDate",
+        "lines",
+        "total",
+        "net",
+        "tax",
+        "category",
+        "department",
+        "taskId",
+        "period",
+        "notes",
+        "files",
+        "postedAt",
+        "postedBy",
+        "approvedAt",
+        "approvedBy",
+        "decisionReason",
+        "cancelledAt",
+        "cancelledBy",
+        "cancelReason",
+        "standalone22",
+        "ledgerAccount22",
+        "opening22",
+        "payroll23"
+      ],
+      "required": [
+        "kind",
+        "currency",
+        "date",
+        "dueDate",
+        "reference"
+      ],
+      "example": {
+        "kind": "vendor",
+        "partyId": "SUPPLIER-1",
+        "party": "مورد معدات",
+        "reference": "BILL-001",
+        "currency": "USD",
+        "date": "2026-09-21",
+        "dueDate": "2026-10-21",
+        "status": "draft",
+        "standalone22": true,
+        "notes": "شراء مباشر",
+        "lines": [
+          {
+            "name": "بطارية",
+            "qty": 1,
+            "price": 50,
+            "discount": 0,
+            "tax": 0
+          }
+        ]
+      },
+      "behavior": "kind vendor/employee/expense; status draft/review/posted/cancelled. Validate party, approval, source quantities/currency and duplicate vendor reference/employee period. Draft only editing; standalone vendor bill and unlinked employee payable/expense require management approval. Locked/future posting is rejected. Server recalculates totals and linked HR amounts. Payroll documents move only with entire payroll run.",
+      "source": "24",
+      "mode": "array",
+      "delete": false
+    },
+    "cash-accounts": {
+      "model": "CashAccount",
+      "statePath": "finance21.accounts",
+      "module": "accounting",
+      "fields": [
+        "name",
+        "currency",
+        "type",
+        "opening",
+        "openingDate",
+        "active"
+      ],
+      "required": [
+        "name",
+        "currency",
+        "type",
+        "openingDate"
+      ],
+      "example": {
+        "name": "الصندوق",
+        "currency": "USD",
+        "type": "cash",
+        "opening": 100000,
+        "openingDate": "2026-09-21",
+        "active": true
+      },
+      "behavior": "Administration creates cash/bank account; unique name+currency. Opening is integer minor units, nonnegative and dated no later than today, outside locked period.",
+      "source": "24",
+      "mode": "array",
+      "delete": false
+    },
+    "payments": {
+      "model": "Payment",
+      "statePath": "finance21.payments",
+      "module": "accounting",
+      "fields": [
+        "number",
+        "kind",
+        "currency",
+        "date",
+        "amount",
+        "docId",
+        "accountId",
+        "toAccountId",
+        "reference",
+        "party",
+        "partyId",
+        "sourceId",
+        "advanceId",
+        "files",
+        "note",
+        "token",
+        "at",
+        "by",
+        "approvalId",
+        "reversedAt",
+        "reversedBy",
+        "reverseReason",
+        "reverses"
+      ],
+      "required": [
+        "kind",
+        "currency",
+        "date",
+        "amount",
+        "reference"
+      ],
+      "example": {
+        "kind": "receipt",
+        "currency": "USD",
+        "date": "2026-09-21",
+        "amount": 10000,
+        "docId": "INV:1",
+        "accountId": "ACC-1",
+        "reference": "RCPT-001",
+        "token": "unique-operation-key"
+      },
+      "behavior": "Integer minor-unit amount > 0. Enforce posted document, correct cash direction/currency, outstanding amount, source caps, same-party available advance, duplicate token/reference and no negative cash at any date. kind receipt/payout/supplier_advance/transfer/apply_advance/employee_return/employee_offset/reversal. Reversal preserves original and validates downstream settlements.",
+      "source": "24",
+      "mode": "array",
+      "delete": false
+    },
+    "journal-entries": {
+      "model": "JournalEntry",
+      "statePath": "finance22.journal",
+      "module": "accounting",
+      "fields": [
+        "key",
+        "number",
+        "date",
+        "currency",
+        "reference",
+        "memo",
+        "lines",
+        "source",
+        "manual",
+        "reverses",
+        "at",
+        "by",
+        "fingerprint",
+        "total",
+        "postedAt",
+        "postedBy"
+      ],
+      "required": [
+        "date",
+        "currency",
+        "reference",
+        "memo",
+        "lines"
+      ],
+      "example": {
+        "date": "2026-09-21",
+        "currency": "USD",
+        "reference": "JV-001",
+        "memo": "قيد يدوي",
+        "manual": true,
+        "lines": [
+          {
+            "account": "5100",
+            "debit": 10000,
+            "credit": 0
+          },
+          {
+            "account": "3900",
+            "debit": 0,
+            "credit": 10000
+          }
+        ]
+      },
+      "behavior": "Server generates all source postings; client-generated automatic entries are not authoritative. Manual entries need ≥2 lines, known accounts, nonnegative minor units, one debit/credit side per line and equal nonzero totals. Manual entries cannot touch controlled cash or party accounts. Entries append only; eligible manual reversal requires administration and reason. PATCH rejects edits with 422; use a new authorized reversal.",
+      "source": "24",
+      "mode": "array",
+      "delete": false
+    },
+    "payroll-hours": {
+      "model": "PayrollHours",
+      "statePath": "finance23.hours",
+      "module": "hr",
+      "fields": [
+        "employeeId",
+        "employeeName",
+        "department",
+        "period",
+        "currency",
+        "basis",
+        "baseAmount",
+        "normHours",
+        "regularHours",
+        "paidHours",
+        "overtimeHours",
+        "overtimeRate",
+        "bonus",
+        "deductions",
+        "reference",
+        "overtimeApproval",
+        "bonusReason",
+        "deductionReason",
+        "notes",
+        "source",
+        "calculation",
+        "status",
+        "approvedAt",
+        "approvedBy",
+        "supersededAt",
+        "fingerprint"
+      ],
+      "required": [
+        "employeeId",
+        "period",
+        "currency",
+        "basis",
+        "baseAmount",
+        "normHours",
+        "reference"
+      ],
+      "example": {
+        "employeeId": "EMP-1",
+        "period": "2026-09",
+        "currency": "USD",
+        "basis": "monthly",
+        "baseAmount": "500",
+        "normHours": "160",
+        "regularHours": "160",
+        "paidHours": "0",
+        "overtimeHours": "0",
+        "overtimeRate": "1.25",
+        "bonus": "0",
+        "deductions": "0",
+        "reference": "ATT-2026-09",
+        "status": "draft"
+      },
+      "behavior": "YYYY-MM period; basis monthly/hourly; positive base/norm hours; regular+paid ≤ norm; overtime factor 1–5. Overtime/deductions/bonus require their references; manager overtime is forbidden by current prototype policy. Recalculate with exact decimal arithmetic; net ≥ 0. Approved sheets immutable; supersede only if not already in a live salary document.",
+      "source": "24",
+      "mode": "array",
+      "delete": false
+    },
+    "payroll-runs": {
+      "model": "PayrollRun",
+      "statePath": "finance23.runs",
+      "module": "hr",
+      "fields": [
+        "number",
+        "period",
+        "currency",
+        "date",
+        "dueDate",
+        "status",
+        "lines",
+        "submittedAt",
+        "decidedAt",
+        "decidedBy",
+        "decisionReason",
+        "cancelReason",
+        "cancelledAt",
+        "cancelledBy"
+      ],
+      "required": [
+        "period",
+        "currency",
+        "date",
+        "dueDate",
+        "lines"
+      ],
+      "example": {
+        "period": "2026-09",
+        "currency": "USD",
+        "date": "2026-09-30",
+        "dueDate": "2026-10-01",
+        "status": "draft",
+        "lines": [
+          {
+            "employeeId": "EMP-1",
+            "hoursId": "HOURS-1"
+          }
+        ]
+      },
+      "behavior": "Use approved hour sheets of one period/currency; snapshot and source fingerprint must match; date ≥ month end and ≤ today; dueDate ≥ date. No duplicate employee salary for a month. Create/submit/decide/cancel all linked payables atomically. Reject cancellation if payments/offsets remain.",
+      "source": "24",
+      "mode": "array",
+      "delete": false
+    },
+    "print-layouts": {
+      "model": "PrintLayout",
+      "statePath": "finance23.layouts",
+      "module": "accounting",
+      "fields": [
+        "name",
+        "family",
+        "font",
+        "size",
+        "width",
+        "height",
+        "margin",
+        "color",
+        "line",
+        "headBg",
+        "padding",
+        "header",
+        "footer",
+        "columns",
+        "blocks"
+      ],
+      "required": [
+        "name",
+        "family"
+      ],
+      "example": {
+        "name": "النموذج الرسمي",
+        "family": "invoice",
+        "font": "Arial",
+        "size": 12,
+        "width": 210,
+        "height": 297,
+        "margin": 14,
+        "color": "#111111",
+        "line": "#c5c5c5",
+        "headBg": "#f3f3f3",
+        "padding": 9,
+        "header": "MOSH GROUP",
+        "footer": "MOSH GROUP",
+        "columns": [],
+        "blocks": []
+      },
+      "behavior": "Only presentation fields; never changes document values or posted ledgers. Bound colors/fonts/numeric dimensions and sanitize user text. HR/sales can manage their corresponding print families.",
+      "source": "24",
+      "mode": "array",
+      "delete": true
+    }
+  },
+  "settings": {
+    "system": {
+      "path": "systemSettings",
+      "module": "systemCustomization",
+      "description": "App/company name; exact existing typography/color/control values."
+    },
+    "department-managers": {
+      "path": "departmentManagers",
+      "module": "hr",
+      "description": "Map department → active employee ID; retain multi-department managers."
+    },
+    "hr": {
+      "path": "hrSettings",
+      "module": "hr",
+      "description": "Annual/sick leave, daily accrual, warning expiry, alert lead days and performance weights."
+    },
+    "hr-policies": {
+      "path": "hrProSettings",
+      "module": "hr",
+      "description": "Workday hours 1–24, monthly review day 1–31, probation default months ≥ 0."
+    },
+    "employment-contract-templates": {
+      "path": "hrContractTemplates15",
+      "module": "hr",
+      "description": "Common and type clauses; each nonempty title/body; version on save."
+    },
+    "executive-report-reviews": {
+      "path": "adminReportReviews16",
+      "module": "admin",
+      "description": "Report review map; management decision/note/actor/time."
+    },
+    "wisdom": {
+      "path": "wisdomSettings",
+      "module": "hr",
+      "description": "mode daily/hours; hours 1–168; anchor, offset and stable item ordering. Optional order is an ordered array of unique existing wisdom IDs; resource GET and bootstrap use it."
+    },
+    "purchasing": {
+      "path": "operations18.approvers",
+      "module": "admin",
+      "description": "Array of active employee IDs delegated to approve purchases."
+    },
+    "finance": {
+      "path": "finance21.settings",
+      "module": "accounting",
+      "description": "lockedThrough: valid date or empty; administration-only changes."
+    },
+    "finance-links": {
+      "path": "finance22.links",
+      "module": "accounting",
+      "description": "Unposted financial document → existing matching-kind party; administration only."
+    },
+    "print-defaults": {
+      "path": "finance23.defaults",
+      "module": "accounting",
+      "description": "Print family → existing same-family layout ID."
+    },
+    "ui-controls": {
+      "path": "uiControls",
+      "module": "systemCustomization",
+      "description": "Existing control color settings from script 25."
+    },
+    "finance-chart": {
+      "module": "accounting",
+      "description": "Custom chart of accounts; four to ten digit unique code, name and accounting type. Administration may add accounts; used accounts cannot be changed.",
+      "path": "finance22.chart"
+    }
+  },
+  "repository": "https://github.com/RonasIT/laravel-empty-project",
+  "upstreamCommit": "157945b676acf1b24439a6a2e20ded802c7890c9",
+  "relations": {
+    "tasks": {
+      "employee_id": "employees",
+      "customer_id": "customers",
+      "parent_id": "tasks",
+      "quotation_id": "quotations"
+    },
+    "service-contracts": {
+      "customer_id": "customers"
+    },
+    "quotations": {
+      "customer_id": "customers"
+    },
+    "hr-requests": {
+      "employee_id": "employees"
+    },
+    "hr-approvals": {
+      "employee_id": "employees"
+    },
+    "offboarding": {
+      "employee_id": "employees"
+    },
+    "recognition": {
+      "employee_id": "employees"
+    },
+    "employment-contracts": {
+      "employee_id": "employees"
+    },
+    "work-presence": {
+      "employee_id": "employees"
+    },
+    "field-work": {
+      "employee_id": "employees"
+    },
+    "support-requests": {
+      "task_id": "tasks",
+      "employee_id": "employees"
+    },
+    "stock-movements": {
+      "item_id": "stock-items",
+      "from_warehouse_id": "warehouses",
+      "to_warehouse_id": "warehouses",
+      "employee_id": "employees",
+      "request_id": "support-requests"
+    },
+    "reservations": {
+      "item_id": "stock-items",
+      "warehouse_id": "warehouses",
+      "request_id": "support-requests"
+    },
+    "invoices": {
+      "customer_id": "customers",
+      "quotation_id": "quotations"
+    },
+    "payroll-hours": {
+      "employee_id": "employees"
+    }
+  }
+}

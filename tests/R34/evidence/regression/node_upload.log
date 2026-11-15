@@ -1,0 +1,77 @@
+TAP version 13
+# Subtest: HTTP SHA256 fallback matches Node for 0 bytes
+ok 1 - HTTP SHA256 fallback matches Node for 0 bytes
+  ---
+  duration_ms: 2.767909
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 1 bytes
+ok 2 - HTTP SHA256 fallback matches Node for 1 bytes
+  ---
+  duration_ms: 0.324774
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 3 bytes
+ok 3 - HTTP SHA256 fallback matches Node for 3 bytes
+  ---
+  duration_ms: 0.432444
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 55 bytes
+ok 4 - HTTP SHA256 fallback matches Node for 55 bytes
+  ---
+  duration_ms: 0.600898
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 56 bytes
+ok 5 - HTTP SHA256 fallback matches Node for 56 bytes
+  ---
+  duration_ms: 1.421605
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 63 bytes
+ok 6 - HTTP SHA256 fallback matches Node for 63 bytes
+  ---
+  duration_ms: 0.385798
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 64 bytes
+ok 7 - HTTP SHA256 fallback matches Node for 64 bytes
+  ---
+  duration_ms: 0.634029
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 65 bytes
+ok 8 - HTTP SHA256 fallback matches Node for 65 bytes
+  ---
+  duration_ms: 0.619142
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 1024 bytes
+ok 9 - HTTP SHA256 fallback matches Node for 1024 bytes
+  ---
+  duration_ms: 2.256277
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 262144 bytes
+ok 10 - HTTP SHA256 fallback matches Node for 262144 bytes
+  ---
+  duration_ms: 29.557029
+  type: 'test'
+  ...
+# Subtest: HTTP SHA256 fallback matches Node for 5242880 bytes
+ok 11 - HTTP SHA256 fallback matches Node for 5242880 bytes
+  ---
+  duration_ms: 205.642946
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 360.704125
+

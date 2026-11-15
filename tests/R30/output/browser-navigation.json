@@ -1,0 +1,177 @@
+{
+  "boundary": "Actual source HTML/CSS/scripts in Chromium memory with synthetic API. Browser navigation is blocked by environment policy; no real HTTP/Laravel/company server/Meta exercised.",
+  "checks": [
+    {
+      "name": "Global sidebar has no loose R29/purchasing buttons",
+      "passed": true
+    },
+    {
+      "name": "Sidebar department label is administrative services",
+      "passed": true
+    },
+    {
+      "name": "Sidebar tooltip uses renamed department",
+      "passed": true
+    },
+    {
+      "name": "App release is R30, not overwritten by older modules",
+      "passed": true
+    },
+    {
+      "name": "Document title identifies R30",
+      "passed": true
+    },
+    {
+      "name": "Old no-work session remains a warning, not a guessed counter",
+      "passed": true
+    },
+    {
+      "name": "Customer tracking is nested in Marketing rail",
+      "passed": true
+    },
+    {
+      "name": "Customer tracking has an icon and styled component button",
+      "passed": true
+    },
+    {
+      "name": "Marketing entry opens actual customer workflow via API fixture",
+      "passed": true
+    },
+    {
+      "name": "Customer tracking still presents read-only task action",
+      "passed": true
+    },
+    {
+      "name": "Advanced files is nested in HR rail",
+      "passed": true
+    },
+    {
+      "name": "HR entry opens the full nine-tab workflow",
+      "passed": true
+    },
+    {
+      "name": "Department form preserves canonical value and shows alias",
+      "passed": true
+    },
+    {
+      "name": "Purchasing inbox belongs to its existing section rail",
+      "passed": true
+    },
+    {
+      "name": "Purchasing inbox absent from top actions",
+      "passed": true
+    },
+    {
+      "name": "Purchasing inbox still uses the original queue workflow",
+      "passed": true
+    },
+    {
+      "name": "Service department rail and heading are renamed",
+      "passed": true
+    },
+    {
+      "name": "Logistics application key and request types remain intact",
+      "passed": true
+    },
+    {
+      "name": "Admin tools retain customer tracking and purchasing access",
+      "passed": true
+    },
+    {
+      "name": "Admin tasks is not duplicated in tools dropdown",
+      "passed": true
+    },
+    {
+      "name": "Manager tools retain team-file access",
+      "passed": true
+    },
+    {
+      "name": "Own requests retains purchase inbox for an eligible user",
+      "passed": true
+    },
+    {
+      "name": "Marketing entry uses readable dark theme",
+      "passed": true
+    },
+    {
+      "name": "Marketing entry uses readable light theme",
+      "passed": true
+    },
+    {
+      "name": "Light theme updates root tokens and top-action contrast",
+      "passed": true
+    },
+    {
+      "name": "Light HR rail and dashboard labels have readable contrast",
+      "passed": true
+    },
+    {
+      "name": "Light HR layout surface stays light after navigation",
+      "passed": true
+    },
+    {
+      "name": "HR dialog fits mobile viewport",
+      "passed": true
+    },
+    {
+      "name": "Theme toggle preserves saved settings and restores dark tokens",
+      "passed": true
+    },
+    {
+      "name": "Repeated navigation/refresh does not recreate global loose buttons",
+      "passed": true
+    },
+    {
+      "name": "Exactly one customer and HR section entry after repeated refresh",
+      "passed": true
+    },
+    {
+      "name": "Renamed sidebar ordering stays correct",
+      "passed": true
+    },
+    {
+      "name": "No-work session was not reset or rewritten by UI repair",
+      "passed": true
+    },
+    {
+      "name": "Old no-work session remains reviewable after navigation",
+      "passed": true
+    },
+    {
+      "name": "No uncaught script exceptions during root workflow",
+      "passed": true
+    },
+    {
+      "name": "Limited employee does not get Marketing/HR admin entry",
+      "passed": true
+    },
+    {
+      "name": "Unassigned limited employee does not get purchase inbox",
+      "passed": true
+    },
+    {
+      "name": "Assigned approver outside Purchasing retains own-request inbox",
+      "passed": true
+    },
+    {
+      "name": "Assigned approver can open original review action",
+      "passed": true
+    },
+    {
+      "name": "Late queue result cannot reopen private data after logout",
+      "passed": true
+    },
+    {
+      "name": "Logout removes private HR/CRM dialogs and section entries",
+      "passed": true
+    },
+    {
+      "name": "All new UI workflows finished without uncaught errors",
+      "passed": true
+    }
+  ],
+  "passed": 42,
+  "total": 42,
+  "pageErrors": [],
+  "externalRequestsBlocked": 0
+}

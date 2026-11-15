@@ -1,0 +1,323 @@
+{
+  "release": "R9",
+  "source": "MOSH_COMPLETE_PROJECTS_R8_DIRECT_REPLACE.zip",
+  "source_sha256": "27fb6449017b50ed6f5abe389316f0a8dde88ae646cf0d0cd823203f3c9bdb7a",
+  "application_changes": [
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "source_sha256": "65ac8b8f0b16d267da2bc4e320dfb77fd22b046bcf7248943ddbb95eb471e5d8",
+      "release_sha256": "58705fd0c85d0c216898303778ef8ef17a8241cf0f0feeaea954babe7f90df9b"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "source_sha256": "192075acc021cc9f8ef29179495f985905ad3f5b4807b188ed12e299b06e53af",
+      "release_sha256": "7725e504f655a7db4ed4a0f978a534e677dd4cf9c12d7b10c50e00df0b23c3b2"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "source_sha256": "d4a62a896b293d24c3d995b9130f8481afff8cc0563643837480acdb32f00155",
+      "release_sha256": "dfff9c41f03269676e117eadc46d4a797f88d587f0a57ef17c48c8955d7d33e6"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/index.html",
+      "source_sha256": "feeffcf7fff27ecea0ac94bf4bb13ad6095e37d3f04dffa7e6bb7f642bc84902",
+      "release_sha256": "da16ec05ac492b7b749d14be997c79d3e15cd3531bbca6f4b50d95316314255f"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/api-map.json",
+      "source_sha256": "f3752dd7fd6ba04ad328a03dbd836d9d5dc0948cfa658a9f2942ea04e83b32b0",
+      "release_sha256": "3c4537a3f83952943cd10ec1606526c4715f3e2645d7bc54e3cc16e55d4096e0"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/00_READ_ME_LATEST_AR.txt",
+      "source_sha256": "927029a7b7a6f26792dd6f81e0fefe84b9d23fe163d137ac083d591c2fa7e785",
+      "release_sha256": "f26417cf414805c5bb1b7559575d1d8671b8e8baa58928d973fd80ce2269b165"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/00_READ_ME_LATEST_AR.txt",
+      "source_sha256": "927029a7b7a6f26792dd6f81e0fefe84b9d23fe163d137ac083d591c2fa7e785",
+      "release_sha256": "f26417cf414805c5bb1b7559575d1d8671b8e8baa58928d973fd80ce2269b165"
+    }
+  ],
+  "database_checks": [
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database-before-dummy-data.sqlite",
+      "quick_check": "ok",
+      "sha256": "47af079a5b7682993b0f4d5905c1d49c7657354b83a955b0f572f6cc256e0d72"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database.backup-20260921-120137.sqlite",
+      "quick_check": "ok",
+      "sha256": "04acf737893fc3dd2470dd071016eaab3985dc23389c1927fd5f0cebb787539c"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database.before-cleanup-20260922-164942.sqlite",
+      "quick_check": "ok",
+      "sha256": "0959cec955bbad2062fa323306c45f4a57f201f129daa41b7ecdd40e9770cc10"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+      "quick_check": "ok",
+      "sha256": "052a6c46408193301111e7adecadf7faf3d6ee9f7d0109d00495f2f8a2337996"
+    }
+  ],
+  "syntax_checks": [
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "passed": true
+    },
+    {
+      "path": "index.html#moshBootGuard9",
+      "passed": true
+    }
+  ],
+  "node_passed": 38,
+  "browser_r9_passed": 22,
+  "browser_r8_regression_passed": 28,
+  "backend_runtime_changed": false,
+  "production_tested": false
+}

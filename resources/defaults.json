@@ -1,0 +1,2674 @@
+{
+  "roles": [
+    {
+      "id": "app_programmer",
+      "name": "الحساب الأساسي / صانع التطبيق",
+      "protected": true,
+      "scope": "all",
+      "taskScope": "all",
+      "landing": "dashboard",
+      "scopeActions": {
+        "view": true,
+        "dashboard": true,
+        "running": true,
+        "approvals": true,
+        "list": true,
+        "details": true,
+        "create": true,
+        "edit": true,
+        "status": true,
+        "assign": true,
+        "delete": true,
+        "approve": true,
+        "attachments": true,
+        "reports": true,
+        "print": true,
+        "export": true
+      },
+      "globals": {
+        "systemCustomization": true,
+        "manageUsers": true,
+        "managePermissions": true,
+        "viewPasswords": true,
+        "auditLog": true,
+        "createTasks": true,
+        "notifications": true,
+        "viewAllTasks": true,
+        "editCoreTaskData": true,
+        "deleteTasks": true,
+        "viewArchive": true,
+        "zktecoStatus": false,
+        "zktecoSyncActivity": false,
+        "zktecoUnmapped": false,
+        "zktecoRetry": false,
+        "zktecoReconciliation": false,
+        "zktecoErrors": false,
+        "zktecoDeviceDetails": false,
+        "zktecoRawAudit": false,
+        "zktecoMappings": false,
+        "zktecoMappingActions": false,
+        "appearanceSettings": true,
+        "connectInstagram": true,
+        "publishInstagramDirect": true,
+        "approveInstagramPosts": true,
+        "viewInstagramInsights": true
+      },
+      "modules": {
+        "dashboard": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "tasks": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "admin": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "hr": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "sales": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "marketing": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "design": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "photo": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "editing": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "promotion": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "logistics": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "purchases": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "accounting": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "warehouses": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "platform": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "archive": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "instructions": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        }
+      }
+    },
+    {
+      "id": "role_admin",
+      "name": "مدير نظام",
+      "protected": true,
+      "scope": "all",
+      "taskScope": "all",
+      "landing": "dashboard",
+      "scopeActions": {
+        "view": true,
+        "dashboard": true,
+        "running": true,
+        "approvals": true,
+        "list": true,
+        "details": true,
+        "create": true,
+        "edit": true,
+        "status": true,
+        "assign": true,
+        "delete": true,
+        "approve": true,
+        "attachments": true,
+        "reports": true,
+        "print": true,
+        "export": true
+      },
+      "globals": {
+        "systemCustomization": true,
+        "manageUsers": true,
+        "managePermissions": true,
+        "viewPasswords": false,
+        "auditLog": true,
+        "createTasks": true,
+        "notifications": true,
+        "viewAllTasks": true,
+        "editCoreTaskData": true,
+        "deleteTasks": true,
+        "viewArchive": true,
+        "zktecoStatus": true,
+        "zktecoSyncActivity": true,
+        "zktecoUnmapped": true,
+        "zktecoRetry": true,
+        "zktecoReconciliation": true,
+        "zktecoErrors": true,
+        "zktecoDeviceDetails": true,
+        "zktecoRawAudit": true,
+        "zktecoMappings": true,
+        "zktecoMappingActions": true,
+        "appearanceSettings": true,
+        "connectInstagram": false,
+        "publishInstagramDirect": false,
+        "approveInstagramPosts": false,
+        "viewInstagramInsights": false
+      },
+      "modules": {
+        "dashboard": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "tasks": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "admin": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "hr": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "sales": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "marketing": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "design": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "photo": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "editing": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "promotion": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "logistics": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "purchases": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "accounting": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "warehouses": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "platform": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "archive": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        },
+        "instructions": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": true,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": true,
+          "approve": true,
+          "attachments": true,
+          "reports": true,
+          "print": true,
+          "export": true
+        }
+      }
+    },
+    {
+      "id": "role_manager",
+      "name": "مدير قسم",
+      "protected": true,
+      "scope": "department",
+      "taskScope": "department",
+      "landing": "dashboard",
+      "scopeActions": {
+        "view": true,
+        "dashboard": true,
+        "running": true,
+        "approvals": true,
+        "list": true,
+        "details": true,
+        "create": true,
+        "edit": true,
+        "status": true,
+        "assign": true,
+        "delete": true,
+        "approve": true,
+        "attachments": true,
+        "reports": true,
+        "print": true,
+        "export": true
+      },
+      "globals": {
+        "systemCustomization": false,
+        "manageUsers": false,
+        "managePermissions": false,
+        "viewPasswords": false,
+        "auditLog": false,
+        "createTasks": true,
+        "notifications": true,
+        "viewAllTasks": true,
+        "editCoreTaskData": false,
+        "deleteTasks": false,
+        "viewArchive": false,
+        "zktecoStatus": false,
+        "zktecoSyncActivity": false,
+        "zktecoUnmapped": false,
+        "zktecoRetry": false,
+        "zktecoReconciliation": false,
+        "zktecoErrors": false,
+        "zktecoDeviceDetails": false,
+        "zktecoRawAudit": false,
+        "zktecoMappings": false,
+        "zktecoMappingActions": false,
+        "appearanceSettings": false,
+        "connectInstagram": false,
+        "publishInstagramDirect": false,
+        "approveInstagramPosts": false,
+        "viewInstagramInsights": false
+      },
+      "modules": {
+        "dashboard": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": false,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": true,
+          "export": false
+        },
+        "tasks": {
+          "view": true,
+          "dashboard": true,
+          "running": true,
+          "approvals": false,
+          "list": true,
+          "details": true,
+          "create": true,
+          "edit": true,
+          "status": true,
+          "assign": true,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": true,
+          "export": false
+        },
+        "admin": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "hr": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "sales": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "marketing": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "design": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "photo": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "editing": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "promotion": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "logistics": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "purchases": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "accounting": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "warehouses": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "platform": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "archive": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "instructions": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        }
+      }
+    },
+    {
+      "id": "role_employee",
+      "name": "موظف",
+      "protected": true,
+      "scope": "department_limited",
+      "taskScope": "mine",
+      "landing": "running",
+      "scopeActions": {
+        "view": true,
+        "dashboard": false,
+        "running": true,
+        "approvals": false,
+        "list": false,
+        "details": true,
+        "create": false,
+        "edit": false,
+        "status": true,
+        "assign": false,
+        "delete": false,
+        "approve": false,
+        "attachments": false,
+        "reports": false,
+        "print": false,
+        "export": false
+      },
+      "globals": {
+        "systemCustomization": false,
+        "manageUsers": false,
+        "managePermissions": false,
+        "viewPasswords": false,
+        "auditLog": false,
+        "createTasks": false,
+        "notifications": true,
+        "viewAllTasks": false,
+        "editCoreTaskData": false,
+        "deleteTasks": false,
+        "viewArchive": false,
+        "zktecoStatus": false,
+        "zktecoSyncActivity": false,
+        "zktecoUnmapped": false,
+        "zktecoRetry": false,
+        "zktecoReconciliation": false,
+        "zktecoErrors": false,
+        "zktecoDeviceDetails": false,
+        "zktecoRawAudit": false,
+        "zktecoMappings": false,
+        "zktecoMappingActions": false,
+        "appearanceSettings": false,
+        "connectInstagram": false,
+        "publishInstagramDirect": false,
+        "approveInstagramPosts": false,
+        "viewInstagramInsights": false
+      },
+      "modules": {
+        "dashboard": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "tasks": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "admin": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "hr": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "sales": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "marketing": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "design": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "photo": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "editing": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "promotion": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "logistics": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "purchases": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "accounting": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "warehouses": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "platform": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "archive": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        },
+        "instructions": {
+          "view": false,
+          "dashboard": false,
+          "running": false,
+          "approvals": false,
+          "list": false,
+          "details": false,
+          "create": false,
+          "edit": false,
+          "status": false,
+          "assign": false,
+          "delete": false,
+          "approve": false,
+          "attachments": false,
+          "reports": false,
+          "print": false,
+          "export": false
+        }
+      }
+    }
+  ],
+  "modules": [
+    [
+      "dashboard",
+      "اللوحة الرئيسية"
+    ],
+    [
+      "tasks",
+      "المهمات"
+    ],
+    [
+      "admin",
+      "قسم الإدارة"
+    ],
+    [
+      "hr",
+      "قسم الموارد البشرية"
+    ],
+    [
+      "sales",
+      "قسم المبيعات"
+    ],
+    [
+      "marketing",
+      "قسم التسويق"
+    ],
+    [
+      "design",
+      "قسم التصميم"
+    ],
+    [
+      "photo",
+      "قسم التصوير"
+    ],
+    [
+      "editing",
+      "قسم المونتاج"
+    ],
+    [
+      "promotion",
+      "قسم الترويج"
+    ],
+    [
+      "logistics",
+      "قسم اللوجستيات"
+    ],
+    [
+      "purchases",
+      "قسم المشتريات"
+    ],
+    [
+      "accounting",
+      "قسم المحاسبة"
+    ],
+    [
+      "warehouses",
+      "المستودعات العامة"
+    ],
+    [
+      "platform",
+      "منصة MOSH MEDIA"
+    ],
+    [
+      "archive",
+      "الأرشيف العام"
+    ],
+    [
+      "instructions",
+      "تعليمات إدارية عامة"
+    ]
+  ],
+  "actions": [
+    [
+      "view",
+      "دخول / ظهور القسم"
+    ],
+    [
+      "dashboard",
+      "لوحة التحكم"
+    ],
+    [
+      "running",
+      "مهام جارية"
+    ],
+    [
+      "approvals",
+      "اعتماد المدير"
+    ],
+    [
+      "list",
+      "عرض القوائم والسجلات"
+    ],
+    [
+      "details",
+      "فتح التفاصيل"
+    ],
+    [
+      "create",
+      "إضافة / إنشاء"
+    ],
+    [
+      "edit",
+      "تعديل / حفظ"
+    ],
+    [
+      "status",
+      "تغيير الحالة"
+    ],
+    [
+      "assign",
+      "توزيع / إسناد"
+    ],
+    [
+      "delete",
+      "حذف"
+    ],
+    [
+      "approve",
+      "اعتماد / رفض"
+    ],
+    [
+      "attachments",
+      "المرفقات والرفع"
+    ],
+    [
+      "reports",
+      "التقارير"
+    ],
+    [
+      "print",
+      "طباعة / PDF"
+    ],
+    [
+      "export",
+      "تصدير"
+    ]
+  ],
+  "globals": [
+    [
+      "systemCustomization",
+      "إعدادات النظام"
+    ],
+    [
+      "appearanceSettings",
+      "ضبط المظهر والخطوط"
+    ],
+    [
+      "manageUsers",
+      "إدارة المستخدمين"
+    ],
+    [
+      "managePermissions",
+      "إدارة الصلاحيات"
+    ],
+    [
+      "viewPasswords",
+      "عرض كلمات السر"
+    ],
+    [
+      "auditLog",
+      "سجل الدخول والتغييرات"
+    ],
+    [
+      "createTasks",
+      "إنشاء مهمة عامة"
+    ],
+    [
+      "notifications",
+      "التعاميم والتنبيهات"
+    ],
+    [
+      "viewAllTasks",
+      "رؤية كامل المهام"
+    ],
+    [
+      "editCoreTaskData",
+      "تعديل بيانات المهام الأساسية"
+    ],
+    [
+      "deleteTasks",
+      "حذف المهام"
+    ],
+    [
+      "viewArchive",
+      "رؤية أرشيف المحذوف"
+    ],
+    [
+      "connectInstagram",
+      "ربط Instagram الرسمي"
+    ],
+    [
+      "publishInstagramDirect",
+      "نشر Instagram مباشرة"
+    ],
+    [
+      "approveInstagramPosts",
+      "اعتماد محتوى Instagram"
+    ],
+    [
+      "viewInstagramInsights",
+      "عرض إحصائيات Instagram"
+    ]
+  ],
+  "chart": [
+    {
+      "code": "1200",
+      "name": "ذمم العملاء",
+      "type": "asset",
+      "partyType": "customer",
+      "system": true
+    },
+    {
+      "code": "1300",
+      "name": "دفعات مقدمة للموردين",
+      "type": "asset",
+      "partyType": "vendor",
+      "system": true
+    },
+    {
+      "code": "1350",
+      "name": "سلف الموظفين",
+      "type": "asset",
+      "partyType": "employee",
+      "system": true
+    },
+    {
+      "code": "1400",
+      "name": "ضريبة مشتريات مسجلة — تحتاج مراجعة",
+      "type": "asset",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "1500",
+      "name": "مخزون مملوك للشركة",
+      "type": "asset",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "1590",
+      "name": "مشتريات بانتظار التصنيف",
+      "type": "asset",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "1600",
+      "name": "معدات وأصول ثابتة — إجمالي",
+      "type": "asset",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "2100",
+      "name": "ذمم الموردين",
+      "type": "liability",
+      "partyType": "vendor",
+      "system": true
+    },
+    {
+      "code": "2200",
+      "name": "مستحقات الموظفين",
+      "type": "liability",
+      "partyType": "employee",
+      "system": true
+    },
+    {
+      "code": "2250",
+      "name": "مصاريف مستحقة الدفع",
+      "type": "liability",
+      "partyType": "expense",
+      "system": true
+    },
+    {
+      "code": "2300",
+      "name": "ضريبة مبيعات مسجلة",
+      "type": "liability",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "3000",
+      "name": "مقابل الأرصدة الافتتاحية",
+      "type": "equity",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "3100",
+      "name": "حقوق الملكية",
+      "type": "equity",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "4000",
+      "name": "إيرادات الخدمات",
+      "type": "income",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "5000",
+      "name": "مشتريات تشغيلية وخدمات",
+      "type": "expense",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "5100",
+      "name": "أجور وأتعاب ومكافآت",
+      "type": "expense",
+      "partyType": "",
+      "system": true
+    },
+    {
+      "code": "5200",
+      "name": "مصاريف تشغيلية أخرى",
+      "type": "expense",
+      "partyType": "",
+      "system": true
+    }
+  ],
+  "currencies": [
+    [
+      "USD",
+      "دولار أمريكي — USD"
+    ],
+    [
+      "SYP",
+      "ليرة سورية — SYP"
+    ],
+    [
+      "EUR",
+      "يورو — EUR"
+    ],
+    [
+      "AED",
+      "درهم إماراتي — AED"
+    ],
+    [
+      "SAR",
+      "ريال سعودي — SAR"
+    ],
+    [
+      "LBP",
+      "ليرة لبنانية — LBP"
+    ],
+    [
+      "JOD",
+      "دينار أردني — JOD"
+    ],
+    [
+      "TRY",
+      "ليرة تركية — TRY"
+    ],
+    [
+      "EGP",
+      "جنيه مصري — EGP"
+    ]
+  ],
+  "appearance": {
+    "fontFamily": "arial",
+    "headingSize": 26,
+    "bodySize": 16,
+    "smallSize": 14,
+    "headingColor": "#f5f1e8",
+    "textColor": "#f5f1e8",
+    "mutedColor": "#b8b1a6",
+    "bgColor": "#090909",
+    "sidebarColor": "#101012",
+    "panelColor": "#121315",
+    "panel2Color": "#17181b",
+    "fieldColor": "#0d0f12",
+    "borderColor": "#2f3339",
+    "accentColor": "#d7ad45",
+    "accentColor2": "#f2cf77"
+  },
+  "hrSettings": {
+    "annualLeaveDays": 14,
+    "sickLeaveDays": 14,
+    "annualAccrualDaily": true,
+    "warningValidityDays": 365,
+    "documentAlertDays": [
+      60,
+      30,
+      7
+    ],
+    "performanceWeights": {
+      "timeliness": 40,
+      "speed": 30,
+      "quality": 30
+    }
+  },
+  "hrProSettings": {
+    "workdayHours": 8,
+    "monthlyReviewDay": 25,
+    "probationDefaultMonths": 3
+  },
+  "warehouses": [
+    {
+      "id": "WH18-CAMERA",
+      "name": "مستودع معدات التصوير",
+      "kind": "equipment",
+      "location": "",
+      "managerId": "",
+      "active": true
+    },
+    {
+      "id": "WH18-INTERNAL",
+      "name": "مستودع الشركة الداخلي",
+      "kind": "internal",
+      "location": "",
+      "managerId": "",
+      "active": true
+    },
+    {
+      "id": "WH18-CUSTOMERS",
+      "name": "مستودع مواد الزبائن",
+      "kind": "customer",
+      "location": "",
+      "managerId": "",
+      "active": true
+    }
+  ],
+  "fieldTemplates": [
+    {
+      "id": "tpl_photographer",
+      "label": "مصور",
+      "active": true,
+      "statuses": [
+        {
+          "id": "st_muad8gey_qzv8l",
+          "label": "بالشركة",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "st_muad8gey_frybh",
+          "label": "بالطريق",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "st_muad8gey_po372",
+          "label": "بموقع تصوير",
+          "active": true,
+          "order": 3
+        }
+      ],
+      "activities": [
+        {
+          "id": "ac_muad8gey_2949q",
+          "label": "تجهيز معدات",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "ac_muad8gey_m22mk",
+          "label": "معاينة موقع",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "ac_muad8gey_iyp2x",
+          "label": "بدء تصوير",
+          "active": true,
+          "order": 3
+        },
+        {
+          "id": "ac_muad8gey_szalz",
+          "label": "إنهاء تصوير",
+          "active": true,
+          "order": 4
+        },
+        {
+          "id": "ac_muad8gey_m65en",
+          "label": "نقل / تسليم مواد",
+          "active": true,
+          "order": 5
+        },
+        {
+          "id": "ac_muad8gey_xfv7h",
+          "label": "رفع / نسخ مواد التصوير",
+          "active": true,
+          "order": 6
+        }
+      ],
+      "createdAt": "2026-09-20T22:06:11.482Z",
+      "updatedAt": "2026-09-20T22:06:11.482Z"
+    },
+    {
+      "id": "tpl_promoter",
+      "label": "مروّج",
+      "active": true,
+      "statuses": [
+        {
+          "id": "st_muad8gey_vbxe9",
+          "label": "بالشركة",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "st_muad8gey_ba6xf",
+          "label": "بالطريق",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "st_muad8gey_q87e0",
+          "label": "بنقطة ترويج / بيع",
+          "active": true,
+          "order": 3
+        }
+      ],
+      "activities": [
+        {
+          "id": "ac_muad8gey_nl8ot",
+          "label": "بدء جولة",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "ac_muad8gey_8d7ib",
+          "label": "زيارة نقطة",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "ac_muad8gey_dg1gv",
+          "label": "عرض / تجربة منتج",
+          "active": true,
+          "order": 3
+        },
+        {
+          "id": "ac_muad8gey_fth68",
+          "label": "توزيع مواد",
+          "active": true,
+          "order": 4
+        },
+        {
+          "id": "ac_muad8gey_3mty2",
+          "label": "متابعة نقطة",
+          "active": true,
+          "order": 5
+        },
+        {
+          "id": "ac_muad8gey_hin9n",
+          "label": "إنهاء جولة",
+          "active": true,
+          "order": 6
+        }
+      ],
+      "createdAt": "2026-09-20T22:06:11.482Z",
+      "updatedAt": "2026-09-20T22:06:11.482Z"
+    },
+    {
+      "id": "tpl_presenter",
+      "label": "مقدم",
+      "active": true,
+      "statuses": [
+        {
+          "id": "st_muad8gey_b2ou0",
+          "label": "بالشركة",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "st_muad8gey_xedqb",
+          "label": "بالطريق",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "st_muad8gey_nhps0",
+          "label": "بالموقع / الاستوديو",
+          "active": true,
+          "order": 3
+        }
+      ],
+      "activities": [
+        {
+          "id": "ac_muad8gey_58w87",
+          "label": "تحضير",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "ac_muad8gey_vx3iq",
+          "label": "بروفة",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "ac_muad8gey_ozs2q",
+          "label": "تقديم / تصوير",
+          "active": true,
+          "order": 3
+        },
+        {
+          "id": "ac_muad8gey_29qoq",
+          "label": "تسجيل صوتي",
+          "active": true,
+          "order": 4
+        },
+        {
+          "id": "ac_muad8gey_2tbz9",
+          "label": "اجتماع / تنسيق",
+          "active": true,
+          "order": 5
+        },
+        {
+          "id": "ac_muad8gey_g5jtk",
+          "label": "إنهاء جلسة",
+          "active": true,
+          "order": 6
+        }
+      ],
+      "createdAt": "2026-09-20T22:06:11.482Z",
+      "updatedAt": "2026-09-20T22:06:11.482Z"
+    },
+    {
+      "id": "tpl_driver",
+      "label": "سائق",
+      "active": true,
+      "statuses": [
+        {
+          "id": "st_muad8gey_6kwv5",
+          "label": "بالشركة",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "st_muad8gey_4vea2",
+          "label": "بالطريق",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "st_muad8gey_fue39",
+          "label": "بمهمة توصيل",
+          "active": true,
+          "order": 3
+        }
+      ],
+      "activities": [
+        {
+          "id": "ac_muad8gey_v4u3g",
+          "label": "استلام طلب توصيل",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "ac_muad8gey_is3l3",
+          "label": "انطلاق",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "ac_muad8gey_6f5us",
+          "label": "وصول / تسليم",
+          "active": true,
+          "order": 3
+        },
+        {
+          "id": "ac_muad8gey_ausy8",
+          "label": "استلام مواد",
+          "active": true,
+          "order": 4
+        },
+        {
+          "id": "ac_muad8gey_0p73b",
+          "label": "عودة للشركة",
+          "active": true,
+          "order": 5
+        },
+        {
+          "id": "ac_muad8gey_mrcbf",
+          "label": "وقود / صيانة",
+          "active": true,
+          "order": 6
+        }
+      ],
+      "createdAt": "2026-09-20T22:06:11.482Z",
+      "updatedAt": "2026-09-20T22:06:11.482Z"
+    },
+    {
+      "id": "tpl_warehouse",
+      "label": "أمين مستودع",
+      "active": true,
+      "statuses": [
+        {
+          "id": "st_muad8gey_3xdr0",
+          "label": "بالمستودع",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "st_muad8gey_43vg2",
+          "label": "استلام / تسليم خارجي",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "st_muad8gey_um0l0",
+          "label": "بالإدارة / المكتب",
+          "active": true,
+          "order": 3
+        }
+      ],
+      "activities": [
+        {
+          "id": "ac_muad8gey_ovpze",
+          "label": "استلام مواد",
+          "active": true,
+          "order": 1
+        },
+        {
+          "id": "ac_muad8gey_sj1yl",
+          "label": "تسليم مواد",
+          "active": true,
+          "order": 2
+        },
+        {
+          "id": "ac_muad8gey_6qxkk",
+          "label": "جرد",
+          "active": true,
+          "order": 3
+        },
+        {
+          "id": "ac_muad8gey_ptpp1",
+          "label": "ترتيب مستودع",
+          "active": true,
+          "order": 4
+        },
+        {
+          "id": "ac_muad8gey_brzdb",
+          "label": "نقل عهدة",
+          "active": true,
+          "order": 5
+        },
+        {
+          "id": "ac_muad8gey_aly11",
+          "label": "تجهيز طلب",
+          "active": true,
+          "order": 6
+        }
+      ],
+      "createdAt": "2026-09-20T22:06:11.482Z",
+      "updatedAt": "2026-09-20T22:06:11.482Z"
+    }
+  ],
+  "demo": {
+    "customers": [
+      {
+        "id": "CUST/00001",
+        "type": "company",
+        "name": "شركة رولانا",
+        "legalName": "شركة رولانا",
+        "industry": "",
+        "contact": "قسم المبيعات",
+        "jobTitle": "",
+        "phone": "0933 000 000",
+        "alternatePhone": "",
+        "whatsapp": "0933 000 000",
+        "email": "sales@rolana.com",
+        "website": "",
+        "country": "سوريا",
+        "city": "دمشق",
+        "address": "دمشق",
+        "billingAddress": "دمشق",
+        "deliveryAddress": "دمشق",
+        "taxNumber": "",
+        "commercialRegister": "",
+        "paymentTerms": "30 يوم",
+        "currency": "USD",
+        "salesperson": "",
+        "source": "",
+        "preferredContact": "واتساب",
+        "notes": "",
+        "active": true,
+        "createdAt": "",
+        "createdBy": "",
+        "secondaryContacts": [],
+        "marketingProfile": {
+          "discoveryQuestions": [
+            {
+              "id": "Q1",
+              "question": "ما هي أهم المنتجات أو الخدمات التي تريدون التركيز عليها؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q2",
+              "question": "ما الهدف الأساسي من التسويق خلال الفترة القادمة؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q3",
+              "question": "من هو الجمهور المستهدف الرئيسي؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q4",
+              "question": "ما المناطق أو الأسواق التي تستهدفونها؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q5",
+              "question": "من هم أهم المنافسين؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q6",
+              "question": "ما الذي يميزكم عن المنافسين؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q7",
+              "question": "كيف تريدون أن يشعر العميل تجاه العلامة؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q8",
+              "question": "ما الأشياء أو الأساليب التي لا تريدون استخدامها؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q9",
+              "question": "ما القنوات والمنصات المستخدمة حالياً؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q10",
+              "question": "ما الذي نجح معكم تسويقياً سابقاً؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q11",
+              "question": "ما الذي لم ينجح أو لا تريدون تكراره؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q12",
+              "question": "ما المنتجات أو الخدمات الأعلى مبيعاً؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q13",
+              "question": "هل توجد مواسم أو عروض أو تواريخ مهمة؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q14",
+              "question": "ما ميزانية الترويج التقريبية إن وجدت؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q15",
+              "question": "من هو صاحب قرار الاعتماد النهائي لدى العميل؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            }
+          ],
+          "guide": {
+            "audience": "",
+            "brandEssence": "",
+            "tone": "",
+            "keyMessages": "",
+            "likes": "",
+            "dislikes": "",
+            "competitors": "",
+            "colors": "",
+            "fonts": "",
+            "brandGuideRef": "",
+            "logoRef": "",
+            "references": ""
+          },
+          "notes": [],
+          "plans": [],
+          "createdAt": "2026-09-20T22:06:11.558Z"
+        }
+      },
+      {
+        "id": "CUST/00002",
+        "type": "company",
+        "name": "دارنيتو",
+        "legalName": "دارنيتو",
+        "industry": "",
+        "contact": "قسم المشتريات",
+        "jobTitle": "",
+        "phone": "0933 111 111",
+        "alternatePhone": "",
+        "whatsapp": "0933 111 111",
+        "email": "sales@darneto.com",
+        "website": "",
+        "country": "سوريا",
+        "city": "دمشق",
+        "address": "دمشق",
+        "billingAddress": "دمشق",
+        "deliveryAddress": "دمشق",
+        "taxNumber": "",
+        "commercialRegister": "",
+        "paymentTerms": "30 يوم",
+        "currency": "USD",
+        "salesperson": "",
+        "source": "",
+        "preferredContact": "واتساب",
+        "notes": "",
+        "active": true,
+        "createdAt": "",
+        "createdBy": "",
+        "marketingProfile": {
+          "discoveryQuestions": [
+            {
+              "id": "Q1",
+              "question": "ما هي أهم المنتجات أو الخدمات التي تريدون التركيز عليها؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q2",
+              "question": "ما الهدف الأساسي من التسويق خلال الفترة القادمة؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q3",
+              "question": "من هو الجمهور المستهدف الرئيسي؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q4",
+              "question": "ما المناطق أو الأسواق التي تستهدفونها؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q5",
+              "question": "من هم أهم المنافسين؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q6",
+              "question": "ما الذي يميزكم عن المنافسين؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q7",
+              "question": "كيف تريدون أن يشعر العميل تجاه العلامة؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q8",
+              "question": "ما الأشياء أو الأساليب التي لا تريدون استخدامها؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q9",
+              "question": "ما القنوات والمنصات المستخدمة حالياً؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q10",
+              "question": "ما الذي نجح معكم تسويقياً سابقاً؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q11",
+              "question": "ما الذي لم ينجح أو لا تريدون تكراره؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q12",
+              "question": "ما المنتجات أو الخدمات الأعلى مبيعاً؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q13",
+              "question": "هل توجد مواسم أو عروض أو تواريخ مهمة؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q14",
+              "question": "ما ميزانية الترويج التقريبية إن وجدت؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            },
+            {
+              "id": "Q15",
+              "question": "من هو صاحب قرار الاعتماد النهائي لدى العميل؟",
+              "answer": "",
+              "internalNote": "",
+              "custom": false
+            }
+          ],
+          "guide": {
+            "audience": "",
+            "brandEssence": "",
+            "tone": "",
+            "keyMessages": "",
+            "likes": "",
+            "dislikes": "",
+            "competitors": "",
+            "colors": "",
+            "fonts": "",
+            "brandGuideRef": "",
+            "logoRef": "",
+            "references": ""
+          },
+          "notes": [],
+          "plans": [],
+          "createdAt": "2026-09-20T22:06:11.558Z"
+        }
+      }
+    ],
+    "quotations": [
+      {
+        "id": 1,
+        "number": "S00001",
+        "title": "",
+        "status": "draft",
+        "customer": "شركة رولانا",
+        "invoiceAddress": "دمشق",
+        "deliveryAddress": "دمشق",
+        "template": "عرض خدمات تسويقية",
+        "expiration": "2026-09-30",
+        "pricelist": "القائمة العامة",
+        "paymentTerms": "30 يوم",
+        "salesperson": "محمد",
+        "salesTeam": "المبيعات",
+        "company": "Mosh Group",
+        "onlineSignature": false,
+        "onlinePayment": false,
+        "prepayment": 0,
+        "deliveryDate": "2026-09-20",
+        "fiscalPosition": "",
+        "customerReference": "",
+        "sourceDocument": "",
+        "campaign": "",
+        "medium": "",
+        "source": "",
+        "lines": [
+          {
+            "type": "product",
+            "product": "إدارة حملة تسويقية",
+            "description": "إدارة وتنفيذ الحملة",
+            "qty": 1,
+            "price": 5000,
+            "discount": 0,
+            "tax": 0,
+            "cost": 3000
+          },
+          {
+            "type": "section",
+            "description": "الإنتاج الإبداعي"
+          },
+          {
+            "type": "product",
+            "product": "تصميم ومونتاج",
+            "description": "مواد الحملة الإعلانية",
+            "qty": 1,
+            "price": 2500,
+            "discount": 0,
+            "tax": 0,
+            "cost": 1200
+          }
+        ],
+        "optional": [
+          {
+            "product": "جلسة تصوير إضافية",
+            "qty": 1,
+            "price": 800
+          }
+        ],
+        "notes": "الأسعار صالحة حتى تاريخ انتهاء العرض.",
+        "quoteBuilder": {
+          "headers": [
+            "غلاف MOSH"
+          ],
+          "footers": [
+            "الشروط العامة"
+          ]
+        },
+        "quoteFollowup": "",
+        "salesFollowup": "",
+        "followupNotes": [],
+        "chatter": [
+          {
+            "who": "النظام",
+            "text": "تم إنشاء عرض السعر.",
+            "time": "2026-09-21 01:06:11"
+          }
+        ]
+      }
+    ],
+    "services": [],
+    "salespeople": [
+      {
+        "id": "SP/00001",
+        "name": "محمد",
+        "phone": "",
+        "email": "",
+        "jobTitle": "مندوب مبيعات",
+        "salesTeam": "",
+        "active": true,
+        "notes": "",
+        "createdAt": "",
+        "createdBy": ""
+      }
+    ],
+    "salesTeamsCfg": [
+      {
+        "id": "TEAM/00001",
+        "name": "المبيعات",
+        "leader": "",
+        "members": [],
+        "active": true,
+        "notes": "",
+        "createdAt": "",
+        "createdBy": ""
+      }
+    ],
+    "quoteTemplates": [
+      {
+        "id": "QTPL/00001",
+        "name": "عرض خدمات تسويقية",
+        "style": "official",
+        "validityDays": "",
+        "defaultNotes": "",
+        "isDefault": true,
+        "active": true,
+        "createdAt": "",
+        "createdBy": ""
+      }
+    ]
+  },
+  "wisdom": [
+    "رتّب أولوياتك، افتح مهامك، وخلي يومك أوضح من أول دقيقة.",
+    "خلّص المهمة الأهم قبل ما تفتح عشر مهام جديدة.",
+    "الوضوح قبل السرعة؛ لما تعرف المطلوب، التنفيذ يصير أخف.",
+    "إذا ما في موعد واضح، المهمة بتضل فكرة أكثر مما هي التزام.",
+    "كل متابعة بلا نتيجة محددة بتصير ضجيج.",
+    "اكتب المطلوب بجملة واحدة قبل ما تبدأ التنفيذ.",
+    "الشغل المرتّب بيختصر وقت التوضيح ووقت التصحيح.",
+    "لا تأجّل قراراً يحتاج دقيقتين ويعطّل فريقاً كاملاً.",
+    "المهمة التي بلا مسؤول واضح غالباً بلا نهاية واضحة.",
+    "قبل أن تسلّم، راجع النتيجة كأنك أنت العميل.",
+    "اجتماع بلا قرار أو خطوة تالية هو وقت مؤجّل.",
+    "إذا تعثّرت، حدّد العائق بدل ما تعيد نفس المحاولة.",
+    "الجودة تبدأ من فهم المطلوب قبل بدء الشغل.",
+    "خلّي الملاحظات على الشغل، مو على الأشخاص.",
+    "المهام الكبيرة تنجز بخطوات صغيرة وواضحة.",
+    "لا تخلّي الرسالة المهمة تضيع بين التفاصيل الأقل أهمية.",
+    "كل يوم ناجح يبدأ بثلاث أولويات واضحة.",
+    "التوثيق اليوم يوفّر نقاشاً طويلاً بكرا.",
+    "السرعة مفيدة فقط عندما يكون الاتجاه صحيحاً.",
+    "إذا تغيّر المطلوب، حدّث المهمة قبل ما تكمل التنفيذ.",
+    "المسؤولية الواضحة نصف الإنجاز.",
+    "راجع ما أُنجز قبل ما تضيف شغل جديد.",
+    "القرار الجيد يحتاج معلومة واضحة أكثر مما يحتاج كلاماً كثيراً.",
+    "خلّي نهاية كل مهمة نتيجة قابلة للتسليم والقياس.",
+    "لا تنتظر الكمال لتبدأ؛ ابدأ صح وطوّر أثناء الطريق.",
+    "سؤال واحد صح أفضل من ثلاث محاولات غلط.",
+    "الوقت اللي بتوفّره بالتنظيم بيرجعلك إنجاز.",
+    "اهتم بالتفاصيل، بس لا تخليها توقف الصورة الكبيرة.",
+    "إذا المهمة مشتركة، اتفقوا أولاً مين يعمل شو ومتى.",
+    "أحسن متابعة هي اللي بتسكر الموضوع، مو اللي بتزيد رسائل.",
+    "ابدأ بالأصعب قبل ما يستهلك السهل طاقة يومك."
+  ]
+}

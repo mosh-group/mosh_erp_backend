@@ -1,0 +1,223 @@
+{
+    "passed": 54,
+    "total": 54,
+    "checks": [
+        {
+            "name": "Start accepts 1 bytes",
+            "passed": true
+        },
+        {
+            "name": "Incomplete completion rejected 1",
+            "passed": true
+        },
+        {
+            "name": "Resume lists accepted parts 1",
+            "passed": true
+        },
+        {
+            "name": "Actual assembled bytes exact 1",
+            "passed": true
+        },
+        {
+            "name": "Complete lost-response retry finalizes once 1",
+            "passed": true
+        },
+        {
+            "name": "Start accepts 1024 bytes",
+            "passed": true
+        },
+        {
+            "name": "Incomplete completion rejected 1024",
+            "passed": true
+        },
+        {
+            "name": "Resume lists accepted parts 1024",
+            "passed": true
+        },
+        {
+            "name": "Actual assembled bytes exact 1024",
+            "passed": true
+        },
+        {
+            "name": "Complete lost-response retry finalizes once 1024",
+            "passed": true
+        },
+        {
+            "name": "Start accepts 262144 bytes",
+            "passed": true
+        },
+        {
+            "name": "Incomplete completion rejected 262144",
+            "passed": true
+        },
+        {
+            "name": "Resume lists accepted parts 262144",
+            "passed": true
+        },
+        {
+            "name": "Actual assembled bytes exact 262144",
+            "passed": true
+        },
+        {
+            "name": "Complete lost-response retry finalizes once 262144",
+            "passed": true
+        },
+        {
+            "name": "Start accepts 262145 bytes",
+            "passed": true
+        },
+        {
+            "name": "Incomplete completion rejected 262145",
+            "passed": true
+        },
+        {
+            "name": "Resume lists accepted parts 262145",
+            "passed": true
+        },
+        {
+            "name": "Actual assembled bytes exact 262145",
+            "passed": true
+        },
+        {
+            "name": "Complete lost-response retry finalizes once 262145",
+            "passed": true
+        },
+        {
+            "name": "Start accepts 5242880 bytes",
+            "passed": true
+        },
+        {
+            "name": "Incomplete completion rejected 5242880",
+            "passed": true
+        },
+        {
+            "name": "Resume lists accepted parts 5242880",
+            "passed": true
+        },
+        {
+            "name": "Actual assembled bytes exact 5242880",
+            "passed": true
+        },
+        {
+            "name": "Complete lost-response retry finalizes once 5242880",
+            "passed": true
+        },
+        {
+            "name": "Start accepts 26214400 bytes",
+            "passed": true
+        },
+        {
+            "name": "Incomplete completion rejected 26214400",
+            "passed": true
+        },
+        {
+            "name": "Resume lists accepted parts 26214400",
+            "passed": true
+        },
+        {
+            "name": "Actual assembled bytes exact 26214400",
+            "passed": true
+        },
+        {
+            "name": "Complete lost-response retry finalizes once 26214400",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename bad.php",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename bad.php.jpg",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename ..\/image.jpg",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename bad.js",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename x.svg",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename x.html",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename C:\\x.jpg",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename no-extension",
+            "passed": true
+        },
+        {
+            "name": "Disallowed filename x.exe.png",
+            "passed": true
+        },
+        {
+            "name": "Allowed filename اختبار (2).JPG",
+            "passed": true
+        },
+        {
+            "name": "Allowed filename file.pdf",
+            "passed": true
+        },
+        {
+            "name": "Allowed filename file.mp4",
+            "passed": true
+        },
+        {
+            "name": "Allowed filename file.psd",
+            "passed": true
+        },
+        {
+            "name": "Allowed filename voice.webm",
+            "passed": true
+        },
+        {
+            "name": "Zero bytes rejected",
+            "passed": true
+        },
+        {
+            "name": "25 MB + 1 rejected",
+            "passed": true
+        },
+        {
+            "name": "Identical part retry is safe",
+            "passed": true
+        },
+        {
+            "name": "Changed part rejected",
+            "passed": true
+        },
+        {
+            "name": "Cross-owner upload cannot be read",
+            "passed": true
+        },
+        {
+            "name": "Out-of-range part rejected",
+            "passed": true
+        },
+        {
+            "name": "Path traversal in session ID rejected",
+            "passed": true
+        },
+        {
+            "name": "Full-file hash mismatch rejected",
+            "passed": true
+        },
+        {
+            "name": "Cancelled session cannot complete",
+            "passed": true
+        },
+        {
+            "name": "Per-user active quota enforced",
+            "passed": true
+        }
+    ],
+    "boundary": "Actual temporary filesystem and SHA256; application authentication, ORM and Laravel HTTP not invoked."
+}

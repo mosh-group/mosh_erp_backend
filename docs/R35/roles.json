@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "name": "Legacy active status is counted through canonical helper",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Menu focuses first group on keyboard open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "End reaches last menu group",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Left arrow opens submenu and focuses leaf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "First ESC closes only child menu",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Second ESC closes group menu and restores trigger focus",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Stale menu cannot execute a now-disabled action",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Drawer visible before refresh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Refresh invalidates displayed employee copy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Leaving section closes old grouped menu",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Late branding response cannot reapply after logout",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Root race/keyboard flow has no uncaught JS errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Limited HR view loads without new permission grants",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Read-only user can open menu groups",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Grouped entries only use allowed original controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authorized read-only profile preview is available",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Write actions do not reappear in overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Unprivileged user cannot open branding editor",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Grouped UI does not grant IT access",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Direct menu call also checks department permission",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Limited role has no JS errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "passed": 21,
+  "total": 21,
+  "boundary": "Actual frontend with synthetic user grants. Backend authorization is unchanged except tested branding endpoint."
+}

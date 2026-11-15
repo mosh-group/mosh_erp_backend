@@ -1,0 +1,1 @@
+<?php spl_autoload_register(function($c){if(str_starts_with($c,'App\\Services\\R34\\')||str_starts_with($c,'App\\Services\\Social\\')){$p=dirname(__DIR__,2).'/app/'.str_replace('\\','/',substr($c,4)).'.php';if(is_file($p))require_once $p;}});

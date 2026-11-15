@@ -1,0 +1,21 @@
+PASS Legacy active status is counted through canonical helper
+PASS Menu focuses first group on keyboard open
+PASS End reaches last menu group
+PASS Left arrow opens submenu and focuses leaf
+PASS First ESC closes only child menu
+PASS Second ESC closes group menu and restores trigger focus
+PASS Stale menu cannot execute a now-disabled action
+PASS Drawer visible before refresh
+PASS Refresh invalidates displayed employee copy
+PASS Leaving section closes old grouped menu
+PASS Late branding response cannot reapply after logout
+PASS Root race/keyboard flow has no uncaught JS errors
+PASS Limited HR view loads without new permission grants
+PASS Read-only user can open menu groups
+PASS Grouped entries only use allowed original controls
+PASS Authorized read-only profile preview is available
+PASS Write actions do not reappear in overflow
+PASS Unprivileged user cannot open branding editor
+PASS Grouped UI does not grant IT access
+PASS Direct menu call also checks department permission
+PASS Limited role has no JS errors

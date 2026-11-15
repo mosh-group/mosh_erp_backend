@@ -1,0 +1,80 @@
+[
+  {
+    "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+    "kind": "modified",
+    "before_sha256": "bc5c95e278d47999008f98f658999ee5ad2c855d457eb8fc027c74d1effa32d3",
+    "after_sha256": "26743519d1c6604ae3d7c8aea8dcda02dc282fe61907d70b945bd3ade2e0c84e"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/api-map.json",
+    "kind": "modified",
+    "before_sha256": "08e574d9fa9a8f646fc5a102984372a43caffc44be008ddd8112d18daf9efd54",
+    "after_sha256": "ba9aa3a26b662b4845ca45a421ac9b0c4cf9a0db98ff058992242cbb3b7b5816"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/index.html",
+    "kind": "modified",
+    "before_sha256": "86ffe2f625dde985cef0b10a11cf06cbbd1ba13fc92702ed639042ca4a709200",
+    "after_sha256": "03651676cb17c2fe3562a5ea54bf46a7b77991b6de30e87e78bcdb98274fcf3c"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+    "kind": "modified",
+    "before_sha256": "58fd04a425ba560148d7cc937fa446cc3ebb16400629718a32aae46674974ba1",
+    "after_sha256": "25d0f43ba0ae62d67e98ada776129ae87b921a89e3b64b993445c0d095c44433"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+    "kind": "modified",
+    "before_sha256": "616c6d2a0fb724afe6d403f16a6d2c4ff99c414ac49feaad755206e2044669ca",
+    "after_sha256": "b28e3e53607e71b414a781c94b889b0bf72b92cc994c25dc75c455139d2ab751"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+    "kind": "modified",
+    "before_sha256": "33605bb8135e4cdb21e9d10b8d47d0830d0905a6d6dd048c91b4db3e37a4f65f",
+    "after_sha256": "25c92e45565e170468e9f080a3c5b263c0271b79a7e5d141c1702d16ea39fb65"
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/R35Branding.php",
+    "kind": "added",
+    "before_sha256": null,
+    "after_sha256": "f6b5c433c78085554e26df575ab1534bc8c994f09253ed43a525b0d074af7e1e"
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R35BrandingController.php",
+    "kind": "added",
+    "before_sha256": null,
+    "after_sha256": "b7aec6b399a221a0dabba61c9dd7c17d2eadfcc42c13d90bfaa1d79ee7079edf"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/css/r35-v2.css",
+    "kind": "added",
+    "before_sha256": null,
+    "after_sha256": "858661216ebdf51d768d95061ef7a7fe98c1d2ff1c5896e88637b8e17eff6575"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/r35-navigation.js",
+    "kind": "added",
+    "before_sha256": null,
+    "after_sha256": "a2b6c5ae51b1948623f82d1620cf37b3d8c0fbc565f1c24097bef06b35a0c91f"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/r35-density.js",
+    "kind": "added",
+    "before_sha256": null,
+    "after_sha256": "a1e18d72547e6394f382ef7b559b571bcbf91cad95e6e0d6a04d7ed7614680ee"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/r35-workspace.js",
+    "kind": "added",
+    "before_sha256": null,
+    "after_sha256": "3ce2719205b88a9b97d12818765701727772a11c7a50ea33285cdc78c60c3cfa"
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/r35-branding.js",
+    "kind": "added",
+    "before_sha256": null,
+    "after_sha256": "9177a1a6a972a1955f125cceaa13da71d614bd528021452a53568e73cd019712"
+  }
+]

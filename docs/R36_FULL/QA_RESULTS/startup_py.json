@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "name": "Login visible while auth response is still held",
+      "passed": true,
+      "detail": {
+        "fixture_ms_to_visible": 347
+      }
+    },
+    {
+      "name": "No department manifest, scripts or bootstrap before session confirmation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Submit disabled while session/CSRF unavailable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Unauthenticated session still does not load department scripts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Rejected password leaves interactive login and clears password",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "CSRF carried on actual login POST",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Wrong password did not bootstrap application",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Successful login loads real app scripts then removes entry overlay",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Each manifest script loaded exactly once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Post-authentication styles are activated",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Performance marks emitted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No unhandled JS errors or production request",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "blocked": []
+      }
+    }
+  ],
+  "passed": 12,
+  "total": 12,
+  "boundary": "Browser routed synthetic auth/bootstrap. Timing is local fixture only, not production latency."
+}

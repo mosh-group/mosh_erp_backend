@@ -1,0 +1,539 @@
+{
+  "baseline": "MOSH_R29_FULL_HR_ADMIN_CLIENTS.zip",
+  "originalFiles": 9123,
+  "retained": 9123,
+  "missing": [],
+  "unchanged": 9111,
+  "changed": [
+    "MOSH_VANILLA_FRONTEND/api-map.json",
+    "MOSH_VANILLA_FRONTEND/css/r29-workflows.css",
+    "MOSH_VANILLA_FRONTEND/index.html",
+    "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+    "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+    "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+    "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+    "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+    "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+    "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+    "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+    "MOSH_VANILLA_FRONTEND/js/r29-workflows.js"
+  ],
+  "new": [
+    "MOSH_LARAVEL_BACKEND/tests/R30/browser_navigation.py",
+    "MOSH_LARAVEL_BACKEND/tests/R30/output/browser-navigation.json",
+    "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-dashboard-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-hr-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-hr-mobile.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-marketing-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-marketing-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/browser-results.json",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-customer-work.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-customers-mobile.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-leave-desktop.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-social-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-social-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-social-mobile.png",
+    "MOSH_LARAVEL_BACKEND/tests/R30/regression_r29.py",
+    "MOSH_VANILLA_FRONTEND/css/r30-shell-fixes.css"
+  ],
+  "protectedCompared": 8611,
+  "protectedChanged": [],
+  "backendOriginalFilesChanged": [],
+  "javascript": [
+    {
+      "file": "MOSH_VANILLA_FRONTEND/config.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/61-mosh-r14-system-polish.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/61-mosh-zkteco-admin.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/62-mosh-r16-field-fixes.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/63-mosh-mini-workdesk.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-common.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-home.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-hr.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-mini.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-dashboard.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-overdue.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r20-attendance-header.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r20-employee-portal.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r22-theme.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r25-marketing-customers.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r29-model.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/vendor/html2canvas.min.js",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "file": "MOSH_VANILLA_FRONTEND/vendor/jspdf.umd.min.js",
+      "passed": true,
+      "error": ""
+    }
+  ],
+  "inlineScripts": [
+    {
+      "index": 0,
+      "passed": true,
+      "error": ""
+    },
+    {
+      "index": 1,
+      "passed": true,
+      "error": ""
+    },
+    {
+      "index": 4,
+      "passed": true,
+      "error": ""
+    }
+  ],
+  "assetReferencesMissing": [],
+  "manifestRelease": "R30",
+  "scriptCount": 82,
+  "scriptPathsUnique": true,
+  "sqliteReadOnly": [
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database.backup-20260921-120137.sqlite",
+      "result": [
+        [
+          "ok"
+        ]
+      ]
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database.before-cleanup-20260922-164942.sqlite",
+      "result": [
+        [
+          "ok"
+        ]
+      ]
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+      "result": [
+        [
+          "ok"
+        ]
+      ]
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database-before-dummy-data.sqlite",
+      "result": [
+        [
+          "ok"
+        ]
+      ]
+    }
+  ]
+}

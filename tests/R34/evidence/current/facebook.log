@@ -1,0 +1,242 @@
+PASS Facebook secret encrypted at rest
+PASS Configuration never returns secret
+PASS Nontechnical user cannot configure app
+PASS OAuth uses random state and official host
+PASS OAuth callback other session rejected
+PASS OAuth callback other account rejected
+PASS OAuth replay rejected
+PASS Selection metadata never contains page tokens
+PASS Other browser session cannot list page selection
+PASS Explicit page selection creates connected account
+PASS Public account omits access token and private identity
+PASS Stored account token can decrypt only through server
+PASS Same choose request safely replays
+PASS Used selection cannot create duplicate on another key
+PASS No direct permission routes to approval
+PASS Ordinary author cannot self approve
+PASS Independent reviewer queues request
+PASS Worker publishes exactly once on provider success
+PASS Repeated processing never duplicates successful post
+PASS Public post excludes execution lease and authorization internals
+PASS Lost irreversible reply becomes uncertain, not published
+PASS Uncertain post never repeats POST
+PASS Uncertain post cannot be edited into republish
+PASS Revoked publishing right blocks queued request
+PASS Scheduling disabled if worker heartbeat absent
+PASS Publish right does not grant schedule right
+PASS Independent schedule right creates schedule
+PASS Future scheduled post never runs early
+PASS Return for edits has distinct status
+PASS Final rejection distinct from return
+PASS Final rejection cannot be cancelled into an editable draft
+PASS Final rejection cannot be edited as returned
+PASS Cross-customer page rejected
+PASS Video waits for provider processing
+PASS Video completion uses GET without second publish
+PASS Active execution lease prevents another publisher
+PASS Crash after persisted intent is not retried
+PASS Disconnect removes token and stops queued work
+PASS Disconnect preserves company source files
+PASS Forged provider deletion rejected
+PASS Signed deletion removes provider identity, retains company content
+PASS Public deletion status identifier contains no employee identity
+PASS Fixed-host path guard https://evil.invalid
+PASS Fixed-host path guard 123/../me
+PASS Fixed-host path guard 123?token=bad
+PASS Fixed-host path guard me/accounts/extra
+PASS No public/audit payload leaks page token
+{
+    "passed": 47,
+    "total": 47,
+    "checks": [
+        {
+            "name": "Facebook secret encrypted at rest",
+            "passed": true
+        },
+        {
+            "name": "Configuration never returns secret",
+            "passed": true
+        },
+        {
+            "name": "Nontechnical user cannot configure app",
+            "passed": true
+        },
+        {
+            "name": "OAuth uses random state and official host",
+            "passed": true
+        },
+        {
+            "name": "OAuth callback other session rejected",
+            "passed": true
+        },
+        {
+            "name": "OAuth callback other account rejected",
+            "passed": true
+        },
+        {
+            "name": "OAuth replay rejected",
+            "passed": true
+        },
+        {
+            "name": "Selection metadata never contains page tokens",
+            "passed": true
+        },
+        {
+            "name": "Other browser session cannot list page selection",
+            "passed": true
+        },
+        {
+            "name": "Explicit page selection creates connected account",
+            "passed": true
+        },
+        {
+            "name": "Public account omits access token and private identity",
+            "passed": true
+        },
+        {
+            "name": "Stored account token can decrypt only through server",
+            "passed": true
+        },
+        {
+            "name": "Same choose request safely replays",
+            "passed": true
+        },
+        {
+            "name": "Used selection cannot create duplicate on another key",
+            "passed": true
+        },
+        {
+            "name": "No direct permission routes to approval",
+            "passed": true
+        },
+        {
+            "name": "Ordinary author cannot self approve",
+            "passed": true
+        },
+        {
+            "name": "Independent reviewer queues request",
+            "passed": true
+        },
+        {
+            "name": "Worker publishes exactly once on provider success",
+            "passed": true
+        },
+        {
+            "name": "Repeated processing never duplicates successful post",
+            "passed": true
+        },
+        {
+            "name": "Public post excludes execution lease and authorization internals",
+            "passed": true
+        },
+        {
+            "name": "Lost irreversible reply becomes uncertain, not published",
+            "passed": true
+        },
+        {
+            "name": "Uncertain post never repeats POST",
+            "passed": true
+        },
+        {
+            "name": "Uncertain post cannot be edited into republish",
+            "passed": true
+        },
+        {
+            "name": "Revoked publishing right blocks queued request",
+            "passed": true
+        },
+        {
+            "name": "Scheduling disabled if worker heartbeat absent",
+            "passed": true
+        },
+        {
+            "name": "Publish right does not grant schedule right",
+            "passed": true
+        },
+        {
+            "name": "Independent schedule right creates schedule",
+            "passed": true
+        },
+        {
+            "name": "Future scheduled post never runs early",
+            "passed": true
+        },
+        {
+            "name": "Return for edits has distinct status",
+            "passed": true
+        },
+        {
+            "name": "Final rejection distinct from return",
+            "passed": true
+        },
+        {
+            "name": "Final rejection cannot be cancelled into an editable draft",
+            "passed": true
+        },
+        {
+            "name": "Final rejection cannot be edited as returned",
+            "passed": true
+        },
+        {
+            "name": "Cross-customer page rejected",
+            "passed": true
+        },
+        {
+            "name": "Video waits for provider processing",
+            "passed": true
+        },
+        {
+            "name": "Video completion uses GET without second publish",
+            "passed": true
+        },
+        {
+            "name": "Active execution lease prevents another publisher",
+            "passed": true
+        },
+        {
+            "name": "Crash after persisted intent is not retried",
+            "passed": true
+        },
+        {
+            "name": "Disconnect removes token and stops queued work",
+            "passed": true
+        },
+        {
+            "name": "Disconnect preserves company source files",
+            "passed": true
+        },
+        {
+            "name": "Forged provider deletion rejected",
+            "passed": true
+        },
+        {
+            "name": "Signed deletion removes provider identity, retains company content",
+            "passed": true
+        },
+        {
+            "name": "Public deletion status identifier contains no employee identity",
+            "passed": true
+        },
+        {
+            "name": "Fixed-host path guard https:\/\/evil.invalid",
+            "passed": true
+        },
+        {
+            "name": "Fixed-host path guard 123\/..\/me",
+            "passed": true
+        },
+        {
+            "name": "Fixed-host path guard 123?token=bad",
+            "passed": true
+        },
+        {
+            "name": "Fixed-host path guard me\/accounts\/extra",
+            "passed": true
+        },
+        {
+            "name": "No public\/audit payload leaks page token",
+            "passed": true
+        }
+    ],
+    "boundary": "Actual services; in-memory ORM\/identity\/HTTP provider and validation doubles. Not Laravel HTTP\/SQL."
+}

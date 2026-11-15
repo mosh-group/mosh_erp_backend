@@ -1,0 +1,522 @@
+[
+  {
+    "path": "/r19/hr?date=2026-10-22&month=2026-10",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r24/purchasing/queue",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/cancellations",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/approvals",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/workday",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/announcements?scope=mine&page=1&perPage=100",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/customers/C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r29/customers/C1/archive",
+    "method": "POST",
+    "body": {
+      "_version": 1,
+      "archive": true,
+      "reason": "QA archive customer",
+      "requestId": "r34-09dff75f-6240-4064-ad61-c2412bbca45d"
+    }
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/customers/C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r29/customers/C1/archive",
+    "method": "POST",
+    "body": {
+      "_version": 2,
+      "archive": false,
+      "reason": "QA reactivate same customer",
+      "requestId": "r34-4d4f108a-23a7-4c8e-b5f1-c3a775b32e47"
+    }
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/hierarchy",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/hierarchy",
+    "method": "PUT",
+    "body": {
+      "_version": 0,
+      "enabled": true,
+      "generalManagerId": "E3",
+      "executiveId": "E2",
+      "reportsTo": {
+        "E1": "E2",
+        "E2": "E3"
+      },
+      "routes": {
+        "hr": "direct",
+        "purchases": "direct",
+        "damage": "chain"
+      },
+      "requestId": "r34-4d153dbf-3a8b-4ccd-a37d-b80a79e179bc"
+    }
+  },
+  {
+    "path": "/r34/cancellations",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/approvals",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/chat?taskId=T_design",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/files-upload/start",
+    "method": "POST",
+    "body": {
+      "key": "taskchat/r34-63c0c086-6e39-4831-85ca-bd26f711f40c",
+      "name": "design.psd",
+      "kind": "task-chat",
+      "size": 8500,
+      "sha256": "28377f692c6543054c3722dcc1885adb5a26f3c26a6b074668373e72b6acab94"
+    }
+  },
+  {
+    "path": "/files-upload/68a5524335c6a70065260f825a567afb751186f9c9260301dae5170f8f6409f3/parts/0",
+    "method": "PUT",
+    "body": {
+      "base64": "UUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlc1FBIG9yaWdpbmFsIGJ5dGVzUUEgb3JpZ2luYWwgYnl0ZXNRQSBvcmlnaW5hbCBieXRlcw=="
+    }
+  },
+  {
+    "path": "/files-upload/68a5524335c6a70065260f825a567afb751186f9c9260301dae5170f8f6409f3/complete",
+    "method": "POST",
+    "body": {}
+  },
+  {
+    "path": "/r34/chat/send",
+    "method": "POST",
+    "body": {
+      "taskId": "T_design",
+      "text": "Original message to correct",
+      "files": [
+        "taskchat/r34-63c0c086-6e39-4831-85ca-bd26f711f40c"
+      ],
+      "requestId": "r34-c6bc749a-285e-44c1-921a-4b56b482e6b6"
+    }
+  },
+  {
+    "path": "/r34/chat/send",
+    "method": "POST",
+    "body": {
+      "taskId": "T_design",
+      "text": "Original message to correct",
+      "files": [
+        "taskchat/r34-63c0c086-6e39-4831-85ca-bd26f711f40c"
+      ],
+      "requestId": "r34-c6bc749a-285e-44c1-921a-4b56b482e6b6"
+    }
+  },
+  {
+    "path": "/r34/chat?taskId=T_design",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/chat/change",
+    "method": "POST",
+    "body": {
+      "taskId": "T_design",
+      "messageId": "MSG1",
+      "action": "edit",
+      "messageVersion": "",
+      "messageRevision": 0,
+      "text": "Corrected text",
+      "requestId": "r34-dfdb1f52-3c15-4697-ab64-cb557b7ac0b7"
+    }
+  },
+  {
+    "path": "/r34/chat?taskId=T_design",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/chat/change",
+    "method": "POST",
+    "body": {
+      "taskId": "T_design",
+      "messageId": "MSG1",
+      "action": "delete",
+      "messageVersion": "2026-10-22T13:00:00Z",
+      "messageRevision": 1,
+      "reason": "Wrong message",
+      "requestId": "r34-3372513e-484b-446b-bb51-ae13a3155717"
+    }
+  },
+  {
+    "path": "/r34/chat?taskId=T_design",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/chat/change",
+    "method": "POST",
+    "body": {
+      "taskId": "T_design",
+      "messageId": "FILE2",
+      "action": "delete",
+      "messageVersion": "",
+      "messageRevision": 0,
+      "reason": "Wrong file",
+      "requestId": "r34-f0727732-155d-4255-8f18-d1b5d76a6cb0"
+    }
+  },
+  {
+    "path": "/r34/chat?taskId=T_design",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/deadline?mode=workdays&days=2",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/chat?taskId=T_design",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/cancellations",
+    "method": "POST",
+    "body": {
+      "taskId": "T_design",
+      "reason": "QA incorrect task",
+      "requestId": "r34-aed2a982-7833-4243-9a56-9e7e60685f75"
+    }
+  },
+  {
+    "path": "/r34/cancellations",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/approvals",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/cancellations/CAN1/confirm",
+    "method": "POST",
+    "body": {
+      "code": "03456",
+      "requestId": "r34-1bfbe582-bdd2-4d4b-920c-69ca79aca9c4"
+    }
+  },
+  {
+    "path": "/r34/cancellations",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/approvals",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r19/notifications",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/r34/cancelled-tasks",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/instagram?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/configuration",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/configuration",
+    "method": "PUT",
+    "body": {
+      "_version": 1,
+      "appId": "987654",
+      "appSecret": "",
+      "redirectUri": "https://qa.invalid/api/social/facebook/callback",
+      "publicBaseUrl": "https://qa.invalid",
+      "graphVersion": "v26.0",
+      "requestId": "r34-48d8d347-3d0f-4bab-a52b-2be5cd46bc50"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/selections?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/select-page",
+    "method": "POST",
+    "body": {
+      "selectionId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pageId": "12345",
+      "_version": 1,
+      "requestId": "r34-0f7a49bf-c8bb-4aa3-bb51-c62b38d68ba1"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/posts",
+    "method": "POST",
+    "body": {
+      "customerId": "C1",
+      "accountId": "FB1",
+      "caption": "QA Facebook draft",
+      "mediaKind": "text",
+      "attachmentKey": "",
+      "mode": "draft",
+      "scheduledAt": null,
+      "requestId": "r34-06a9fa5f-438e-46ed-82ca-2cb0475f72ef"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/posts",
+    "method": "POST",
+    "body": {
+      "customerId": "C1",
+      "accountId": "FB1",
+      "caption": "QA Facebook publish",
+      "mediaKind": "text",
+      "attachmentKey": "",
+      "mode": "publish",
+      "scheduledAt": null,
+      "requestId": "r34-86a1122b-c699-411e-bb64-5bd0d41de451"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/posts",
+    "method": "POST",
+    "body": {
+      "customerId": "C1",
+      "accountId": "FB1",
+      "caption": "QA Facebook schedule",
+      "mediaKind": "text",
+      "attachmentKey": "",
+      "mode": "schedule",
+      "scheduledAt": "2030-10-28T11:00:00.000Z",
+      "requestId": "r34-f42b3abe-a489-435b-9d60-3babbf0b9c1d"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/files-upload/start",
+    "method": "POST",
+    "body": {
+      "key": "fb/r34-46d908e6-1445-4604-8231-8fe8112bb006",
+      "name": "page-image.png",
+      "kind": "social-facebook",
+      "size": 68,
+      "sha256": "3e8c467d9d44681999d7a4516ef4a575ce607ca3fb5d4522e10640392177a9c6"
+    }
+  },
+  {
+    "path": "/files-upload/25a2913e25636683f1f4c619ff79108d84ad3ced5bd7e478edffb6c06012ace5/parts/0",
+    "method": "PUT",
+    "body": {
+      "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aZJ8AAAAASUVORK5CYII="
+    }
+  },
+  {
+    "path": "/files-upload/25a2913e25636683f1f4c619ff79108d84ad3ced5bd7e478edffb6c06012ace5/complete",
+    "method": "POST",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/posts",
+    "method": "POST",
+    "body": {
+      "customerId": "C1",
+      "accountId": "FB1",
+      "caption": "QA photo draft",
+      "mediaKind": "image",
+      "attachmentKey": "fb/r34-46d908e6-1445-4604-8231-8fe8112bb006",
+      "mode": "draft",
+      "scheduledAt": null,
+      "requestId": "r34-be3dd267-b552-49df-9f2f-0d05e30fe9d9"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/accounts/FB1/insights?days=7",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/posts/FBPENDING/decision",
+    "method": "POST",
+    "body": {
+      "_version": 1,
+      "action": "return",
+      "note": "QA correction requested",
+      "requestId": "r34-a94659a2-e932-454c-9c83-29015582cce7"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook/posts/FBPENDING/decision",
+    "method": "POST",
+    "body": {
+      "_version": 3,
+      "action": "reject",
+      "note": "QA final rejection",
+      "requestId": "r34-6d239822-99a3-45c8-b9f3-4ea73c5457e4"
+    }
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/instagram?customerId=C1",
+    "method": "GET",
+    "body": {}
+  },
+  {
+    "path": "/social/facebook?customerId=C1",
+    "method": "GET",
+    "body": {}
+  }
+]

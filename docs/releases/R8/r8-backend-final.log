@@ -1,0 +1,10 @@
+PHPUnit 13.3.4 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.23
+
+...................................                               35 / 35 (100%)
+
+Time: 00:09.151, Memory: 54.50 MB
+
+OK, but there were issues!
+Tests: 35, Assertions: 622, Deprecations: 1.

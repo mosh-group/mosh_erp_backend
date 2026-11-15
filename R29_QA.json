@@ -1,0 +1,2515 @@
+{
+  "domain": {
+    "passed": 60,
+    "checks": [
+      {
+        "name": "Contract is not an activation requirement",
+        "passed": true
+      },
+      {
+        "name": "Activation requires name",
+        "passed": true
+      },
+      {
+        "name": "Activation requires department",
+        "passed": true
+      },
+      {
+        "name": "Activation requires jobTitle",
+        "passed": true
+      },
+      {
+        "name": "Activation requires hireDate",
+        "passed": true
+      },
+      {
+        "name": "Activation requires workdayHours",
+        "passed": true
+      },
+      {
+        "name": "Fingerprint mode requires enrollment",
+        "passed": true
+      },
+      {
+        "name": "Fingerprint employee complete",
+        "passed": true
+      },
+      {
+        "name": "Daily exemption does not require fixed hours",
+        "passed": true
+      },
+      {
+        "name": "Draft remains inactive without employment details",
+        "passed": true
+      },
+      {
+        "name": "Incomplete new employee cannot activate",
+        "passed": true
+      },
+      {
+        "name": "Existing active employee cannot lose required detail",
+        "passed": true
+      },
+      {
+        "name": "Legacy incomplete active employee not disabled on install",
+        "passed": true
+      },
+      {
+        "name": "Enrollment cannot coexist with exemption",
+        "passed": true
+      },
+      {
+        "name": "Leap day accepted",
+        "passed": true
+      },
+      {
+        "name": "Impossible date rejected",
+        "passed": true
+      },
+      {
+        "name": "Invalid formatted date rejected",
+        "passed": true
+      },
+      {
+        "name": "Inclusive leap-year day count",
+        "passed": true
+      },
+      {
+        "name": "Overnight weekly schedule allowed",
+        "passed": true
+      },
+      {
+        "name": "Duplicate weekly day rejected",
+        "passed": true
+      },
+      {
+        "name": "Invalid weekday rejected",
+        "passed": true
+      },
+      {
+        "name": "Equal clock times rejected",
+        "passed": true
+      },
+      {
+        "name": "Invalid monthly date rejected",
+        "passed": true
+      },
+      {
+        "name": "Calendar Jan-Dec boundaries",
+        "passed": true
+      },
+      {
+        "name": "Previous use counted once",
+        "passed": true
+      },
+      {
+        "name": "Pending annual requests reserve balance",
+        "passed": true
+      },
+      {
+        "name": "No leave carry-forward or previous-year usage",
+        "passed": true
+      },
+      {
+        "name": "Duplicate leave IDs counted once",
+        "passed": true
+      },
+      {
+        "name": "Cross-year leave prorated correctly",
+        "passed": true
+      },
+      {
+        "name": "Legacy opening balance never silently carried",
+        "passed": true
+      },
+      {
+        "name": "Five criteria accepted",
+        "passed": true
+      },
+      {
+        "name": "Equal weighted average",
+        "passed": true
+      },
+      {
+        "name": "Four criteria rejected",
+        "passed": true
+      },
+      {
+        "name": "Duplicate criterion rejected",
+        "passed": true
+      },
+      {
+        "name": "Score above 100 rejected",
+        "passed": true
+      },
+      {
+        "name": "Negative score rejected",
+        "passed": true
+      },
+      {
+        "name": "Missing score rejected",
+        "passed": true
+      },
+      {
+        "name": "Evaluation stores criteria snapshot",
+        "passed": true
+      },
+      {
+        "name": "No probation alert before seven days",
+        "passed": true
+      },
+      {
+        "name": "Seven-day event only",
+        "passed": true
+      },
+      {
+        "name": "Separate expiry event",
+        "passed": true
+      },
+      {
+        "name": "Probation stable acknowledgement identity",
+        "passed": true
+      },
+      {
+        "name": "Inactive employees receive no probation events",
+        "passed": true
+      },
+      {
+        "name": "Exact signed installment sum 1",
+        "passed": true
+      },
+      {
+        "name": "Exact signed installment sum 2",
+        "passed": true
+      },
+      {
+        "name": "Exact signed installment sum 3",
+        "passed": true
+      },
+      {
+        "name": "Exact signed installment sum 12",
+        "passed": true
+      },
+      {
+        "name": "Exact signed installment sum 60",
+        "passed": true
+      },
+      {
+        "name": "Installment year boundary",
+        "passed": true
+      },
+      {
+        "name": "Zero installments rejected",
+        "passed": true
+      },
+      {
+        "name": "Full month salary delta",
+        "passed": true
+      },
+      {
+        "name": "Multi-month salary delta",
+        "passed": true
+      },
+      {
+        "name": "Negative salary delta",
+        "passed": true
+      },
+      {
+        "name": "Actual-day partial month",
+        "passed": true
+      },
+      {
+        "name": "Thirty-day partial month",
+        "passed": true
+      },
+      {
+        "name": "No invented prorating convention",
+        "passed": true
+      },
+      {
+        "name": "Reversed retro period rejected",
+        "passed": true
+      },
+      {
+        "name": "QR finder dimensions",
+        "passed": true
+      },
+      {
+        "name": "QR self-contained SVG",
+        "passed": true
+      },
+      {
+        "name": "QR oversized URL rejected",
+        "passed": true
+      }
+    ],
+    "total": 60,
+    "boundary": "Pure production calculations; no HTTP, ORM, database or live accounts."
+  },
+  "security_payroll": {
+    "passed": 27,
+    "checks": [
+      {
+        "name": "Employee cannot read own archived contract",
+        "passed": true
+      },
+      {
+        "name": "Employee cannot list own archived contract",
+        "passed": true
+      },
+      {
+        "name": "Employee cannot edit own contract",
+        "passed": true
+      },
+      {
+        "name": "HR permission alone outside HR department does not expose contracts",
+        "passed": true
+      },
+      {
+        "name": "Authorized HR can read contract",
+        "passed": true
+      },
+      {
+        "name": "Explicit HR contract read denial honored",
+        "passed": true
+      },
+      {
+        "name": "Inactive HR cannot read contracts",
+        "passed": true
+      },
+      {
+        "name": "File owner cannot bypass contract link restriction",
+        "passed": true
+      },
+      {
+        "name": "Employee blocked from signed contract scan bytes",
+        "passed": true
+      },
+      {
+        "name": "Authorized HR can open linked signed scan",
+        "passed": true
+      },
+      {
+        "name": "Direct department manager can evaluate team member",
+        "passed": true
+      },
+      {
+        "name": "Manager cannot self evaluate",
+        "passed": true
+      },
+      {
+        "name": "Inactive manager cannot evaluate",
+        "passed": true
+      },
+      {
+        "name": "Administration read-only tracking capability",
+        "passed": true
+      },
+      {
+        "name": "Administration can read minimal customer without Sales write grant",
+        "passed": true
+      },
+      {
+        "name": "Read-only tracking does not grant customer edits",
+        "passed": true
+      },
+      {
+        "name": "Read-only tracking does not grant cross-department task edits",
+        "passed": true
+      },
+      {
+        "name": "Approved credit and deduction use exact minor units",
+        "passed": true
+      },
+      {
+        "name": "Approval reserves installment to one hours record",
+        "passed": true
+      },
+      {
+        "name": "Reserved installment not counted in a different draft",
+        "passed": true
+      },
+      {
+        "name": "Approved record reuses its frozen adjustments",
+        "passed": true
+      },
+      {
+        "name": "Superseded eligible hours release installment reservation",
+        "passed": true
+      },
+      {
+        "name": "Pending/rejected adjustments never affect payroll",
+        "passed": true
+      },
+      {
+        "name": "No cross-currency settlement mixing",
+        "passed": true
+      },
+      {
+        "name": "No cross-employee settlement mixing",
+        "passed": true
+      },
+      {
+        "name": "Future installment not applied early",
+        "passed": true
+      },
+      {
+        "name": "Deduction exceeding net salary blocked",
+        "passed": true
+      }
+    ],
+    "total": 27,
+    "boundary": "Actual RecordAccess/HrWorkflow/file gate/payroll functions with synthetic identity and in-memory storage; not ORM/SQL/HTTP integration."
+  },
+  "instagram": {
+    "passed": 73,
+    "total": 73,
+    "checks": [
+      {
+        "name": "Assign fourth department preserves all existing assignments",
+        "passed": true
+      },
+      {
+        "name": "Manager replacement is not an in-place mutation",
+        "passed": true
+      },
+      {
+        "name": "Remove one department keeps other assignments",
+        "passed": true
+      },
+      {
+        "name": "Same-department stale write is rejected",
+        "passed": true
+      },
+      {
+        "name": "Changes in different departments merge without losing either",
+        "passed": true
+      },
+      {
+        "name": "Legacy empty array normalizes without inventing managers",
+        "passed": true
+      },
+      {
+        "name": "Object maps and numeric IDs normalize safely",
+        "passed": true
+      },
+      {
+        "name": "draft status respects direct permission granted",
+        "passed": true
+      },
+      {
+        "name": "draft status respects direct permission denied",
+        "passed": true
+      },
+      {
+        "name": "publish status respects direct permission granted",
+        "passed": true
+      },
+      {
+        "name": "publish status respects direct permission denied",
+        "passed": true
+      },
+      {
+        "name": "schedule status respects direct permission granted",
+        "passed": true
+      },
+      {
+        "name": "schedule status respects direct permission denied",
+        "passed": true
+      },
+      {
+        "name": "Unknown publishing mode rejected",
+        "passed": true
+      },
+      {
+        "name": "publishing cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "reconciling cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "uncertain cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "published cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "Scheduled content cannot be edited before explicit cancellation",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL http://qa.invalid",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL https://user:pass@qa.invalid",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL https://qa.invalid?secret=x",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL https://qa.invalid#x",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL javascript:alert(1)",
+        "passed": true
+      },
+      {
+        "name": "HTTPS base URL accepted",
+        "passed": true
+      },
+      {
+        "name": "Public account excludes token and grants",
+        "passed": true
+      },
+      {
+        "name": "Public post excludes lease/provider credentials",
+        "passed": true
+      },
+      {
+        "name": "Valid provider signature accepted",
+        "passed": true
+      },
+      {
+        "name": "Wrong signing key rejected",
+        "passed": true
+      },
+      {
+        "name": "Tampered callback rejected",
+        "passed": true
+      },
+      {
+        "name": "Oversized callback rejected",
+        "passed": true
+      },
+      {
+        "name": "Provider rejects non-approved host",
+        "passed": true
+      },
+      {
+        "name": "Provider rejects injected graph paths",
+        "passed": true
+      },
+      {
+        "name": "Provider rejects malformed API version",
+        "passed": true
+      },
+      {
+        "name": "Provider-confirmed image is published with actual media ID",
+        "passed": true
+      },
+      {
+        "name": "One publication call for success",
+        "passed": true
+      },
+      {
+        "name": "Repeated processing never republishes confirmed content",
+        "passed": true
+      },
+      {
+        "name": "Container and publishing intent persisted",
+        "passed": true
+      },
+      {
+        "name": "Reels wait for provider processing",
+        "passed": true
+      },
+      {
+        "name": "Lost publish response is reconciled, not marked successful",
+        "passed": true
+      },
+      {
+        "name": "FINISHED after lost response does not repeat media_publish",
+        "passed": true
+      },
+      {
+        "name": "Long ambiguous result becomes uncertain without automatic retry",
+        "passed": true
+      },
+      {
+        "name": "Lost authorization after ambiguous publish becomes uncertain instead of waiting forever",
+        "passed": true
+      },
+      {
+        "name": "Provider PUBLISHED confirms a lost response without another POST",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits draft",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits pending_approval",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits published",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits uncertain",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits cancelled",
+        "passed": true
+      },
+      {
+        "name": "Future schedule does not publish early",
+        "passed": true
+      },
+      {
+        "name": "Active lease blocks another execution",
+        "passed": true
+      },
+      {
+        "name": "Revoked direct permission blocks publishing",
+        "passed": true
+      },
+      {
+        "name": "Approval permission is independent of direct publishing",
+        "passed": true
+      },
+      {
+        "name": "Inactive authorizer cannot publish",
+        "passed": true
+      },
+      {
+        "name": "Lost customer access blocks publishing",
+        "passed": true
+      },
+      {
+        "name": "Cross-customer account rejected by worker",
+        "passed": true
+      },
+      {
+        "name": "Permission rechecked immediately before irreversible publish",
+        "passed": true
+      },
+      {
+        "name": "Invalidated lease prevents a late worker from overwriting revocation",
+        "passed": true
+      },
+      {
+        "name": "Idle worker refreshes expiring accounts with no due posts",
+        "passed": true
+      },
+      {
+        "name": "Independent reviewer advances to queued",
+        "passed": true
+      },
+      {
+        "name": "Idempotent approval has one decision history row",
+        "passed": true
+      },
+      {
+        "name": "Reviewer cannot approve own submission",
+        "passed": true
+      },
+      {
+        "name": "Expired schedule must be returned for a new time",
+        "passed": true
+      },
+      {
+        "name": "Approval cannot schedule when worker inactive",
+        "passed": true
+      },
+      {
+        "name": "Cannot cancel after publishing begins",
+        "passed": true
+      },
+      {
+        "name": "Signed deletion removes token and provider identity",
+        "passed": true
+      },
+      {
+        "name": "Deletion fences in-flight worker and preserves uncertain result",
+        "passed": true
+      },
+      {
+        "name": "Deletion preserves company-owned source content",
+        "passed": true
+      },
+      {
+        "name": "Return permits future edit and preserves legacy status",
+        "passed": true
+      },
+      {
+        "name": "Final reject is terminal and distinct",
+        "passed": true
+      },
+      {
+        "name": "Final rejection history does not reinterpret legacy rejects",
+        "passed": true
+      },
+      {
+        "name": "Schedule direct grant works without publish direct grant",
+        "passed": true
+      },
+      {
+        "name": "Publish direct cannot bypass denied schedule direct",
+        "passed": true
+      }
+    ],
+    "boundary": "Production policy/manager/outbox/approval code with simulated persistence, provider, identity, clock and file boundaries; no SQL, HTTP, encryption implementation or live Meta validation."
+  },
+  "browser": {
+    "checks": [
+      {
+        "name": "Actual full frontend loads R28",
+        "passed": true
+      },
+      {
+        "name": "CRM and social panels are not stacked",
+        "passed": true
+      },
+      {
+        "name": "Verified account visible",
+        "passed": true
+      },
+      {
+        "name": "Legacy history not counted as official published",
+        "passed": true
+      },
+      {
+        "name": "Manager map retains both departments",
+        "passed": true
+      },
+      {
+        "name": "Manager getter does not mutate assignments",
+        "passed": true
+      },
+      {
+        "name": "Manager assignment uses dedicated server endpoint",
+        "passed": true
+      },
+      {
+        "name": "Assigning third department preserves employment and both existing departments",
+        "passed": true
+      },
+      {
+        "name": "All three assignments survive actual frontend refresh with synthetic server data",
+        "passed": true
+      },
+      {
+        "name": "Scoped manager can access both additional departments",
+        "passed": true
+      },
+      {
+        "name": "Explicit module denial overrides added manager scope",
+        "passed": true
+      },
+      {
+        "name": "Backdrop click does not close composer",
+        "passed": true
+      },
+      {
+        "name": "Draft saved with server response",
+        "passed": true
+      },
+      {
+        "name": "Draft has idempotency key",
+        "passed": true
+      },
+      {
+        "name": "Ambiguous server response is not shown as published",
+        "passed": true
+      },
+      {
+        "name": "Unavailable metric displays dash",
+        "passed": true
+      },
+      {
+        "name": "App secret never returned to browser",
+        "passed": true
+      },
+      {
+        "name": "Text-only publish is blocked client-side",
+        "passed": true
+      },
+      {
+        "name": "Approval controls hidden without grant",
+        "passed": true
+      },
+      {
+        "name": "Switching customer clears other customer data",
+        "passed": true
+      },
+      {
+        "name": "Social content has no horizontal overflow at mobile width",
+        "passed": true
+      },
+      {
+        "name": "Marketing navigation restored",
+        "passed": true
+      },
+      {
+        "name": "R29 actual workspace opens with server profile",
+        "passed": true
+      },
+      {
+        "name": "All nine HR workflow tabs registered",
+        "passed": true
+      },
+      {
+        "name": "Draft employee status is available",
+        "passed": true
+      },
+      {
+        "name": "Unused canonical department preserved and renamed for display",
+        "passed": true
+      },
+      {
+        "name": "Criteria uses versioned dedicated API",
+        "passed": true
+      },
+      {
+        "name": "Five scores live average is 80",
+        "passed": true
+      },
+      {
+        "name": "Server-confirmed evaluation rendered with snapshot",
+        "passed": true
+      },
+      {
+        "name": "Clock start sends no client timestamp",
+        "passed": true
+      },
+      {
+        "name": "Clock end renders recorded attendance hours",
+        "passed": true
+      },
+      {
+        "name": "Previous leave saved by calendar year",
+        "passed": true
+      },
+      {
+        "name": "Settlement lines reveal on type change",
+        "passed": true
+      },
+      {
+        "name": "Customer sequential numbers visible",
+        "passed": true
+      },
+      {
+        "name": "Read-only customer work includes multiple departments",
+        "passed": true
+      },
+      {
+        "name": "Customer work has no legacy edit-task button",
+        "passed": true
+      },
+      {
+        "name": "Actual workChat renders in read-only conversation",
+        "passed": true
+      },
+      {
+        "name": "Read-only task has no writing controls",
+        "passed": true
+      },
+      {
+        "name": "Customer archive keeps original ID and history",
+        "passed": true
+      },
+      {
+        "name": "R29 workspace has no horizontal page overflow",
+        "passed": true
+      },
+      {
+        "name": "New workflow survives reopening with server data",
+        "passed": true
+      },
+      {
+        "name": "R29 scripts produced no uncaught errors",
+        "passed": true
+      },
+      {
+        "name": "Logout clears all R29 private dialogs",
+        "passed": true
+      },
+      {
+        "name": "Logout clears retained social dialogs",
+        "passed": true
+      },
+      {
+        "name": "No Meta publish/connect endpoint invoked during tests",
+        "passed": true
+      }
+    ],
+    "pageErrors": [],
+    "networkCalls": 51,
+    "externalRequestsBlocked": 0,
+    "passed": 45,
+    "total": 45,
+    "testBoundary": "Actual complete frontend scripts/styles rendered in memory (Chromium navigation blocked), synthetic API adapter; no real HTTP transport, production server or Meta calls."
+  },
+  "qr": [
+    {
+      "length": 1,
+      "version": 1,
+      "matches_reference": true
+    },
+    {
+      "length": 14,
+      "version": 1,
+      "matches_reference": true
+    },
+    {
+      "length": 15,
+      "version": 2,
+      "matches_reference": true
+    },
+    {
+      "length": 26,
+      "version": 2,
+      "matches_reference": true
+    },
+    {
+      "length": 42,
+      "version": 3,
+      "matches_reference": true
+    },
+    {
+      "length": 62,
+      "version": 4,
+      "matches_reference": true
+    },
+    {
+      "length": 84,
+      "version": 5,
+      "matches_reference": true
+    },
+    {
+      "length": 106,
+      "version": 6,
+      "matches_reference": true
+    },
+    {
+      "length": 122,
+      "version": 7,
+      "matches_reference": true
+    },
+    {
+      "length": 152,
+      "version": 8,
+      "matches_reference": true
+    },
+    {
+      "length": 180,
+      "version": 9,
+      "matches_reference": true
+    },
+    {
+      "length": 210,
+      "version": 10,
+      "matches_reference": true
+    }
+  ],
+  "model": {
+    "passed": 12,
+    "total": 12,
+    "boundary": "Node unit tests of frontend calculations; no server."
+  },
+  "syntax": {
+    "php": 144,
+    "javascript": 86,
+    "all_passed": true,
+    "scope": "Application/routes/config/bootstrap/tests PHP; frontend JavaScript; bundled vendor is unchanged, not linted.",
+    "files": [
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/CashAccount.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Service.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/StockItem.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/WorkPresence.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/PrintLayout.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/QuotationTemplate.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldTemplate.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Warehouse.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/DataRecord.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/OffboardingCase.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoAttendanceEvent.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Announcement.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Payment.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminDecision.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/ExecutiveReport.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollHours.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Supplier.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Role.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/JournalEntry.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/FileLink.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Setting.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoEmployeeMapping.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/HrRequest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/HrApproval.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/StockMovement.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Reservation.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Task.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Wisdom.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/StoredFile.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Employee.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/EmploymentContract.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Requisition.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminMeeting.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/FinancialDocument.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/SalesTeam.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Quotation.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldWork.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollRun.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Invoice.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/SupportRequest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Recognition.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoDevice.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Customer.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/AuditEvent.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/Salesperson.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/ServiceContract.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Providers/AppServiceProvider.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/JournalRules.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/TaskExecutionClock.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/FinanceRules.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Attendance.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19HrAccess.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/StockRules.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayHistory.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/DepartmentManagers.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayReport.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R24PurchaseRules.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19HrWorkflow.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Notifications.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/Audit.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Store.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/Money.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19TaskPriority.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24PurchasingController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R19NotificationController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24StationeryController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/Controller.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AuthController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ZktecoAdminController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ZktecoBridgeController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/DepartmentManagerController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ReportController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/TransactionController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24AdminController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/BootstrapController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R19HrController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AccountController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/InstagramController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R29Controller.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/EncryptCookies.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/VerifyCsrfToken.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ApiSession.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/TrimStrings.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/RedirectIfAuthenticated.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ZktecoBridgeAuth.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/ZKTeco/ZktecoService.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/CustomerWork.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Rules.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/PayrollAdjustments.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Certificates.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Guards.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/HrWorkflow.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/QrCode.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialPolicy.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaClient.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialHub.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialSettings.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialAccess.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaException.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialWorker.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/r28_instagram.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/r19_notifications.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/r29.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/r24_admin.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/console.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/api.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/routes/r19_hr.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/cache.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/services.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/cors.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/session.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/filesystems.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/mosh.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/mosh_social.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/auth.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/database.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/logging.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/hashing.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/queue.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/mail.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/zkteco.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/config/app.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/TestCase.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/R28/acceptance.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/R29/domain.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/R29/instagram_regression.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/R29/security_payroll.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/R19NotificationTest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/TaskTimerR7Test.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/BackendAuditTest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/ApiTest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/ZktecoIntegrationTest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/DomainTest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/R19HrWorkflowTest.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/tests/Feature/WorkdayR8Test.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/bootstrap/providers.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "php",
+        "path": "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/config.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/63-mosh-mini-workdesk.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r22-theme.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r29-model.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-home.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-hr.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/61-mosh-zkteco-admin.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/62-mosh-r16-field-fixes.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/61-mosh-r14-system-polish.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-mini.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r20-employee-portal.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r25-marketing-customers.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-review-overdue.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r20-attendance-header.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-review-dashboard.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-common.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "language": "js",
+        "path": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+        "passed": true,
+        "detail": ""
+      }
+    ]
+  },
+  "integrity": {
+    "r28_original_file_count": 9088,
+    "original_upload_manifest_count": 9066,
+    "all_original_files_present": true,
+    "unchanged_from_r28": 9060,
+    "changed_from_r28_count": 28,
+    "changed_from_r28": [
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+        "before": "7359f028e754500562b0a2b94e5b933d74e7e46c004ac7d4d867192e997a57a6",
+        "after": "01682ebcc1e43b12259e1dc637d0c5473809efcea446c8f50248399822baef26"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/InstagramController.php",
+        "before": "e1a618ad9e520ddf661f51530a5f1489987fa76a049aebca1a5495f8083ce47d",
+        "after": "e2ee254ac82f308edcff44b29408a287ee1a72e7161db601d93457d4456e0711"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+        "before": "6f738fe2d385a8e2efdf3a505aed3a15706a822a578f67623dfe3338ffb8bd17",
+        "after": "640bf5a220890d22d471b5aad7225cceb6550d4e0714fedfd1044b12582496da"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ApiSession.php",
+        "before": "b4ea1b3ff2cb12a7e74ea58b225db3bbc4008481b4916f64b7d38b51a4107136",
+        "after": "6a6dc5dcaaf9bea5b65454ac790c4efa77e644cbf96b55292241be7f68e1bdc5"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+        "before": "50e7d8beb83e7c0fb15859dbd95d1fdcd143246f6b1a2f3a1fde95a414a17320",
+        "after": "10781cb00a03a471647d2710368d5332a342c37c9b9d89d3bb248b6979f413a6"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialAccess.php",
+        "before": "976d313e39d4280ca588830be22c1bbbec5b234fdee528a921bf77f5162a0099",
+        "after": "41e712df2fe87746eee05a4dec66e74c959317d4bd85112a6797a304da274881"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialHub.php",
+        "before": "da149a760af9b120fed4ed0123012bc338740270a1989554e990e26aad191420",
+        "after": "582a727d7288044e8094c16bf5e7df8a7fa0ab69921fb9c620358fc13eb6973e"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialWorker.php",
+        "before": "988c5b3ecc7b430e42a6fd5f05a0c056d0086e10741086dc149edfed0d48a120",
+        "after": "b048da61f7b17b25a19459d69472e5d9aba29905803ded9ccecd519c4ed70073"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+        "before": "83d1c043e5c028d14de44e8efbdb520db0a56ff1a3b8c1925d83f10be027c8c4",
+        "after": "a7d3827f120f07a21500c9f14e2fd43a85cded541a339e57b804ed9704c4c61d"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/FinanceRules.php",
+        "before": "7ecd43994d1d9af38d7f3c86e029665645ca1df2eec7eece6f953149636a62b8",
+        "after": "92e9abc685885055375b21f6ff92345a3a3a26a2336e750ac5689de96cc464e5"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Attendance.php",
+        "before": "b1f43f6681167a856a40e678af8b8acd1aa9731af7818eb0a17bc392f570f86d",
+        "after": "6ebba37afabd59a7efaee22a2ca4576988a420961cecc1187b36c5a6de54b6f3"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/R19TaskPriority.php",
+        "before": "1f4e74527b214a4c32a6a563601d13b349b45f14117272135f0112585d05b2cc",
+        "after": "9d045ae5cf755699a224ea1ee6bced40a0fe3d8c96ba3c4b39cd1a5674c0c60a"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+        "before": "2f28f1c1e265a9e14a0dc5d2358827d0e97e74df56268a73a35478ae83bd2d00",
+        "after": "fa63cedaed3849eee5694e725dbf20b82f0b49dcb17fc0c81537b766cd2d2e7c"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+        "before": "0e706a8b3c8cad65434dc90f40e6dbe6e975cd361aee831dcfac8315528014a0",
+        "after": "61042ddf5c0039d91d50850d7240d74355e7ea257f8f26a76f1b6bfeba51405e"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/resources/api-spec.json",
+        "before": "e266a90a08518b1cf2536ca2ec119d8fa2f1405e9d00728eb1151a7dcca899eb",
+        "after": "c37bff53113cb6725ec79f6a44e010415c0f3f8bc7b9c46f4eff1caaddeea4e3"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/routes/api.php",
+        "before": "1b321c2965c182f3108611b73cc0a9d8a2741dd96a12e86a0ab181b1f8c08dd2",
+        "after": "d2eb429f3e8fe38da0db47016d9b34ba1257054e8948ca8c07ce8e1988dba499"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+        "before": "3559131d842ba1aad1c6933503a562cd5f37e3f90fe9dd46b6cc4e459a5ce6eb",
+        "after": "bfc7ff0e6d202a1c96a5158ea6a46e519519b5e3a3ae0f9c7236ffa74cc41a8c"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/api-map.json",
+        "before": "b8c1f9975b34e09ef35649ec937ec9a7fdd6a0150c72b3e7450e832eaa5121ca",
+        "after": "6cda84f8a2b852c21b8ca2e276227be8de3f2d71273e7b1bdd838387f32aee70"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/index.html",
+        "before": "a52b13f00628695655d18cae6b0f978a3b086dc33f9765c235eb59646028f666",
+        "after": "4b0b4fd870be9e892aaeca9d920f519845b61d6b01266baa8ab52544432b69ce"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+        "before": "86383c2b2b91fd12daac2604ebc648b25553799a49fbdd5f024c97e4f3810c4b",
+        "after": "2615a35145c2f369de2a03a037a0b4c9acc2bc2f8278da4f4008009bcf50c3cd"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+        "before": "0bdae5ec0c8ed985a522a6c244de2604a4981e158e9381e4a4b1ae88412ad569",
+        "after": "d68adc3bfe1c40a302b0c451574483a257e3f48c54949097542365e61edf5c07"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+        "before": "2c37e9c10fa5d9829670ea48fd0ea10ec80d4f72482f85c4058d0004c0efe0bf",
+        "after": "a125ded63a63ceae0b19f2dafa581926739f02fc561c0ecc4f61df6cffbb7522"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+        "before": "855c875eb03864317c2b6cdf3418fd769626184c3dab1fd3e21874681a7873d3",
+        "after": "da1211e7c3ec147373cae015e2f748a24866854d6e6dc3601a38ba6d718e523c"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+        "before": "ce0409b4f0c4143b31fb62dd2f27688aed8c651d2d8e9847687c4436c688f64c",
+        "after": "ada4f820f6632bb480569cb81ec2d33987137116489220ce24b7e3f12a8bb033"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+        "before": "82156e9edd2e227e59c0d81f3527928582f8bc865132587a8c112d15431f8bd8",
+        "after": "864e354819f3d9d505975a9bf12703be88a7d5d710e8eebfe5b8f9cc4b454998"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+        "before": "7e1869ad51c6d6247b8f1074752fdd7c84761815c9531ce628a4e57e3b5103e7",
+        "after": "dbc75b39863e57ca3e7d35d663642bba367f3ffd8ace56b62c1664346fd2832e"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+        "before": "66cf6411819a3ffa64d695203a2a20d29d1de9d984db7e5e96a76d20afcd9a08",
+        "after": "51b9d1c8bb722ec199c69db8de7ff391d291460d3accac0c1b1f2e07d58590d9"
+      },
+      {
+        "path": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+        "before": "4322d6e054ac8dba9f766370bb4cf10aef42099f59efe07df62778eaa9008d96",
+        "after": "acc2acd40fd7afbba33ac561e8470d2e12cc74ebc3e7b27c309851ff3a95fdbf"
+      }
+    ],
+    "protected_file_count": 8614,
+    "protected_unchanged": true,
+    "missing_files": [],
+    "protected_differences": [],
+    "sqlite": [
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database.before-cleanup-20260922-164942.sqlite",
+        "quick_check": "ok",
+        "access": "read-only"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database-before-dummy-data.sqlite",
+        "quick_check": "ok",
+        "access": "read-only"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database.backup-20260921-120137.sqlite",
+        "quick_check": "ok",
+        "access": "read-only"
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+        "quick_check": "ok",
+        "access": "read-only"
+      }
+    ],
+    "new_files": [
+      "MOSH_LARAVEL_BACKEND/R29_THIRD_PARTY_NOTICES.txt",
+      "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R29Controller.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R29/Certificates.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R29/CustomerWork.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R29/Guards.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R29/HrWorkflow.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R29/PayrollAdjustments.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R29/QrCode.php",
+      "MOSH_LARAVEL_BACKEND/app/Services/R29/Rules.php",
+      "MOSH_LARAVEL_BACKEND/routes/r29.php",
+      "MOSH_LARAVEL_BACKEND/tests/R29/browser_acceptance.py",
+      "MOSH_LARAVEL_BACKEND/tests/R29/domain.php",
+      "MOSH_LARAVEL_BACKEND/tests/R29/instagram_regression.php",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/browser-results.json",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/domain.json",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/instagram.json",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-customer-work.png",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-customers-mobile.png",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-leave-desktop.png",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-social-dark.png",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-social-light.png",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-social-mobile.png",
+      "MOSH_LARAVEL_BACKEND/tests/R29/output/security_payroll.json",
+      "MOSH_LARAVEL_BACKEND/tests/R29/security_payroll.php",
+      "MOSH_VANILLA_FRONTEND/css/r29-workflows.css",
+      "MOSH_VANILLA_FRONTEND/js/r29-model.js",
+      "MOSH_VANILLA_FRONTEND/js/r29-workflows.js"
+    ]
+  },
+  "release": "R29",
+  "source": "R28 full package; original upload mosh(2).rar",
+  "production_tested": false
+}

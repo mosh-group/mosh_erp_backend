@@ -1,0 +1,638 @@
+{
+  "release": "R7 complete projects repackage",
+  "behavior_changes_this_delivery": false,
+  "javascript_syntax_files": 63,
+  "php_syntax_files": 93,
+  "json_validated": 3,
+  "referenced_local_resources": 13,
+  "missing_referenced_resources": [],
+  "syntax": [
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/config.js",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/JournalRules.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/StockRules.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/TaskExecutionClock.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Audit.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/FinanceRules.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Money.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Providers/AppServiceProvider.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Recognition.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/AuditEvent.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Employee.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Announcement.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/DataRecord.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/PrintLayout.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/JournalEntry.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Quotation.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Reservation.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Payment.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FileLink.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/HrApproval.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/QuotationTemplate.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Warehouse.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/OffboardingCase.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/StockMovement.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldTemplate.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FinancialDocument.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/SupportRequest.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/HrRequest.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollRun.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Requisition.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldWork.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollHours.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Invoice.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/ServiceContract.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Salesperson.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/SalesTeam.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/StockItem.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Customer.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Supplier.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/CashAccount.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Task.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminMeeting.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/ExecutiveReport.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/EmploymentContract.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminDecision.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/StoredFile.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Setting.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Role.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Wisdom.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Service.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/WorkPresence.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AccountController.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ReportController.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/BootstrapController.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/Controller.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AuthController.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/TransactionController.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/VerifyCsrfToken.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/RedirectIfAuthenticated.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/EncryptCookies.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ApiSession.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/TrimStrings.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/providers.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/logging.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/cache.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/app.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/cors.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/database.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/mail.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/hashing.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/filesystems.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/auth.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/session.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/services.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/queue.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/config/mosh.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/api.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/console.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/migrations/0001_01_01_000001_create_mosh_tables.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/seeders/DatabaseSeeder.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/seeders/DemoSeeder.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/TestCase.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/Feature/BackendAuditTest.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/Feature/TaskTimerR7Test.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/Feature/ApiTest.php",
+      "passed": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/Feature/DomainTest.php",
+      "passed": true
+    }
+  ],
+  "php_runtime": "PHP 8.4.23 syntax only; project requires ^8.5; no Laravel runtime test performed in this delivery",
+  "node_runtime": "v22.16.0",
+  "source_manifest_verified_files": 8814
+}

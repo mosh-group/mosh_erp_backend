@@ -1,0 +1,289 @@
+{
+  "release": "R29",
+  "source": "MOSH_R28_FULL_MANAGERS_INSTAGRAM.zip",
+  "original_r28_count": 9088,
+  "original_upload_manifest_count": 9066,
+  "missing_original": [],
+  "modified_count": 28,
+  "modified": [
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+      "before": "7359f028e754500562b0a2b94e5b933d74e7e46c004ac7d4d867192e997a57a6",
+      "after": "01682ebcc1e43b12259e1dc637d0c5473809efcea446c8f50248399822baef26"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/InstagramController.php",
+      "before": "e1a618ad9e520ddf661f51530a5f1489987fa76a049aebca1a5495f8083ce47d",
+      "after": "e2ee254ac82f308edcff44b29408a287ee1a72e7161db601d93457d4456e0711"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+      "before": "6f738fe2d385a8e2efdf3a505aed3a15706a822a578f67623dfe3338ffb8bd17",
+      "after": "640bf5a220890d22d471b5aad7225cceb6550d4e0714fedfd1044b12582496da"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ApiSession.php",
+      "before": "b4ea1b3ff2cb12a7e74ea58b225db3bbc4008481b4916f64b7d38b51a4107136",
+      "after": "6a6dc5dcaaf9bea5b65454ac790c4efa77e644cbf96b55292241be7f68e1bdc5"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+      "before": "50e7d8beb83e7c0fb15859dbd95d1fdcd143246f6b1a2f3a1fde95a414a17320",
+      "after": "10781cb00a03a471647d2710368d5332a342c37c9b9d89d3bb248b6979f413a6"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialAccess.php",
+      "before": "976d313e39d4280ca588830be22c1bbbec5b234fdee528a921bf77f5162a0099",
+      "after": "41e712df2fe87746eee05a4dec66e74c959317d4bd85112a6797a304da274881"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialHub.php",
+      "before": "da149a760af9b120fed4ed0123012bc338740270a1989554e990e26aad191420",
+      "after": "582a727d7288044e8094c16bf5e7df8a7fa0ab69921fb9c620358fc13eb6973e"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialWorker.php",
+      "before": "988c5b3ecc7b430e42a6fd5f05a0c056d0086e10741086dc149edfed0d48a120",
+      "after": "b048da61f7b17b25a19459d69472e5d9aba29905803ded9ccecd519c4ed70073"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+      "before": "83d1c043e5c028d14de44e8efbdb520db0a56ff1a3b8c1925d83f10be027c8c4",
+      "after": "a7d3827f120f07a21500c9f14e2fd43a85cded541a339e57b804ed9704c4c61d"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/FinanceRules.php",
+      "before": "7ecd43994d1d9af38d7f3c86e029665645ca1df2eec7eece6f953149636a62b8",
+      "after": "92e9abc685885055375b21f6ff92345a3a3a26a2336e750ac5689de96cc464e5"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Attendance.php",
+      "before": "b1f43f6681167a856a40e678af8b8acd1aa9731af7818eb0a17bc392f570f86d",
+      "after": "6ebba37afabd59a7efaee22a2ca4576988a420961cecc1187b36c5a6de54b6f3"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19TaskPriority.php",
+      "before": "1f4e74527b214a4c32a6a563601d13b349b45f14117272135f0112585d05b2cc",
+      "after": "9d045ae5cf755699a224ea1ee6bced40a0fe3d8c96ba3c4b39cd1a5674c0c60a"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+      "before": "2f28f1c1e265a9e14a0dc5d2358827d0e97e74df56268a73a35478ae83bd2d00",
+      "after": "fa63cedaed3849eee5694e725dbf20b82f0b49dcb17fc0c81537b766cd2d2e7c"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+      "before": "0e706a8b3c8cad65434dc90f40e6dbe6e975cd361aee831dcfac8315528014a0",
+      "after": "61042ddf5c0039d91d50850d7240d74355e7ea257f8f26a76f1b6bfeba51405e"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/resources/api-spec.json",
+      "before": "e266a90a08518b1cf2536ca2ec119d8fa2f1405e9d00728eb1151a7dcca899eb",
+      "after": "c37bff53113cb6725ec79f6a44e010415c0f3f8bc7b9c46f4eff1caaddeea4e3"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/api.php",
+      "before": "1b321c2965c182f3108611b73cc0a9d8a2741dd96a12e86a0ab181b1f8c08dd2",
+      "after": "d2eb429f3e8fe38da0db47016d9b34ba1257054e8948ca8c07ce8e1988dba499"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "before": "3559131d842ba1aad1c6933503a562cd5f37e3f90fe9dd46b6cc4e459a5ce6eb",
+      "after": "bfc7ff0e6d202a1c96a5158ea6a46e519519b5e3a3ae0f9c7236ffa74cc41a8c"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/api-map.json",
+      "before": "b8c1f9975b34e09ef35649ec937ec9a7fdd6a0150c72b3e7450e832eaa5121ca",
+      "after": "6cda84f8a2b852c21b8ca2e276227be8de3f2d71273e7b1bdd838387f32aee70"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/index.html",
+      "before": "a52b13f00628695655d18cae6b0f978a3b086dc33f9765c235eb59646028f666",
+      "after": "4b0b4fd870be9e892aaeca9d920f519845b61d6b01266baa8ab52544432b69ce"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "before": "86383c2b2b91fd12daac2604ebc648b25553799a49fbdd5f024c97e4f3810c4b",
+      "after": "2615a35145c2f369de2a03a037a0b4c9acc2bc2f8278da4f4008009bcf50c3cd"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+      "before": "0bdae5ec0c8ed985a522a6c244de2604a4981e158e9381e4a4b1ae88412ad569",
+      "after": "d68adc3bfe1c40a302b0c451574483a257e3f48c54949097542365e61edf5c07"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+      "before": "2c37e9c10fa5d9829670ea48fd0ea10ec80d4f72482f85c4058d0004c0efe0bf",
+      "after": "a125ded63a63ceae0b19f2dafa581926739f02fc561c0ecc4f61df6cffbb7522"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "before": "855c875eb03864317c2b6cdf3418fd769626184c3dab1fd3e21874681a7873d3",
+      "after": "da1211e7c3ec147373cae015e2f748a24866854d6e6dc3601a38ba6d718e523c"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "before": "ce0409b4f0c4143b31fb62dd2f27688aed8c651d2d8e9847687c4436c688f64c",
+      "after": "ada4f820f6632bb480569cb81ec2d33987137116489220ce24b7e3f12a8bb033"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+      "before": "82156e9edd2e227e59c0d81f3527928582f8bc865132587a8c112d15431f8bd8",
+      "after": "864e354819f3d9d505975a9bf12703be88a7d5d710e8eebfe5b8f9cc4b454998"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+      "before": "7e1869ad51c6d6247b8f1074752fdd7c84761815c9531ce628a4e57e3b5103e7",
+      "after": "dbc75b39863e57ca3e7d35d663642bba367f3ffd8ace56b62c1664346fd2832e"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+      "before": "66cf6411819a3ffa64d695203a2a20d29d1de9d984db7e5e96a76d20afcd9a08",
+      "after": "51b9d1c8bb722ec199c69db8de7ff391d291460d3accac0c1b1f2e07d58590d9"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+      "before": "4322d6e054ac8dba9f766370bb4cf10aef42099f59efe07df62778eaa9008d96",
+      "after": "acc2acd40fd7afbba33ac561e8470d2e12cc74ebc3e7b27c309851ff3a95fdbf"
+    }
+  ],
+  "new_files": [
+    {
+      "path": "MOSH_LARAVEL_BACKEND/00_START_R29_AR.txt",
+      "sha256": "8e37e6c44d3ef404f4424d00ba0d604d62884fd2e1324e2899e9f3b728dc0e0c"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/MOSH_R29_QA_AR.html",
+      "sha256": "b95dff964d95dd43926d595bd7aa7fcd19e7526c421109a83017c17cbb0dbc53"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/R29_QA.json",
+      "sha256": "3e28eb9c37fe8211acddc2cf7e27fb7bf7d4ecf195a4f387554e39444db9acf7"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/R29_THIRD_PARTY_NOTICES.txt",
+      "sha256": "67fe5158ffeb6fcec5b81434bb319ea0a077bd3e98fcf1cb263f744351638c2e"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R29Controller.php",
+      "sha256": "e17129802eb7a70ae58c053ae8516352f40b8e634c37588b6e253f7f72bc748c"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Certificates.php",
+      "sha256": "a096c1f79c514d495bb75ac61acd2590367c083a4dc56c9b462efaf1e5fba976"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/CustomerWork.php",
+      "sha256": "3e7a58fd00d2af2ff9e76687b3a5661ec188b84d3fc8087ffc07d6e9e21ca57b"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Guards.php",
+      "sha256": "5a51ac15dd5480cab718f1a1afd30e54a4ad317425c0715b5dec12264ccfd128"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/HrWorkflow.php",
+      "sha256": "3161482690389c2baf637cf5970f6e1cd5416a5a3c2efee6ea4bd39eae6d420b"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/PayrollAdjustments.php",
+      "sha256": "84d7f64315095d5de106a84e908ec187a4a71803d42003d58acb9100bd1fe663"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/QrCode.php",
+      "sha256": "459f29bbbd82a164aefe7622b1f41928cd65934e910aae0386db6bfcf49c186f"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Rules.php",
+      "sha256": "bddbc47abdbd16ab9d0b839766b8d5446dc03fb804fc86a58b142276d1df1adb"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/r29.php",
+      "sha256": "4f80a0014cab5aee64ebae5dee4f8f8a64e8cfaaa10ba5cfc4fee38a62df7806"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/browser_acceptance.py",
+      "sha256": "835a76a32f4a1fa7e9822d3fa23d8af541a690e79a9321fb4d7549bb87b5e858"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/domain.php",
+      "sha256": "2c1c85835945dbda0c58455fd9990a29cd9462b1e3bd6122165e44a14f5aa908"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/instagram_regression.php",
+      "sha256": "52d83fc5367eba7dfc768e074433fa9f906ad6d3aa6e0d7d86c3de25165c97dc"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/model.test.cjs",
+      "sha256": "af00369f83261ba60f00c52809e0e0ec99aea89c8b2c22d20437c95682728864"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/browser-results.json",
+      "sha256": "365b47b6c7bed7e15826866524a755053af77f171d9a83f0c5b1169b0cd7f1a3"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/domain.json",
+      "sha256": "c548a438603932c432c453f6ba4be381a7599bf717fe2c8f9e68f2dbfb9a8c5a"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/instagram.json",
+      "sha256": "b2c251cb8428539281d037c521dba2e850c97ec50c80ea71f791ccafb4db4cbd"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/model.tap",
+      "sha256": "d339ebd63a663fd7e2ed1ab0cc23705110b84c7cd48599522708f4e0b12f0d8e"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/qr_reference.json",
+      "sha256": "95700e0753a9835a5afcbf9cc1f0e2c55cdbf8b8953c53a5368f004af934c034"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-customer-work.png",
+      "sha256": "391ca6b6a2dbf5a7630e9a320b3302eea2804955f4af03332b56688271c9559d"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-customers-mobile.png",
+      "sha256": "4687a01f1e5c74d6f40c666f8336fe449eb08fc1dc095e75e0e6fba450a8a2c8"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-leave-desktop.png",
+      "sha256": "c2478d7d5d5d2bd068a5051df42cb8342f9b97d7c5360b0731af93ef8530208c"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-social-dark.png",
+      "sha256": "3287bdf57d3252bc3d3b3dd555aa38da5011d49e0f08a1f3a10630abea73b61f"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-social-light.png",
+      "sha256": "4c58689f0141b206fbc19bb10aa2e1bcaf521ca041ce822f3d2f5812ecd964b6"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/r29-social-mobile.png",
+      "sha256": "14dc82d7148eaf9f1806925867c98570291bf52f162888aae4da8e9ee35dc12f"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/output/security_payroll.json",
+      "sha256": "2094338fa17c4741ff74553465cca6394409eafa4198a17b947cb0f6f648488d"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/qr_reference.py",
+      "sha256": "af38d60a7bca41d07815f6be306db2d28b9d933711bbf875fac3d84048bace2b"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/tests/R29/security_payroll.php",
+      "sha256": "746a5b29eeb11dbc037020a3d774fa38c28db090c7084091cc6316061a8e4aaf"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/css/r29-workflows.css",
+      "sha256": "c626037fb4a5f93daa2f8026ce21ec873c4a9e52ecb41ca5523f3b7eaeb4f172"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r29-model.js",
+      "sha256": "076b95283170bbe16fb8a1f70e603c002f78359379ad21d5a6b6d42beaa0ccbe"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+      "sha256": "ce90a7f88f8ebe7845977e67d6239e8f18382c005498a16ed28d0fa90011b49f"
+    }
+  ],
+  "note": "Manifest lists files before creating this manifest itself. Protected data compared in R29_QA.json. No real production deployment."
+}

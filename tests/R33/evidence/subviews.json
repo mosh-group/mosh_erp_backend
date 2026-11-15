@@ -1,0 +1,368 @@
+{
+  "passed": 72,
+  "total": 72,
+  "checks": [
+    {
+      "name": "hr: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "marketing: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "design: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "photo: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "editing: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "promotion: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "logistics: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "purchases: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "warehouses: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: existing manager approval opens",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "hr: HR employees opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "hr: HR requests opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "hr: HR attendance opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "hr: HR wisdom opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "hr: HR recruitment opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "hr: HR performance opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "hr: HR reports opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: quotes opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: orders opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: cancelledquotes opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: servicecontracts opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: customergroup opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: servicelist opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: reports15 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "sales: settings15 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "purchases: requests opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "purchases: orders opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "purchases: suppliers opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "purchases: reports opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "logistics: requests opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "logistics: schedule opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "logistics: reservations opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "warehouses: scan opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "warehouses: inbound opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "warehouses: warehouses opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "warehouses: stock opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "warehouses: customers opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "warehouses: custody opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: customers22 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: vendors22 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: vendorStatement23 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: employees23 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: statements22 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: invoices opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: vendors opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: payroll23 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: hours23 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: employees opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: expenses opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: cash opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: trial22 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: income23 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: balance23 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: journal22 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: reconcile22 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: chart22 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: print23 opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: packages opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: billing opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "accounting: settings opens without uncaught script error",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "admin: employees opens with current data fixture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "admin: approvals opens with current data fixture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "admin: purchases opens with current data fixture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "admin: reports opens with current data fixture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "admin: decisions opens with current data fixture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "admin: alerts opens with current data fixture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "admin: archive opens with current data fixture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Admin network failure is shown with retry, not successful empty data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Admin retry recovers the dashboard",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Stale failed customer list cannot replace newer Administration task list",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Entire submenu sweep has no uncaught JavaScript errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "pageErrors": [],
+  "boundary": "Navigation/renderer smoke tests on synthetic data; no claim of financial posting, SQL persistence, approval transport, or genuine backend operations."
+}

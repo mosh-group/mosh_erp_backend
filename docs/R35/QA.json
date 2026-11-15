@@ -1,0 +1,944 @@
+{
+  "release": "R35",
+  "base": "R34",
+  "scope": "Approved V2 without glass; no production server access",
+  "new_tests": {
+    "interface": {
+      "passed": 83,
+      "total": 83,
+      "checks": [
+        {
+          "name": "R35 source loaded, original API available",
+          "passed": true
+        },
+        {
+          "name": "No preview banners or suppressed submit handler",
+          "passed": true
+        },
+        {
+          "name": "No new glass layer",
+          "passed": true
+        },
+        {
+          "name": "hr: one active section",
+          "passed": true
+        },
+        {
+          "name": "hr: grouped menu installed",
+          "passed": true
+        },
+        {
+          "name": "hr: accessible groups available",
+          "passed": true
+        },
+        {
+          "name": "hr: submenu shows original links",
+          "passed": true
+        },
+        {
+          "name": "hr: leaf closes menu and retains section",
+          "passed": true
+        },
+        {
+          "name": "hr: re-entry dashboard not last leaf",
+          "passed": true
+        },
+        {
+          "name": "sales: one active section",
+          "passed": true
+        },
+        {
+          "name": "sales: grouped menu installed",
+          "passed": true
+        },
+        {
+          "name": "sales: accessible groups available",
+          "passed": true
+        },
+        {
+          "name": "sales: submenu shows original links",
+          "passed": true
+        },
+        {
+          "name": "sales: leaf closes menu and retains section",
+          "passed": true
+        },
+        {
+          "name": "sales: re-entry dashboard not last leaf",
+          "passed": true
+        },
+        {
+          "name": "marketing: one active section",
+          "passed": true
+        },
+        {
+          "name": "marketing: grouped menu installed",
+          "passed": true
+        },
+        {
+          "name": "marketing: accessible groups available",
+          "passed": true
+        },
+        {
+          "name": "marketing: submenu shows original links",
+          "passed": true
+        },
+        {
+          "name": "marketing: leaf closes menu and retains section",
+          "passed": true
+        },
+        {
+          "name": "marketing: re-entry dashboard not last leaf",
+          "passed": true
+        },
+        {
+          "name": "it: one active section",
+          "passed": true
+        },
+        {
+          "name": "it: grouped menu installed",
+          "passed": true
+        },
+        {
+          "name": "it: accessible groups available",
+          "passed": true
+        },
+        {
+          "name": "it: submenu shows original links",
+          "passed": true
+        },
+        {
+          "name": "it: leaf closes menu and retains section",
+          "passed": true
+        },
+        {
+          "name": "it: re-entry dashboard not last leaf",
+          "passed": true
+        },
+        {
+          "name": "accounting: one active section",
+          "passed": true
+        },
+        {
+          "name": "accounting: grouped menu installed",
+          "passed": true
+        },
+        {
+          "name": "accounting: accessible groups available",
+          "passed": true
+        },
+        {
+          "name": "accounting: submenu shows original links",
+          "passed": true
+        },
+        {
+          "name": "accounting: leaf closes menu and retains section",
+          "passed": true
+        },
+        {
+          "name": "accounting: re-entry dashboard not last leaf",
+          "passed": true
+        },
+        {
+          "name": "purchases: one active section",
+          "passed": true
+        },
+        {
+          "name": "purchases: grouped menu installed",
+          "passed": true
+        },
+        {
+          "name": "purchases: accessible groups available",
+          "passed": true
+        },
+        {
+          "name": "purchases: submenu shows original links",
+          "passed": true
+        },
+        {
+          "name": "purchases: leaf closes menu and retains section",
+          "passed": true
+        },
+        {
+          "name": "purchases: re-entry dashboard not last leaf",
+          "passed": true
+        },
+        {
+          "name": "logistics: one active section",
+          "passed": true
+        },
+        {
+          "name": "logistics: grouped menu installed",
+          "passed": true
+        },
+        {
+          "name": "logistics: accessible groups available",
+          "passed": true
+        },
+        {
+          "name": "logistics: submenu shows original links",
+          "passed": true
+        },
+        {
+          "name": "logistics: leaf closes menu and retains section",
+          "passed": true
+        },
+        {
+          "name": "logistics: re-entry dashboard not last leaf",
+          "passed": true
+        },
+        {
+          "name": "HR table retains authorized original records",
+          "passed": true
+        },
+        {
+          "name": "Display serial is distinct from original employee IDs",
+          "passed": true
+        },
+        {
+          "name": "Table rows approximately 44px",
+          "passed": true,
+          "detail": 44.640625
+        },
+        {
+          "name": "Employee quick view opens without leaving table",
+          "passed": true
+        },
+        {
+          "name": "Escape closes quick view",
+          "passed": true
+        },
+        {
+          "name": "Search uses original employee filter",
+          "passed": true
+        },
+        {
+          "name": "Removing search chip restores list",
+          "passed": true
+        },
+        {
+          "name": "Draft employees remain reachable",
+          "passed": true
+        },
+        {
+          "name": "Name sort marks ascending",
+          "passed": true
+        },
+        {
+          "name": "Serial updates after sorting",
+          "passed": true
+        },
+        {
+          "name": "Comfortable density without font shrinking",
+          "passed": true
+        },
+        {
+          "name": "Original row actions available in overflow",
+          "passed": true
+        },
+        {
+          "name": "Original employee profile opens from new actions",
+          "passed": true
+        },
+        {
+          "name": "Task defaults collapsed with only title/arrow",
+          "passed": true
+        },
+        {
+          "name": "Chat controls are outside disclosure",
+          "passed": true
+        },
+        {
+          "name": "Arrow immediately left of task name",
+          "passed": true
+        },
+        {
+          "name": "Task data controls preserved by ID",
+          "passed": true
+        },
+        {
+          "name": "Title editing still works",
+          "passed": true
+        },
+        {
+          "name": "Deadline still calls authoritative backend",
+          "passed": true
+        },
+        {
+          "name": "Returned deadline remains in original input",
+          "passed": true
+        },
+        {
+          "name": "Details use three aligned columns",
+          "passed": true
+        },
+        {
+          "name": "Chat uses 75 percent viewport height",
+          "passed": true
+        },
+        {
+          "name": "Selecting an attachment does not send or upload it",
+          "passed": true
+        },
+        {
+          "name": "Closing details does not remove staged chat",
+          "passed": true
+        },
+        {
+          "name": "Logo preview is shown before saving",
+          "passed": true
+        },
+        {
+          "name": "Selecting a logo does not save immediately",
+          "passed": true
+        },
+        {
+          "name": "Logo writes to authenticated endpoint",
+          "passed": true
+        },
+        {
+          "name": "Saved logo image and independent version displayed",
+          "passed": true
+        },
+        {
+          "name": "Legacy settings render cannot replace saved logo",
+          "passed": true
+        },
+        {
+          "name": "Remove logo returns to original text, not data deletion",
+          "passed": true
+        },
+        {
+          "name": "1280: nested menu remains on screen",
+          "passed": true
+        },
+        {
+          "name": "1280: no document horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "900: nested menu remains on screen",
+          "passed": true
+        },
+        {
+          "name": "900: no document horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "390: nested menu remains on screen",
+          "passed": true
+        },
+        {
+          "name": "390: no document horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "Light theme remains readable palette",
+          "passed": true
+        },
+        {
+          "name": "No unexpected JavaScript errors in tested paths",
+          "passed": true,
+          "detail": []
+        }
+      ]
+    },
+    "roles": {
+      "passed": 21,
+      "total": 21,
+      "checks": [
+        {
+          "name": "Legacy active status is counted through canonical helper",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Menu focuses first group on keyboard open",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "End reaches last menu group",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Left arrow opens submenu and focuses leaf",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "First ESC closes only child menu",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Second ESC closes group menu and restores trigger focus",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Stale menu cannot execute a now-disabled action",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Drawer visible before refresh",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Refresh invalidates displayed employee copy",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Leaving section closes old grouped menu",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Late branding response cannot reapply after logout",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Root race/keyboard flow has no uncaught JS errors",
+          "passed": true,
+          "detail": []
+        },
+        {
+          "name": "Limited HR view loads without new permission grants",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Read-only user can open menu groups",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Grouped entries only use allowed original controls",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Authorized read-only profile preview is available",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Write actions do not reappear in overflow",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Unprivileged user cannot open branding editor",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Grouped UI does not grant IT access",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Direct menu call also checks department permission",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "Limited role has no JS errors",
+          "passed": true,
+          "detail": []
+        }
+      ]
+    },
+    "branding": {
+      "passed": 42,
+      "total": 42,
+      "checks": [
+        {
+          "name": "PNG exact bytes and dimensions",
+          "passed": true
+        },
+        {
+          "name": "JPEG exact bytes and dimensions",
+          "passed": true
+        },
+        {
+          "name": "WebP exact bytes and dimensions",
+          "passed": true
+        },
+        {
+          "name": "SVG rejected",
+          "passed": true
+        },
+        {
+          "name": "HTML rejected",
+          "passed": true
+        },
+        {
+          "name": "File URL rejected",
+          "passed": true
+        },
+        {
+          "name": "Non-base64 rejected",
+          "passed": true
+        },
+        {
+          "name": "False MIME rejected",
+          "passed": true
+        },
+        {
+          "name": "Corrupt bytes rejected",
+          "passed": true
+        },
+        {
+          "name": "Too large rejected",
+          "passed": true
+        },
+        {
+          "name": "Too wide rejected",
+          "passed": true
+        },
+        {
+          "name": "Unsafe storage path rejected: ../.env",
+          "passed": true
+        },
+        {
+          "name": "Unsafe storage path rejected: r35-branding/../.env",
+          "passed": true
+        },
+        {
+          "name": "Unsafe storage path rejected: storage/attachments/a.png",
+          "passed": true
+        },
+        {
+          "name": "Unsafe storage path rejected: https://example.invalid/a.png",
+          "passed": true
+        },
+        {
+          "name": "Unsafe storage path rejected: r35-branding/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.svg",
+          "passed": true
+        },
+        {
+          "name": "Anonymous cannot manage",
+          "passed": true
+        },
+        {
+          "name": "Inactive root cannot manage",
+          "passed": true
+        },
+        {
+          "name": "Plain active employee cannot manage",
+          "passed": true
+        },
+        {
+          "name": "Specific appearance grant can manage",
+          "passed": true
+        },
+        {
+          "name": "Specific customization grant can manage",
+          "passed": true
+        },
+        {
+          "name": "Anonymous read denied",
+          "passed": true
+        },
+        {
+          "name": "Inactive read denied",
+          "passed": true
+        },
+        {
+          "name": "Unconfigured read does not write",
+          "passed": true
+        },
+        {
+          "name": "Employee cannot write branding",
+          "passed": true
+        },
+        {
+          "name": "Inactive root cannot write branding",
+          "passed": true
+        },
+        {
+          "name": "Anonymous write rejected without 500",
+          "passed": true
+        },
+        {
+          "name": "Explicit authorized save creates version 1",
+          "passed": true
+        },
+        {
+          "name": "Stored image bytes identical",
+          "passed": true
+        },
+        {
+          "name": "Other authenticated employee sees same company logo",
+          "passed": true
+        },
+        {
+          "name": "Lost-reply retry does not duplicate audit/version",
+          "passed": true
+        },
+        {
+          "name": "Concurrent stale different logo rejected",
+          "passed": true
+        },
+        {
+          "name": "Conflict retains saved logo",
+          "passed": true
+        },
+        {
+          "name": "Versioned replacement works",
+          "passed": true
+        },
+        {
+          "name": "Previous original retained",
+          "passed": true
+        },
+        {
+          "name": "Disk failure is explicit 503",
+          "passed": true
+        },
+        {
+          "name": "Disk failure cannot overwrite setting",
+          "passed": true
+        },
+        {
+          "name": "Removal reverts to text without deleting archive",
+          "passed": true
+        },
+        {
+          "name": "Image mode requires existing image",
+          "passed": true
+        },
+        {
+          "name": "Malformed stored paths cannot read arbitrary files",
+          "passed": true
+        },
+        {
+          "name": "Every update uses row + business locking",
+          "passed": true
+        },
+        {
+          "name": "Audit contains no raw image payload",
+          "passed": true
+        }
+      ]
+    },
+    "large_files": {
+      "passed": 17,
+      "total": 17,
+      "checks": [
+        {
+          "name": "Start accepts 34603008 bytes",
+          "passed": true
+        },
+        {
+          "name": "Identical part response retry safe 34603008",
+          "passed": true
+        },
+        {
+          "name": "Resume retains accepted parts 34603008",
+          "passed": true
+        },
+        {
+          "name": "Actual HTTP completes 34603008 bytes",
+          "passed": true
+        },
+        {
+          "name": "Original hash preserved on disk 34603008",
+          "passed": true
+        },
+        {
+          "name": "Lost complete response retry same object 34603008",
+          "passed": true
+        },
+        {
+          "name": "Another owner cannot access upload 34603008",
+          "passed": true
+        },
+        {
+          "name": "Transient parts removed after finalization 34603008",
+          "passed": true
+        },
+        {
+          "name": "Start accepts 268697600 bytes",
+          "passed": true
+        },
+        {
+          "name": "Identical part response retry safe 268697600",
+          "passed": true
+        },
+        {
+          "name": "Resume retains accepted parts 268697600",
+          "passed": true
+        },
+        {
+          "name": "Actual HTTP completes 268697600 bytes",
+          "passed": true
+        },
+        {
+          "name": "Original hash preserved on disk 268697600",
+          "passed": true
+        },
+        {
+          "name": "Lost complete response retry same object 268697600",
+          "passed": true
+        },
+        {
+          "name": "Another owner cannot access upload 268697600",
+          "passed": true
+        },
+        {
+          "name": "Transient parts removed after finalization 268697600",
+          "passed": true
+        },
+        {
+          "name": "Transfer exceeded old 999-part route shape",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "regression_suites": [
+    {
+      "suite": "navigation",
+      "returncode": 0,
+      "seconds": 46.0
+    },
+    {
+      "suite": "boot_transport",
+      "returncode": 0,
+      "seconds": 11.6
+    },
+    {
+      "suite": "subviews",
+      "returncode": 0,
+      "seconds": 60.1
+    },
+    {
+      "suite": "task_edges",
+      "returncode": 0,
+      "seconds": 7.3
+    },
+    {
+      "suite": "legacy_navigation",
+      "returncode": 0,
+      "seconds": 23.1
+    },
+    {
+      "suite": "legacy_hr",
+      "returncode": 0,
+      "seconds": 12.0
+    },
+    {
+      "suite": "r34_browser",
+      "returncode": 0,
+      "seconds": 26.1
+    },
+    {
+      "suite": "R34_domain",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R34_facebook",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R31_chunks",
+      "returncode": 0,
+      "seconds": 0.3
+    },
+    {
+      "suite": "R31_security",
+      "returncode": 0,
+      "seconds": 1.3
+    },
+    {
+      "suite": "R28_acceptance",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R29_domain",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R29_security_payroll",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R29_instagram_regression",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "node_frontend",
+      "returncode": 0,
+      "seconds": 0.3
+    },
+    {
+      "suite": "node_r29",
+      "returncode": 0,
+      "seconds": 0.1
+    },
+    {
+      "suite": "node_upload",
+      "returncode": 0,
+      "seconds": 0.2
+    },
+    {
+      "suite": "node_largehash",
+      "returncode": 0,
+      "seconds": 1.1
+    }
+  ],
+  "static": {
+    "php_files": 186,
+    "js_files": 97,
+    "lint_errors": [],
+    "inline": [
+      {
+        "index": 0,
+        "ok": true,
+        "error": ""
+      },
+      {
+        "index": 1,
+        "ok": true,
+        "error": ""
+      },
+      {
+        "index": 2,
+        "ok": true,
+        "error": ""
+      }
+    ],
+    "css_errors": [],
+    "missing_assets": [],
+    "manifest_script_count": 94,
+    "manifest_unique": true,
+    "sqlite": [
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database.before-cleanup-20260922-164942.sqlite",
+        "ok": true
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+        "ok": true
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database.backup-20260921-120137.sqlite",
+        "ok": true
+      },
+      {
+        "path": "MOSH_LARAVEL_BACKEND/database/database-before-dummy-data.sqlite",
+        "ok": true
+      }
+    ],
+    "original_files": 9313,
+    "changed_original": [
+      "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "MOSH_VANILLA_FRONTEND/api-map.json",
+      "MOSH_VANILLA_FRONTEND/index.html",
+      "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "MOSH_VANILLA_FRONTEND/js/api-boot.js"
+    ],
+    "missing_original": [],
+    "protected_count": 8613,
+    "protected_mismatch": [],
+    "removed_test_outputs": 1,
+    "restored_original_outputs": 13,
+    "laravel_exit": 255,
+    "php_version": "PHP 8.4.24 (cli) (built: Jul 31 2026 05:11:11) (NTS)"
+  },
+  "changes": [
+    {
+      "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "kind": "modified",
+      "before_sha256": "bc5c95e278d47999008f98f658999ee5ad2c855d457eb8fc027c74d1effa32d3",
+      "after_sha256": "26743519d1c6604ae3d7c8aea8dcda02dc282fe61907d70b945bd3ade2e0c84e"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/api-map.json",
+      "kind": "modified",
+      "before_sha256": "08e574d9fa9a8f646fc5a102984372a43caffc44be008ddd8112d18daf9efd54",
+      "after_sha256": "ba9aa3a26b662b4845ca45a421ac9b0c4cf9a0db98ff058992242cbb3b7b5816"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/index.html",
+      "kind": "modified",
+      "before_sha256": "86ffe2f625dde985cef0b10a11cf06cbbd1ba13fc92702ed639042ca4a709200",
+      "after_sha256": "03651676cb17c2fe3562a5ea54bf46a7b77991b6de30e87e78bcdb98274fcf3c"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "kind": "modified",
+      "before_sha256": "58fd04a425ba560148d7cc937fa446cc3ebb16400629718a32aae46674974ba1",
+      "after_sha256": "25d0f43ba0ae62d67e98ada776129ae87b921a89e3b64b993445c0d095c44433"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "kind": "modified",
+      "before_sha256": "616c6d2a0fb724afe6d403f16a6d2c4ff99c414ac49feaad755206e2044669ca",
+      "after_sha256": "b28e3e53607e71b414a781c94b889b0bf72b92cc994c25dc75c455139d2ab751"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "kind": "modified",
+      "before_sha256": "33605bb8135e4cdb21e9d10b8d47d0830d0905a6d6dd048c91b4db3e37a4f65f",
+      "after_sha256": "25c92e45565e170468e9f080a3c5b263c0271b79a7e5d141c1702d16ea39fb65"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R35Branding.php",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "f6b5c433c78085554e26df575ab1534bc8c994f09253ed43a525b0d074af7e1e"
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R35BrandingController.php",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "b7aec6b399a221a0dabba61c9dd7c17d2eadfcc42c13d90bfaa1d79ee7079edf"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/css/r35-v2.css",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "858661216ebdf51d768d95061ef7a7fe98c1d2ff1c5896e88637b8e17eff6575"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-navigation.js",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "a2b6c5ae51b1948623f82d1620cf37b3d8c0fbc565f1c24097bef06b35a0c91f"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-density.js",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "a1e18d72547e6394f382ef7b559b571bcbf91cad95e6e0d6a04d7ed7614680ee"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-workspace.js",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "3ce2719205b88a9b97d12818765701727772a11c7a50ea33285cdc78c60c3cfa"
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-branding.js",
+      "kind": "added",
+      "before_sha256": null,
+      "after_sha256": "9177a1a6a972a1955f125cceaa13da71d614bd528021452a53568e73cd019712"
+    }
+  ],
+  "runtime_boundary": "Laravel platform check stopped before application because PHP>=8.5 required,8.4.24 available. Browser APIs simulated; large file transfer uses real local PHP HTTP/filesystem."
+}

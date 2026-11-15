@@ -1,0 +1,16 @@
+PASS Original api-boot loads complete R33 manifest through fetch
+PASS Original API transport remains unmodified in the browser
+PASS Original transport requests auth/status and bootstrap
+PASS Every current manifest script loaded once
+PASS Boot cover removed and dashboard visible
+PASS admin: real API refresh preserves current visible section
+PASS Administration employees remain selected during data refresh
+PASS Explicit Administration click resets dashboard after refresh
+PASS marketing: real API refresh preserves current visible section
+PASS it: real API refresh preserves current visible section
+PASS IT subscriptions survive bootstrap data refresh
+PASS Explicit IT department click resets dashboard after refresh
+PASS No uncaught JavaScript error during actual loader/transport execution
+PASS No production company or Meta URL was requested
+RESULT 14 14
+

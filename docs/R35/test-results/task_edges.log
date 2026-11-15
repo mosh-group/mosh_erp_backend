@@ -1,0 +1,10 @@
+PASS Task absent from bootstrap is fetched from its authorized API
+PASS Fetched task opens in visible task screen
+PASS Fetched record is accepted into save baseline, not a new duplicate task
+PASS Read/open action did not create or update business records
+PASS Approval mine filter displays own response
+PASS Approval all filter displays its different response
+PASS Returning to mine never reuses all-filter results
+PASS Task edge cases produce no uncaught JS errors
+RESULT 8 8
+

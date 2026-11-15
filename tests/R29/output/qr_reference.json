@@ -1,0 +1,62 @@
+[
+  {
+    "length": 1,
+    "version": 1,
+    "matches_reference": true
+  },
+  {
+    "length": 14,
+    "version": 1,
+    "matches_reference": true
+  },
+  {
+    "length": 15,
+    "version": 2,
+    "matches_reference": true
+  },
+  {
+    "length": 26,
+    "version": 2,
+    "matches_reference": true
+  },
+  {
+    "length": 42,
+    "version": 3,
+    "matches_reference": true
+  },
+  {
+    "length": 62,
+    "version": 4,
+    "matches_reference": true
+  },
+  {
+    "length": 84,
+    "version": 5,
+    "matches_reference": true
+  },
+  {
+    "length": 106,
+    "version": 6,
+    "matches_reference": true
+  },
+  {
+    "length": 122,
+    "version": 7,
+    "matches_reference": true
+  },
+  {
+    "length": 152,
+    "version": 8,
+    "matches_reference": true
+  },
+  {
+    "length": 180,
+    "version": 9,
+    "matches_reference": true
+  },
+  {
+    "length": 210,
+    "version": 10,
+    "matches_reference": true
+  }
+]

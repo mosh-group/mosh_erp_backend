@@ -1,0 +1,926 @@
+{
+  "release": "R30",
+  "created": "2026-10-17T19:15:09.995588+00:00",
+  "baseline": "MOSH_R29_FULL_HR_ADMIN_CLIENTS.zip",
+  "runtimeScope": "Frontend only; every original backend file byte-identical",
+  "browserFocused": {
+    "boundary": "Actual source HTML/CSS/scripts in Chromium memory with synthetic API. Browser navigation is blocked by environment policy; no real HTTP/Laravel/company server/Meta exercised.",
+    "checks": [
+      {
+        "name": "Global sidebar has no loose R29/purchasing buttons",
+        "passed": true
+      },
+      {
+        "name": "Sidebar department label is administrative services",
+        "passed": true
+      },
+      {
+        "name": "Sidebar tooltip uses renamed department",
+        "passed": true
+      },
+      {
+        "name": "App release is R30, not overwritten by older modules",
+        "passed": true
+      },
+      {
+        "name": "Document title identifies R30",
+        "passed": true
+      },
+      {
+        "name": "Old no-work session remains a warning, not a guessed counter",
+        "passed": true
+      },
+      {
+        "name": "Customer tracking is nested in Marketing rail",
+        "passed": true
+      },
+      {
+        "name": "Customer tracking has an icon and styled component button",
+        "passed": true
+      },
+      {
+        "name": "Marketing entry opens actual customer workflow via API fixture",
+        "passed": true
+      },
+      {
+        "name": "Customer tracking still presents read-only task action",
+        "passed": true
+      },
+      {
+        "name": "Advanced files is nested in HR rail",
+        "passed": true
+      },
+      {
+        "name": "HR entry opens the full nine-tab workflow",
+        "passed": true
+      },
+      {
+        "name": "Department form preserves canonical value and shows alias",
+        "passed": true
+      },
+      {
+        "name": "Purchasing inbox belongs to its existing section rail",
+        "passed": true
+      },
+      {
+        "name": "Purchasing inbox absent from top actions",
+        "passed": true
+      },
+      {
+        "name": "Purchasing inbox still uses the original queue workflow",
+        "passed": true
+      },
+      {
+        "name": "Service department rail and heading are renamed",
+        "passed": true
+      },
+      {
+        "name": "Logistics application key and request types remain intact",
+        "passed": true
+      },
+      {
+        "name": "Admin tools retain customer tracking and purchasing access",
+        "passed": true
+      },
+      {
+        "name": "Admin tasks is not duplicated in tools dropdown",
+        "passed": true
+      },
+      {
+        "name": "Manager tools retain team-file access",
+        "passed": true
+      },
+      {
+        "name": "Own requests retains purchase inbox for an eligible user",
+        "passed": true
+      },
+      {
+        "name": "Marketing entry uses readable dark theme",
+        "passed": true
+      },
+      {
+        "name": "Marketing entry uses readable light theme",
+        "passed": true
+      },
+      {
+        "name": "Light theme updates root tokens and top-action contrast",
+        "passed": true
+      },
+      {
+        "name": "Light HR rail and dashboard labels have readable contrast",
+        "passed": true
+      },
+      {
+        "name": "Light HR layout surface stays light after navigation",
+        "passed": true
+      },
+      {
+        "name": "HR dialog fits mobile viewport",
+        "passed": true
+      },
+      {
+        "name": "Theme toggle preserves saved settings and restores dark tokens",
+        "passed": true
+      },
+      {
+        "name": "Repeated navigation/refresh does not recreate global loose buttons",
+        "passed": true
+      },
+      {
+        "name": "Exactly one customer and HR section entry after repeated refresh",
+        "passed": true
+      },
+      {
+        "name": "Renamed sidebar ordering stays correct",
+        "passed": true
+      },
+      {
+        "name": "No-work session was not reset or rewritten by UI repair",
+        "passed": true
+      },
+      {
+        "name": "Old no-work session remains reviewable after navigation",
+        "passed": true
+      },
+      {
+        "name": "No uncaught script exceptions during root workflow",
+        "passed": true
+      },
+      {
+        "name": "Limited employee does not get Marketing/HR admin entry",
+        "passed": true
+      },
+      {
+        "name": "Unassigned limited employee does not get purchase inbox",
+        "passed": true
+      },
+      {
+        "name": "Assigned approver outside Purchasing retains own-request inbox",
+        "passed": true
+      },
+      {
+        "name": "Assigned approver can open original review action",
+        "passed": true
+      },
+      {
+        "name": "Late queue result cannot reopen private data after logout",
+        "passed": true
+      },
+      {
+        "name": "Logout removes private HR/CRM dialogs and section entries",
+        "passed": true
+      },
+      {
+        "name": "All new UI workflows finished without uncaught errors",
+        "passed": true
+      }
+    ],
+    "passed": 42,
+    "total": 42,
+    "pageErrors": [],
+    "externalRequestsBlocked": 0
+  },
+  "browserR29Regression": {
+    "checks": [
+      {
+        "name": "Actual full frontend loads R28",
+        "passed": true
+      },
+      {
+        "name": "CRM and social panels are not stacked",
+        "passed": true
+      },
+      {
+        "name": "Verified account visible",
+        "passed": true
+      },
+      {
+        "name": "Legacy history not counted as official published",
+        "passed": true
+      },
+      {
+        "name": "Manager map retains both departments",
+        "passed": true
+      },
+      {
+        "name": "Manager getter does not mutate assignments",
+        "passed": true
+      },
+      {
+        "name": "Manager assignment uses dedicated server endpoint",
+        "passed": true
+      },
+      {
+        "name": "Assigning third department preserves employment and both existing departments",
+        "passed": true
+      },
+      {
+        "name": "All three assignments survive actual frontend refresh with synthetic server data",
+        "passed": true
+      },
+      {
+        "name": "Scoped manager can access both additional departments",
+        "passed": true
+      },
+      {
+        "name": "Explicit module denial overrides added manager scope",
+        "passed": true
+      },
+      {
+        "name": "Backdrop click does not close composer",
+        "passed": true
+      },
+      {
+        "name": "Draft saved with server response",
+        "passed": true
+      },
+      {
+        "name": "Draft has idempotency key",
+        "passed": true
+      },
+      {
+        "name": "Ambiguous server response is not shown as published",
+        "passed": true
+      },
+      {
+        "name": "Unavailable metric displays dash",
+        "passed": true
+      },
+      {
+        "name": "App secret never returned to browser",
+        "passed": true
+      },
+      {
+        "name": "Text-only publish is blocked client-side",
+        "passed": true
+      },
+      {
+        "name": "Approval controls hidden without grant",
+        "passed": true
+      },
+      {
+        "name": "Switching customer clears other customer data",
+        "passed": true
+      },
+      {
+        "name": "Social content has no horizontal overflow at mobile width",
+        "passed": true
+      },
+      {
+        "name": "Marketing navigation restored",
+        "passed": true
+      },
+      {
+        "name": "R29 actual workspace opens with server profile",
+        "passed": true
+      },
+      {
+        "name": "All nine HR workflow tabs registered",
+        "passed": true
+      },
+      {
+        "name": "Draft employee status is available",
+        "passed": true
+      },
+      {
+        "name": "Unused canonical department preserved and renamed for display",
+        "passed": true
+      },
+      {
+        "name": "Criteria uses versioned dedicated API",
+        "passed": true
+      },
+      {
+        "name": "Five scores live average is 80",
+        "passed": true
+      },
+      {
+        "name": "Server-confirmed evaluation rendered with snapshot",
+        "passed": true
+      },
+      {
+        "name": "Clock start sends no client timestamp",
+        "passed": true
+      },
+      {
+        "name": "Clock end renders recorded attendance hours",
+        "passed": true
+      },
+      {
+        "name": "Previous leave saved by calendar year",
+        "passed": true
+      },
+      {
+        "name": "Settlement lines reveal on type change",
+        "passed": true
+      },
+      {
+        "name": "Customer sequential numbers visible",
+        "passed": true
+      },
+      {
+        "name": "Read-only customer work includes multiple departments",
+        "passed": true
+      },
+      {
+        "name": "Customer work has no legacy edit-task button",
+        "passed": true
+      },
+      {
+        "name": "Actual workChat renders in read-only conversation",
+        "passed": true
+      },
+      {
+        "name": "Read-only task has no writing controls",
+        "passed": true
+      },
+      {
+        "name": "Customer archive keeps original ID and history",
+        "passed": true
+      },
+      {
+        "name": "R29 workspace has no horizontal page overflow",
+        "passed": true
+      },
+      {
+        "name": "New workflow survives reopening with server data",
+        "passed": true
+      },
+      {
+        "name": "R29 scripts produced no uncaught errors",
+        "passed": true
+      },
+      {
+        "name": "Logout clears all R29 private dialogs",
+        "passed": true
+      },
+      {
+        "name": "Logout clears retained social dialogs",
+        "passed": true
+      },
+      {
+        "name": "No Meta publish/connect endpoint invoked during tests",
+        "passed": true
+      }
+    ],
+    "pageErrors": [],
+    "networkCalls": 51,
+    "externalRequestsBlocked": 0,
+    "passed": 45,
+    "total": 45,
+    "testBoundary": "Actual complete frontend scripts/styles rendered in memory (Chromium navigation blocked), synthetic API adapter; no real HTTP transport, production server or Meta calls."
+  },
+  "nodeRegression": {
+    "passed": 50,
+    "total": 50,
+    "log": "tests/R30/output/node-regression.log"
+  },
+  "verification": {
+    "baseline": "MOSH_R29_FULL_HR_ADMIN_CLIENTS.zip",
+    "originalFiles": 9123,
+    "retained": 9123,
+    "missing": [],
+    "unchanged": 9111,
+    "changed": [
+      "MOSH_VANILLA_FRONTEND/api-map.json",
+      "MOSH_VANILLA_FRONTEND/css/r29-workflows.css",
+      "MOSH_VANILLA_FRONTEND/index.html",
+      "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+      "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+      "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+      "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+      "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+      "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+      "MOSH_VANILLA_FRONTEND/js/r29-workflows.js"
+    ],
+    "new": [
+      "MOSH_LARAVEL_BACKEND/tests/R30/browser_navigation.py",
+      "MOSH_LARAVEL_BACKEND/tests/R30/output/browser-navigation.json",
+      "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-dashboard-dark.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-hr-light.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-hr-mobile.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-marketing-dark.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/output/r30-marketing-light.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/browser-results.json",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-customer-work.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-customers-mobile.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-leave-desktop.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-social-dark.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-social-light.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression-output/r29-social-mobile.png",
+      "MOSH_LARAVEL_BACKEND/tests/R30/regression_r29.py",
+      "MOSH_VANILLA_FRONTEND/css/r30-shell-fixes.css"
+    ],
+    "protectedCompared": 8611,
+    "protectedChanged": [],
+    "backendOriginalFilesChanged": [],
+    "javascript": [
+      {
+        "file": "MOSH_VANILLA_FRONTEND/config.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/61-mosh-r14-system-polish.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/61-mosh-zkteco-admin.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/62-mosh-r16-field-fixes.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/63-mosh-mini-workdesk.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-common.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-home.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-hr.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-mini.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-review-dashboard.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-review-overdue.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r20-attendance-header.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r20-employee-portal.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r22-theme.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r25-marketing-customers.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r29-model.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/vendor/html2canvas.min.js",
+        "passed": true,
+        "error": ""
+      },
+      {
+        "file": "MOSH_VANILLA_FRONTEND/vendor/jspdf.umd.min.js",
+        "passed": true,
+        "error": ""
+      }
+    ],
+    "inlineScripts": [
+      {
+        "index": 0,
+        "passed": true,
+        "error": ""
+      },
+      {
+        "index": 1,
+        "passed": true,
+        "error": ""
+      },
+      {
+        "index": 4,
+        "passed": true,
+        "error": ""
+      }
+    ],
+    "assetReferencesMissing": [],
+    "manifestRelease": "R30",
+    "scriptCount": 82,
+    "scriptPathsUnique": true,
+    "sqliteReadOnly": [
+      {
+        "file": "MOSH_LARAVEL_BACKEND/database/database.backup-20260921-120137.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      },
+      {
+        "file": "MOSH_LARAVEL_BACKEND/database/database.before-cleanup-20260922-164942.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      },
+      {
+        "file": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      },
+      {
+        "file": "MOSH_LARAVEL_BACKEND/database/database-before-dummy-data.sqlite",
+        "result": [
+          [
+            "ok"
+          ]
+        ]
+      }
+    ]
+  },
+  "limits": [
+    "No real HTTP transport",
+    "No integrated Laravel execution",
+    "No company server access",
+    "No production DB writes",
+    "No Meta publish/OAuth",
+    "No real 5 MB upload test",
+    "Old no-work session intentionally not reset"
+  ]
+}

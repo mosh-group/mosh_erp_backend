@@ -1,0 +1,992 @@
+[
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayHistory.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/Audit.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/FinanceRules.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/TaskExecutionClock.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/JournalRules.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayReport.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/StockRules.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Support/Money.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/PrintLayout.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Quotation.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/OffboardingCase.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/JournalEntry.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Salesperson.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminMeeting.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/StockMovement.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollHours.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Role.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/HrApproval.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Announcement.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/QuotationTemplate.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/FinancialDocument.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Warehouse.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Requisition.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Payment.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/CashAccount.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/EmploymentContract.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Setting.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollRun.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/ServiceContract.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminDecision.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Supplier.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/DataRecord.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Invoice.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldWork.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/FileLink.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/AuditEvent.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/StoredFile.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Wisdom.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Service.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Recognition.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/SupportRequest.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Reservation.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldTemplate.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/StockItem.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Task.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Customer.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/Employee.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/HrRequest.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/ExecutiveReport.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/WorkPresence.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Models/SalesTeam.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Providers/AppServiceProvider.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/TransactionController.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/BootstrapController.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AccountController.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/Controller.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AuthController.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ReportController.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/VerifyCsrfToken.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/EncryptCookies.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ApiSession.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/RedirectIfAuthenticated.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/TrimStrings.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/cache.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/filesystems.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/logging.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/database.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/auth.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/queue.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/hashing.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/cors.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/mosh.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/app.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/session.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/mail.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/config/services.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/routes/api.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/routes/console.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/database/migrations/0001_01_01_000001_create_mosh_tables.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/database/seeders/DatabaseSeeder.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/database/seeders/DemoSeeder.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/tests/TestCase.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/tests/Feature/BackendAuditTest.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/tests/Feature/TaskTimerR7Test.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/tests/Feature/ApiTest.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/tests/Feature/WorkdayR8Test.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/tests/Feature/DomainTest.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/bootstrap/providers.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+    "language": "php",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/config.js",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/tests/workday-model.test.cjs",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/tests/reminder-model.test.cjs",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/tests/timer-r6.test.cjs",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/tests/timer-r7.test.cjs",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/tests/workday-r8.test.cjs",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  },
+  {
+    "path": "MOSH_VANILLA_FRONTEND/tests/timer-r5.test.cjs",
+    "language": "js",
+    "ok": true,
+    "output": ""
+  }
+]

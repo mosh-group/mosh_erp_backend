@@ -1,0 +1,141 @@
+{
+  "checks": [
+    {
+      "name": "Real PHP 1 MB post limit rejects whole 5 MB multipart",
+      "passed": true
+    },
+    {
+      "name": "Real styled IT department navigation opens",
+      "passed": true
+    },
+    {
+      "name": "IT department offers five native tabs",
+      "passed": true
+    },
+    {
+      "name": "IT is in real employee/task department options",
+      "passed": true
+    },
+    {
+      "name": "Two independent vault permission labels in user panel source",
+      "passed": true
+    },
+    {
+      "name": "Equipment create receives confirmed server ID/version",
+      "passed": true
+    },
+    {
+      "name": "Equipment form sends idempotency request ID",
+      "passed": true
+    },
+    {
+      "name": "Equipment assignment form sends employee and expected version",
+      "passed": true
+    },
+    {
+      "name": "Device details open with history",
+      "passed": true
+    },
+    {
+      "name": "Password storage fields disabled on HTTP/nonsecure page",
+      "passed": true
+    },
+    {
+      "name": "Editing metadata never pre-fills passwords",
+      "passed": true
+    },
+    {
+      "name": "Company account metadata saves without credentials",
+      "passed": true
+    },
+    {
+      "name": "Subscription forms persist billing/reminder/account data",
+      "passed": true
+    },
+    {
+      "name": "Renewal action distinct from metadata edit",
+      "passed": true
+    },
+    {
+      "name": "Archive keeps account and history",
+      "passed": true
+    },
+    {
+      "name": "Restore reuses same account ID",
+      "passed": true
+    },
+    {
+      "name": "IT uses existing task workspace and manager mapping",
+      "passed": true
+    },
+    {
+      "name": "Multiple varied-size JPGs saved to real filesystem",
+      "passed": true
+    },
+    {
+      "name": "Task gets exactly three confirmed file links/chat records",
+      "passed": true
+    },
+    {
+      "name": "5 MB SHA256 matches all original browser bytes",
+      "passed": true
+    },
+    {
+      "name": "Lost chunk reply retried without corrupting payload",
+      "passed": true
+    },
+    {
+      "name": "Lost task reply reuses idempotency and creates no duplicate messages",
+      "passed": true
+    },
+    {
+      "name": "Upload progress reaches server-confirmed completion",
+      "passed": true
+    },
+    {
+      "name": "Confirmed attachments remain after actual frontend refresh",
+      "passed": true
+    },
+    {
+      "name": "Denied task commit never displays phantom success",
+      "passed": true
+    },
+    {
+      "name": "Retry attaches the already-uploaded file once",
+      "passed": true
+    },
+    {
+      "name": "Forbidden extensions rejected by actual backend chunk rules",
+      "passed": true
+    },
+    {
+      "name": "Client blocks files above configured 25 MB",
+      "passed": true
+    },
+    {
+      "name": "Chunk session cannot be used by another test owner",
+      "passed": true
+    },
+    {
+      "name": "IT workspace avoids horizontal page overflow on mobile",
+      "passed": true
+    },
+    {
+      "name": "Account write controls hidden without independent grant",
+      "passed": true
+    },
+    {
+      "name": "Logout clears IT data and pending uploads",
+      "passed": true
+    },
+    {
+      "name": "Actual new scripts have no uncaught browser exceptions",
+      "passed": true
+    }
+  ],
+  "passed": 33,
+  "total": 33,
+  "pageErrors": [],
+  "httpBoundary": "Actual PHP CLI server at loopback, 1 MB POST limit and production ChunkStorage; not Laravel/SQL/session/CSRF/FileController. Browser full HTML/JS/CSS in memory, proxy to real test HTTP for binary protocol; IT/task records explicitly mocked.",
+  "calls": 66
+}

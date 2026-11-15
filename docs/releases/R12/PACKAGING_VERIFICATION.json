@@ -1,0 +1,55 @@
+{
+  "source": "MOSH_COMPLETE_PROJECTS_R11_LOGIN_FEEDBACK_FULL.zip",
+  "target": "R12 task attachments",
+  "r11_file_count": 8893,
+  "r12_file_count": 8897,
+  "added": [
+    "MOSH_LARAVEL_BACKEND/00_R12_TASK_ATTACHMENTS_AR.txt",
+    "MOSH_LARAVEL_BACKEND/docs/releases/R12/QA_REPORT_AR.md",
+    "MOSH_VANILLA_FRONTEND/00_R12_TASK_ATTACHMENTS_AR.txt",
+    "MOSH_VANILLA_FRONTEND/tests/browser/task_attachments_r12.py"
+  ],
+  "removed": [],
+  "changed": [
+    "MOSH_LARAVEL_BACKEND/00_READ_ME_LATEST_AR.txt",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+    "MOSH_VANILLA_FRONTEND/00_READ_ME_LATEST_AR.txt",
+    "MOSH_VANILLA_FRONTEND/api-map.json",
+    "MOSH_VANILLA_FRONTEND/index.html",
+    "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js"
+  ],
+  "sensitive_files": [
+    {
+      "path": "MOSH_LARAVEL_BACKEND/.env",
+      "exists": true,
+      "r11": "b70f9dd9ea5de175a97ca4245de937554eb94fffae33a80bde34f003b1b38acc",
+      "r12": "b70f9dd9ea5de175a97ca4245de937554eb94fffae33a80bde34f003b1b38acc",
+      "same": true
+    },
+    {
+      "path": "MOSH_VANILLA_FRONTEND/config.js",
+      "exists": true,
+      "r11": "89406420f132fc645b01fc5acabdd25ab5e31ccfcc83103d0e4fc7ed67add610",
+      "r12": "89406420f132fc645b01fc5acabdd25ab5e31ccfcc83103d0e4fc7ed67add610",
+      "same": true
+    },
+    {
+      "path": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+      "exists": true,
+      "r11": "052a6c46408193301111e7adecadf7faf3d6ee9f7d0109d00495f2f8a2337996",
+      "r12": "052a6c46408193301111e7adecadf7faf3d6ee9f7d0109d00495f2f8a2337996",
+      "same": true
+    }
+  ],
+  "storage_identical": true,
+  "storage_file_count": 25,
+  "checks": {
+    "node_tests": "38/38 pass",
+    "browser_task_attachments": "pass",
+    "browser_preload_r10": "pass",
+    "js_syntax": "62 checked",
+    "php_file_controller_lint": "pass",
+    "sqlite_quick_check": "4/4 ok",
+    "laravel_integration": "not run: PHP 8.4.23 available, project requires >=8.5"
+  }
+}

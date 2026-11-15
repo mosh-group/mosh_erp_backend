@@ -1,0 +1,479 @@
+{
+  "sourceFiles": 9066,
+  "sourceBytes": 80924683,
+  "missingOriginalFiles": [],
+  "changedOriginalFiles": [
+    "MOSH_VANILLA_FRONTEND/api-map.json",
+    "MOSH_VANILLA_FRONTEND/index.html",
+    "MOSH_LARAVEL_BACKEND/resources/defaults.json",
+    "MOSH_LARAVEL_BACKEND/routes/console.php",
+    "MOSH_LARAVEL_BACKEND/routes/api.php",
+    "MOSH_LARAVEL_BACKEND/routes/web.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+    "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/BootstrapController.php",
+    "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+    "MOSH_VANILLA_FRONTEND/js/api-client.js",
+    "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+    "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+    "MOSH_VANILLA_FRONTEND/js/api-boot.js"
+  ],
+  "addedFiles": [
+    "MOSH_LARAVEL_BACKEND/START_INSTAGRAM_WORKER.bat",
+    "MOSH_LARAVEL_BACKEND/routes/r28_instagram.php",
+    "MOSH_LARAVEL_BACKEND/config/mosh_social.php",
+    "MOSH_LARAVEL_BACKEND/app/Support/DepartmentManagers.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialPolicy.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialSettings.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialWorker.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaClient.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaException.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialHub.php",
+    "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialAccess.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/DepartmentManagerController.php",
+    "MOSH_LARAVEL_BACKEND/app/Http/Controllers/InstagramController.php",
+    "MOSH_LARAVEL_BACKEND/tests/R28/acceptance.php",
+    "MOSH_VANILLA_FRONTEND/css/r28-instagram.css",
+    "MOSH_VANILLA_FRONTEND/js/r28-instagram.js"
+  ],
+  "protectedFiles": 8613,
+  "protectedChanged": [],
+  "sourceArchiveSHA256": "90a062a1e9ad29fd7a4cf7f0a07d23e6de9087273092d3097e9f77ce98e2e6c1",
+  "databases": [
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database.sqlite",
+      "quick_check": [
+        "ok"
+      ]
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database.backup-20260921-120137.sqlite",
+      "quick_check": [
+        "ok"
+      ]
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database.before-cleanup-20260922-164942.sqlite",
+      "quick_check": [
+        "ok"
+      ]
+    },
+    {
+      "file": "MOSH_LARAVEL_BACKEND/database/database-before-dummy-data.sqlite",
+      "quick_check": [
+        "ok"
+      ]
+    }
+  ],
+  "lint": {
+    "php": {
+      "total": 145,
+      "passed": 145
+    },
+    "javascript": {
+      "total": 84,
+      "passed": 84
+    },
+    "failed": []
+  },
+  "runtime": {
+    "php": "PHP 8.4.24 (cli) (built: Jul 31 2026 05:11:11) (NTS)",
+    "missingForFullLaravelTests": [
+      "pdo_sqlite",
+      "dom",
+      "xml",
+      "mbstring",
+      "bcmath"
+    ],
+    "sourcePhpRequirement": "^8.5",
+    "artisanBootCompleted": false
+  },
+  "browser": {
+    "checks": [
+      {
+        "name": "Actual full frontend loads R28",
+        "passed": true
+      },
+      {
+        "name": "CRM and social panels are not stacked",
+        "passed": true
+      },
+      {
+        "name": "Verified account visible",
+        "passed": true
+      },
+      {
+        "name": "Legacy history not counted as official published",
+        "passed": true
+      },
+      {
+        "name": "Manager map retains both departments",
+        "passed": true
+      },
+      {
+        "name": "Manager getter does not mutate assignments",
+        "passed": true
+      },
+      {
+        "name": "Manager assignment uses dedicated server endpoint",
+        "passed": true
+      },
+      {
+        "name": "Assigning third department preserves employment and both existing departments",
+        "passed": true
+      },
+      {
+        "name": "All three assignments survive actual frontend refresh with synthetic server data",
+        "passed": true
+      },
+      {
+        "name": "Scoped manager can access both additional departments",
+        "passed": true
+      },
+      {
+        "name": "Explicit module denial overrides added manager scope",
+        "passed": true
+      },
+      {
+        "name": "Backdrop click does not close composer",
+        "passed": true
+      },
+      {
+        "name": "Draft saved with server response",
+        "passed": true
+      },
+      {
+        "name": "Draft has idempotency key",
+        "passed": true
+      },
+      {
+        "name": "Ambiguous server response is not shown as published",
+        "passed": true
+      },
+      {
+        "name": "Unavailable metric displays dash",
+        "passed": true
+      },
+      {
+        "name": "App secret never returned to browser",
+        "passed": true
+      },
+      {
+        "name": "Text-only publish is blocked client-side",
+        "passed": true
+      },
+      {
+        "name": "Approval controls hidden without grant",
+        "passed": true
+      },
+      {
+        "name": "Switching customer clears other customer data",
+        "passed": true
+      },
+      {
+        "name": "Social content has no horizontal overflow at mobile width",
+        "passed": true
+      },
+      {
+        "name": "Marketing navigation restored",
+        "passed": true
+      },
+      {
+        "name": "Logout clears retained social dialogs",
+        "passed": true
+      },
+      {
+        "name": "No Meta publish/connect endpoint invoked during tests",
+        "passed": true
+      }
+    ],
+    "pageErrors": [],
+    "networkCalls": 20,
+    "externalRequestsBlocked": 0,
+    "passed": 24,
+    "total": 24,
+    "testBoundary": "Actual complete frontend scripts/styles rendered in memory (Chromium navigation blocked), synthetic API adapter; no real HTTP transport, production server or Meta calls."
+  },
+  "acceptance": {
+    "passed": 68,
+    "total": 68,
+    "checks": [
+      {
+        "name": "Assign fourth department preserves all existing assignments",
+        "passed": true
+      },
+      {
+        "name": "Manager replacement is not an in-place mutation",
+        "passed": true
+      },
+      {
+        "name": "Remove one department keeps other assignments",
+        "passed": true
+      },
+      {
+        "name": "Same-department stale write is rejected",
+        "passed": true
+      },
+      {
+        "name": "Changes in different departments merge without losing either",
+        "passed": true
+      },
+      {
+        "name": "Legacy empty array normalizes without inventing managers",
+        "passed": true
+      },
+      {
+        "name": "Object maps and numeric IDs normalize safely",
+        "passed": true
+      },
+      {
+        "name": "draft status respects direct permission granted",
+        "passed": true
+      },
+      {
+        "name": "draft status respects direct permission denied",
+        "passed": true
+      },
+      {
+        "name": "publish status respects direct permission granted",
+        "passed": true
+      },
+      {
+        "name": "publish status respects direct permission denied",
+        "passed": true
+      },
+      {
+        "name": "schedule status respects direct permission granted",
+        "passed": true
+      },
+      {
+        "name": "schedule status respects direct permission denied",
+        "passed": true
+      },
+      {
+        "name": "Unknown publishing mode rejected",
+        "passed": true
+      },
+      {
+        "name": "publishing cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "reconciling cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "uncertain cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "published cannot be edited or cancelled",
+        "passed": true
+      },
+      {
+        "name": "Scheduled content cannot be edited before explicit cancellation",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL http://qa.invalid",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL https://user:pass@qa.invalid",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL https://qa.invalid?secret=x",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL https://qa.invalid#x",
+        "passed": true
+      },
+      {
+        "name": "Reject unsafe media/config URL javascript:alert(1)",
+        "passed": true
+      },
+      {
+        "name": "HTTPS base URL accepted",
+        "passed": true
+      },
+      {
+        "name": "Public account excludes token and grants",
+        "passed": true
+      },
+      {
+        "name": "Public post excludes lease/provider credentials",
+        "passed": true
+      },
+      {
+        "name": "Valid provider signature accepted",
+        "passed": true
+      },
+      {
+        "name": "Wrong signing key rejected",
+        "passed": true
+      },
+      {
+        "name": "Tampered callback rejected",
+        "passed": true
+      },
+      {
+        "name": "Oversized callback rejected",
+        "passed": true
+      },
+      {
+        "name": "Provider rejects non-approved host",
+        "passed": true
+      },
+      {
+        "name": "Provider rejects injected graph paths",
+        "passed": true
+      },
+      {
+        "name": "Provider rejects malformed API version",
+        "passed": true
+      },
+      {
+        "name": "Provider-confirmed image is published with actual media ID",
+        "passed": true
+      },
+      {
+        "name": "One publication call for success",
+        "passed": true
+      },
+      {
+        "name": "Repeated processing never republishes confirmed content",
+        "passed": true
+      },
+      {
+        "name": "Container and publishing intent persisted",
+        "passed": true
+      },
+      {
+        "name": "Reels wait for provider processing",
+        "passed": true
+      },
+      {
+        "name": "Lost publish response is reconciled, not marked successful",
+        "passed": true
+      },
+      {
+        "name": "FINISHED after lost response does not repeat media_publish",
+        "passed": true
+      },
+      {
+        "name": "Long ambiguous result becomes uncertain without automatic retry",
+        "passed": true
+      },
+      {
+        "name": "Lost authorization after ambiguous publish becomes uncertain instead of waiting forever",
+        "passed": true
+      },
+      {
+        "name": "Provider PUBLISHED confirms a lost response without another POST",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits draft",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits pending_approval",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits published",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits uncertain",
+        "passed": true
+      },
+      {
+        "name": "Worker never submits cancelled",
+        "passed": true
+      },
+      {
+        "name": "Future schedule does not publish early",
+        "passed": true
+      },
+      {
+        "name": "Active lease blocks another execution",
+        "passed": true
+      },
+      {
+        "name": "Revoked direct permission blocks publishing",
+        "passed": true
+      },
+      {
+        "name": "Approval permission is independent of direct publishing",
+        "passed": true
+      },
+      {
+        "name": "Inactive authorizer cannot publish",
+        "passed": true
+      },
+      {
+        "name": "Lost customer access blocks publishing",
+        "passed": true
+      },
+      {
+        "name": "Cross-customer account rejected by worker",
+        "passed": true
+      },
+      {
+        "name": "Permission rechecked immediately before irreversible publish",
+        "passed": true
+      },
+      {
+        "name": "Invalidated lease prevents a late worker from overwriting revocation",
+        "passed": true
+      },
+      {
+        "name": "Idle worker refreshes expiring accounts with no due posts",
+        "passed": true
+      },
+      {
+        "name": "Independent reviewer advances to queued",
+        "passed": true
+      },
+      {
+        "name": "Idempotent approval has one decision history row",
+        "passed": true
+      },
+      {
+        "name": "Reviewer cannot approve own submission",
+        "passed": true
+      },
+      {
+        "name": "Expired schedule must be returned for a new time",
+        "passed": true
+      },
+      {
+        "name": "Approval cannot schedule when worker inactive",
+        "passed": true
+      },
+      {
+        "name": "Cannot cancel after publishing begins",
+        "passed": true
+      },
+      {
+        "name": "Signed deletion removes token and provider identity",
+        "passed": true
+      },
+      {
+        "name": "Deletion fences in-flight worker and preserves uncertain result",
+        "passed": true
+      },
+      {
+        "name": "Deletion preserves company-owned source content",
+        "passed": true
+      }
+    ],
+    "boundary": "Production policy/manager/outbox/approval code with simulated persistence, provider, identity, clock and file boundaries; no SQL, HTTP, encryption implementation or live Meta validation."
+  }
+}

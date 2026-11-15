@@ -1,0 +1,341 @@
+{
+  "checks": [
+    {
+      "name": "R35 source loaded, original API available",
+      "passed": true
+    },
+    {
+      "name": "No preview banners or suppressed submit handler",
+      "passed": true
+    },
+    {
+      "name": "No new glass layer",
+      "passed": true
+    },
+    {
+      "name": "hr: one active section",
+      "passed": true
+    },
+    {
+      "name": "hr: grouped menu installed",
+      "passed": true
+    },
+    {
+      "name": "hr: accessible groups available",
+      "passed": true
+    },
+    {
+      "name": "hr: submenu shows original links",
+      "passed": true
+    },
+    {
+      "name": "hr: leaf closes menu and retains section",
+      "passed": true
+    },
+    {
+      "name": "hr: re-entry dashboard not last leaf",
+      "passed": true
+    },
+    {
+      "name": "sales: one active section",
+      "passed": true
+    },
+    {
+      "name": "sales: grouped menu installed",
+      "passed": true
+    },
+    {
+      "name": "sales: accessible groups available",
+      "passed": true
+    },
+    {
+      "name": "sales: submenu shows original links",
+      "passed": true
+    },
+    {
+      "name": "sales: leaf closes menu and retains section",
+      "passed": true
+    },
+    {
+      "name": "sales: re-entry dashboard not last leaf",
+      "passed": true
+    },
+    {
+      "name": "marketing: one active section",
+      "passed": true
+    },
+    {
+      "name": "marketing: grouped menu installed",
+      "passed": true
+    },
+    {
+      "name": "marketing: accessible groups available",
+      "passed": true
+    },
+    {
+      "name": "marketing: submenu shows original links",
+      "passed": true
+    },
+    {
+      "name": "marketing: leaf closes menu and retains section",
+      "passed": true
+    },
+    {
+      "name": "marketing: re-entry dashboard not last leaf",
+      "passed": true
+    },
+    {
+      "name": "it: one active section",
+      "passed": true
+    },
+    {
+      "name": "it: grouped menu installed",
+      "passed": true
+    },
+    {
+      "name": "it: accessible groups available",
+      "passed": true
+    },
+    {
+      "name": "it: submenu shows original links",
+      "passed": true
+    },
+    {
+      "name": "it: leaf closes menu and retains section",
+      "passed": true
+    },
+    {
+      "name": "it: re-entry dashboard not last leaf",
+      "passed": true
+    },
+    {
+      "name": "accounting: one active section",
+      "passed": true
+    },
+    {
+      "name": "accounting: grouped menu installed",
+      "passed": true
+    },
+    {
+      "name": "accounting: accessible groups available",
+      "passed": true
+    },
+    {
+      "name": "accounting: submenu shows original links",
+      "passed": true
+    },
+    {
+      "name": "accounting: leaf closes menu and retains section",
+      "passed": true
+    },
+    {
+      "name": "accounting: re-entry dashboard not last leaf",
+      "passed": true
+    },
+    {
+      "name": "purchases: one active section",
+      "passed": true
+    },
+    {
+      "name": "purchases: grouped menu installed",
+      "passed": true
+    },
+    {
+      "name": "purchases: accessible groups available",
+      "passed": true
+    },
+    {
+      "name": "purchases: submenu shows original links",
+      "passed": true
+    },
+    {
+      "name": "purchases: leaf closes menu and retains section",
+      "passed": true
+    },
+    {
+      "name": "purchases: re-entry dashboard not last leaf",
+      "passed": true
+    },
+    {
+      "name": "logistics: one active section",
+      "passed": true
+    },
+    {
+      "name": "logistics: grouped menu installed",
+      "passed": true
+    },
+    {
+      "name": "logistics: accessible groups available",
+      "passed": true
+    },
+    {
+      "name": "logistics: submenu shows original links",
+      "passed": true
+    },
+    {
+      "name": "logistics: leaf closes menu and retains section",
+      "passed": true
+    },
+    {
+      "name": "logistics: re-entry dashboard not last leaf",
+      "passed": true
+    },
+    {
+      "name": "HR table retains authorized original records",
+      "passed": true
+    },
+    {
+      "name": "Display serial is distinct from original employee IDs",
+      "passed": true
+    },
+    {
+      "name": "Table rows approximately 44px",
+      "passed": true,
+      "detail": 44.640625
+    },
+    {
+      "name": "Employee quick view opens without leaving table",
+      "passed": true
+    },
+    {
+      "name": "Escape closes quick view",
+      "passed": true
+    },
+    {
+      "name": "Search uses original employee filter",
+      "passed": true
+    },
+    {
+      "name": "Removing search chip restores list",
+      "passed": true
+    },
+    {
+      "name": "Draft employees remain reachable",
+      "passed": true
+    },
+    {
+      "name": "Name sort marks ascending",
+      "passed": true
+    },
+    {
+      "name": "Serial updates after sorting",
+      "passed": true
+    },
+    {
+      "name": "Comfortable density without font shrinking",
+      "passed": true
+    },
+    {
+      "name": "Original row actions available in overflow",
+      "passed": true
+    },
+    {
+      "name": "Original employee profile opens from new actions",
+      "passed": true
+    },
+    {
+      "name": "Task defaults collapsed with only title/arrow",
+      "passed": true
+    },
+    {
+      "name": "Chat controls are outside disclosure",
+      "passed": true
+    },
+    {
+      "name": "Arrow immediately left of task name",
+      "passed": true
+    },
+    {
+      "name": "Task data controls preserved by ID",
+      "passed": true
+    },
+    {
+      "name": "Title editing still works",
+      "passed": true
+    },
+    {
+      "name": "Deadline still calls authoritative backend",
+      "passed": true
+    },
+    {
+      "name": "Returned deadline remains in original input",
+      "passed": true
+    },
+    {
+      "name": "Details use three aligned columns",
+      "passed": true
+    },
+    {
+      "name": "Chat uses 75 percent viewport height",
+      "passed": true
+    },
+    {
+      "name": "Selecting an attachment does not send or upload it",
+      "passed": true
+    },
+    {
+      "name": "Closing details does not remove staged chat",
+      "passed": true
+    },
+    {
+      "name": "Logo preview is shown before saving",
+      "passed": true
+    },
+    {
+      "name": "Selecting a logo does not save immediately",
+      "passed": true
+    },
+    {
+      "name": "Logo writes to authenticated endpoint",
+      "passed": true
+    },
+    {
+      "name": "Saved logo image and independent version displayed",
+      "passed": true
+    },
+    {
+      "name": "Legacy settings render cannot replace saved logo",
+      "passed": true
+    },
+    {
+      "name": "Remove logo returns to original text, not data deletion",
+      "passed": true
+    },
+    {
+      "name": "1280: nested menu remains on screen",
+      "passed": true
+    },
+    {
+      "name": "1280: no document horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "900: nested menu remains on screen",
+      "passed": true
+    },
+    {
+      "name": "900: no document horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390: nested menu remains on screen",
+      "passed": true
+    },
+    {
+      "name": "390: no document horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Light theme remains readable palette",
+      "passed": true
+    },
+    {
+      "name": "No unexpected JavaScript errors in tested paths",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "calls": 19,
+  "boundary": "Original browser UI with synthetic authenticated API; not Laravel HTTP/SQL."
+}

@@ -1,0 +1,122 @@
+{
+  "checks": [
+    {
+      "name": "Task owned by canonical assignee despite stale employeeId",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Former assignee ID does not override another current assignee",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Unassigned explicit task is not taken by matching name",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Mine list initially includes working task",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual pause action confirmed",
+      "passed": true,
+      "detail": {
+        "status": "paused",
+        "error": "",
+        "calls": [
+          [
+            "/r19/notifications",
+            "GET",
+            null
+          ],
+          [
+            "/workday",
+            "GET",
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "name": "Pause preserves original ID/assignee/255 seconds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Paused task remains in employee list after navigating back",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Paused status label visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Task refresh retains paused record",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Task panel remains open across periodic mine redraw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Same task panel survives another periodic redraw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Resume available without a new receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No task recreation, reassignment or employee mutation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Employee UI has no unhandled errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Fresh login keeps paused task visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Fresh login never starts paused clock",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Resume operates on same task without recreating it",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No unhandled error after fresh login and resume",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Omitted employee aborts whole save before delete reaches server",
+      "passed": true,
+      "detail": "EMPLOYEE_DATA_GUARD"
+    },
+    {
+      "name": "Error restores original employee projection",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "total": 20,
+  "passed": 20,
+  "boundary": "Real UI/transport to synthetic documents, not Laravel HTTP/SQL; clock tested separately."
+}

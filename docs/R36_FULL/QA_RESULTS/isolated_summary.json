@@ -1,0 +1,67 @@
+[
+  {
+    "suite": "rules_R35_branding.php",
+    "returncode": 0,
+    "seconds": 0.04
+  },
+  {
+    "suite": "rules_R34_domain.php",
+    "returncode": 0,
+    "seconds": 0.08
+  },
+  {
+    "suite": "rules_R34_facebook.php",
+    "returncode": 0,
+    "seconds": 0.03
+  },
+  {
+    "suite": "rules_R31_chunks.php",
+    "returncode": 0,
+    "seconds": 0.27
+  },
+  {
+    "suite": "rules_R31_security.php",
+    "returncode": 0,
+    "seconds": 1.46
+  },
+  {
+    "suite": "rules_R28_acceptance.php",
+    "returncode": 0,
+    "seconds": 0.02
+  },
+  {
+    "suite": "rules_R29_domain.php",
+    "returncode": 0,
+    "seconds": 0.02
+  },
+  {
+    "suite": "rules_R29_security_payroll.php",
+    "returncode": 0,
+    "seconds": 0.05
+  },
+  {
+    "suite": "rules_R29_instagram_regression.php",
+    "returncode": 0,
+    "seconds": 0.02
+  },
+  {
+    "suite": "node_frontend",
+    "returncode": 0,
+    "seconds": 0.36
+  },
+  {
+    "suite": "node_r29",
+    "returncode": 0,
+    "seconds": 0.18
+  },
+  {
+    "suite": "node_upload",
+    "returncode": 0,
+    "seconds": 0.33
+  },
+  {
+    "suite": "node_hash",
+    "returncode": 0,
+    "seconds": 1.26
+  }
+]

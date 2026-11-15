@@ -1,0 +1,44 @@
+PASS Full app uses R34 release identity
+PASS Marketing main customer table has serial column
+PASS Current and previous customer tabs are in actual marketing workspace
+PASS Customer archive form sends reason before controls disable
+PASS Archived customer visible in previous tab
+PASS Reactivation retains original customer ID
+PASS Hierarchy form transmits configured people and relations
+PASS Task has new staged chat composer
+PASS Selecting files does not upload or send
+PASS Unsent remove leaves no chat tombstone
+PASS Explicit send uploads selected file and handles lost reply
+PASS Retry confirms same send without duplicates
+PASS Successful send clears staged files
+PASS Edited message shows struck original and new text
+PASS Deleted text remains struck and names actual deleter
+PASS Deleted file card stays visible and download removed
+PASS Existing task editor gets duration choices
+PASS Relative date preview supplied by server
+PASS Reopened editor discards transient selection but preserves saved deadline origin
+PASS Cancellation request sends reason and does not cancel immediately
+PASS Requester inbox never exposes executive code
+PASS Confirmed cancellation keeps original chat record
+PASS Cancelled tasks archive renders retained task
+PASS Existing Instagram view provides platform switch
+PASS Facebook page shown in separate official workspace
+FB BUTTONS ['Instagram', 'Facebook Pages', 'لوحة التسويق', 'تحديث', 'إعدادات Facebook', 'ربط Facebook رسمي', 'اختيار الصفحة بعد التفويض', 'الإحصائيات', 'فصل الربط', 'إنشاء محتوى']
+PASS Facebook configuration does not return stored app secret
+PASS Facebook configuration form transmits only entered settings
+PASS Official candidate selection sends exact chosen page
+PASS Facebook draft submits explicit page and mode
+PASS Facebook publish submits explicit page and mode
+PASS Facebook schedule submits explicit page and mode
+PASS Choosing Facebook media alone does not upload
+PASS Facebook file uploads only on explicit save and is linked to draft
+PASS Unavailable Facebook insight is not invented as zero
+PASS Facebook return for correction remains editable
+PASS Final rejected Facebook request has no edit or cancel control
+PASS Switching back preserves existing Instagram workspace
+PASS Future platforms not presented as connected
+PASS Social workspace remains in light
+PASS Social workspace remains in dark
+PASS Facebook workspace fits narrow viewport
+PASS No uncaught JavaScript errors
+

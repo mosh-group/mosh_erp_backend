@@ -1,0 +1,248 @@
+{
+  "checks": [
+    {
+      "name": "Actual R36 frontend loaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hr: dropdown visible after manager tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hr: identical manager/section control metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hr: dropdown groups open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sales: dropdown visible after manager tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sales: identical manager/section control metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sales: dropdown groups open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "marketing: dropdown visible after manager tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "marketing: identical manager/section control metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "marketing: dropdown groups open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "it: dropdown visible after manager tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "it: identical manager/section control metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "it: dropdown groups open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "accounting: dropdown visible after manager tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "accounting: identical manager/section control metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "accounting: dropdown groups open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "purchases: dropdown visible after manager tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "purchases: identical manager/section control metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "purchases: dropdown groups open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "logistics: dropdown visible after manager tools",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "logistics: identical manager/section control metrics",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "logistics: dropdown groups open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Social department directly follows marketing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Marketing social action moved not duplicated",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "New department has own task tab",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing social hub mounted once under new department",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Original Instagram record appears, not reset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Department click resets social dashboard",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "English search finds one bilingual customer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Both names displayed beside each other",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Arabic partial search returns same record",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Create dialog has Arabic and English inputs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Sales options retain canonical value with bilingual label",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Alias selection resolves same ID without mutating canonical name",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Edit preserves both persisted aliases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "choose: original action uses accessible SVG icon",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "voice: original action uses accessible SVG icon",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Only authorized editable message exposes overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Edit/delete hidden until overflow click",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Overflow menu opens and edit/delete available",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ESC closes only message options",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "26MiB file passes UI staging without upload or send",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Creation and return share size safety without 25MB cap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Removing unsent file creates no chat message",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Unsaved dialog Cancel does not recursively reopen",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ESC cancels unsaved navigation without freezing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Discard exits once without writing rejected data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No unhandled JS error",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "passed": 48,
+  "total": 48,
+  "errors": [],
+  "boundary": "Original HTML/CSS/JS in Chromium, synthetic authorized API; not live Laravel or production."
+}

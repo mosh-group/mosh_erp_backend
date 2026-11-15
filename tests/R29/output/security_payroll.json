@@ -1,0 +1,115 @@
+{
+  "passed": 27,
+  "checks": [
+    {
+      "name": "Employee cannot read own archived contract",
+      "passed": true
+    },
+    {
+      "name": "Employee cannot list own archived contract",
+      "passed": true
+    },
+    {
+      "name": "Employee cannot edit own contract",
+      "passed": true
+    },
+    {
+      "name": "HR permission alone outside HR department does not expose contracts",
+      "passed": true
+    },
+    {
+      "name": "Authorized HR can read contract",
+      "passed": true
+    },
+    {
+      "name": "Explicit HR contract read denial honored",
+      "passed": true
+    },
+    {
+      "name": "Inactive HR cannot read contracts",
+      "passed": true
+    },
+    {
+      "name": "File owner cannot bypass contract link restriction",
+      "passed": true
+    },
+    {
+      "name": "Employee blocked from signed contract scan bytes",
+      "passed": true
+    },
+    {
+      "name": "Authorized HR can open linked signed scan",
+      "passed": true
+    },
+    {
+      "name": "Direct department manager can evaluate team member",
+      "passed": true
+    },
+    {
+      "name": "Manager cannot self evaluate",
+      "passed": true
+    },
+    {
+      "name": "Inactive manager cannot evaluate",
+      "passed": true
+    },
+    {
+      "name": "Administration read-only tracking capability",
+      "passed": true
+    },
+    {
+      "name": "Administration can read minimal customer without Sales write grant",
+      "passed": true
+    },
+    {
+      "name": "Read-only tracking does not grant customer edits",
+      "passed": true
+    },
+    {
+      "name": "Read-only tracking does not grant cross-department task edits",
+      "passed": true
+    },
+    {
+      "name": "Approved credit and deduction use exact minor units",
+      "passed": true
+    },
+    {
+      "name": "Approval reserves installment to one hours record",
+      "passed": true
+    },
+    {
+      "name": "Reserved installment not counted in a different draft",
+      "passed": true
+    },
+    {
+      "name": "Approved record reuses its frozen adjustments",
+      "passed": true
+    },
+    {
+      "name": "Superseded eligible hours release installment reservation",
+      "passed": true
+    },
+    {
+      "name": "Pending/rejected adjustments never affect payroll",
+      "passed": true
+    },
+    {
+      "name": "No cross-currency settlement mixing",
+      "passed": true
+    },
+    {
+      "name": "No cross-employee settlement mixing",
+      "passed": true
+    },
+    {
+      "name": "Future installment not applied early",
+      "passed": true
+    },
+    {
+      "name": "Deduction exceeding net salary blocked",
+      "passed": true
+    }
+  ],
+  "total": 27,
+  "boundary": "Actual RecordAccess/HrWorkflow/file gate/payroll functions with synthetic identity and in-memory storage; not ORM/SQL/HTTP integration."
+}

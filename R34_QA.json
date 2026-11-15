@@ -1,0 +1,127 @@
+{
+  "release": "R34",
+  "date": "2026-10-22",
+  "source": "MOSH_R33_FULL_SYSTEM.zip",
+  "newSuites": {
+    "domain": {
+      "passed": 77,
+      "total": 77
+    },
+    "facebook": {
+      "passed": 47,
+      "total": 47
+    },
+    "browser": {
+      "passed": 42,
+      "total": 42
+    },
+    "large_http": {
+      "passed": 17,
+      "total": 17
+    },
+    "hash": {
+      "passed": 15,
+      "total": 15
+    }
+  },
+  "newChecks": 198,
+  "regressionSuites": [
+    {
+      "suite": "navigation",
+      "returncode": 0,
+      "seconds": 58.5
+    },
+    {
+      "suite": "boot_transport",
+      "returncode": 0,
+      "seconds": 16.4
+    },
+    {
+      "suite": "subviews",
+      "returncode": 0,
+      "seconds": 54.8
+    },
+    {
+      "suite": "task_edges",
+      "returncode": 0,
+      "seconds": 11.1
+    },
+    {
+      "suite": "legacy_navigation",
+      "returncode": 0,
+      "seconds": 27.8
+    },
+    {
+      "suite": "legacy_hr",
+      "returncode": 0,
+      "seconds": 16.9
+    },
+    {
+      "suite": "R31_chunks",
+      "returncode": 0,
+      "seconds": 0.4
+    },
+    {
+      "suite": "R31_security",
+      "returncode": 0,
+      "seconds": 1.7
+    },
+    {
+      "suite": "R28_acceptance",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R29_domain",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R29_security_payroll",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "R29_instagram_regression",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "suite": "node_frontend",
+      "returncode": 0,
+      "seconds": 0.5
+    },
+    {
+      "suite": "node_r29",
+      "returncode": 0,
+      "seconds": 0.2
+    },
+    {
+      "suite": "node_upload",
+      "returncode": 0,
+      "seconds": 0.4
+    }
+  ],
+  "newBoundary": "Actual source code. Domain tests use isolated ORM/auth/clock/provider doubles; Chromium uses full frontend with synthetic API. The large-file transport uses real local PHP HTTP + filesystem, not Laravel authentication/SQL.",
+  "laravelIntegrated": false,
+  "productionConnected": false,
+  "realMetaConnected": false,
+  "sourceFiles": 9226,
+  "protectedFiles": 8614,
+  "protectedChanges": [],
+  "sourceFilesRemoved": [],
+  "restoredHistoricalTestOutputs": [
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-social-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/browser-results.json",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-social-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-social-mobile.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-customer-work.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-leave-desktop.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/regression-output/r29-customers-mobile.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-marketing-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-hr-light.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-marketing-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-dashboard-dark.png",
+    "MOSH_LARAVEL_BACKEND/tests/R31/output/r30-hr-mobile.png"
+  ]
+}

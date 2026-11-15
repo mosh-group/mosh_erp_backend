@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "name": "Creation picker accepts actual 26MiB file",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Creation selection is staged without network upload",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Unsent creation attachment can be removed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Return-for-revision picker accepts same 26MiB file",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No 25MB help text remains in return dialog",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No false upload error or upload before confirming return",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Removing selected return file leaves empty draft",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Dangerous extensions remain blocked",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No uncaught script error in original pickers",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "passed": 9,
+  "total": 9,
+  "boundary": "Original browser file pickers with actual local file bytes; no real HTTP upload in this suite. Large HTTP test separate."
+}

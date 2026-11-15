@@ -1,0 +1,1612 @@
+{
+  "counts": {
+    "php": 165,
+    "js": 99,
+    "inline-js": 3
+  },
+  "failures": [],
+  "checks": [
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r34_facebook.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r24_admin.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r31.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/web.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r34.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r19_notifications.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r29.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/console.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/api.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r19_hr.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/routes/r28_instagram.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/filesystems.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/hashing.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/database.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/zkteco.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/logging.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/services.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/cache.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/mail.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/queue.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/mosh_social.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/mosh.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/auth.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/session.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/app.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/cors.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/config/mosh_facebook.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/providers.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/app.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/HrApproval.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/SalesTeam.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminMeeting.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldWork.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/SupportRequest.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/ServiceContract.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/StockMovement.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FinancialDocument.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FileLink.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Supplier.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Salesperson.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Reservation.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/User.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/EmploymentContract.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoAttendanceEvent.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/DataRecord.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/HrRequest.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Setting.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Service.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/CashAccount.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/AdminDecision.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/QuotationTemplate.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/PrintLayout.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/ExecutiveReport.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/WorkPresence.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Invoice.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/JournalEntry.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/StockItem.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Wisdom.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollHours.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/AuditEvent.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Announcement.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Payment.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Task.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoDevice.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/OffboardingCase.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/StoredFile.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Quotation.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Recognition.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Requisition.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Warehouse.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Role.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/PayrollRun.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/ZktecoEmployeeMapping.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/FieldTemplate.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Customer.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Models/Employee.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19HrWorkflow.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/RecordAccess.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/FinanceRules.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Records.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Store.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Money.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19TaskPriority.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19HrAccess.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Notifications.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/JournalRules.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/StockRules.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/DepartmentManagers.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/TaskExecutionClock.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayReport.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/WorkdayHistory.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R24PurchaseRules.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R35Branding.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/BusinessRules.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/Audit.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Support/R19Attendance.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Providers/AppServiceProvider.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FacebookController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/Controller.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/DepartmentManagerController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/FileController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/InstagramController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31UploadController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/BootstrapController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24AdminController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R29Controller.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R19NotificationController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R19HrController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ZktecoBridgeController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R35BrandingController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AccountController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R31ItController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ZktecoAdminController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/AuthController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24StationeryController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/TransactionController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ResourceController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/ReportController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R24PurchasingController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Controllers/R34WorkflowController.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/RedirectIfAuthenticated.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/EncryptCookies.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/VerifyCsrfToken.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ZktecoBridgeAuth.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/TrimStrings.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Http/Middleware/ApiSession.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R31/ChunkStorage.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R31/ItArchive.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Social/Registry.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Social/Publisher.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookHub.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookException.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookSettings.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookProvider.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Social/FacebookWorker.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/ZKTeco/ZktecoService.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialWorker.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialHub.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaException.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialSettings.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialAccess.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/SocialPolicy.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/Instagram/MetaClient.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/PayrollAdjustments.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Certificates.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/CustomerWork.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/QrCode.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/HrWorkflow.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Rules.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R29/Guards.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/Deadline.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/CommandContext.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/HierarchyRules.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/Cancellation.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/Hierarchy.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/Approvals.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/TaskConversation.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/app/Services/R34/TaskPolicy.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/cache/packages.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/bootstrap/cache/services.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/database/seeders/DatabaseSeeder.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/database/seeders/DemoSeeder.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/database/migrations/0001_01_01_000001_create_mosh_tables.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/database/migrations/2026_10_01_000002_add_zkteco_admin_permissions.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "php",
+      "path": "MOSH_LARAVEL_BACKEND/database/migrations/2026_10_01_000001_create_zkteco_integration_tables.php",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r34-customers-deadline.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/37-mosh-v32-systematic-shared-distribution-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r25-marketing-customers.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r29-workflows.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r24-purchase-portal.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/43-mosh-auth-v37-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r24-admin.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/62-mosh-r16-field-fixes.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r36-social-department.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/07-v209-hr-unified-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/05-v207-safe-dashboard-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/61-mosh-r14-system-polish.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/60-mosh-task-presentation-r6.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-review-nav.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/52-mosh-v48-marker.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-home.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/59-mosh-home-notices.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-review-dashboard.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/api-client.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/03-inline.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r29-model.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r34-social.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-workspace.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/47-mosh-v44-task-assignment-account-fix.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/02-mosh-core-runtime-14.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-review-ui.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/25-mosh-v25-dark-controls-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r34-ui.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r28-instagram.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/63-mosh-mini-workdesk.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/18-mosh-hr14-complete.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/40-mosh-marketing-v33-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-density.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/57-mosh-reminder-model.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-branding.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/15-employee-space-v11-js-transport.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r34-chat.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/10-step2-exec-reports-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/44-mosh-v38-my-tasks-enforcement-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/50-mosh-v47-employee-task-overlay-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/45-mosh-v41-employee-task-sync-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/09-work-evidence-v2161-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r34-governance.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-review-overdue.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-mini.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/39-mosh-v32e-manager-inline-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/34-mosh-marketing-v29-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/31-mosh-request-results-v28b-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/29-v27e-wisdom-layout-fix-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/22-mosh-ops18-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r31-upload.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/46-mosh-v42-employee-link-reconcile-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r36-customer-names.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/41-mosh-marketing-v34-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/04-v206-hr-enterprise-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/08-v211-employee-daily-hub-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/54-mosh-task-inbox.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/14-hr-notices-v10-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/56-mosh-workdesk.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/42-mosh-v36-prebeta-stability-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r20-employee-portal.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/api-boot.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/01-mosh-auth-v37-prelock.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-notifications.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/26-mosh-wisdom-v26-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/61-mosh-zkteco-admin.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/27-mosh-sidebar-order-v27a.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/55-mosh-workday-model.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-hr.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/35-mosh-field-work-v30b-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/17-mosh-documents-14-runtime.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r35-navigation.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/58-mosh-activity-reminder.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/16-mosh-hr13-runtime.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/36-mosh-v30c-field-admin-sync-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/28-v27d-wisdom-merge.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/38-mosh-v32c-runtime-safety.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/21-mosh-handbook-v17-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/12-design-work-report-safe-v8a.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/32-mosh-v28c-request-routing-repair.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/19-mosh-v15-runtime.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/49-mosh-v46-employee-task-open-nav-marker.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/13-mosh-department-dashboards-v9-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r22-theme.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r19-common.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/06-v208-employee-portal-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/48-mosh-v45-employee-tasks-unified-marker.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r20-attendance-header.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r31-it.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/51-mosh-v48-employee-task-workflow-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/11-step3-department-exec-report-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/30-mosh-manager-approvals-v28-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r21-theme.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/20-mosh-v16-runtime.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/24-mosh-finance22-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/23-mosh-calm19-runtime.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/53-mosh-task-receipts-model.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/r33-navigation.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "js",
+      "path": "MOSH_VANILLA_FRONTEND/js/33-mosh-v28e-request-actions-js.js",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "inline-js",
+      "path": "index.html script #0",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "inline-js",
+      "path": "index.html script #1",
+      "ok": true,
+      "error": ""
+    },
+    {
+      "kind": "inline-js",
+      "path": "index.html script #2",
+      "ok": true,
+      "error": ""
+    }
+  ]
+}

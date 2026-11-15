@@ -1,0 +1,58 @@
+PHP 8.4.24 (cli) (built: Jul 31 2026 05:11:11) (NTS)
+Copyright (c) The PHP Group
+Built by Debian
+Zend Engine v4.4.24, Copyright (c) Zend Technologies
+    with Zend OPcache v8.4.24, Copyright (c), by Zend Technologies
+--- MODULES ---
+[PHP Modules]
+calendar
+Core
+ctype
+date
+exif
+FFI
+fileinfo
+filter
+ftp
+gettext
+hash
+iconv
+json
+libxml
+openssl
+pcntl
+pcre
+PDO
+Phar
+posix
+random
+readline
+Reflection
+session
+shmop
+sockets
+sodium
+SPL
+standard
+sysvmsg
+sysvsem
+sysvshm
+tokenizer
+Zend OPcache
+zlib
+
+[Zend Modules]
+Zend OPcache
+
+--- FRAMEWORK BOOT ---
+Composer detected issues in your platform:
+
+Your Composer dependencies require a PHP version ">= 8.5.0". You are running 8.4.24.
+
+PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.5.0". You are running 8.4.24. in /mnt/data/r33_work/run/MOSH_LARAVEL_BACKEND/vendor/composer/platform_check.php:22
+Stack trace:
+#0 /mnt/data/r33_work/run/MOSH_LARAVEL_BACKEND/vendor/composer/autoload_real.php(25): require()
+#1 /mnt/data/r33_work/run/MOSH_LARAVEL_BACKEND/vendor/autoload.php(22): ComposerAutoloaderInit62d80a06f6a00083b770c44640796aa2::getLoader()
+#2 /mnt/data/r33_work/run/MOSH_LARAVEL_BACKEND/artisan(9): require('...')
+#3 {main}
+  thrown in /mnt/data/r33_work/run/MOSH_LARAVEL_BACKEND/vendor/composer/platform_check.php on line 22

@@ -1,0 +1,454 @@
+{
+  "checks": [
+    {
+      "name": "Release identity is R33",
+      "passed": true
+    },
+    {
+      "name": "Original complete frontend boots without JS errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Marketing dashboard is prepared exactly once per section entry",
+      "passed": true
+    },
+    {
+      "name": "Hidden Administration productive dashboard is not prepared",
+      "passed": true
+    },
+    {
+      "name": "Dashboard/employee tabs reuse fresh overview without duplicate requests",
+      "passed": true,
+      "detail": {
+        "before": 1,
+        "after": 1
+      }
+    },
+    {
+      "name": "Explicit Administration refresh requests current server data",
+      "passed": true
+    },
+    {
+      "name": "Clicking already-active Administration resets to its dashboard",
+      "passed": true
+    },
+    {
+      "name": "admin: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "admin: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "hr: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "hr: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "hr: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "hr: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "hr: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "sales: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "sales: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "sales: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "sales: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "sales: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "marketing: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "marketing: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "marketing: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "marketing: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "marketing: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "design: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "design: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "design: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "design: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "design: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "photo: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "photo: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "photo: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "photo: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "photo: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "editing: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "editing: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "editing: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "editing: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "editing: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "promotion: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "promotion: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "promotion: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "promotion: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "promotion: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "logistics: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "logistics: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "logistics: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "logistics: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "logistics: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "purchases: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "purchases: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "purchases: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "purchases: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "purchases: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "warehouses: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "warehouses: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "warehouses: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "warehouses: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "warehouses: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "accounting: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "accounting: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "accounting: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "accounting: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "accounting: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "platform: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "platform: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "platform: task navigation label only",
+      "passed": true
+    },
+    {
+      "name": "platform: task action remains running",
+      "passed": true
+    },
+    {
+      "name": "platform: department entry returns to dashboard",
+      "passed": true
+    },
+    {
+      "name": "it: exactly one active application",
+      "passed": true
+    },
+    {
+      "name": "it: non-empty visible section",
+      "passed": true
+    },
+    {
+      "name": "IT: assets view remains visible after selection",
+      "passed": true
+    },
+    {
+      "name": "IT: accounts view remains visible after selection",
+      "passed": true
+    },
+    {
+      "name": "IT: subscriptions view remains visible after selection",
+      "passed": true
+    },
+    {
+      "name": "IT: tasks view remains visible after selection",
+      "passed": true
+    },
+    {
+      "name": "IT: re-entry resets dashboard",
+      "passed": true
+    },
+    {
+      "name": "Admin task opens in visible tasks application, not purchases",
+      "passed": true
+    },
+    {
+      "name": "Admin task opens the exact selected task",
+      "passed": true
+    },
+    {
+      "name": "Task provides explicit return to Administration task list",
+      "passed": true
+    },
+    {
+      "name": "Return opens Administration task list and correct background",
+      "passed": true
+    },
+    {
+      "name": "Social view is isolated from Marketing customer workspace",
+      "passed": true
+    },
+    {
+      "name": "Returning to Marketing shows only its dashboard",
+      "passed": true
+    },
+    {
+      "name": "Legacy Marketing root remains hidden",
+      "passed": true
+    },
+    {
+      "name": "Marketing discovery: workspace remains present",
+      "passed": true
+    },
+    {
+      "name": "Marketing guide: workspace remains present",
+      "passed": true
+    },
+    {
+      "name": "Marketing plan: workspace remains present",
+      "passed": true
+    },
+    {
+      "name": "Marketing notes: workspace remains present",
+      "passed": true
+    },
+    {
+      "name": "Marketing tasks: workspace remains present",
+      "passed": true
+    },
+    {
+      "name": "Marketing dashboard: workspace remains present",
+      "passed": true
+    },
+    {
+      "name": "Late IT response does not replace currently selected Marketing section",
+      "passed": true
+    },
+    {
+      "name": "Rapid navigation keeps last section: admin,it,marketing",
+      "passed": true
+    },
+    {
+      "name": "Rapid navigation keeps last section: marketing,admin,design",
+      "passed": true
+    },
+    {
+      "name": "Rapid navigation keeps last section: it,photo,admin",
+      "passed": true
+    },
+    {
+      "name": "Rapid navigation keeps last section: admin,marketing,it",
+      "passed": true
+    },
+    {
+      "name": "Old account overview request is pending for ownership test",
+      "passed": true
+    },
+    {
+      "name": "New account starts separate overview request",
+      "passed": true
+    },
+    {
+      "name": "Late old-account response cannot overwrite current dashboard",
+      "passed": true
+    },
+    {
+      "name": "admin: visible in dark mode",
+      "passed": true
+    },
+    {
+      "name": "marketing: visible in dark mode",
+      "passed": true
+    },
+    {
+      "name": "it: visible in dark mode",
+      "passed": true
+    },
+    {
+      "name": "admin: visible in light mode",
+      "passed": true
+    },
+    {
+      "name": "marketing: visible in light mode",
+      "passed": true
+    },
+    {
+      "name": "it: visible in light mode",
+      "passed": true
+    },
+    {
+      "name": "IT mobile content has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Limited employee can enter assigned department",
+      "passed": true
+    },
+    {
+      "name": "Personal-task view stays personal, not renamed as a department-wide grant",
+      "passed": true
+    },
+    {
+      "name": "Denied Administration navigation does not open the section",
+      "passed": true
+    },
+    {
+      "name": "Denied IT navigation does not expose the vault or registry",
+      "passed": true
+    },
+    {
+      "name": "Queued personal-task rendering cannot redirect after leaving department",
+      "passed": true
+    },
+    {
+      "name": "No uncaught JavaScript errors in full navigation/roles sweep",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "passed": 110,
+  "total": 110,
+  "pageErrors": [],
+  "boundary": "Full original HTML/CSS/JavaScript in Chromium memory with explicit API fixtures. Not Laravel session/SQL or production-server testing."
+}

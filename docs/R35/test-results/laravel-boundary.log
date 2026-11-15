@@ -1,0 +1,11 @@
+Composer detected issues in your platform:
+
+Your Composer dependencies require a PHP version ">= 8.5.0". You are running 8.4.24.
+
+PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.5.0". You are running 8.4.24. in /mnt/data/mosh_r35_build/project/MOSH_LARAVEL_BACKEND/vendor/composer/platform_check.php:22
+Stack trace:
+#0 /mnt/data/mosh_r35_build/project/MOSH_LARAVEL_BACKEND/vendor/composer/autoload_real.php(25): require()
+#1 /mnt/data/mosh_r35_build/project/MOSH_LARAVEL_BACKEND/vendor/autoload.php(22): ComposerAutoloaderInit62d80a06f6a00083b770c44640796aa2::getLoader()
+#2 /mnt/data/mosh_r35_build/project/MOSH_LARAVEL_BACKEND/artisan(9): require('...')
+#3 {main}
+  thrown in /mnt/data/mosh_r35_build/project/MOSH_LARAVEL_BACKEND/vendor/composer/platform_check.php on line 22

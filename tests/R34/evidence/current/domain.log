@@ -1,0 +1,392 @@
+PASS Working deadline 2026-10-22 +1
+PASS Working deadline 2026-10-22 +2
+PASS Working deadline 2026-10-23 +1
+PASS Working deadline 2026-10-24 +5
+PASS Working deadline 2026-10-24 +6
+PASS Working deadline 2026-12-31 +2
+PASS Calendar month clamps month-end
+PASS Calendar month Friday endpoint shifts Saturday
+PASS Invalid date rejected
+PASS Zero duration rejected
+PASS Valid hierarchy terminates at GM
+PASS Cycle rejected
+PASS Self parent rejected
+PASS Disconnected parent rejected
+PASS General manager cannot have parent
+PASS Hierarchy saved with named executive
+PASS Ordinary employee reports to department manager
+PASS Manager reports to higher manager
+PASS GM is chain endpoint
+PASS Employee cannot configure hierarchy
+PASS Exact hierarchy replay is idempotent
+PASS Distinct stale config cannot overwrite
+PASS Manager leave routes upward, not to self
+PASS HR stage remains after higher managers
+PASS Exact executive can approve
+PASS Requester cannot approve own leave
+PASS Root cannot skip assigned hierarchy stage
+PASS First approval advances one level
+PASS Previous approver cannot approve next level
+PASS GM approval retains downstream HR stage
+PASS Existing request has no silent route migration
+PASS Frozen route cannot be changed
+PASS Purchase direct upper manager prepended, finance retained
+PASS Self included in purchasing policy rejected
+PASS Chat stamps actual author
+PASS Same send key cannot duplicate
+PASS Edit preserves old text in revision
+PASS Same-second stale revision blocked
+PASS Manager deletion preserves text and actual deleter
+PASS Deleted revision remains readable
+PASS File is linked only by explicit chat send
+PASS Deleted file metadata and bytes retained
+PASS Generic write cannot erase chat history
+PASS Generic write cannot forge audit
+PASS Generic status cancellation blocked even for root
+PASS Existing anonymous historical entries survive unchanged
+PASS Anonymous history cannot be removed
+PASS Requester response never includes code
+PASS Requester cannot reveal code
+PASS Root is not automatically executive code reader
+PASS Executive receives exactly five digits
+PASS Wrong code fails and commits attempt
+PASS Attempt count survives error
+PASS Correct code changes only chosen task to cancelled
+PASS Cancellation preserves chat and original files
+PASS Used code secret removed
+PASS Consumed code cannot authorize new transaction
+PASS Cancelled chat cannot accept new message
+PASS Wrong-code lock attempt 1
+PASS Wrong-code lock attempt 2
+PASS Wrong-code lock attempt 3
+PASS Three failures lock request
+PASS Expired code hidden from executive
+PASS Expired code cannot execute
+PASS Request does not deduct stock
+PASS Requestor cannot approve own damage
+PASS Damage chain waits for second approval
+PASS Approval alone still does not deduct stock
+PASS Authorized stock execution deducts once
+PASS Idempotent stock retry no double deduction
+PASS Executed damage cannot execute again
+PASS Unrelated edit does not slide historical deadline
+PASS Manual date change clears relative rule
+PASS Actual task clock closes active session on cancellation
+PASS Cancellation preserves previous elapsed work
+PASS Repeated cancelled state does not accrue time again
+PASS Corrupt legacy session is flagged not guessed
+{
+    "passed": 77,
+    "total": 77,
+    "checks": [
+        {
+            "name": "Working deadline 2026-10-22 +1",
+            "passed": true
+        },
+        {
+            "name": "Working deadline 2026-10-22 +2",
+            "passed": true
+        },
+        {
+            "name": "Working deadline 2026-10-23 +1",
+            "passed": true
+        },
+        {
+            "name": "Working deadline 2026-10-24 +5",
+            "passed": true
+        },
+        {
+            "name": "Working deadline 2026-10-24 +6",
+            "passed": true
+        },
+        {
+            "name": "Working deadline 2026-12-31 +2",
+            "passed": true
+        },
+        {
+            "name": "Calendar month clamps month-end",
+            "passed": true
+        },
+        {
+            "name": "Calendar month Friday endpoint shifts Saturday",
+            "passed": true
+        },
+        {
+            "name": "Invalid date rejected",
+            "passed": true
+        },
+        {
+            "name": "Zero duration rejected",
+            "passed": true
+        },
+        {
+            "name": "Valid hierarchy terminates at GM",
+            "passed": true
+        },
+        {
+            "name": "Cycle rejected",
+            "passed": true
+        },
+        {
+            "name": "Self parent rejected",
+            "passed": true
+        },
+        {
+            "name": "Disconnected parent rejected",
+            "passed": true
+        },
+        {
+            "name": "General manager cannot have parent",
+            "passed": true
+        },
+        {
+            "name": "Hierarchy saved with named executive",
+            "passed": true
+        },
+        {
+            "name": "Ordinary employee reports to department manager",
+            "passed": true
+        },
+        {
+            "name": "Manager reports to higher manager",
+            "passed": true
+        },
+        {
+            "name": "GM is chain endpoint",
+            "passed": true
+        },
+        {
+            "name": "Employee cannot configure hierarchy",
+            "passed": true
+        },
+        {
+            "name": "Exact hierarchy replay is idempotent",
+            "passed": true
+        },
+        {
+            "name": "Distinct stale config cannot overwrite",
+            "passed": true
+        },
+        {
+            "name": "Manager leave routes upward, not to self",
+            "passed": true
+        },
+        {
+            "name": "HR stage remains after higher managers",
+            "passed": true
+        },
+        {
+            "name": "Exact executive can approve",
+            "passed": true
+        },
+        {
+            "name": "Requester cannot approve own leave",
+            "passed": true
+        },
+        {
+            "name": "Root cannot skip assigned hierarchy stage",
+            "passed": true
+        },
+        {
+            "name": "First approval advances one level",
+            "passed": true
+        },
+        {
+            "name": "Previous approver cannot approve next level",
+            "passed": true
+        },
+        {
+            "name": "GM approval retains downstream HR stage",
+            "passed": true
+        },
+        {
+            "name": "Existing request has no silent route migration",
+            "passed": true
+        },
+        {
+            "name": "Frozen route cannot be changed",
+            "passed": true
+        },
+        {
+            "name": "Purchase direct upper manager prepended, finance retained",
+            "passed": true
+        },
+        {
+            "name": "Self included in purchasing policy rejected",
+            "passed": true
+        },
+        {
+            "name": "Chat stamps actual author",
+            "passed": true
+        },
+        {
+            "name": "Same send key cannot duplicate",
+            "passed": true
+        },
+        {
+            "name": "Edit preserves old text in revision",
+            "passed": true
+        },
+        {
+            "name": "Same-second stale revision blocked",
+            "passed": true
+        },
+        {
+            "name": "Manager deletion preserves text and actual deleter",
+            "passed": true
+        },
+        {
+            "name": "Deleted revision remains readable",
+            "passed": true
+        },
+        {
+            "name": "File is linked only by explicit chat send",
+            "passed": true
+        },
+        {
+            "name": "Deleted file metadata and bytes retained",
+            "passed": true
+        },
+        {
+            "name": "Generic write cannot erase chat history",
+            "passed": true
+        },
+        {
+            "name": "Generic write cannot forge audit",
+            "passed": true
+        },
+        {
+            "name": "Generic status cancellation blocked even for root",
+            "passed": true
+        },
+        {
+            "name": "Existing anonymous historical entries survive unchanged",
+            "passed": true
+        },
+        {
+            "name": "Anonymous history cannot be removed",
+            "passed": true
+        },
+        {
+            "name": "Requester response never includes code",
+            "passed": true
+        },
+        {
+            "name": "Requester cannot reveal code",
+            "passed": true
+        },
+        {
+            "name": "Root is not automatically executive code reader",
+            "passed": true
+        },
+        {
+            "name": "Executive receives exactly five digits",
+            "passed": true
+        },
+        {
+            "name": "Wrong code fails and commits attempt",
+            "passed": true
+        },
+        {
+            "name": "Attempt count survives error",
+            "passed": true
+        },
+        {
+            "name": "Correct code changes only chosen task to cancelled",
+            "passed": true
+        },
+        {
+            "name": "Cancellation preserves chat and original files",
+            "passed": true
+        },
+        {
+            "name": "Used code secret removed",
+            "passed": true
+        },
+        {
+            "name": "Consumed code cannot authorize new transaction",
+            "passed": true
+        },
+        {
+            "name": "Cancelled chat cannot accept new message",
+            "passed": true
+        },
+        {
+            "name": "Wrong-code lock attempt 1",
+            "passed": true
+        },
+        {
+            "name": "Wrong-code lock attempt 2",
+            "passed": true
+        },
+        {
+            "name": "Wrong-code lock attempt 3",
+            "passed": true
+        },
+        {
+            "name": "Three failures lock request",
+            "passed": true
+        },
+        {
+            "name": "Expired code hidden from executive",
+            "passed": true
+        },
+        {
+            "name": "Expired code cannot execute",
+            "passed": true
+        },
+        {
+            "name": "Request does not deduct stock",
+            "passed": true
+        },
+        {
+            "name": "Requestor cannot approve own damage",
+            "passed": true
+        },
+        {
+            "name": "Damage chain waits for second approval",
+            "passed": true
+        },
+        {
+            "name": "Approval alone still does not deduct stock",
+            "passed": true
+        },
+        {
+            "name": "Authorized stock execution deducts once",
+            "passed": true
+        },
+        {
+            "name": "Idempotent stock retry no double deduction",
+            "passed": true
+        },
+        {
+            "name": "Executed damage cannot execute again",
+            "passed": true
+        },
+        {
+            "name": "Unrelated edit does not slide historical deadline",
+            "passed": true
+        },
+        {
+            "name": "Manual date change clears relative rule",
+            "passed": true
+        },
+        {
+            "name": "Actual task clock closes active session on cancellation",
+            "passed": true
+        },
+        {
+            "name": "Cancellation preserves previous elapsed work",
+            "passed": true
+        },
+        {
+            "name": "Repeated cancelled state does not accrue time again",
+            "passed": true
+        },
+        {
+            "name": "Corrupt legacy session is flagged not guessed",
+            "passed": true
+        }
+    ],
+    "boundary": "Actual services; in-memory ORM\/identity\/HTTP provider and validation doubles. Not Laravel HTTP\/SQL."
+}

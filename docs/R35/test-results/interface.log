@@ -1,0 +1,83 @@
+PASS R35 source loaded, original API available
+PASS No preview banners or suppressed submit handler
+PASS No new glass layer
+PASS hr: one active section
+PASS hr: grouped menu installed
+PASS hr: accessible groups available
+PASS hr: submenu shows original links
+PASS hr: leaf closes menu and retains section
+PASS hr: re-entry dashboard not last leaf
+PASS sales: one active section
+PASS sales: grouped menu installed
+PASS sales: accessible groups available
+PASS sales: submenu shows original links
+PASS sales: leaf closes menu and retains section
+PASS sales: re-entry dashboard not last leaf
+PASS marketing: one active section
+PASS marketing: grouped menu installed
+PASS marketing: accessible groups available
+PASS marketing: submenu shows original links
+PASS marketing: leaf closes menu and retains section
+PASS marketing: re-entry dashboard not last leaf
+PASS it: one active section
+PASS it: grouped menu installed
+PASS it: accessible groups available
+PASS it: submenu shows original links
+PASS it: leaf closes menu and retains section
+PASS it: re-entry dashboard not last leaf
+PASS accounting: one active section
+PASS accounting: grouped menu installed
+PASS accounting: accessible groups available
+PASS accounting: submenu shows original links
+PASS accounting: leaf closes menu and retains section
+PASS accounting: re-entry dashboard not last leaf
+PASS purchases: one active section
+PASS purchases: grouped menu installed
+PASS purchases: accessible groups available
+PASS purchases: submenu shows original links
+PASS purchases: leaf closes menu and retains section
+PASS purchases: re-entry dashboard not last leaf
+PASS logistics: one active section
+PASS logistics: grouped menu installed
+PASS logistics: accessible groups available
+PASS logistics: submenu shows original links
+PASS logistics: leaf closes menu and retains section
+PASS logistics: re-entry dashboard not last leaf
+PASS HR table retains authorized original records
+PASS Display serial is distinct from original employee IDs
+PASS Table rows approximately 44px
+PASS Employee quick view opens without leaving table
+PASS Escape closes quick view
+PASS Search uses original employee filter
+PASS Removing search chip restores list
+PASS Draft employees remain reachable
+PASS Name sort marks ascending
+PASS Serial updates after sorting
+PASS Comfortable density without font shrinking
+PASS Original row actions available in overflow
+PASS Original employee profile opens from new actions
+PASS Task defaults collapsed with only title/arrow
+PASS Chat controls are outside disclosure
+PASS Arrow immediately left of task name
+PASS Task data controls preserved by ID
+PASS Title editing still works
+PASS Deadline still calls authoritative backend
+PASS Returned deadline remains in original input
+PASS Details use three aligned columns
+PASS Chat uses 75 percent viewport height
+PASS Selecting an attachment does not send or upload it
+PASS Closing details does not remove staged chat
+PASS Logo preview is shown before saving
+PASS Selecting a logo does not save immediately
+PASS Logo writes to authenticated endpoint
+PASS Saved logo image and independent version displayed
+PASS Legacy settings render cannot replace saved logo
+PASS Remove logo returns to original text, not data deletion
+PASS 1280: nested menu remains on screen
+PASS 1280: no document horizontal overflow
+PASS 900: nested menu remains on screen
+PASS 900: no document horizontal overflow
+PASS 390: nested menu remains on screen
+PASS 390: no document horizontal overflow
+PASS Light theme remains readable palette
+PASS No unexpected JavaScript errors in tested paths

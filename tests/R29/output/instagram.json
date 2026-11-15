@@ -1,0 +1,299 @@
+{
+  "passed": 73,
+  "total": 73,
+  "checks": [
+    {
+      "name": "Assign fourth department preserves all existing assignments",
+      "passed": true
+    },
+    {
+      "name": "Manager replacement is not an in-place mutation",
+      "passed": true
+    },
+    {
+      "name": "Remove one department keeps other assignments",
+      "passed": true
+    },
+    {
+      "name": "Same-department stale write is rejected",
+      "passed": true
+    },
+    {
+      "name": "Changes in different departments merge without losing either",
+      "passed": true
+    },
+    {
+      "name": "Legacy empty array normalizes without inventing managers",
+      "passed": true
+    },
+    {
+      "name": "Object maps and numeric IDs normalize safely",
+      "passed": true
+    },
+    {
+      "name": "draft status respects direct permission granted",
+      "passed": true
+    },
+    {
+      "name": "draft status respects direct permission denied",
+      "passed": true
+    },
+    {
+      "name": "publish status respects direct permission granted",
+      "passed": true
+    },
+    {
+      "name": "publish status respects direct permission denied",
+      "passed": true
+    },
+    {
+      "name": "schedule status respects direct permission granted",
+      "passed": true
+    },
+    {
+      "name": "schedule status respects direct permission denied",
+      "passed": true
+    },
+    {
+      "name": "Unknown publishing mode rejected",
+      "passed": true
+    },
+    {
+      "name": "publishing cannot be edited or cancelled",
+      "passed": true
+    },
+    {
+      "name": "reconciling cannot be edited or cancelled",
+      "passed": true
+    },
+    {
+      "name": "uncertain cannot be edited or cancelled",
+      "passed": true
+    },
+    {
+      "name": "published cannot be edited or cancelled",
+      "passed": true
+    },
+    {
+      "name": "Scheduled content cannot be edited before explicit cancellation",
+      "passed": true
+    },
+    {
+      "name": "Reject unsafe media/config URL http://qa.invalid",
+      "passed": true
+    },
+    {
+      "name": "Reject unsafe media/config URL https://user:pass@qa.invalid",
+      "passed": true
+    },
+    {
+      "name": "Reject unsafe media/config URL https://qa.invalid?secret=x",
+      "passed": true
+    },
+    {
+      "name": "Reject unsafe media/config URL https://qa.invalid#x",
+      "passed": true
+    },
+    {
+      "name": "Reject unsafe media/config URL javascript:alert(1)",
+      "passed": true
+    },
+    {
+      "name": "HTTPS base URL accepted",
+      "passed": true
+    },
+    {
+      "name": "Public account excludes token and grants",
+      "passed": true
+    },
+    {
+      "name": "Public post excludes lease/provider credentials",
+      "passed": true
+    },
+    {
+      "name": "Valid provider signature accepted",
+      "passed": true
+    },
+    {
+      "name": "Wrong signing key rejected",
+      "passed": true
+    },
+    {
+      "name": "Tampered callback rejected",
+      "passed": true
+    },
+    {
+      "name": "Oversized callback rejected",
+      "passed": true
+    },
+    {
+      "name": "Provider rejects non-approved host",
+      "passed": true
+    },
+    {
+      "name": "Provider rejects injected graph paths",
+      "passed": true
+    },
+    {
+      "name": "Provider rejects malformed API version",
+      "passed": true
+    },
+    {
+      "name": "Provider-confirmed image is published with actual media ID",
+      "passed": true
+    },
+    {
+      "name": "One publication call for success",
+      "passed": true
+    },
+    {
+      "name": "Repeated processing never republishes confirmed content",
+      "passed": true
+    },
+    {
+      "name": "Container and publishing intent persisted",
+      "passed": true
+    },
+    {
+      "name": "Reels wait for provider processing",
+      "passed": true
+    },
+    {
+      "name": "Lost publish response is reconciled, not marked successful",
+      "passed": true
+    },
+    {
+      "name": "FINISHED after lost response does not repeat media_publish",
+      "passed": true
+    },
+    {
+      "name": "Long ambiguous result becomes uncertain without automatic retry",
+      "passed": true
+    },
+    {
+      "name": "Lost authorization after ambiguous publish becomes uncertain instead of waiting forever",
+      "passed": true
+    },
+    {
+      "name": "Provider PUBLISHED confirms a lost response without another POST",
+      "passed": true
+    },
+    {
+      "name": "Worker never submits draft",
+      "passed": true
+    },
+    {
+      "name": "Worker never submits pending_approval",
+      "passed": true
+    },
+    {
+      "name": "Worker never submits published",
+      "passed": true
+    },
+    {
+      "name": "Worker never submits uncertain",
+      "passed": true
+    },
+    {
+      "name": "Worker never submits cancelled",
+      "passed": true
+    },
+    {
+      "name": "Future schedule does not publish early",
+      "passed": true
+    },
+    {
+      "name": "Active lease blocks another execution",
+      "passed": true
+    },
+    {
+      "name": "Revoked direct permission blocks publishing",
+      "passed": true
+    },
+    {
+      "name": "Approval permission is independent of direct publishing",
+      "passed": true
+    },
+    {
+      "name": "Inactive authorizer cannot publish",
+      "passed": true
+    },
+    {
+      "name": "Lost customer access blocks publishing",
+      "passed": true
+    },
+    {
+      "name": "Cross-customer account rejected by worker",
+      "passed": true
+    },
+    {
+      "name": "Permission rechecked immediately before irreversible publish",
+      "passed": true
+    },
+    {
+      "name": "Invalidated lease prevents a late worker from overwriting revocation",
+      "passed": true
+    },
+    {
+      "name": "Idle worker refreshes expiring accounts with no due posts",
+      "passed": true
+    },
+    {
+      "name": "Independent reviewer advances to queued",
+      "passed": true
+    },
+    {
+      "name": "Idempotent approval has one decision history row",
+      "passed": true
+    },
+    {
+      "name": "Reviewer cannot approve own submission",
+      "passed": true
+    },
+    {
+      "name": "Expired schedule must be returned for a new time",
+      "passed": true
+    },
+    {
+      "name": "Approval cannot schedule when worker inactive",
+      "passed": true
+    },
+    {
+      "name": "Cannot cancel after publishing begins",
+      "passed": true
+    },
+    {
+      "name": "Signed deletion removes token and provider identity",
+      "passed": true
+    },
+    {
+      "name": "Deletion fences in-flight worker and preserves uncertain result",
+      "passed": true
+    },
+    {
+      "name": "Deletion preserves company-owned source content",
+      "passed": true
+    },
+    {
+      "name": "Return permits future edit and preserves legacy status",
+      "passed": true
+    },
+    {
+      "name": "Final reject is terminal and distinct",
+      "passed": true
+    },
+    {
+      "name": "Final rejection history does not reinterpret legacy rejects",
+      "passed": true
+    },
+    {
+      "name": "Schedule direct grant works without publish direct grant",
+      "passed": true
+    },
+    {
+      "name": "Publish direct cannot bypass denied schedule direct",
+      "passed": true
+    }
+  ],
+  "boundary": "Production policy/manager/outbox/approval code with simulated persistence, provider, identity, clock and file boundaries; no SQL, HTTP, encryption implementation or live Meta validation."
+}
