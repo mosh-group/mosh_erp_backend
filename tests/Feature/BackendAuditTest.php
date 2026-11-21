@@ -20,7 +20,7 @@ class BackendAuditTest extends TestCase
     }
     private function create(string $resource,array $data): array {return $this->postJson('/api/'.$resource,$data)->assertCreated()->json('data');}
     private function change(string $resource,string $id,array $data) {return $this->patchJson('/api/'.$resource.'/'.rawurlencode($id),['_version'=>Records::find($resource,$id)->version]+$data);}
-    private function employee(string $id='WORKER',string $department='التصميم',array $extra=[]): array {return $this->create('employees',array_replace(['id'=>$id,'name'=>$id,'department'=>$department,'active'=>true],$extra));}
+    private function employee(string $id='WORKER',string $department='التصميم',array $extra=[]): array {return $this->create('employees',array_replace(['id'=>$id,'name'=>$id,'department'=>$department,'active'=>true,'jobTitle'=>'QA role','hireDate'=>'2025-01-01','attendanceMode'=>'fingerprint','workdayHours'=>8,'zktecoEnrollmentNumber'=>(string)(1000+Employee::count())],$extra));}
     private function actor(array $modules=[],array $extra=[],string $scope='custom'): User {
         $id='EMP'.(Employee::count()+1);$this->employee($id,$extra['department']??'التصميم');
         $role=Role::create(['id'=>'ROLE'.$id,'name'=>$id,'data'=>['scope'=>$scope,'taskScope'=>'all','modules'=>$modules,'globals'=>[],'scopeActions'=>[]],'version'=>1]);

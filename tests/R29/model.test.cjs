@@ -1,6 +1,6 @@
 /* Isolated frontend calculations; no browser, server, or production data. */
 const test=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
-const m=require(path.resolve(__dirname,'../../../MOSH_VANILLA_FRONTEND/js/r29-model.js'));
+const m=require(path.resolve(__dirname,'../../../mosh_erp_frontend/js/r29-model.js'));
 const employee={id:'E1',annualLeaveDays:14,leaveRecords:[]};
 test('Strict real calendar dates',()=>{assert(m.valid('2024-02-29'));assert(!m.valid('2026-02-29'));assert(!m.valid('2026-13-01'));});
 test('Inclusive leap-year range',()=>assert.equal(m.days('2024-02-28','2024-03-01'),3));

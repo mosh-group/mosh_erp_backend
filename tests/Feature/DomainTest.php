@@ -9,7 +9,7 @@ class DomainTest extends TestCase
 {
     use RefreshDatabase;
     protected function setUp(): void {parent::setUp();$this->seed();$this->postJson('/api/auth/setup',['name'=>'Admin','username'=>'admin','password'=>'Secure-test123!','password_confirmation'=>'Secure-test123!'])->assertCreated();foreach(['Client','Customer'] as $name)$this->postJson('/api/customers',['name'=>$name])->assertCreated();}
-    private function employee(string $id,string $department='التصميم'): array {return $this->postJson('/api/employees',['id'=>$id,'name'=>$id,'department'=>$department,'active'=>true,'hireDate'=>'2025-01-01'])->assertCreated()->json('data');}
+    private function employee(string $id,string $department='التصميم'): array {return $this->postJson('/api/employees',['id'=>$id,'name'=>$id,'department'=>$department,'active'=>true,'hireDate'=>'2025-01-01','jobTitle'=>'QA role','attendanceMode'=>'fingerprint','workdayHours'=>8,'zktecoEnrollmentNumber'=>(string)(2000+Employee::count())])->assertCreated()->json('data');}
     private function user(string $id,string $role='role_employee',array $extra=[]): array {return $this->postJson('/api/users',array_merge(['name'=>$id,'username'=>strtolower($id),'employeeId'=>$id,'roleId'=>$role,'password'=>'Secure-test123!','active'=>true,'mustChange'=>false],$extra))->assertCreated()->json('data');}
     private function login(string $username): void {$this->postJson('/api/auth/logout')->assertOk();$this->postJson('/api/auth/login',['username'=>strtolower($username),'password'=>'Secure-test123!'])->assertOk();}
     public function test_all_resource_lists_settings_and_reports_are_live(): void {

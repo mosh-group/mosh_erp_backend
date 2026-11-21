@@ -1,0 +1,247 @@
+{
+    "admin_decisions": {
+        "schema": "CREATE TABLE \"admin_decisions\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "admin_meetings": {
+        "schema": "CREATE TABLE \"admin_meetings\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "announcements": {
+        "schema": "CREATE TABLE \"announcements\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 2,
+        "hash": "da0dc4680667522f15b1e04b16ae8278409dced54802d589b4a05ae4a6412a37"
+    },
+    "app_locks": {
+        "schema": "CREATE TABLE \"app_locks\" (\"id\" varchar not null, \"revision\" integer not null default '0', primary key (\"id\"))",
+        "rows": 1,
+        "hash": "d69fb6f4a7566e90115d77196f852c44687f91d90adb10d23096c2c4f125b485"
+    },
+    "audit_events": {
+        "schema": "CREATE TABLE \"audit_events\" (\"id\" varchar not null, \"actor_id\" varchar, \"actor_name\" varchar not null, \"transaction_id\" varchar, \"module\" varchar not null, \"resource\" varchar not null, \"record_id\" varchar, \"action\" varchar not null, \"message\" text not null, \"before_data\" text, \"after_data\" text, \"created_at\" datetime not null, primary key (\"id\"))",
+        "rows": 3009,
+        "hash": "e22d402d69ba3693511ec9aad584b9f064e46b97476630389bbdfed6449e5b94"
+    },
+    "cash_accounts": {
+        "schema": "CREATE TABLE \"cash_accounts\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "customers": {
+        "schema": "CREATE TABLE \"customers\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 20,
+        "hash": "962cd2fe9ddb109673678c368d558623fe9e07da2104f44f5ba2b66cbe2ed79d"
+    },
+    "employees": {
+        "schema": "CREATE TABLE \"employees\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 32,
+        "hash": "984db01e476b4240a382f57027547fc93da943dab9a3bc398b01ecdc2ce63eec"
+    },
+    "employment_contracts": {
+        "schema": "CREATE TABLE \"employment_contracts\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "executive_reports": {
+        "schema": "CREATE TABLE \"executive_reports\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "field_templates": {
+        "schema": "CREATE TABLE \"field_templates\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 5,
+        "hash": "e17460ed9c84855ba470cf4dbe7fa727e254a9d20dec9ddd66d28cda561adb5a"
+    },
+    "field_work": {
+        "schema": "CREATE TABLE \"field_work\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 1,
+        "hash": "dab473ecb139092699d5b1a43a010a8b66b25ae0f815f9070705d5b71d3c237e"
+    },
+    "file_links": {
+        "schema": "CREATE TABLE \"file_links\" (\"id\" integer primary key autoincrement not null, \"file_id\" varchar not null, \"resource\" varchar not null, \"record_id\" varchar not null, foreign key(\"file_id\") references \"stored_files\"(\"id\") on delete cascade)",
+        "rows": 8,
+        "hash": "fb97bee0c98dd8f4044e88022c82aaeb7501d3877c94b80898da3fefeec3fd12"
+    },
+    "financial_documents": {
+        "schema": "CREATE TABLE \"financial_documents\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "hr_approvals": {
+        "schema": "CREATE TABLE \"hr_approvals\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "hr_requests": {
+        "schema": "CREATE TABLE \"hr_requests\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 3,
+        "hash": "dd68655ddcbaf169a122e0a2b69f4fe3251fd496ad605f73c7c51e3b3924d840"
+    },
+    "invoices": {
+        "schema": "CREATE TABLE \"invoices\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"customer_id\" varchar, \"quotation_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"customer_id\") references \"customers\"(\"id\") on delete restrict, foreign key(\"quotation_id\") references \"quotations\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "journal_entries": {
+        "schema": "CREATE TABLE \"journal_entries\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "offboarding": {
+        "schema": "CREATE TABLE \"offboarding\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payments": {
+        "schema": "CREATE TABLE \"payments\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payroll_hours": {
+        "schema": "CREATE TABLE \"payroll_hours\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payroll_runs": {
+        "schema": "CREATE TABLE \"payroll_runs\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "print_layouts": {
+        "schema": "CREATE TABLE \"print_layouts\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 1,
+        "hash": "0decd2c63d824bb1fe8826be1ededaa7199c13da494ee27c23027f21c30f4b9c"
+    },
+    "quotation_templates": {
+        "schema": "CREATE TABLE \"quotation_templates\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "quotations": {
+        "schema": "CREATE TABLE \"quotations\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"customer_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"customer_id\") references \"customers\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 1,
+        "hash": "de200b7e7404cded771c8f9604103c7ebcb9eaac72a1a3eec18a5ee3a953b695"
+    },
+    "recognition": {
+        "schema": "CREATE TABLE \"recognition\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "requisitions": {
+        "schema": "CREATE TABLE \"requisitions\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reservations": {
+        "schema": "CREATE TABLE \"reservations\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"item_id\" varchar, \"warehouse_id\" varchar, \"request_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"item_id\") references \"stock_items\"(\"id\") on delete restrict, foreign key(\"warehouse_id\") references \"warehouses\"(\"id\") on delete restrict, foreign key(\"request_id\") references \"support_requests\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "roles": {
+        "schema": "CREATE TABLE \"roles\" (\"id\" varchar not null, \"name\" varchar not null, \"data\" text not null, \"protected\" tinyint(1) not null default '0', \"version\" integer not null default '1', \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 4,
+        "hash": "181cf840480150d35bf34d256a51efb899ae847bf7ebf6ec307ae0c0b9d6fae9"
+    },
+    "sales_teams": {
+        "schema": "CREATE TABLE \"sales_teams\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "salespeople": {
+        "schema": "CREATE TABLE \"salespeople\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sequences": {
+        "schema": "CREATE TABLE \"sequences\" (\"id\" varchar not null, \"value\" integer not null default '0', primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "service_contracts": {
+        "schema": "CREATE TABLE \"service_contracts\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"customer_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"customer_id\") references \"customers\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "services": {
+        "schema": "CREATE TABLE \"services\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "settings": {
+        "schema": "CREATE TABLE \"settings\" (\"id\" varchar not null, \"value\" text not null, \"version\" integer not null default '1', \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 29,
+        "hash": "7bba67a363a743d6a8417d8af4c49550357eb866a6ac911280321f6e6014739e"
+    },
+    "stock_items": {
+        "schema": "CREATE TABLE \"stock_items\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stock_movements": {
+        "schema": "CREATE TABLE \"stock_movements\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"item_id\" varchar, \"from_warehouse_id\" varchar, \"to_warehouse_id\" varchar, \"employee_id\" varchar, \"request_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"item_id\") references \"stock_items\"(\"id\") on delete restrict, foreign key(\"from_warehouse_id\") references \"warehouses\"(\"id\") on delete restrict, foreign key(\"to_warehouse_id\") references \"warehouses\"(\"id\") on delete restrict, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, foreign key(\"request_id\") references \"support_requests\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stored_files": {
+        "schema": "CREATE TABLE \"stored_files\" (\"id\" varchar not null, \"owner_id\" varchar not null, \"logical_key\" varchar not null, \"name\" varchar not null, \"mime\" varchar not null, \"kind\" varchar not null, \"size\" integer not null, \"path\" varchar not null, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 11,
+        "hash": "c4c7a8fa672dc324a54ae8130481dae3b720da041b41d5c937fbd25c77839c52"
+    },
+    "suppliers": {
+        "schema": "CREATE TABLE \"suppliers\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 0,
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "support_requests": {
+        "schema": "CREATE TABLE \"support_requests\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"task_id\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"task_id\") references \"tasks\"(\"id\") on delete restrict, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 1,
+        "hash": "6c01a65df1e9311f2547b473a23bfe56b731fbddedaff71fe45851a7df081a90"
+    },
+    "tasks": {
+        "schema": "CREATE TABLE \"tasks\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"customer_id\" varchar, \"parent_id\" varchar, \"quotation_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, foreign key(\"customer_id\") references \"customers\"(\"id\") on delete restrict, foreign key(\"parent_id\") references \"tasks\"(\"id\") on delete restrict, foreign key(\"quotation_id\") references \"quotations\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 42,
+        "hash": "6f6cd1eacf7eaf1e388ac833466dbc3256af462fffdb83dff9370a8e3e36631e"
+    },
+    "transactions": {
+        "schema": "CREATE TABLE \"transactions\" (\"id\" varchar not null, \"actor_id\" varchar not null, \"idempotency_key\" varchar, \"request_hash\" varchar not null, \"changes\" text not null, \"response\" text, \"undo_of\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 533,
+        "hash": "076c8bd267ca012f3c59f9b3d90194198c528d786217c3dbfbcdcdff1a2ad305"
+    },
+    "users": {
+        "schema": "CREATE TABLE \"users\" (\"id\" varchar not null, \"name\" varchar not null, \"username\" varchar not null, \"password\" varchar not null, \"role_id\" varchar not null, \"employee_id\" varchar, \"department\" varchar not null default '', \"data\" text not null, \"active\" tinyint(1) not null default '1', \"is_root\" tinyint(1) not null default '0', \"must_change\" tinyint(1) not null default '0', \"failed_attempts\" integer not null default '0', \"locked_until\" datetime, \"last_login\" datetime, \"auth_version\" integer not null default '1', \"version\" integer not null default '1', \"remember_token\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"role_id\") references \"roles\"(\"id\") on delete restrict, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 9,
+        "hash": "f424c24b2c0c1a6595fc22d1aba20a21a8a255ec91ec4728c398c92896027d44"
+    },
+    "warehouses": {
+        "schema": "CREATE TABLE \"warehouses\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 3,
+        "hash": "816b1d77d29be1981cff61aafa2460de028866fbb93ce7bb3a09472423f0f26b"
+    },
+    "wisdom": {
+        "schema": "CREATE TABLE \"wisdom\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default '1', \"department\" varchar, \"status\" varchar, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 31,
+        "hash": "6632a6f2e2f3b4cae60882c0f81d766a68804ba1a25d4a3dcc0e338388f09f33"
+    },
+    "work_presence": {
+        "schema": "CREATE TABLE \"work_presence\" (\"id\" varchar not null, \"data\" text not null, \"version\" integer not null default ('1'), \"department\" varchar, \"status\" varchar, \"employee_id\" varchar, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete restrict, primary key (\"id\"))",
+        "rows": 5,
+        "hash": "e1209bc539b496f8a9afd34ee11177f16796ab0f6f3db84c5f76613bca07f462"
+    },
+    "zkteco_attendance_events": {
+        "schema": "CREATE TABLE \"zkteco_attendance_events\" (\"id\" varchar not null, \"event_key\" varchar not null, \"device_id\" varchar not null, \"enrollment_number\" varchar not null, \"employee_id\" varchar, \"device_time\" datetime not null, \"received_at\" datetime not null, \"verify_method\" integer, \"att_state\" integer, \"work_code\" integer, \"is_invalid\" integer not null default '0', \"source\" varchar not null default 'event', \"processing_status\" varchar not null default 'pending', \"ignored_for_attendance\" tinyint(1) not null default '0', \"ignore_reason\" varchar, \"processed_at\" datetime, \"processing_error\" text, \"payload\" text not null, \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"device_id\") references \"zkteco_devices\"(\"id\") on delete restrict, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete set null, primary key (\"id\"))",
+        "rows": 2129,
+        "hash": "00e3b18a5138b85a35eefa6e67b1f913c674ca87368bfd81b103648aec6f78a7"
+    },
+    "zkteco_devices": {
+        "schema": "CREATE TABLE \"zkteco_devices\" (\"id\" varchar not null, \"name\" varchar not null, \"serial\" varchar, \"ip\" varchar, \"port\" integer not null default '4370', \"timezone\" varchar not null default 'UTC', \"active\" tinyint(1) not null default '1', \"last_seen_at\" datetime, \"last_sync_at\" datetime, \"status\" varchar not null default 'unknown', \"meta\" text, \"created_at\" datetime, \"updated_at\" datetime, primary key (\"id\"))",
+        "rows": 1,
+        "hash": "df7d389ccea260f9f27bc33f41838236fe13c09cf4f7eccca40f456770b0e661"
+    },
+    "zkteco_employee_mappings": {
+        "schema": "CREATE TABLE \"zkteco_employee_mappings\" (\"id\" integer primary key autoincrement not null, \"device_id\" varchar not null, \"employee_id\" varchar not null, \"enrollment_number\" varchar not null, \"active\" tinyint(1) not null default '1', \"created_at\" datetime, \"updated_at\" datetime, foreign key(\"device_id\") references \"zkteco_devices\"(\"id\") on delete cascade, foreign key(\"employee_id\") references \"employees\"(\"id\") on delete cascade)",
+        "rows": 16,
+        "hash": "77d39aec06c5cb65e53b0fb8811f36182ff51acb883a35f49bb18957d3a71a88"
+    }
+}

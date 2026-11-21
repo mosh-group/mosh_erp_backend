@@ -20,6 +20,16 @@ class RecordAccess
     public static function readable(User $u,string $resource,array $d,string $action='list'): bool {
         if (!$u->active) return false;
         if ($u->root()) return true;
+        // All active accounts need the staff directory for assignments/managers.
+        // document() still removes private HR fields from other employees.
+        if ($resource==='employees') return true;
+        // Customers are shared: denying Sales must not cancel a Marketing grant.
+        if ($resource==='customers') {
+            foreach (['sales','marketing','accounting'] as $customerModule) {
+                if ($u->allows($customerModule,'view') && $u->allows($customerModule,$action)) return true;
+            }
+            if (in_array($action,['list','details'],true) && $u->allows('social','view')) return true;
+        }
         $m=self::module($resource,$d);
         foreach (['view',$action] as $permission) if (data_get($u->data,'moduleOverrides.'.$m.'.'.$permission)===false) return false;
         if ($resource==='employment-contracts') return \App\Services\R29\HrWorkflow::hr($u,$action==='list'?'details':$action);
@@ -36,7 +46,7 @@ class RecordAccess
             if ($scope==='department') return (($d['department']??'')===$u->department||$u->manages($d['department']??''))&&$u->allows($m,$action);
             return $u->allows($m,$action)||$u->globalPermission('viewAllTasks');
         }
-        if ($resource==='customers') return $u->allows('sales',$action)||$u->allows('marketing',$action)||$u->allows('accounting',$action)||($action==='list'||$action==='details')&&$u->allows('social','view')||Task::where('employee_id',$u->employee_id)->where('data->customer',$d['name']??'')->exists();
+        if ($resource==='customers') return Task::where('employee_id',$u->employee_id)->where('data->customer',$d['name']??'')->exists();
         if ($resource==='payments' && $u->allows('hr',$action)) return (FinanceRules::document($d['docId']??'')['kind']??'')==='employee';
         if ($resource==='financial-documents' && ($d['kind']??'')==='employee' && $u->allows('hr',$action)) return true;
         if (in_array($resource,['hr-requests','hr-approvals','employment-contracts','offboarding','recognition','payroll-hours'],true)) {
@@ -80,7 +90,7 @@ class RecordAccess
         return $u->allows($module,$action);
     }
     public static function document(User $u,string $resource,array $d): array {
-        if ($resource==='employees' && !$u->root() && !$u->allows('hr','details') && (string)$u->employee_id!==(string)($d['id']??'')) {
+        if ($resource==='employees' && !$u->root() && !($u->allows('hr','view') && $u->allows('hr','details')) && (string)$u->employee_id!==(string)($d['id']??'')) {
             return Arr::only($d,['id','_version','employeeNo','name','department','jobTitle','employmentStatus','active','directManager','isManager','fieldWorkTemplateId','fieldTemplateId']);
         }
         return $d;

@@ -1,12 +1,17 @@
 <?php
-/** Pure R29 production calculations. No Laravel boot, SQL, HTTP or writes. */
+/** R29 production calculations with standalone validation services. No application boot, SQL, HTTP or writes. */
+require __DIR__.'/../../vendor/autoload.php';
+$validationContainer = new \Illuminate\Container\Container();
+$validationFactory = new \Illuminate\Validation\Factory(new \Illuminate\Translation\Translator(new \Illuminate\Translation\ArrayLoader(), 'ar'), $validationContainer);
+$validationContainer->instance('validator', $validationFactory);
+\Illuminate\Support\Facades\Facade::setFacadeApplication($validationContainer);
 require __DIR__.'/../../app/Services/R29/Rules.php';
 require __DIR__.'/../../app/Services/R29/QrCode.php';
 use App\Services\R29\Rules as R;
 use App\Services\R29\QrCode as Q;
 $checks=[];
 function check($name,$v){global $checks;$checks[]=['name'=>$name,'passed'=>(bool)$v];}
-function reject($name,$fn){try{$fn();check($name,false);}catch(DomainException $e){check($name,true);}}
+function reject($name,$fn){try{$fn();check($name,false);}catch(DomainException|\Illuminate\Validation\ValidationException $e){check($name,true);}}
 $p=['name'=>'اختبار','department'=>'التصميم','jobTitle'=>'مصمم','hireDate'=>'2026-01-01','attendanceMode'=>'flexible','workdayHours'=>8,'employmentStatus'=>'active','active'=>true];
 check('Contract is not an activation requirement',R::activationMissing($p)===[]);
 foreach(['name','department','jobTitle','hireDate','workdayHours']as$k){$x=$p;unset($x[$k]);check('Activation requires '.$k,count(R::activationMissing($x))>0);}

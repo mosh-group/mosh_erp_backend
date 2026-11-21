@@ -20,7 +20,7 @@ class TaskTimerR7Test extends TestCase
         $this->postJson('/api/auth/setup',['name'=>'QA Admin','username'=>'qa_admin','password'=>'Test-only-Secret123!','password_confirmation'=>'Test-only-Secret123!'])->assertCreated();
         $this->postJson('/api/customers',['id'=>'QA-C','name'=>'QA Client'])->assertCreated();
         foreach(['QA-E1','QA-E2'] as $id){
-            $this->postJson('/api/employees',['id'=>$id,'name'=>$id,'department'=>'التصميم','active'=>true])->assertCreated();
+            $this->postJson('/api/employees',['id'=>$id,'name'=>$id,'department'=>'التصميم','active'=>true,'jobTitle'=>'QA role','hireDate'=>'2025-01-01','attendanceMode'=>'fingerprint','workdayHours'=>8,'zktecoEnrollmentNumber'=>substr($id,-1)])->assertCreated();
             $this->postJson('/api/users',['name'=>$id,'username'=>strtolower($id),'employeeId'=>$id,'roleId'=>'role_employee','password'=>'Test-only-Secret123!','mustChange'=>false,'active'=>true])->assertCreated();
             $this->postJson('/api/tasks',['id'=>'T-'.$id,'title'=>'Test Task','customer'=>'QA Client','department'=>'التصميم','assigneeId'=>$id,'assignee'=>$id,'status'=>'in_progress','employeeState'=>'new'])->assertCreated();
         }
