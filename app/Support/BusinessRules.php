@@ -165,7 +165,8 @@ class BusinessRules
         if ($id=$d['assigneeId']??'') {
             $p=Employee::find($id); self::need((bool)$p,'الموظف غير موجود.');
             if (!$old||($old['assigneeId']??'')!==$id) self::need(($p->data['active']??true)!==false&&($p->data['employmentStatus']??'active')==='active','الموظف غير متاح للتكليف.');
-            self::need(($p->data['department']??'')===($d['department']??'')||(string)(Setting::valueOf('department-managers')[$d['department']]??'')===(string)$p->id,'الموظف ليس في قسم المهمة.');
+            // Keep the saved executor on an approved billing handoff; all approval gates below still apply.
+            self::need(($p->data['department']??'')===($d['department']??'')||(string)(Setting::valueOf('department-managers')[$d['department']]??'')===(string)$p->id||TaskBillingHandoff::preservesExecutor($old,$d),'الموظف ليس في قسم المهمة.');
         }
         if (!empty($d['parentTaskId'])) {
             self::need((string)$d['id']!==(string)$d['parentTaskId'],'المهمة لا تكون فرعاً من نفسها.');

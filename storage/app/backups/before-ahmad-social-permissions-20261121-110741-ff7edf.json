@@ -1,0 +1,39 @@
+{
+    "at": "2026-11-21T11:07:41+00:00",
+    "userId": "USR-01M60XX9MFVBRVNSEH1YNWGMJZ",
+    "employeeId": "EMP\/00010",
+    "userVersion": 21,
+    "socialPermissionsBefore": {
+        "view": true,
+        "dashboard": false,
+        "running": false,
+        "approvals": true,
+        "list": false,
+        "details": false,
+        "create": false,
+        "edit": false,
+        "status": false,
+        "assign": false,
+        "delete": false,
+        "approve": false,
+        "attachments": false,
+        "reports": true,
+        "print": false,
+        "export": false
+    },
+    "managersBefore": {
+        "المحاسبة": "EMP\/00016",
+        "التصميم": "EMP\/00001",
+        "تكنولوجيا المعلومات": "EMP\/00018",
+        "المبيعات": "EMP\/00015",
+        "التصوير": "EMP\/00001",
+        "المونتاج": "EMP\/00001",
+        "التسويق": "EMP\/00010",
+        "الترويج": "EMP\/00013",
+        "المشتريات": "EMP\/00012",
+        "الموارد البشرية": "EMP\/00004",
+        "اللوجستيات": "EMP\/00024",
+        "المستودعات العامة": "EMP\/00024"
+    },
+    "managerVersion": 13
+}
