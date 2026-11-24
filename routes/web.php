@@ -4,7 +4,7 @@ use App\Http\Controllers\{AuthController,AccountController,BootstrapController,R
 Route::prefix('api')->group(function () {
     Route::get('auth/status',[AuthController::class,'status']);
     Route::post('auth/setup',[AuthController::class,'setup'])->middleware('throttle:5,1');
-    Route::post('auth/login',[AuthController::class,'login'])->middleware('throttle:20,1');
+    Route::post('auth/login',[AuthController::class,'login'])->middleware('throttle:auth-login');
     Route::middleware(['api.session','throttle:600,1'])->group(function () {
         require __DIR__.'/ui09.php';
         require __DIR__.'/r19_hr.php';
@@ -33,6 +33,7 @@ Route::prefix('api')->group(function () {
         }
         Route::put('hr/department-managers', [\App\Http\Controllers\DepartmentManagerController::class, 'update']);
         Route::get('bootstrap',BootstrapController::class);
+        Route::get('marketing/task-tracking', \App\Http\Controllers\MarketingTaskTrackingController::class);
         Route::prefix('zkteco')->group(function(){ Route::get('status',[ZktecoAdminController::class,'status']); Route::get('events',[ZktecoAdminController::class,'events']); Route::get('mappings',[ZktecoAdminController::class,'mappings']); Route::post('mappings',[ZktecoAdminController::class,'map']); Route::post('events/{id}/replay',[ZktecoAdminController::class,'replay']); });
         Route::post('transactions',[TransactionController::class,'store']);
         Route::post('transactions/{id}/undo',[TransactionController::class,'undo']);

@@ -7,6 +7,11 @@ final class TaskPolicy
     public static function apply(User $actor, ?array $old, array &$new): void
     {
         $id=(string)($new['id']??'');
+        if ($old && $actor->taskScope() === 'mine' && User::departmentApp((string)$actor->department) === 'marketing') {
+            foreach (['title','description','notes','customer','customerId','dueDate','dueRule','taskNo','number','origin','salesOrderNo','salesOrderId','parentTaskId'] as $field) {
+                abort_if(($new[$field] ?? null) !== ($old[$field] ?? null), 403, 'تفاصيل المهمة متاحة للمشاهدة فقط.');
+            }
+        }
         $cancel=CommandContext::permits('cancel-task',$id);
         if (!$cancel) {
             abort_if(($new['cancellation']??null)!==($old['cancellation']??null),403,'مصادقة إلغاء المهمة لا تُعدّل من الحفظ العام.');

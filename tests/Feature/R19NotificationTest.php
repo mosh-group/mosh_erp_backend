@@ -38,6 +38,39 @@ final class R19NotificationTest extends TestCase
                 'createdAt' => '2026-10-01T08:00:00+03:00', 'workChat' => [], 'workTiming' => ['totalMs' => 0, 'activeStartedAt' => 0]]]);
     }
 
+    public function test_pending_approval_notifies_only_department_manager_once_per_submission(): void
+    {
+        $manager = User::findOrFail('NU2');
+        $manager->update(['data'=>['taskScope'=>'department','moduleOverrides'=>[
+            'design'=>['view'=>true,'details'=>true,'approve'=>true],
+        ]]]);
+        Setting::updateOrCreate(['id'=>'department-managers'],['value'=>['التصميم'=>'NE2'],'version'=>1]);
+        $task = $this->taskRow();
+        $data = $task->data;
+        $data['employeeState'] = 'submitted';
+        $data['workChat'][] = ['id'=>'MR49/submit/first','kind'=>'text'];
+        $task->update(['data'=>$data]);
+
+        $this->login();
+        $this->getJson('/api/r19/notifications')->assertOk()->assertJsonMissing(['taskEvent'=>'approval']);
+        $this->postJson('/api/auth/logout')->assertOk();
+        $this->login('2');
+        $first = $this->getJson('/api/r19/notifications')->assertOk()->assertJsonPath('data.unread',1)
+            ->assertJsonPath('data.items.0.taskEvent','approval')->json('data.items.0.id');
+        $this->getJson('/api/r19/notifications')->assertOk()->assertJsonPath('data.items.0.id',$first)
+            ->assertJsonCount(1,'data.items');
+
+        $data['employeeState'] = 'paused';
+        $task->update(['data'=>$data]);
+        $this->getJson('/api/r19/notifications')->assertOk()->assertJsonCount(0,'data.items');
+        $data['employeeState'] = 'submitted';
+        $data['workChat'][] = ['id'=>'MR49/submit/second','kind'=>'text'];
+        $task->update(['data'=>$data]);
+        $second = $this->getJson('/api/r19/notifications')->assertOk()->assertJsonPath('data.unread',1)
+            ->assertJsonCount(1,'data.items')->json('data.items.0.id');
+        $this->assertNotSame($first,$second);
+    }
+
     public function test_task_notice_persists_until_ack_and_never_changes_task_clock(): void
     {
         $task = $this->taskRow()->fresh(); $before = $task->getAttributes();

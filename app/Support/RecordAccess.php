@@ -90,6 +90,16 @@ class RecordAccess
         return $u->allows($module,$action);
     }
     public static function document(User $u,string $resource,array $d): array {
+        if ($resource==='tasks' && !empty($d['sharedDistributionChild']) && ($d['sharedNodeType']??'')==='department'
+            && ($d['department']??'')==='التسويق' && !empty($d['parentTaskId'])
+            && (string)$d['parentTaskId']===(string)($d['sharedRootTaskId']??'')
+            && ($u->manages('التسويق') || $u->allows('marketing','assign'))) {
+            $d['participatingDepartments']=Task::where('parent_id',(string)$d['parentTaskId'])
+                ->where('data->sharedNodeType','department')->get(['department','data'])
+                ->reject(fn($unit)=>!empty($unit->data['deletedAt']))
+                ->map(fn($unit)=>$unit->data['sharedDepartment']??$unit->department)
+                ->filter()->unique()->values()->all();
+        }
         if ($resource==='employees' && !$u->root() && !($u->allows('hr','view') && $u->allows('hr','details')) && (string)$u->employee_id!==(string)($d['id']??'')) {
             return Arr::only($d,['id','_version','employeeNo','name','department','jobTitle','employmentStatus','active','directManager','isManager','fieldWorkTemplateId','fieldTemplateId']);
         }

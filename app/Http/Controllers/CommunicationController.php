@@ -36,7 +36,9 @@ class CommunicationController extends Controller
  }
  public function counts(Request $r) {
   self::guard($r->user());$q=$this->query($r->user())->whereNull('p.read_at')->where('p.is_sender',false)->where('p.box','!=','trash');
-  return $this->ok(['chat'=>(clone $q)->where('m.kind','chat')->count(),'mail'=>(clone $q)->where('m.kind','mail')->count()]);
+  $user=$r->user();
+  $tasks=$user->employee_id ? DB::table('tasks')->where('employee_id',$user->employee_id)->where('status','in_progress')->whereNull('data->deletedAt')->get(['id','department','version'])->filter(fn($t)=>$user->allows(\App\Models\User::departmentApp((string)$t->department),'details'))->map(fn($t)=>['id'=>(string)$t->id,'version'=>(int)$t->version])->values() : [];
+  return $this->ok(['assignedTasks'=>$tasks,'chat'=>(clone $q)->where('m.kind','chat')->count(),'mail'=>(clone $q)->where('m.kind','mail')->count()]);
  }
  public function index(Request $r) {
   $u=$r->user();self::guard($u);$v=$r->validate(['kind'=>'required|in:chat,mail','folder'=>'nullable|string|max:80','peer'=>'nullable|string|max:190','q'=>'nullable|string|max:200','page'=>'nullable|integer|min:1','oversight'=>'nullable|boolean']);

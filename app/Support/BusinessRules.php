@@ -194,8 +194,38 @@ class BusinessRules
         $running=!empty($d['workTiming']['activeStartedAt']);
         if (($d['employeeState']??'')==='submitted') {
             self::need(!$running,'أوقف مؤقت العمل قبل التسليم.');
-            $p=Employee::find($d['assigneeId']??'');$manager=Employee::find(Setting::valueOf('department-managers')[$d['department']]??'');
-            $d['reviewManager']=$manager?->data['name']??(($p?->data['department']??'')===($d['department']??'')?($p?->data['directManager']??''):'');
+            $department = $old['department'] ?? '';
+            $managerId = (string)(Setting::valueOf('department-managers')[$d['department']] ?? '');
+            $isChild = !empty($old['parentTaskId']);
+            $managerFinishedOwnTask = in_array($prior, ['working', 'paused'], true)
+                && ($old['status'] ?? '') === 'in_progress' && ($d['status'] ?? '') === 'in_progress'
+                && $department === $d['department']
+                && $managerId !== '' && $managerId === (string)$a->employee_id
+                && $managerId === (string)($old['assigneeId'] ?? '') && $managerId === (string)($d['assigneeId'] ?? '')
+                && ($old['parentTaskId'] ?? '') === ($d['parentTaskId'] ?? '')
+                && $a->manages($department)
+                && ($isChild || (empty($old['sharedDistributionRoot']) && empty($old['sharedTeamContainer'])
+                    && Task::where('parent_id', (string)$d['id'])->count() < 2));
+            if ($managerFinishedOwnTask) {
+                if (!$isChild) self::requireTaskChildrenFinished($old);
+                $completedAt = now()->toIso8601String();
+                $d['employeeState'] = 'finished';
+                $d['reviewManager'] = '';
+                $d['returnedForRevision'] = false;
+                unset($d['approvalRoute'], $d['approvalIndex'], $d['reviewState'], $d['managerFinalPending']);
+                if ($isChild) {
+                    $d['status'] = 'completed';
+                    $d['completedAt'] = $completedAt;
+                    $d['completedBy'] = $a->name;
+                }
+                $d['history'][] = ['text'=>'أنهى مدير القسم المهمة التي نفّذها بنفسه.', 'time'=>$completedAt, 'by'=>$a->name];
+                if (!$isChild && self::taskNeedsFollowUp($old)) {
+                    self::moveTaskToFollowUp($a, $old, $d);
+                }
+            } else {
+                $p=Employee::find($d['assigneeId']??'');$manager=Employee::find($managerId);
+                $d['reviewManager']=$manager?->data['name']??(($p?->data['department']??'')===($d['department']??'')?($p?->data['directManager']??''):'');
+            }
         }
         if (isset($d['workChat'])) {
             $known=array_column($old['workChat']??[],null,'id');
@@ -207,10 +237,15 @@ class BusinessRules
         }
 
         if ($old && ($d['status']??'')!==($old['status']??'')) {
-            if ($d['status']==='awaiting_invoice'&&(!empty($old['sharedDistributionRoot'])||Task::where('parent_id',(string)$d['id'])->exists())) abort_unless($a->allows('accounting','approve'),403);
+            if ($d['status']==='awaiting_invoice'&&(!empty($old['sharedDistributionRoot'])||Task::where('parent_id',(string)$d['id'])->count() >= 2)) abort_unless($a->allows('accounting','approve'),403);
             if (in_array($d['status'],['awaiting_invoice','completed'],true)) {
                 abort_unless($a->root()||$a->manages($old['department']??'')||$a->allows(RecordAccess::module('tasks',$old),'approve'),403);
                 // Child completion is checked after the atomic batch, independent of operation order.
+            }
+            if ($d['status']==='awaiting_invoice' && self::taskNeedsFollowUp($old)
+                && Task::where('parent_id', (string)$old['id'])->count() < 2) {
+                self::requireTaskChildrenFinished($old);
+                self::moveTaskToFollowUp($a, $old, $d);
             }
             if (str_starts_with($d['status'],'archived_')) {
                 abort_unless($a->allows('accounting','approve'),403); self::need(($old['status']??'')==='awaiting_invoice','المهمة ليست جاهزة للفوترة.');
@@ -221,6 +256,32 @@ class BusinessRules
             }
         }
     }
+    private static function requireTaskChildrenFinished(array $task): void
+    {
+        self::need(!Task::where('parent_id', (string)$task['id'])
+            ->whereNotIn('status', ['completed','awaiting_invoice','invoiced','archived_invoiced','archived_no_invoice','cancelled'])
+            ->exists(), 'أكمل المهام الفرعية أولاً.');
+    }
+    private static function taskNeedsFollowUp(array $task): bool
+    {
+        return ($task['status'] ?? '') === 'in_progress'
+            && !in_array($task['department'] ?? '', ['', 'المهمات', 'المحاسبة'], true)
+            && empty($task['parentTaskId']) && empty($task['sharedDistributionRoot']) && empty($task['sharedTeamContainer']);
+    }
+    private static function moveTaskToFollowUp(User $actor, array $previous, array &$task): void
+    {
+        $task['followUpFromDepartment'] = $previous['department'];
+        $task['department'] = 'المهمات';
+        $task['status'] = 'in_progress';
+        $task['employeeState'] = 'finished';
+        $task['assignee'] = $task['assigneeId'] = $task['reviewManager'] = '';
+        $task['assignmentMode'] = 'manager';
+        $task['returnedForRevision'] = false;
+        unset($task['closedFromDepartment'], $task['closedAt'], $task['closedBy'],
+            $task['approvalRoute'], $task['approvalIndex'], $task['reviewState'], $task['managerFinalPending']);
+        $task['history'][] = ['text'=>'انتهى التنفيذ وانتقلت المهمة إلى «المهمات» للمتابعة.',
+            'time'=>now()->toIso8601String(), 'by'=>$actor->name];
+    }
     private static function hrRequest(User $a,?array $old,array &$d): void {
         $routes=json_decode(file_get_contents(resource_path('hr-routes.json')),true);
         self::need(isset($routes[$d['type']]),'نوع طلب الموظف غير معروف.');
@@ -229,12 +290,20 @@ class BusinessRules
             $d['route']=$routes[$d['type']]; $d['stageIndex']=0; $d['status']='pending'; $d['employeeName']=$p->data['name']; $d['department']=$p->data['department'];
             $d['createdDate']=now()->toDateString();
             $d+=['managerDecision'=>'','managerDecisionBy'=>'','managerDecisionAt'=>'','managerNote'=>''];
+            if (in_array($d['type'], ['annual_leave','hourly_leave','sick_leave'], true)
+                && in_array((string)$p->id, array_map('strval', DepartmentManagers::normalize(Setting::valueOf('department-managers'))), true)) {
+                $d['route'] = ['الموارد البشرية'];
+                $d['manager'] = '';
+            }
             \App\Services\R34\Hierarchy::prepareHr($a,null,$d);
         } else {
             \App\Services\R34\Hierarchy::prepareHr($a,$old,$d);
             \App\Services\R34\Hierarchy::guardHrDecision($a,$old,$d);
             self::unchanged($old,$d,['type','employeeId','reason','data','route']);
             if (($d['stageIndex']??0)!==($old['stageIndex']??0)||$d['status']!==$old['status']) {
+                if (in_array($old['type'], ['annual_leave','hourly_leave','sick_leave'], true) && $d['status'] !== 'cancelled') {
+                    abort_if((string)$a->employee_id === (string)$old['employeeId'],403,'لا يمكنك اعتماد طلب إجازتك بنفسك.');
+                }
                 self::need($old['status']==='pending','الطلب مغلق.');
                 $last=($old['stageIndex']??0)>=count($old['route'])-1;
                 self::need(in_array($d['status'],['pending','approved','rejected','cancelled'],true),'حالة غير صالحة.');
@@ -396,6 +465,7 @@ class BusinessRules
             }
         }
         self::workflowEffects($a,$changes,$tx);
+        self::packageFollowUp($a,$changes,$tx);
 
         $changedResources = array_values(array_unique(array_map(
             static fn (array $change): string => (string) ($change['resource'] ?? ''),
@@ -428,11 +498,33 @@ class BusinessRules
     public static function derived(User $a,string $resource,string $id,array $d,array &$changes,string $tx): void {
         $class=Records::model($resource);$row=$class::find($id);$before=$row?->document();unset($d['_version']);
         if ($resource==='employees') self::employee($a,$before,$d,true);
-        $row??=new $class(['id'=>$id,'version'=>0]);$row->fill(['data'=>$d,'version'=>$row->version+1,'department'=>$d['department']??null,'status'=>$d['status']??null])->save();
+        $row??=new $class(['id'=>$id,'version'=>0]);$row->fill(['data'=>$d,'version'=>$row->version+1,'department'=>$d['department']??null,'status'=>$d['status']??null]);
+        if ($resource==='tasks') $row->employee_id=($d['assigneeId']??'')?:null;
+        $row->save();
         foreach (config('mosh.spec.relations.'.$resource,[]) as $column=>$target) if ($column==='employee_id'&&!empty($d['employeeId'])) {$row->employee_id=$d['employeeId'];$row->save();}
         $found=false;foreach ($changes as &$c) if ($c['resource']===$resource&&(string)$c['id']===$id) {$c['after']=$row->document();$found=true;break;}unset($c);
         if (!$found) $changes[]=['resource'=>$resource,'id'=>$id,'before'=>$before,'after'=>$row->document()];
         Audit::record($a,Records::spec($resource)['module'],$resource,$id,'workflow',$before,$row->document(),$tx);
+    }
+    private static function packageFollowUp(User $actor, array &$changes, string $tx): void
+    {
+        $done = ['completed','awaiting_invoice','invoiced','archived_invoiced','archived_no_invoice'];
+        foreach (array_values($changes) as $change) {
+            $child = $change['after'] ?? [];
+            $parentId = (string)($child['parentTaskId'] ?? '');
+            if ($change['resource']!=='tasks' || $parentId==='' || !in_array($child['status']??'', $done, true)
+                || in_array($change['before']['status']??'', $done, true)) continue;
+            $parent = Task::find($parentId)?->document();
+            if (!$parent || $parent['status']!=='in_progress' || !empty($parent['parentTaskId'])
+                || !empty($parent['sharedDistributionRoot']) || !empty($parent['packageReady'])
+                || Task::where('parent_id',$parentId)->whereNotIn('status',$done)->exists()) continue;
+            $next = $parent;
+            $next['packageReady'] = true;
+            $next['packageReadyAt'] = now()->toIso8601String();
+            self::moveTaskToFollowUp($actor,$parent,$next);
+            TaskExecutionClock::apply($actor,$parent,$next);
+            self::derived($actor,'tasks',$parentId,$next,$changes,$tx);
+        }
     }
     private static function applyHr(User $a,array $r,array &$changes,string $tx): void {
         $p=Employee::find($r['employeeId']);if (!$p) return;$d=$p->document();$id=$r['id'];$type=$r['type'];

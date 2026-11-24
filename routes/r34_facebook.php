@@ -2,6 +2,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacebookController as F;
 Route::get('social/platforms',[F::class,'platforms']);
+Route::get('social/manual/posts',[\App\Http\Controllers\ManualSocialPostController::class,'index']);
+Route::post('social/manual/posts',[\App\Http\Controllers\ManualSocialPostController::class,'store']);
+Route::post('social/manual/posts/{id}/published',[\App\Http\Controllers\ManualSocialPostController::class,'published'])->where('id','[A-Za-z0-9]+');
 Route::prefix('social/facebook')->group(function(){
     Route::get('/',[F::class,'index']);Route::match(['GET','PUT'],'configuration',[F::class,'configuration']);
     Route::post('connect',[F::class,'start'])->middleware('throttle:10,1');Route::get('callback',[F::class,'callback']);

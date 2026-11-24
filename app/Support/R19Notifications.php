@@ -1,7 +1,7 @@
 <?php
 namespace App\Support;
 
-use App\Models\{Announcement, AdminDecision, SupportRequest, Task, User};
+use App\Models\{Announcement, AdminDecision, Setting, SupportRequest, Task, User};
 use Illuminate\Support\Facades\{DB, Validator};
 
 /** Persistent delivery/receipts for the authenticated account. Looking at a
@@ -56,6 +56,34 @@ final class R19Notifications
         return empty($document['deletedAt']) && RecordAccess::own($user, $document)
             && RecordAccess::readable($user, 'tasks', $document, 'details');
     }
+    private static function canReviewTask(User $user, array $task, array $managed): bool
+    {
+        $module = RecordAccess::module('tasks', $task);
+        return empty($task['deletedAt']) && ($task['status'] ?? '') === 'in_progress'
+            && ($task['employeeState'] ?? '') === 'submitted'
+            && in_array($task['department'] ?? '', $managed, true)
+            && $user->allows($module, 'view') && $user->allows($module, 'approve')
+            && RecordAccess::readable($user, 'tasks', $task, 'details');
+    }
+
+    private static function managedDepartments(User $user): array
+    {
+        if (!$user->active || !$user->employee_id) return [];
+        return array_keys(array_filter(DepartmentManagers::normalize(Setting::valueOf('department-managers')),
+            fn ($id, $department) => $id === (string)$user->employee_id && $user->manages($department), ARRAY_FILTER_USE_BOTH));
+    }
+
+    private static function reviewNoticeId(User $user, array $task): string
+    {
+        $cycle = $task['workTiming']['finishedAt'] ?? '';
+        foreach (array_reverse($task['workChat'] ?? []) as $message) {
+            if (str_starts_with((string)($message['id'] ?? ''), 'MR49/submit/')) {
+                $cycle = $message['id'];
+                break;
+            }
+        }
+        return self::id('task:'.$task['id'].':'.self::owner($user).':approval:'.$cycle);
+    }
 
     private static function sourceRows(User $user): array
     {
@@ -103,6 +131,17 @@ final class R19Notifications
                     'body' => 'أعيدت المهمة للتعديل. راجع ملاحظات المدير قبل الاستلام.',
                     'createdAt' => self::iso($d['updatedAt'] ?? null, $task->created_at)];
             }
+        }
+        $managed = self::managedDepartments($user);
+        if ($managed) foreach (Task::whereIn('department', $managed)->where('status', 'in_progress')->where('data->employeeState', 'submitted')->get() as $task) {
+            $d = $task->document();
+            if (!self::canReviewTask($user, $d, $managed)) continue;
+            $id = self::reviewNoticeId($user, $d);
+            $result[$id] = ['id'=>$id, 'type'=>'task', 'taskEvent'=>'approval', 'taskId'=>(string)$task->id,
+                'recipientIds'=>[$recipient], 'source'=>$d['department'], 'sourceId'=>'', 'details'=>'',
+                'urgent'=>false, 'title'=>'مهمة بانتظار اعتمادك: '.($d['title'] ?: 'مهمة'),
+                'body'=>'أُرسلت المهمة للمراجعة. افتح تفاصيلها للاعتماد أو الإعادة للتعديل.',
+                'createdAt'=>self::iso($d['workTiming']['finishedAt'] ?? $d['updatedAt'] ?? null, $task->created_at)];
         }
         foreach (Announcement::all() as $announcement) {
             $d = $announcement->document();
@@ -196,6 +235,12 @@ final class R19Notifications
         if (!$user->active) return false;
         if (($notice['type'] ?? '') === 'task') {
             $task = Task::find((string) ($notice['taskId'] ?? ''));
+            if (($notice['taskEvent'] ?? '') === 'approval') {
+                if (!$task) return false;
+                $d = $task->document();
+                return self::canReviewTask($user, $d, self::managedDepartments($user))
+                    && ($notice['id'] ?? '') === self::reviewNoticeId($user, $d);
+            }
             if (!$task || !self::canSeeTask($user, $task->document())) return false;
             // Hide legacy routine-assignment notices that may already exist in an inbox
             // from R19/R20. Keep only urgency and revision events.

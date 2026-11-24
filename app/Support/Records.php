@@ -47,6 +47,7 @@ class Records
             return ['resource'=>$resource,'id'=>$id,'before'=>$old,'after'=>null];
         }
         $input=$op['data']??[];
+        if ($resource==='tasks') unset($input['participatingDepartments']);
         $allowed=array_merge($spec['fields'],['id','_version','createdAt','createdBy','updatedAt','updatedBy']);
         $unknown=array_diff(array_keys($input),$allowed);
         if ($unknown) throw ValidationException::withMessages(['data'=>'حقول غير معروفة: '.implode(', ',$unknown)]);

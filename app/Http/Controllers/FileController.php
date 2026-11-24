@@ -18,6 +18,10 @@ class FileController extends Controller
             if(str_starts_with($link->resource,'r29-')) { if(\App\Services\R29\HrWorkflow::canReadLinked($r->user(),$link->resource,(string)$link->record_id)) $allowed=true; continue; }
             if($link->resource==='tasks') { $task=\App\Models\Task::find($link->record_id);if($task&&\App\Services\R29\CustomerWork::canReadTaskFile($r->user(),$task))$allowed=true; }
             if ($link->resource==='r34-facebook-post') { if(\App\Services\Social\FacebookHub::canReadPost($r->user(),(string)$link->record_id)) $allowed=true; continue; }
+            if ($link->resource===ManualSocialPostController::ATTACHMENT_RESOURCE) {
+                if (ManualSocialPostController::canReadAttachment($r->user(), (string) $link->record_id)) $allowed=true;
+                continue;
+            }
             if ($link->resource==='r28-social-post') {
                 if (\App\Services\Instagram\SocialAccess::canReadPost($r->user(),(string)$link->record_id)) $allowed=true;
                 continue;

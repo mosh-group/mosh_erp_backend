@@ -22,7 +22,17 @@ class TransactionController extends Controller
         return DB::transaction(function ()use($r,$ops,$key,$hash,$undoOf) {
             DB::table('app_locks')->where('id','business')->increment('revision');
             $old=DB::table('transactions')->where('actor_id',$r->user()->id)->where('idempotency_key',$key)->first();
-            if ($old) { abort_unless($old->request_hash===$hash,409,'مفتاح الطلب مستخدم لعملية مختلفة.'); return json_decode($old->response,true); }
+            if ($old) {
+                abort_unless($old->request_hash===$hash,409,'مفتاح الطلب مستخدم لعملية مختلفة.');
+                $response=json_decode($old->response,true);
+                foreach (json_decode($old->changes,true) as $change) {
+                    $receipt=self::followUpReceipt($r->user(),$change);
+                    if ($receipt && !collect($response['changes'])->contains(fn ($item)=>$item['resource']==='tasks' && (string)$item['id']===(string)$receipt['id'])) {
+                        $response['changes'][]=$receipt;
+                    }
+                }
+                return $response;
+            }
             if ($undoOf) abort_if(DB::table('transactions')->where('undo_of',$undoOf)->exists(),409,'تم التراجع عن هذه العملية.');
             $tx=(string)Str::ulid(); $changes=[];
             foreach ($ops as $op) $changes[]=Records::change($r->user(),$op,$tx);
@@ -32,7 +42,10 @@ class TransactionController extends Controller
             foreach ($changes as $c) {
                 $data=!empty($c['deleted'])?null:$c['after'];
                 if ($data && !str_starts_with($c['resource'],'settings/')) {
-                    if (!RecordAccess::readable($r->user(),$c['resource'],$data)) continue;
+                    if (!RecordAccess::readable($r->user(),$c['resource'],$data)) {
+                        if ($receipt=self::followUpReceipt($r->user(),$c)) $public[]=$receipt;
+                        continue;
+                    }
                     $data=RecordAccess::document($r->user(),$c['resource'],$data);
                 }
                 $public[]=['resource'=>$c['resource'],'id'=>$c['id'],'data'=>$data];
@@ -42,6 +55,15 @@ class TransactionController extends Controller
                 'changes'=>json_encode($changes,JSON_UNESCAPED_UNICODE),'response'=>json_encode($response,JSON_UNESCAPED_UNICODE),'undo_of'=>$undoOf,'created_at'=>now(),'updated_at'=>now()]);
             return $response;
         },3);
+    }
+    private static function followUpReceipt(User $actor,array $change): ?array {
+        $before=$change['before']??[];
+        $after=$change['after']??[];
+        if (($change['resource']??'')!=='tasks'||($after['department']??'')!=='المهمات'
+            ||($after['employeeState']??'')!=='finished'||empty($after['followUpFromDepartment'])
+            ||($before['department']??'')!==$after['followUpFromDepartment']
+            ||!RecordAccess::readable($actor,'tasks',$before)) return null;
+        return ['resource'=>'tasks','id'=>$change['id'],'data'=>null,'outcome'=>'follow_up'];
     }
     public function undo(Request $r,string $id) {
         $tx=DB::table('transactions')->where('id',$id)->first(); abort_unless($tx,404);

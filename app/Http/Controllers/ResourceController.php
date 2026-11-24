@@ -52,7 +52,10 @@ class ResourceController extends Controller
         $op=['resource'=>$r->route('resource'),'action'=>$action,'version'=>$r->input('_version'),'data'=>$data];
         if ($id!==null) $op['id']=$id;
         $result=TransactionController::commit($r,[$op],false);
-        return $this->ok($action==='delete'?null:($result['changes'][0]['data']??null),$action==='create'?201:200);
+        $change=$result['changes'][0]??[];
+        $data=$change['data']??null;
+        if (($change['outcome']??'')==='follow_up') $data=['id'=>$change['id'],'outcome'=>'follow_up'];
+        return $this->ok($action==='delete'?null:$data,$action==='create'?201:200);
     }
     public function setting(Request $r) {
         $key=$r->route('setting'); $spec=config('mosh.spec.settings.'.$key); abort_unless($spec,404);

@@ -3,7 +3,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\{Hash,DB};
-use App\Models\{User,Employee,Customer};
+use App\Models\{User,Employee,Customer,Task};
 class ApiTest extends TestCase
 {
     use RefreshDatabase;
@@ -21,6 +21,46 @@ class ApiTest extends TestCase
         $this->postJson('/api/auth/logout')->assertOk();$this->getJson('/api/bootstrap')->assertUnauthorized();
         $this->postJson('/api/auth/login',['username'=>'admin','password'=>'Changed-Password123!'])->assertOk();
         $this->getJson('/api/bootstrap')->assertOk()->assertJsonPath('data.user.username','admin');
+    }
+    public function test_login_limit_isolates_failed_accounts_on_a_shared_network(): void {
+        $this->setupRoot();
+        for ($i = 0; $i < 21; $i++) {
+            $this->postJson('/api/auth/login',['username'=>'admin','password'=>'Test-Password123!'])->assertOk();
+        }
+        for ($i = 0; $i < 20; $i++) {
+            $this->postJson('/api/auth/login',['username'=>'another-account'])->assertUnprocessable();
+        }
+        $this->postJson('/api/auth/login',['username'=>'ANOTHER-ACCOUNT'])->assertTooManyRequests()->assertHeader('Retry-After');
+        $this->postJson('/api/auth/login',['username'=>'admin','password'=>'Test-Password123!'])->assertOk();
+
+        $maxAttempts=\App\Models\Setting::valueOf('security')['maxAttempts']??5;
+        for ($i = 0; $i < $maxAttempts; $i++) {
+            $this->postJson('/api/auth/login',['username'=>'admin','password'=>'Incorrect-Password123!'])->assertUnauthorized();
+        }
+        $this->postJson('/api/auth/login',['username'=>'admin','password'=>'Test-Password123!'])->assertTooManyRequests()->assertHeader('Retry-After');
+    }
+    public function test_final_subtask_approval_moves_package_to_follow_up_atomically(): void {
+        $this->setupRoot();
+        $this->postJson('/api/customers',['id'=>'CLIENT','name'=>'Package Customer'])->assertCreated();
+        $base=['customer'=>'Package Customer','customerId'=>'CLIENT','status'=>'in_progress','history'=>[]];
+        Task::create(['id'=>'PACKAGE','department'=>'التسويق','status'=>'in_progress','customer_id'=>'CLIENT',
+            'data'=>$base+['id'=>'PACKAGE','title'=>'Package','department'=>'التسويق','employeeState'=>'new']]);
+        foreach (['SERVICE1'=>'التسويق','SERVICE2'=>'التصميم'] as $id=>$department) {
+            Task::create(['id'=>$id,'department'=>$department,'status'=>'in_progress','customer_id'=>'CLIENT','parent_id'=>'PACKAGE',
+                'data'=>$base+['id'=>$id,'title'=>$id,'department'=>$department,'parentTaskId'=>'PACKAGE','employeeState'=>'submitted']]);
+        }
+        $finish=fn (string $id)=>$this->withHeader('Idempotency-Key','approve-'.$id)->postJson('/api/transactions',['operations'=>[[
+            'resource'=>'tasks','id'=>$id,'action'=>'update','version'=>1,'data'=>['status'=>'completed','employeeState'=>'finished'],
+        ]]]);
+        $finish('SERVICE1')->assertOk()->assertJsonCount(1,'data.changes');
+        $this->assertSame('التسويق',Task::findOrFail('PACKAGE')->department);
+        $finish('SERVICE2')->assertOk()->assertJsonCount(2,'data.changes');
+        $parent=Task::findOrFail('PACKAGE');
+        $this->assertSame('المهمات',$parent->department);
+        $this->assertTrue($parent->data['packageReady']);
+        $this->assertSame('completed',Task::findOrFail('SERVICE2')->status);
+        $finish('SERVICE2')->assertOk()->assertJsonCount(2,'data.changes');
+        $this->assertSame($parent->version,Task::findOrFail('PACKAGE')->version);
     }
     public function test_crud_search_pagination_conflict_atomic_rollback_and_idempotency(): void {
         $this->setupRoot();
