@@ -1,6 +1,6 @@
 <?php
 namespace App\Services\R34;
-use App\Models\{User,HrRequest,HrApproval,StockItem,StockMovement,Warehouse};
+use App\Models\{User,HrRequest,HrApproval,StockItem,StockMovement,Warehouse,Setting};
 use App\Support\{R19Store,RecordAccess,Records,BusinessRules,StockRules,Audit};
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -28,13 +28,21 @@ final class Approvals
     }
     public static function overview(User $a): array
     {
-        abort_unless($a->active&&!$a->must_change,403);$hr=[];$damages=[];
-        foreach(['hr-requests'=>HrRequest::class,'hr-approvals'=>HrApproval::class]as$res=>$model){
-            foreach($model::orderBy('created_at','desc')->get()as$r){$d=$r->document();
-                if(empty($d['r34Approval'])||!RecordAccess::readable($a,$res,$d,'details'))continue;
-                if(Hierarchy::wasHrApprover($a,$d)||(string)$a->employee_id===(string)$d['employeeId'])$hr[]=$d+['resource'=>$res,'canDecide'=>($d['status']??'')==='pending'&&Hierarchy::isHrApprover($a,$d)];
+        abort_unless($a->active&&!$a->must_change,403);$damages=[];
+        $hr = Setting::readOnlySnapshot(function () use ($a) {
+            $rows = [];
+            foreach (['hr-requests'=>HrRequest::class, 'hr-approvals'=>HrApproval::class] as $resource => $model) {
+                foreach ($model::orderBy('created_at', 'desc')->get() as $record) {
+                    $data = $record->document();
+                    if (empty($data['r34Approval']) || !RecordAccess::readable($a, $resource, $data, 'details')) continue;
+                    $canDecide = ($data['status'] ?? '') === 'pending' && Hierarchy::isHrApprover($a, $data);
+                    if ($canDecide || Hierarchy::wasHrApprover($a, $data) || (string)$a->employee_id === (string)$data['employeeId']) {
+                        $rows[] = $data + ['resource'=>$resource, 'canDecide'=>$canDecide];
+                    }
+                }
             }
-        }
+            return $rows;
+        });
         foreach(R19Store::prefixed(self::DAMAGE)as$d){$v=self::damageView($a,$d);if($v)$damages[]=$v;}
         return ['hr'=>$hr,'damage'=>$damages,'canRequestDamage'=>Hierarchy::get()['enabled']&&self::canStock($a),
             'stockOptions'=>Hierarchy::get()['enabled']&&self::canStock($a)?['warehouses'=>Warehouse::all()->filter(fn($w)=>($w->data['active']??true)&&self::canStock($a,(string)$w->id))->map(fn($w)=>['id'=>(string)$w->id,'name'=>$w->data['name']??''])->values()->all(),'items'=>StockItem::all()->filter(fn($i)=>($i->data['active']??true))->map(fn($i)=>['id'=>(string)$i->id,'name'=>$i->data['name']??''])->values()->all()]:null,

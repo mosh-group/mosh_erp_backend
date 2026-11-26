@@ -19,13 +19,19 @@ final class R19HrAccess
         if (!$actor->active) return [];
         if ($actor->root()) return BusinessRules::departments();
         if (!$actor->employee_id) return [];
-        return array_keys(array_filter(Setting::valueOf('department-managers'), fn($id) => is_scalar($id) && (string)$id === (string)$actor->employee_id));
+        return array_keys(array_filter(DepartmentManagers::effective(), fn($id) => is_scalar($id) && (string)$id === (string)$actor->employee_id));
     }
 
     public static function directManagerId(Employee $employee): string
     {
         $configured=\App\Services\R34\Hierarchy::managerId($employee);
-        if($configured!==null)return $configured;
+        if ($configured !== null) {
+            $department = $employee->data['department'] ?? '';
+            $coverage = DepartmentManagers::coverage();
+            $manager = ($coverage['primary'][$department] ?? null) === $configured
+                ? ($coverage['acting'][$department] ?? $configured) : $configured;
+            return $manager === (string)$employee->id ? '' : $manager;
+        }
         $raw = $employee->data['directManager'] ?? '';
         $raw = is_string($raw) ? trim($raw) : '';
         if ($raw !== '') {
@@ -34,9 +40,15 @@ final class R19HrAccess
                 $matches = Employee::where('data->name', $raw)->get();
                 if ($matches->count() === 1) $candidate = $matches->first();
             }
+            $department = $employee->data['department'] ?? '';
+            $coverage = DepartmentManagers::coverage();
+            if ($candidate && (string)$candidate->id === ($coverage['primary'][$department] ?? null) && isset($coverage['acting'][$department])) {
+                $replacement = $coverage['acting'][$department];
+                return $replacement !== (string)$employee->id ? $replacement : '';
+            }
             return $candidate && self::activeEmployee($candidate) && (string)$candidate->id !== (string)$employee->id ? (string)$candidate->id : '';
         }
-        $id = Setting::valueOf('department-managers')[$employee->data['department'] ?? ''] ?? '';
+        $id = DepartmentManagers::effective()[$employee->data['department'] ?? ''] ?? '';
         $candidate = is_scalar($id) && (string)$id !== '' ? Employee::find((string)$id) : null;
         return $candidate && self::activeEmployee($candidate) && (string)$candidate->id !== (string)$employee->id ? (string)$candidate->id : '';
     }

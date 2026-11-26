@@ -3,12 +3,83 @@ namespace App\Support;
 
 use App\Models\{Announcement, AdminDecision, Setting, SupportRequest, Task, User};
 use Illuminate\Support\Facades\{DB, Validator};
+use Illuminate\Support\Str;
 
 /** Persistent delivery/receipts for the authenticated account. Looking at a
  * notice never modifies task state or task clocks. Existing business records
  * remain the source of authority, including after a role/assignment change. */
 final class R19Notifications
 {
+    private const CIRCULAR_PREFIX = 'r19-administrative-circular:';
+
+    public static function publishCircular(User $actor, array $input): array
+    {
+        abort_unless($actor->globalPermission('publishAdministrativeCirculars'), 403, 'لا تملك صلاحية نشر تعميم إداري.');
+        $data = Validator::make($input, [
+            'title' => 'required|string|max:250',
+            'message' => 'required|string|max:10000',
+            'days' => 'required|integer|between:1,3650',
+            'displaySeconds' => 'nullable|integer|between:1,86400',
+            'repeatOnRefresh' => 'sometimes|boolean',
+            'requestId' => 'required|string|min:8|max:128',
+        ])->validate();
+
+        return R19Store::commit($actor, 'administrative-circular.publish', $data, function ($transaction) use ($actor, $data) {
+            abort_unless($actor->globalPermission('publishAdministrativeCirculars'), 403, 'لا تملك صلاحية نشر تعميم إداري.');
+            $publishedAt = now('UTC');
+            $id = (string) Str::ulid();
+            $document = [
+                'id' => $id,
+                'title' => $data['title'],
+                'message' => $data['message'],
+                'author' => $actor->name,
+                'displaySeconds' => isset($data['displaySeconds']) ? (int) $data['displaySeconds'] : null,
+                'repeatOnRefresh' => (bool) ($data['repeatOnRefresh'] ?? false),
+                'publishedAt' => $publishedAt->toIso8601String(),
+                'expiresAt' => $publishedAt->copy()->addDays((int) $data['days'])->toIso8601String(),
+            ];
+            R19Store::put(self::CIRCULAR_PREFIX.$id, $document, 0);
+            Audit::record($actor, 'hr', 'administrative-circulars', $id, 'publish', null, $document, $transaction);
+
+            return ['id' => $id, 'expiresAt' => $document['expiresAt']];
+        });
+    }
+
+    private static function circularActive(array $document): bool
+    {
+        $expires = TaskExecutionClock::epoch($document['expiresAt'] ?? null);
+
+        return $expires !== null && $expires > now()->getTimestampMs();
+    }
+
+    private static function activeCirculars(User $user): array
+    {
+        $recipient = self::owner($user);
+        $result = [];
+        foreach (Setting::query()->where('id', 'like', self::CIRCULAR_PREFIX.'%')
+            ->where('value->expiresAt', '>', now('UTC')->toIso8601String())->get(['value']) as $row) {
+            $circular = $row->value;
+            $id = self::id('administrative-circular:'.$circular['id']);
+            $result[$id] = [
+                'id' => $id,
+                'type' => 'administrative-circular',
+                'title' => $circular['title'],
+                'body' => $circular['message'],
+                'recipientIds' => [$recipient],
+                'source' => $circular['author'],
+                'sourceId' => $circular['id'],
+                'taskId' => '',
+                'details' => '',
+                'urgent' => false,
+                'displaySeconds' => $circular['displaySeconds'] ?? null,
+                'repeatOnRefresh' => (bool) ($circular['repeatOnRefresh'] ?? false),
+                'createdAt' => $circular['publishedAt'],
+                'expiresAt' => $circular['expiresAt'],
+            ];
+        }
+        return $result;
+    }
+
     private static function key(User $user): string
     {
         return 'r19-notifications:'.hash('sha256', (string) $user->id);
@@ -69,7 +140,7 @@ final class R19Notifications
     private static function managedDepartments(User $user): array
     {
         if (!$user->active || !$user->employee_id) return [];
-        return array_keys(array_filter(DepartmentManagers::normalize(Setting::valueOf('department-managers')),
+        return array_keys(array_filter(DepartmentManagers::effective(),
             fn ($id, $department) => $id === (string)$user->employee_id && $user->manages($department), ARRAY_FILTER_USE_BOTH));
     }
 
@@ -249,6 +320,9 @@ final class R19Notifications
             if (str_starts_with((string) ($notice['title'] ?? ''), 'مطلوب تعديل:')) return true;
             return !empty($notice['urgent']);
         }
+        if (($notice['type'] ?? '') === 'administrative-circular') {
+            return !empty($notice['readAt']) || self::circularActive($notice);
+        }
         if (($notice['type'] ?? '') === 'announcement') {
             $row = Announcement::find((string) ($notice['sourceId'] ?? ''));
             $d = $row?->document();
@@ -294,7 +368,15 @@ final class R19Notifications
 
     private static function project(User $user, array $box): array
     {
-        $items = array_values(array_filter($box['items'] ?? [], fn($item) => is_array($item) && self::visible($user, $item)));
+        $stored = array_filter($box['items'] ?? [], fn($item) => is_array($item) && self::visible($user, $item));
+        $items = array_values($stored + self::activeCirculars($user));
+        foreach ($items as &$item) {
+            if ($item['type'] === 'administrative-circular') {
+                $item['recipientIds'] = [self::owner($user)];
+                $item += ['displaySeconds' => null, 'repeatOnRefresh' => false];
+            }
+        }
+        unset($item);
         usort($items, fn($a, $b) => strcmp($b['createdAt'] ?? '', $a['createdAt'] ?? '') ?: strcmp($b['id'], $a['id']));
         return ['items' => $items, '_version' => $box['_version'] ?? 0,
             'unread' => count(array_filter($items, fn($item) => empty($item['readAt']))),
@@ -326,7 +408,7 @@ final class R19Notifications
             $key = self::key($user);
             $old = R19Store::get($key) ?? ['items' => [], '_version' => 0];
             $next = self::merged($user, $old);
-            $notice = $next['items'][$id] ?? null;
+            $notice = $next['items'][$id] ?? self::activeCirculars($user)[$id] ?? null;
             abort_unless(is_array($notice) && self::visible($user, $notice), 404, 'الإشعار غير متاح لهذا الحساب.');
             if (!empty($notice['readAt'])) {
                 // Another view may have acknowledged the source after this
@@ -337,7 +419,8 @@ final class R19Notifications
                 return ['id' => $id];
             }
             $at = now()->toIso8601String();
-            $next['items'][$id]['readAt'] = $at;
+            $notice['readAt'] = $at;
+            $next['items'][$id] = $notice;
             R19Store::put($key, $next, $old['_version']);
             if (($notice['type'] ?? '') === 'announcement' && $user->employee_id) {
                 $source = Announcement::findOrFail($notice['sourceId']);

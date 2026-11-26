@@ -385,6 +385,9 @@
       "statePath": "staffProfiles",
       "module": "hr",
       "fields": [
+        "photoKey",
+        "photoName",
+        "photoUpdatedAt",
         "employeeNo",
         "username",
         "name",
@@ -439,6 +442,8 @@
         "serviceEndReasonType",
         "lastWorkDay",
         "hasRelatives",
+        "relativeEmployeeId",
+        "relativeRelationship",
         "relativesDetails",
         "corporateEmail",
         "extension",

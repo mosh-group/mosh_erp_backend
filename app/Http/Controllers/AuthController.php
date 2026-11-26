@@ -10,8 +10,24 @@ use Illuminate\Validation\Rule;
 class AuthController extends Controller
 {
     public function status(Request $r) {
+        $authenticated = \App\Http\Middleware\ApiSession::valid($r);
+        $account = $authenticated ? $r->user() : null;
+
         return $this->ok(['setupRequired'=>!User::exists(),'setupAllowed'=>(bool)config('mosh.allow_setup'),
-            'authenticated'=>\App\Http\Middleware\ApiSession::valid($r),'csrfToken'=>csrf_token()]);
+            'authenticated'=>$authenticated,'csrfToken'=>csrf_token(),
+            'welcomeAccountId'=>$account && empty($account->data['welcomeAcknowledgedAt']) ? $account->id : null,
+        ])->header('Cache-Control', 'private, no-store');
+    }
+
+    public function sessionStatus(Request $r) {
+        $account = $r->user();
+        $authenticated = \App\Http\Middleware\ApiSession::valid($r);
+
+        return $this->ok([
+            'authenticated' => $authenticated,
+            'accountId' => $authenticated ? $account->id : null,
+            'frozen' => $account !== null && !$account->active,
+        ])->header('Cache-Control', 'private, no-store');
     }
     public function setup(Request $r) {
         abort_unless(config('mosh.allow_setup'),403,'الإعداد الأولي غير متاح.');
@@ -60,6 +76,29 @@ class AuthController extends Controller
         return $this->ok(['csrfToken'=>csrf_token()]);
     }
     public function me(Request $r) { return $this->ok($r->user()->document()+$r->user()->effectivePermissions()); }
+    public function acknowledgeWelcome(Request $request)
+    {
+        $account = $request->user();
+        $input = $request->validate(['accountId' => 'required|string|max:190']);
+        abort_unless($input['accountId'] === $account->id, 409, 'تغيّر حساب الدخول. سجّل الدخول من جديد.');
+
+        $confirmedAt = DB::transaction(function () use ($account) {
+            $locked = DB::table('app_locks')->where('id', 'business')->increment('revision');
+            abort_unless($locked === 1, 503, 'تعذر حفظ الاطلاع حالياً. أعد المحاولة.');
+            $current = User::whereKey($account->id)->lockForUpdate()->first();
+            abort_unless($current?->active && $current->auth_version === $account->auth_version, 401, 'سجّل الدخول من جديد.');
+            $data = $current->data ?? [];
+            if (!empty($data['welcomeAcknowledgedAt'])) return $data['welcomeAcknowledgedAt'];
+
+            $data['welcomeAcknowledgedAt'] = now()->toIso8601String();
+            $current->update(['data' => $data, 'version' => $current->version + 1]);
+
+            return $data['welcomeAcknowledgedAt'];
+        }, 3);
+
+        return $this->ok(['accountId' => $account->id, 'welcomeAcknowledgedAt' => $confirmedAt]);
+    }
+
     public function password(Request $r) {
         $p=Setting::valueOf('security');
         $v=$r->validate(['current_password'=>'required|string','password'=>'required|string|min:'.max(6,$p['minLength']??6).'|max:128|confirmed']);

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZktecoBridgeController;
 
+
+Route::get('auth/session', [\App\Http\Controllers\AuthController::class, 'sessionStatus'])
+    ->middleware([\Illuminate\Cookie\Middleware\EncryptCookies::class, \App\Http\Middleware\ReadOnlySession::class]);
 Route::prefix('integrations/zkteco')
     ->middleware(['zkteco.bridge', 'throttle:1200,1'])
     ->group(function () {

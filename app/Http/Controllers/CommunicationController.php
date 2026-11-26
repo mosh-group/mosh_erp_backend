@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\{User,StoredFile,FileLink};
 use App\Support\{Audit,R19Store};
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{DB,Validator};
 use Illuminate\Support\Str;
@@ -25,6 +26,7 @@ class CommunicationController extends Controller
  }
  private function document(object $m,?array $readBy=null): array {
   $d=(array)$m;$d['recipients']=json_decode($m->recipients,true);$d['attachments']=json_decode($m->attachments,true);
+  if($m->kind==='chat'&&Str::isUlid($m->thread_key))$d['groupId']=$m->thread_key;
   $d['starred']=(bool)($d['starred']??false);$d['read_at']=$d['read_at']??null;
   $d['readBy']=$readBy??DB::table('communication_participants')->where('message_id',$m->id)->where('is_sender',false)->whereNotNull('read_at')->pluck('read_at','user_id')->all();
   return $d;
@@ -41,10 +43,13 @@ class CommunicationController extends Controller
   return $this->ok(['assignedTasks'=>$tasks,'chat'=>(clone $q)->where('m.kind','chat')->count(),'mail'=>(clone $q)->where('m.kind','mail')->count()]);
  }
  public function index(Request $r) {
-  $u=$r->user();self::guard($u);$v=$r->validate(['kind'=>'required|in:chat,mail','folder'=>'nullable|string|max:80','peer'=>'nullable|string|max:190','q'=>'nullable|string|max:200','page'=>'nullable|integer|min:1','oversight'=>'nullable|boolean']);
+  $u=$r->user();self::guard($u);$v=$r->validate(['kind'=>'required|in:chat,mail','folder'=>'nullable|string|max:80','peer'=>'nullable|string|max:190','groupId'=>'nullable|ulid','q'=>'nullable|string|max:200','page'=>'nullable|integer|min:1','oversight'=>'nullable|boolean']);
   $over=$r->boolean('oversight');$q=$this->query($u,$over)->where('m.kind',$v['kind']);
+  $groupId=$v['groupId']??null;
+  abort_if($groupId&&($v['kind']!=='chat'||$over||!empty($v['peer'])),422);
   if($v['kind']==='chat'&&!$over){
-   if($peer=$v['peer']??''){$ids=[(string)$u->id,$peer];sort($ids);$q->where('m.thread_key',hash('sha256',implode('|',$ids)));}
+   if($groupId){$this->group($u,$groupId);$q->where('m.thread_key',$groupId);}
+   elseif($peer=$v['peer']??''){$ids=[(string)$u->id,$peer];sort($ids);$q->where('m.thread_key',hash('sha256',implode('|',$ids)));}
    else $q->whereIn('m.id',DB::table('communication_messages as c')->join('communication_participants as cp','cp.message_id','=','c.id')->where('cp.user_id',$u->id)->where('c.kind','chat')->groupBy('c.thread_key')->selectRaw('MAX(c.id)'));
   }
   if($v['kind']==='mail'&&!$over){
@@ -79,32 +84,97 @@ class CommunicationController extends Controller
   }
   return $out;
  }
- public function send(Request $r) {
+ private function group(User $actor,string $id): object
+ {
+  return $this->query($actor)->where('m.kind','chat')->whereColumn('m.id','m.thread_key')->where('m.id',$id)->first()??abort(404);
+ }
+
+ private function recipients(User $actor,array $ids): Collection
+ {
+  abort_if(in_array((string)$actor->id,$ids,true),422,'اختر موظفاً آخر.');
+  $people=User::whereIn('id',$ids)->where('active',true)->get(['id','name']);
+  abort_unless($people->count()===count($ids),422,'أحد المستلمين غير متاح.');
+  return $people;
+ }
+
+ private function storeMessage(User $actor,array $message,Collection $recipients,array $files=[]): void
+ {
+  $id=$message['id'];$now=now();
+  DB::table('communication_messages')->insert($message+[
+   'sender_id'=>$actor->id,'sender_name'=>$actor->name,'created_at'=>$now,'updated_at'=>$now,
+   'recipients'=>json_encode($recipients->map(fn($p)=>['id'=>$p->id,'name'=>$p->name])->all(),JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR),
+   'attachments'=>json_encode(array_map(fn($f)=>$f->document(),$files),JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR),
+  ]);
+  $participants=[['message_id'=>$id,'user_id'=>$actor->id,'is_sender'=>true,'box'=>'sent','read_at'=>$now]];
+  foreach($recipients as $person)$participants[]=['message_id'=>$id,'user_id'=>$person->id,'is_sender'=>false,'box'=>'inbox','read_at'=>null];
+  DB::table('communication_participants')->insert($participants);
+  foreach($files as $file)FileLink::firstOrCreate(['file_id'=>$file->id,'resource'=>'communication','record_id'=>$id]);
+ }
+
+ public function createGroup(Request $r)
+ {
+  $actor=$r->user();self::guard($actor);
+  $data=$r->validate([
+   'name'=>'required|string|max:150','recipientIds'=>'required|array|min:2|max:50',
+   'recipientIds.*'=>'required|string|distinct|max:190','requestId'=>'required|string|min:8|max:128',
+  ]);
+  $result=R19Store::commit($actor,'communication-create-group',$data,function($tx)use($actor,$data){
+   $recipients=$this->recipients($actor,$data['recipientIds']);
+   $id=(string)Str::ulid();
+   // The opening message records the title and initial membership.
+   $this->storeMessage($actor,[
+    'id'=>$id,'kind'=>'chat','thread_key'=>$id,'subject'=>$data['name'],'body'=>'أنشأ '.$actor->name.' المجموعة.',
+   ],$recipients);
+   Audit::record($actor,'communication','communication',$id,'create-group',null,['memberCount'=>$recipients->count()+1],$tx);
+   return ['id'=>$id];
+  });
+  return $this->ok($this->document($this->group($actor,$result['id'])),201);
+ }
+
+ public function send(Request $r)
+ {
   $u=$r->user();self::guard($u);
-  $v=$r->validate(['kind'=>'required|in:chat,mail','recipientIds'=>'required|array|min:1|max:50','recipientIds.*'=>'required|string|distinct|max:190',
-   'subject'=>'required_if:kind,mail|nullable|string|max:250','body'=>'nullable|string|max:20000','attachmentKeys'=>'sometimes|array|max:20','attachmentKeys.*'=>'string|max:190',
-   'replyTo'=>'nullable|string|max:40','draftId'=>'nullable|string|max:40','requestId'=>'required|string|min:8|max:128']);
-  if(trim((string)($v['body']??''))===''&&empty($v['attachmentKeys']))throw \Illuminate\Validation\ValidationException::withMessages(['body'=>'اكتب رسالة أو أرفق ملفاً.']);
-  $result=R19Store::commit($u,'communication-send',$v,function($tx)use($u,$v){
-   abort_if($v['kind']==='chat'&&count($v['recipientIds'])!==1,422,'اختر موظفاً واحداً للدردشة.');
-   $recipients=User::whereIn('id',$v['recipientIds'])->where('active',true)->get();
-   abort_unless($recipients->count()===count($v['recipientIds']),422,'أحد المستلمين غير متاح.');
-   abort_if(in_array((string)$u->id,$v['recipientIds'],true),422,'اختر موظفاً آخر.');
-   $files=$this->attachments($u,$v['attachmentKeys']??[]);$id=(string)Str::ulid();$thread=$id;
-   if($v['kind']==='chat'){$ids=[(string)$u->id,(string)$recipients->first()->id];sort($ids);$thread=hash('sha256',implode('|',$ids));}
+  $v=$r->validate([
+   'kind'=>'required|in:chat,mail','groupId'=>'nullable|ulid',
+   'recipientIds'=>'required_without:groupId|array|min:1|max:50','recipientIds.*'=>'required|string|distinct|max:190',
+   'subject'=>'required_if:kind,mail|nullable|string|max:250','body'=>'nullable|string|max:20000',
+   'attachmentKeys'=>'sometimes|array|max:20','attachmentKeys.*'=>'string|max:190',
+   'replyTo'=>'nullable|string|max:40','draftId'=>'nullable|string|max:40','requestId'=>'required|string|min:8|max:128',
+  ]);
+  if(trim((string)($v['body']??''))===''&&empty($v['attachmentKeys']))
+   throw \Illuminate\Validation\ValidationException::withMessages(['body'=>'اكتب رسالة أو أرفق ملفاً.']);
+  $groupId=$v['groupId']??null;
+  abort_if($groupId&&($v['kind']!=='chat'||!empty($v['draftId'])||array_key_exists('recipientIds',$v)),422);
+  $result=R19Store::commit($u,'communication-send',$v,function($tx)use($u,$v,$groupId){
+   $id=(string)Str::ulid();$thread=$id;$subject=$v['subject']??'';
+   if($groupId){
+    $group=$this->group($u,$groupId);
+    $memberIds=DB::table('communication_participants')->where('message_id',$group->id)->select('user_id');
+    $recipients=User::whereIn('id',$memberIds)->where('id','!=',$u->id)->where('active',true)->get(['id','name']);
+    abort_if($recipients->isEmpty(),422,'لا يوجد أعضاء متاحون في المجموعة.');
+    $thread=$groupId;$subject=$group->subject;
+   } else {
+    abort_if($v['kind']==='chat'&&count($v['recipientIds'])!==1,422,'اختر موظفاً واحداً للدردشة.');
+    $recipients=$this->recipients($u,$v['recipientIds']);
+    if($v['kind']==='chat'){
+     $ids=[(string)$u->id,(string)$recipients->first()->id];sort($ids);$thread=hash('sha256',implode('|',$ids));
+    }
+   }
    if($parent=$v['replyTo']??''){
     abort_unless(DB::table('communication_participants')->where(['message_id'=>$parent,'user_id'=>$u->id])->exists(),404);
-    $old=DB::table('communication_messages')->where('id',$parent)->first();abort_unless($old&&$old->kind===$v['kind'],422);if($v['kind']==='chat')abort_unless($old->thread_key===$thread,422);else $thread=$old->thread_key;
+    $old=DB::table('communication_messages')->where('id',$parent)->first();
+    abort_unless($old&&$old->kind===$v['kind'],422);
+    if($v['kind']==='chat')abort_unless($old->thread_key===$thread,422);else $thread=$old->thread_key;
    }
-   DB::table('communication_messages')->insert(['id'=>$id,'kind'=>$v['kind'],'thread_key'=>$thread,'sender_id'=>$u->id,'sender_name'=>$u->name,
-    'subject'=>$v['subject']??'','body'=>$v['body']??'','recipients'=>json_encode($recipients->map(fn($p)=>['id'=>$p->id,'name'=>$p->name])->all(),JSON_UNESCAPED_UNICODE),
-    'attachments'=>json_encode(array_map(fn($f)=>$f->document(),$files),JSON_UNESCAPED_UNICODE),'reply_to'=>$v['replyTo']??null,'created_at'=>now(),'updated_at'=>now()]);
-   foreach(array_merge([$u],$recipients->all()) as $person)DB::table('communication_participants')->insert(['message_id'=>$id,'user_id'=>$person->id,'is_sender'=>$person->id===$u->id,'box'=>$person->id===$u->id?'sent':'inbox','read_at'=>$person->id===$u->id?now():null]);
-   foreach($files as $f)FileLink::firstOrCreate(['file_id'=>$f->id,'resource'=>'communication','record_id'=>$id]);
+   $this->storeMessage($u,[
+    'id'=>$id,'kind'=>$v['kind'],'thread_key'=>$thread,'subject'=>$subject,
+    'body'=>$v['body']??'','reply_to'=>$v['replyTo']??null,
+   ],$recipients,$this->attachments($u,$v['attachmentKeys']??[]));
    if($draft=$v['draftId']??'')DB::table('communication_drafts')->where(['id'=>$draft,'user_id'=>$u->id])->delete();
-   Audit::record($u,'communication','communication',$id,'send',null,['kind'=>$v['kind'],'recipientCount'=>count($v['recipientIds'])],$tx);
+   Audit::record($u,'communication','communication',$id,'send',null,['kind'=>$v['kind'],'recipientCount'=>$recipients->count()],$tx);
    return ['id'=>$id];
-  });return $this->ok($this->document($this->query($u)->where('m.id',$result['id'])->first()),201);
+  });
+  return $this->ok($this->document($this->query($u)->where('m.id',$result['id'])->first()),201);
  }
  public function read(Request $r) {
   self::guard($r->user());$v=$r->validate(['ids'=>'required|array|max:100','ids.*'=>'string|max:40']);

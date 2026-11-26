@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\R34;
 use App\Models\{Employee,User,Setting};
-use App\Support\{R19Store,R19HrAccess,Audit};
+use App\Support\{R19Store,R19HrAccess,Audit,DepartmentManagers};
 use Illuminate\Support\Facades\Validator;
 final class Hierarchy
 {
@@ -47,19 +47,23 @@ final class Hierarchy
             abort_unless(self::configure($a),403);$old=self::get();
             abort_unless($old['_version']===(int)$in['_version'],409,'تغير الهيكل؛ حدّث الصفحة قبل الحفظ.');
             $people=self::activePeople();$gm=(string)($in['generalManagerId']??'');$exec=(string)($in['executiveId']??'');$parents=$in['reportsTo'];
+            $activeIds=array_map('strval',array_keys($people));
             abort_if($gm!==''&&$gm===$exec,422,'المدير العام والمدير التنفيذي منصبان لشخصين مختلفين.');
             if($exec!==''&&$gm!=='')$parents[$exec]=$gm; // Explicit hierarchy save; does not alter employee/department records.
-            foreach([$gm,$exec]as$id)if($id!=='')abort_unless(isset($people[$id])&&self::userFor($id),422,'حدد مسؤولاً نشطاً مرتبطاً بحساب دخول واحد فعّال.');
+            foreach([$gm,$exec]as$id)if($id!=='')abort_unless(isset($people[$id]),422,'حدد المدير العام والمدير التنفيذي من الموظفين النشطين.');
             if($in['enabled']){
                 abort_unless($exec!=='',422,'حدد المدير التنفيذي المستقل عن المدير العام.');
-                try{$parents=HierarchyRules::validate($parents,$gm,array_keys($people));}catch(\DomainException$e){abort(422,$e->getMessage());}
+                try{$parents=HierarchyRules::validate($parents,$gm,$activeIds);}catch(\DomainException$e){abort(422,$e->getMessage());}
                 foreach(array_unique(array_map('strval',Setting::valueOf('department-managers')))as$id){
                     if($id===''||!isset($people[$id])||$id===$gm)continue;
                     abort_unless(isset($parents[$id]),422,'حدد المدير الأعلى للمدير: '.($people[$id]->data['name']??$id));
                 }
-                foreach(array_unique(array_values($parents))as$id)abort_unless(self::userFor($id),422,'المسؤول الأعلى يحتاج حساب دخول نشطاً واحداً.');
+                foreach(array_unique(array_merge([$gm,$exec],array_values($parents)))as$id){
+                    $name=$people[$id]->data['name']??$id;
+                    abort_unless(self::userFor($id),422,'اربط «'.$name.'» بحساب دخول نشط واحد قبل تفعيل التسلسل.');
+                }
             } elseif($parents) {
-                try{$parents=HierarchyRules::validate($parents,$gm,array_keys($people));}catch(\DomainException$e){abort(422,$e->getMessage());}
+                try{$parents=HierarchyRules::validate($parents,$gm,$activeIds);}catch(\DomainException$e){abort(422,$e->getMessage());}
             }
             $doc=['enabled'=>$in['enabled'],'generalManagerId'=>$gm,'executiveId'=>$exec,'reportsTo'=>$parents,'routes'=>$in['routes'],
                 'updatedAt'=>now()->toIso8601String(),'updatedBy'=>$a->name,'updatedById'=>(string)$a->id];
@@ -75,7 +79,8 @@ final class Hierarchy
         if(isset($c['reportsTo'][$eid]))return (string)$c['reportsTo'][$eid];
         $managers=Setting::valueOf('department-managers');
         if(in_array($eid,array_map('strval',$managers),true))return ''; // missing manager-parent is not inferred
-        $id=(string)($managers[$employee->data['department']??'']??'');
+        $department=$employee->data['department']??'';
+        $id=(string)($managers[$department]??'');
         return $id!==$eid?$id:'';
     }
     public static function approvers(string $employeeId,string $kind): array
@@ -88,6 +93,16 @@ final class Hierarchy
         catch(\DomainException$ex){abort(422,$ex->getMessage());}
         abort_unless($ids,422,'لم يحدد مسؤول أعلى لهذا الموظف؛ لا يمكن اعتماد الشخص طلبه بنفسه.');
         $out=[];foreach($ids as$id){$u=self::userFor($id);$p=Employee::find($id);
+            if (!$u && $kind === 'hr' && $id === $first) {
+                $department = $e->data['department'] ?? '';
+                $coverage = DepartmentManagers::coverage();
+                $backup = $coverage['acting'][$department] ?? '';
+                if (($coverage['primary'][$department] ?? null) === $id && $backup !== '' && $backup !== $employeeId) {
+                    // Preserve the named manager's account in the approval route.
+                    $linked = User::where('employee_id', $id)->limit(2)->get();
+                    if ($linked->count() === 1) $u = $linked->first();
+                }
+            }
             abort_unless($u&&$p&&R19HrAccess::activeEmployee($p),422,'أحد مسؤولي الاعتماد غير مرتبط بحساب نشط وحيد.');
             $out[]=['employeeId'=>$id,'userId'=>(string)$u->id,'name'=>$u->name];}
         return $out;
@@ -106,7 +121,17 @@ final class Hierarchy
     }
     public static function currentHrApprover(array $d): ?array
     {
-        return $d['r34Approval']['byStage'][(string)($d['stageIndex']??$d['currentLevel']??0)]??null;
+        $approver = $d['r34Approval']['byStage'][(string)($d['stageIndex']??$d['currentLevel']??0)]??null;
+        if (!$approver || ($d['status']??'') !== 'pending') return $approver;
+        $coverage = DepartmentManagers::coverage();
+        if (!$coverage['acting']) return $approver;
+        $subject = (string)($d['employeeId']??'');
+        $department = $d['department']??Employee::find($subject)?->department??'';
+        $primary = $coverage['primary'][$department]??'';
+        $backup = $coverage['acting'][$department]??'';
+        if ($backup==='' || $backup===$subject || $primary!==(string)($approver['employeeId']??'')) return $approver;
+        $account = self::userFor($backup);
+        return $account ? ['employeeId'=>$backup,'userId'=>(string)$account->id,'name'=>$account->name] : $approver;
     }
     public static function isHrApprover(User $a,array $d): bool
     {

@@ -15,10 +15,13 @@ class Setting extends Model {
   try { return $read(); }
   finally { $request->attributes->remove(self::READ_SNAPSHOT); }
  }
- public static function valueOf(string $key, mixed $default=[]): mixed {
+ public static function memoizedRead(string $key, callable $build): mixed {
   $snapshot = app('request')->attributes->get(self::READ_SNAPSHOT);
-  if (!$snapshot) return static::find($key)?->value ?? $default;
-  if (!array_key_exists($key, $snapshot->values)) $snapshot->values[$key] = static::find($key)?->value;
-  return $snapshot->values[$key] ?? $default;
+  if (!$snapshot) return $build();
+  if (!array_key_exists($key, $snapshot->values)) $snapshot->values[$key] = $build();
+  return $snapshot->values[$key];
+ }
+ public static function valueOf(string $key, mixed $default=[]): mixed {
+  return self::memoizedRead($key, fn()=>static::find($key)?->value) ?? $default;
  }
 }

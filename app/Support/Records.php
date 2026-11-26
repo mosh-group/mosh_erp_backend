@@ -58,6 +58,12 @@ class Records
         foreach (['active','enabled','isDefault'] as $field) if (isset($new[$field])) $rules[$field]='boolean';
         foreach (['email','personalEmail','corporateEmail'] as $field) if (!empty($new[$field])) $rules[$field]='email:rfc|max:254';
         foreach (['lines','optional','attachments','history','documents','leaveRecords','attendanceRecords','delayRecords','disciplinaryRecords','rewardRecords','evaluationRecords','payrollRecords','marketingProfile','workTiming','workChat','signatures','operation18','finance21','candidates','statuses','activities','blocks','columns','data','route','levels'] as $field) if (isset($new[$field])) $rules[$field]='array|max:2000';
+        if ($resource==='employees') {
+            $rules += [
+                'photoKey'=>'nullable|string|max:190','photoName'=>'nullable|string|max:250','photoUpdatedAt'=>'nullable|date',
+                'relativeEmployeeId'=>'nullable|string|max:190','relativeRelationship'=>'nullable|string|max:120',
+            ];
+        }
         Validator::make($new,$rules)->validate();
         abort_if(strlen(json_encode($new))>2*1024*1024,413,'حجم السجل كبير جداً.');
         if ($resource==='tasks'&&array_key_exists('assignee',$input)&&$input['assignee']===''&&!array_key_exists('assigneeId',$input)) $new['assigneeId']='';
@@ -85,6 +91,7 @@ class Records
             if ($value) { $rc=self::model($related); abort_unless($rc::whereKey($value)->exists(),422,'السجل المرتبط غير موجود: '.$related); }
             $attrs[$column]=$value;
         }
+        if ($resource === 'tasks' && $action === 'create') TaskIdReservations::registerCreate($actor, (string)$id);
         $row->fill($attrs)->save();
         if($resource==='payroll-hours') \App\Services\R29\PayrollAdjustments::afterHours($row->document(),$old);
         if ($resource==='employees' && config('zkteco.enabled')) app(\App\Services\ZKTeco\ZktecoService::class)->syncPrimaryMapping($row);
@@ -106,7 +113,8 @@ class Records
         }
     }
     private static function links(User $actor,string $resource,string $id,array $d): void {
-        $keys=[];
+        $photoKey=$resource==='employees'?($d['photoKey']??''):'';
+        $keys=$photoKey!==''?[$photoKey]:[];
         $scan=function($v,bool $attachment=false) use(&$scan,&$keys) {
             if (!is_array($v)) return;
             foreach ($v as $k=>$x) {
@@ -118,6 +126,9 @@ class Records
         abort_unless(count($keys)===$files->count(),422,'أحد المرفقات غير موجود. ارفع الملف أولاً.');
         foreach ($files as $f) {
             abort_unless($f->owner_id===$actor->id||FileLink::where('file_id',$f->id)->where('resource',$resource)->where('record_id',$id)->exists()||$actor->root(),403,'المرفق ليس متاحاً لهذا السجل.');
+            if ($f->logical_key===$photoKey) {
+                abort_unless(in_array($f->mime,['image/jpeg','image/png','image/webp','image/gif','image/bmp','image/x-ms-bmp','image/tiff','image/heic','image/heif'],true),422,'ملف صورة الموظف غير صالح.');
+            }
             FileLink::firstOrCreate(['file_id'=>$f->id,'resource'=>$resource,'record_id'=>$id]);
         }
         FileLink::where(['resource'=>$resource,'record_id'=>$id])->whereNotIn('file_id',$files->pluck('id'))->delete();

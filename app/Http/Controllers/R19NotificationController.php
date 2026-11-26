@@ -8,7 +8,12 @@ final class R19NotificationController extends Controller
 {
     public function index(Request $request)
     {
-        return $this->ok(R19Notifications::inbox($request->user()));
+        return \App\Models\Setting::readOnlySnapshot(fn () => $this->ok(R19Notifications::inbox($request->user())));
+    }
+
+    public function publishCircular(Request $request)
+    {
+        return $this->ok(R19Notifications::publishCircular($request->user(), $request->all()), 201);
     }
 
     public function acknowledge(Request $request, string $id)

@@ -370,6 +370,50 @@ class BackendAuditTest extends TestCase
         $this->change('tasks','ROOT',['sharedDistributionRoot'=>false])->assertUnprocessable();
         $this->change('tasks','ROOT',['status'=>'completed'])->assertUnprocessable();
     }
+    public function test_task_graph_uses_final_parent_links_and_rolls_back_an_invalid_move(): void
+    {
+        $original = $this->task(['id'=>'ORIGINAL']);
+        $destination = $this->task(['id'=>'DESTINATION']);
+        $child = $this->task(['id'=>'CHILD','parentTaskId'=>'ORIGINAL']);
+
+        $this->batch([
+            ['resource'=>'tasks','action'=>'update','id'=>'ORIGINAL','version'=>$original['_version'],'data'=>['status'=>'completed']],
+            ['resource'=>'tasks','action'=>'update','id'=>'CHILD','version'=>$child['_version'],'data'=>['parentTaskId'=>'DESTINATION']],
+        ])->assertOk();
+
+        $this->change('tasks','CHILD',['parentTaskId'=>'ORIGINAL'])->assertUnprocessable()
+            ->assertJsonPath('message','أكمل المهام الفرعية أولاً.');
+        $saved = Task::findOrFail('CHILD');
+        $this->assertSame('DESTINATION',$saved->parent_id);
+        $this->assertSame($child['_version']+1,$saved->version);
+        $this->assertSame($destination['_version'],Task::findOrFail('DESTINATION')->version);
+        $this->patchJson('/api/tasks/CHILD',['_version'=>$child['_version'],'title'=>'Stale'])->assertConflict();
+        $this->deleteJson('/api/tasks/CHILD',['_version'=>$saved->version])->assertForbidden();
+    }
+    public function test_task_graph_checks_dependants_when_shared_root_or_parent_changes(): void
+    {
+        $this->create('customers',['id'=>'OTHER','name'=>'Other']);
+        $this->task(['id'=>'700','sharedDistributionRoot'=>true]);
+        $this->task(['id'=>'BRANCH','parentTaskId'=>'700','sharedRootTaskId'=>700]);
+        $this->task(['id'=>'LEAF','parentTaskId'=>'BRANCH','sharedRootTaskId'=>'700','sharedDistributionChild'=>true]);
+        // Preserve the parent link of an older record that has only the document field.
+        Task::whereKey('LEAF')->update(['parent_id'=>null]);
+
+        $this->change('tasks','700',['customer'=>'Other','customerId'=>'OTHER'])->assertUnprocessable()
+            ->assertJsonPath('message','عميل المهمة المشتركة مختلف.');
+        $this->change('tasks','BRANCH',['sharedRootTaskId'=>null])->assertUnprocessable()
+            ->assertJsonPath('message','الأب لا يتبع أصل المهمة المشتركة.');
+        $this->change('tasks','700',['sharedDistributionRoot'=>false])->assertUnprocessable()
+            ->assertJsonPath('message','أصل المهمة المشتركة غير صالح.');
+
+        $updates = [];
+        foreach (['700','BRANCH','LEAF'] as $id) {
+            $updates[] = ['resource'=>'tasks','action'=>'update','id'=>$id,'version'=>Task::findOrFail($id)->version,
+                'data'=>['customer'=>'Other','customerId'=>'OTHER']];
+        }
+        $this->batch($updates)->assertOk();
+        $this->assertSame('Other',Task::findOrFail('LEAF')->data['customer']);
+    }
     public function test_b22_linked_hr_sources_cannot_be_deleted_or_self_approved(): void {
         $this->employee();$this->change('employees','WORKER',['rewardRecords'=>[['id'=>'REWARD','status'=>'pending']]])->assertOk();
         $a=$this->create('hr-approvals',['type'=>'reward','employeeId'=>'WORKER','sourceId'=>'REWARD','title'=>'Reward']);

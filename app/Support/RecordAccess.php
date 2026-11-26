@@ -30,6 +30,10 @@ class RecordAccess
             }
             if (in_array($action,['list','details'],true) && $u->allows('social','view')) return true;
         }
+        if ($resource==='tasks') {
+            $access=self::taskDepartmentAccess($u,$d['department']??null,$action);
+            return $access==='all'||($access==='mine'&&self::taskOwn($u,$d));
+        }
         $m=self::module($resource,$d);
         foreach (['view',$action] as $permission) if (data_get($u->data,'moduleOverrides.'.$m.'.'.$permission)===false) return false;
         if ($resource==='employment-contracts') return \App\Services\R29\HrWorkflow::hr($u,$action==='list'?'details':$action);
@@ -39,13 +43,6 @@ class RecordAccess
             return true;
         }
         if (in_array($resource,['work-presence','field-work'],true)) return self::own($u,$d) || ($u->manages($d['department']??'') && ($d['department']??''));
-        if ($resource==='tasks') {
-            if (self::taskOwn($u,$d)) return true;
-            $scope=$u->taskScope();
-            if ($scope==='mine') return false;
-            if ($scope==='department') return (($d['department']??'')===$u->department||$u->manages($d['department']??''))&&$u->allows($m,$action);
-            return $u->allows($m,$action)||$u->globalPermission('viewAllTasks');
-        }
         if ($resource==='customers') return Task::where('employee_id',$u->employee_id)->where('data->customer',$d['name']??'')->exists();
         if ($resource==='payments' && $u->allows('hr',$action)) return (FinanceRules::document($d['docId']??'')['kind']??'')==='employee';
         if ($resource==='financial-documents' && ($d['kind']??'')==='employee' && $u->allows('hr',$action)) return true;
@@ -69,6 +66,22 @@ class RecordAccess
         if (in_array($u->role?->data['scope']??'',['department','department_limited'],true)&&!empty($d['department'])&&$d['department']!==$u->department&&!$u->manages($d['department'])) return false;
         return $u->allows($m,$action);
     }
+    public static function taskDepartmentAccess(User $u, ?string $department, string $action='list'): string {
+        if (!$u->active) return 'none';
+        if ($u->root()) return 'all';
+        $module = User::departmentApp($department ?? 'tasks');
+        foreach (['view',$action] as $permission) {
+            if (data_get($u->data,'moduleOverrides.'.$module.'.'.$permission)===false) return 'none';
+        }
+        if (in_array($department, DepartmentManagers::actingDepartments($u), true)) return $u->allows($module,$action) ? 'all' : 'mine';
+        $scope = $u->taskScope();
+        if ($scope === 'mine') return 'mine';
+        if ($scope === 'department') {
+            $department ??= '';
+            return ($department === $u->department || $u->manages($department)) && $u->allows($module,$action) ? 'all' : 'mine';
+        }
+        return $u->allows($module,$action) || $u->globalPermission('viewAllTasks') ? 'all' : 'mine';
+    }
     public static function settingsReadable(User $u, string $key): bool {
         return $u->active && ($key === 'department-managers' || self::settings($u, $key));
     }
@@ -90,20 +103,31 @@ class RecordAccess
         return $u->allows($module,$action);
     }
     public static function document(User $u,string $resource,array $d): array {
-        if ($resource==='tasks' && !empty($d['sharedDistributionChild']) && ($d['sharedNodeType']??'')==='department'
-            && ($d['department']??'')==='التسويق' && !empty($d['parentTaskId'])
-            && (string)$d['parentTaskId']===(string)($d['sharedRootTaskId']??'')
-            && ($u->manages('التسويق') || $u->allows('marketing','assign'))) {
-            $d['participatingDepartments']=Task::where('parent_id',(string)$d['parentTaskId'])
-                ->where('data->sharedNodeType','department')->get(['department','data'])
-                ->reject(fn($unit)=>!empty($unit->data['deletedAt']))
-                ->map(fn($unit)=>$unit->data['sharedDepartment']??$unit->department)
-                ->filter()->unique()->values()->all();
-        }
+        if ($resource==='tasks') return self::taskDocuments($u,[$d])[0];
         if ($resource==='employees' && !$u->root() && !($u->allows('hr','view') && $u->allows('hr','details')) && (string)$u->employee_id!==(string)($d['id']??'')) {
             return Arr::only($d,['id','_version','employeeNo','name','department','jobTitle','employmentStatus','active','directManager','isManager','fieldWorkTemplateId','fieldTemplateId']);
         }
         return $d;
+    }
+    public static function taskDocuments(User $u, array $documents): array {
+        $parents = [];
+        foreach ($documents as $index => $task) {
+            if (!empty($task['sharedDistributionChild']) && ($task['sharedNodeType'] ?? '') === 'department'
+                && ($task['department'] ?? '') === 'التسويق' && !empty($task['parentTaskId'])
+                && (string)$task['parentTaskId'] === (string)($task['sharedRootTaskId'] ?? '')) {
+                $parents[$index] = (string)$task['parentTaskId'];
+            }
+        }
+        if (!$parents || (!$u->manages('التسويق') && !$u->allows('marketing','assign'))) return $documents;
+        $participating = Task::whereIn('parent_id', array_values(array_unique($parents)))
+            ->where('data->sharedNodeType','department')
+            ->get(['parent_id','department','data'])
+            ->reject(fn($unit) => !empty($unit->data['deletedAt']))
+            ->groupBy('parent_id')
+            ->map(fn($units) => $units->map(fn($unit) => $unit->data['sharedDepartment'] ?? $unit->department)
+                ->filter()->unique()->values()->all());
+        foreach ($parents as $index => $parent) $documents[$index]['participatingDepartments'] = $participating->get($parent, []);
+        return $documents;
     }
     public static function write(User $u,string $resource,string $action,?array $old,array $new): void {
         if ($resource==='stock-movements'&&\App\Services\R34\CommandContext::permits('damage',(string)($new['id']??''))) return;

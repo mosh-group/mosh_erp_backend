@@ -60,6 +60,7 @@ class AccountController extends Controller
                 if ($row?->root()) abort_unless($v['active'] && $v['roleId']==='app_programmer',422,'لا يمكن تعطيل أو تغيير دور الحساب الأساسي.');
                 abort_if($row?->id===$r->user()->id && !$v['active'],422,'لا يمكن تعطيل حسابك الحالي.');
                 $role=Role::findOrFail($v['roleId']);
+                abort_if($role->id==='role_admin' && $row?->role?->id!=='role_admin',422,'اختر دوراً متاحاً للمستخدم.');
                 if (($v['taskScope']??'')==='mine'||$v['roleId']==='role_employee'||($role->data['scope']??'')==='department_limited') abort_unless(!empty($v['employeeId']),422,'اربط الحساب بملف الموظف.');
                 $this->permissionCeiling($r->user(),$role->data);
                 if (!$r->user()->root() && ($v['taskScope']??'inherit')==='all') abort_unless($r->user()->taskScope()==='all',403);

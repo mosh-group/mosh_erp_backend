@@ -23,7 +23,7 @@ class User extends Authenticatable
         return ['الإدارة'=>'admin','تكنولوجيا المعلومات'=>'it','قسم تكنولوجيا المعلومات'=>'it','IT'=>'it','الموارد البشرية'=>'hr','المبيعات'=>'sales','التسويق'=>'marketing','السوشال ميديا'=>'social','السوشل ميديا'=>'social','قسم السوشال ميديا'=>'social',
             'التصميم'=>'design','التصوير'=>'photo','المونتاج'=>'editing','الترويج'=>'promotion',
             'الخدمات الإدارية'=>'logistics','اللوجستيات'=>'logistics','المشتريات'=>'purchases','المحاسبة'=>'accounting',
-            'المستودعات العامة'=>'warehouses','المهمات'=>'tasks'][$department] ?? $department;
+            'المستودعات العامة'=>'warehouses','المهمات'=>'tasks','MOSH MEDIA'=>'platform'][$department] ?? $department;
     }
     public function root(): bool { return $this->is_root && $this->role_id === 'app_programmer'; }
     public function globalPermission(string $key): bool
@@ -44,6 +44,9 @@ class User extends Authenticatable
         if (($role['scope']??'')==='all') $base=true;
         if (in_array($role['scope']??'', ['department','department_limited'],true) && ($module===self::departmentApp($this->department) || $this->managesModule($module))) {
             $base=(bool)data_get($role,'scopeActions.'.$action,false);
+        }
+        if (!$base && in_array($module, array_map(self::departmentApp(...), \App\Support\DepartmentManagers::actingDepartments($this)), true)) {
+            $base = (bool)(\App\Support\DepartmentManagers::actions()[$action] ?? false);
         }
         return (bool)data_get($this->data,'moduleOverrides.'.$module.'.'.$action,$base);
     }
@@ -83,12 +86,12 @@ class User extends Authenticatable
         if ($this->root()) return true;
         $employee = $this->employee;
         if (!$employee || !\App\Support\R19HrAccess::activeEmployee($employee)) return false;
-        return (string)(Setting::valueOf('department-managers')[$department] ?? '') === (string)$this->employee_id;
+        return (string)(\App\Support\DepartmentManagers::effective()[$department] ?? '') === (string)$this->employee_id;
     }
     private function managesModule(string $module): bool
     {
         if (!$this->employee_id) return false;
-        foreach (\App\Support\DepartmentManagers::normalize(Setting::valueOf('department-managers')) as $department => $id) {
+        foreach (\App\Support\DepartmentManagers::effective() as $department => $id) {
             if ($id === (string)$this->employee_id && self::departmentApp($department) === $module && $this->manages($department)) return true;
         }
         return false;
@@ -101,7 +104,7 @@ class User extends Authenticatable
     {
         $modules=['it','dashboard','tasks','admin','hr','sales','marketing','social','design','photo','editing','promotion','logistics','purchases','accounting','warehouses','platform','archive','instructions'];
         $actions=['view','dashboard','running','approvals','list','details','create','edit','status','assign','delete','approve','attachments','reports','print','export'];
-        $globals=['communicationOversight','connectFacebook','publishFacebookDirect','scheduleFacebookDirect','approveFacebookPosts','viewFacebookInsights','viewITSecrets','manageITAccounts','connectInstagram','scheduleInstagramDirect','publishInstagramDirect','approveInstagramPosts','viewInstagramInsights','systemCustomization','appearanceSettings','manageUsers','managePermissions','viewPasswords','auditLog','createTasks','createCustomers','editCustomers','notifications','viewAllTasks','editCoreTaskData','deleteTasks','viewArchive','zktecoStatus','zktecoSyncActivity','zktecoUnmapped','zktecoRetry','zktecoReconciliation','zktecoErrors','zktecoDeviceDetails','zktecoRawAudit','zktecoMappings','zktecoMappingActions','manageOfficialStationery','approveOfficialSeal'];
+        $globals=['communicationOversight','connectFacebook','publishFacebookDirect','scheduleFacebookDirect','approveFacebookPosts','viewFacebookInsights','viewITSecrets','manageITAccounts','connectInstagram','scheduleInstagramDirect','publishInstagramDirect','approveInstagramPosts','viewInstagramInsights','systemCustomization','appearanceSettings','manageUsers','managePermissions','viewPasswords','auditLog','publishAdministrativeCirculars','createTasks','createCustomers','editCustomers','notifications','viewAllTasks','editCoreTaskData','deleteTasks','viewArchive','zktecoStatus','zktecoSyncActivity','zktecoUnmapped','zktecoRetry','zktecoReconciliation','zktecoErrors','zktecoDeviceDetails','zktecoRawAudit','zktecoMappings','zktecoMappingActions','manageOfficialStationery','approveOfficialSeal'];
         $permissions=[];foreach ($modules as $module) foreach ($actions as $action) $permissions[$module][$action]=$this->allows($module,$action);
         return ['role'=>$this->role?->document(),'effectivePermissions'=>['modules'=>$permissions,'globals'=>array_combine($globals,array_map(fn($key)=>$key==='createCustomers'?$this->customerPermission('create'):($key==='editCustomers'?$this->customerPermission('edit'):$this->globalPermission($key)),$globals))],'effectiveTaskScope'=>$this->taskScope()];
     }

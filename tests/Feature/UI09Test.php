@@ -51,6 +51,36 @@ class UI09Test extends TestCase
   $this->asUser('two');$this->getJson('/api/communication/drafts')->assertOk()->assertJsonCount(0,'data');
   $this->postJson('/api/communication/drafts',['id'=>$draft,'body'=>'stolen'])->assertNotFound();
  }
+ public function test_group_creation_delivery_replies_and_membership(): void {
+  $this->asUser('one');
+  $ids=[$this->people['two']->id,$this->people['three']->id];
+  $group=['name'=>'مجموعة الاختبار','recipientIds'=>$ids,'requestId'=>'qa-create-test-group'];
+  $this->postJson('/api/communication/chat-groups',array_replace($group,['recipientIds'=>[$ids[0]]]))->assertUnprocessable();
+  $this->postJson('/api/communication/chat-groups',array_replace($group,['recipientIds'=>[$this->people['one']->id,$ids[0]]]))->assertUnprocessable();
+  $id=$this->postJson('/api/communication/chat-groups',$group)->assertCreated()->assertJsonPath('data.subject',$group['name'])->json('data.groupId');
+  $this->postJson('/api/communication/chat-groups',$group)->assertCreated()->assertJsonPath('data.groupId',$id);
+  $this->assertDatabaseCount('communication_messages',1);
+
+  $this->asUser('two');
+  $this->getJson('/api/communication/messages?kind=chat')->assertOk()->assertJsonPath('data.items.0.groupId',$id);
+  $this->getJson('/api/communication/counts')->assertOk()->assertJsonPath('data.chat',1);
+  $message=['kind'=>'chat','groupId'=>$id,'subject'=>'Client cannot rename','body'=>'Synthetic group reply','requestId'=>'qa-reply-to-group'];
+  $this->postJson('/api/communication/messages',$message+['recipientIds'=>[$this->people['root']->id]])->assertUnprocessable();
+  $sent=$this->postJson('/api/communication/messages',$message)->assertCreated()->assertJsonPath('data.subject',$group['name'])->json('data');
+  $this->assertEqualsCanonicalizing([$this->people['one']->id,$this->people['three']->id],array_column($sent['recipients'],'id'));
+
+  $this->asUser('three');
+  $this->getJson('/api/communication/messages?kind=chat&groupId='.$id)->assertOk()->assertJsonPath('data.total',2)
+   ->assertJsonPath('data.items.0.body',$message['body']);
+  $this->getJson('/api/communication/messages?kind=chat&peer='.$this->people['two']->id)->assertOk()->assertJsonPath('data.total',0);
+  $this->postJson('/api/communication/read',['ids'=>[$sent['id']]])->assertOk();
+  $this->asUser('two');
+  $this->getJson('/api/communication/messages?kind=chat&groupId='.$id)->assertOk()->assertJsonPath('data.items.0.readBy.'.$this->people['three']->id,fn($date)=>is_string($date));
+
+  $this->asUser('root');
+  $this->getJson('/api/communication/messages?kind=chat&groupId='.$id)->assertNotFound();
+  $this->postJson('/api/communication/messages',array_replace($message,['requestId'=>'qa-nonmember-send']))->assertNotFound();
+ }
  public function test_archiving_hides_directory_disables_login_preserves_history_and_restores_inactive(): void {
   $this->asUser('root');$u=$this->people['one'];$p=Employee::findOrFail('E-one');
   $history=[['id'=>'history-one','date'=>'2026-10-01','inTime'=>'09:00','outTime'=>'17:00','hours'=>8]];

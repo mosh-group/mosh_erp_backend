@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\{AuditEvent,Quotation,User};
-use App\Support\{RecordAccess,Records,FinanceRules,StockRules,JournalRules,Audit};
+use App\Support\{RecordAccess,Records,FinanceRules,StockRules,JournalRules,Audit,TaskReadQuery};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{DB,Mail};
 use Illuminate\Support\Str;
@@ -35,6 +35,8 @@ class ReportController extends Controller
     }
     public function dashboard(Request $r,?string $department=null) {
         if ($department) abort_unless($r->user()->allows(User::departmentApp($department),'dashboard'),403);
+        // These legacy filters require full-document matching or a customer-name lookup.
+        if (!$r->filled('q') && !$r->filled('customerId')) return $this->pagedDashboard($r, $department);
         $tasks=ResourceController::rows($r,'tasks');
         $tasks=array_values(array_filter($tasks,fn($t)=>$department?($t['department']??'')===$department:RecordAccess::own($r->user(),$t)));
         $tasks=$this->filtered($r,$tasks);$byStatus=[];$byDepartment=[];
@@ -42,6 +44,35 @@ class ReportController extends Controller
         $overdue=count(array_filter($tasks,fn($t)=>($t['status']??'')==='in_progress'&&!empty($t['dueDate'])&&$t['dueDate']<now()->toDateString()));
         return $this->result($r,$tasks,['total'=>count($tasks),'byStatus'=>$byStatus,'byDepartment'=>$byDepartment,'overdue'=>$overdue,
             'requests'=>count(ResourceController::rows($r,'hr-requests')),'announcements'=>count(ResourceController::rows($r,'announcements'))]);
+    }
+    private function pagedDashboard(Request $r, ?string $department) {
+        $this->filtered($r, []);
+        $filters = $department ? ['filter' => ['department' => $department]] : ['scope' => 'mine'];
+        foreach (['department', 'employeeId', 'supplierId', 'currency', 'status', 'period'] as $field) {
+            if ($r->filled($field)) $filters['filter'][$field] = (string)$r->input($field);
+        }
+        if ($r->filled('from')) $filters['from'] = $r->input('from');
+        if ($r->filled('to')) $filters['to'] = $r->input('to');
+
+        $reader = TaskReadQuery::forDatabase();
+        $query = $reader->visibleTo($r->user(), $filters);
+        if ($department && $r->filled('department') && (string)$r->input('department') !== $department) {
+            $query->whereRaw('1 = 0');
+        }
+        $summary = $reader->summary(clone $query);
+        $total = $summary['total'];
+        $summary['requests'] = count(ResourceController::rows($r, 'hr-requests'));
+        $summary['announcements'] = count(ResourceController::rows($r, 'announcements'));
+        $page = (int)$r->input('page', 1);
+        $size = (int)$r->input('perPage', 25);
+        if ($r->boolean('print')) {
+            abort_if($total > 10000, 422, 'ضيّق نطاق التقرير إلى 10000 صف أو أقل.');
+        } else {
+            $query->forPage($page, $size);
+        }
+        $rows = $reader->documents($r->user(), $reader->ordered($query)->get());
+        return $this->ok(['rows'=>$rows, 'summary'=>$summary, 'generatedAt'=>now()->toIso8601String()], 200,
+            ['page'=>$page, 'perPage'=>$size, 'total'=>$total, 'lastPage'=>max(1, (int)ceil($total / $size))]);
     }
     public function report(Request $r,string $report) {
         $map=['sales'=>['sales','quotations'],'design-work'=>['design','tasks'],'hr'=>['hr','employees'],'operations'=>['logistics','support-requests'],

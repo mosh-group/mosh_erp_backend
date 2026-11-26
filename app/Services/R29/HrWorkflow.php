@@ -45,8 +45,8 @@ final class HrWorkflow
     }
     public static function create(User $a,array $in): array {
         $result=R19Store::commit($a,'r29:employee:create',$in,function($tx)use($a,$in){
-            abort_unless(self::hr($a,'create'),403);$v=Validator::make($in,['name'=>'required|string|max:200','department'=>'nullable|string|max:200'])->validate();
-            $id=(string)Str::ulid();Records::change($a,['resource'=>'employees','action'=>'create','id'=>$id,'data'=>['name'=>$v['name'],'department'=>$v['department']??'','employmentStatus'=>'draft','active'=>false]],$tx);return ['employeeId'=>$id];
+            abort_unless(self::hr($a,'create'),403);$v=Validator::make($in,['name'=>'required|string|max:200','department'=>'nullable|string|max:200','employeeNo'=>'nullable|string|max:100'])->validate();
+            $id=(string)Str::ulid();Records::change($a,['resource'=>'employees','action'=>'create','id'=>$id,'data'=>['name'=>$v['name'],'department'=>$v['department']??'','employmentStatus'=>'draft','active'=>false]+array_intersect_key($v,['employeeNo'=>true])],$tx);return ['employeeId'=>$id];
         });return self::read($a,$result['employeeId']);
     }
     private static function saveEmployee(User $a,Employee $p,array $data,string $tx,string $action): void {

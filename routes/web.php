@@ -19,6 +19,7 @@ Route::prefix('api')->group(function () {
         Route::put('ui/branding',[\App\Http\Controllers\R35BrandingController::class,'update'])->middleware('throttle:12,1');
         Route::post('auth/logout',[AuthController::class,'logout']);
         Route::get('auth/me',[AuthController::class,'me']);
+        Route::post('auth/welcome',[AuthController::class,'acknowledgeWelcome']);
         Route::patch('auth/password',[AuthController::class,'password']);
         Route::match(['GET','PATCH'],'auth/security',[AuthController::class,'security']);
         Route::match(['GET','DELETE'],'auth/audit',[AuthController::class,'audit']);
@@ -32,6 +33,9 @@ Route::prefix('api')->group(function () {
             Route::delete($kind.'/{id}',[AccountController::class,'destroy'])->defaults('accounts',$kind);
         }
         Route::put('hr/department-managers', [\App\Http\Controllers\DepartmentManagerController::class, 'update']);
+        Route::put('hr/department-managers/backup', [\App\Http\Controllers\DepartmentManagerController::class, 'updateBackup']);
+        Route::get('hr/account-status/{employeeId}', [\App\Http\Controllers\HrAccountStatusController::class, 'show'])->where('employeeId', '.+');
+        Route::put('hr/account-status/{employeeId}', [\App\Http\Controllers\HrAccountStatusController::class, 'update'])->where('employeeId', '.+');
         Route::get('bootstrap',BootstrapController::class);
         Route::get('marketing/task-tracking', \App\Http\Controllers\MarketingTaskTrackingController::class);
         Route::prefix('zkteco')->group(function(){ Route::get('status',[ZktecoAdminController::class,'status']); Route::get('events',[ZktecoAdminController::class,'events']); Route::get('mappings',[ZktecoAdminController::class,'mappings']); Route::post('mappings',[ZktecoAdminController::class,'map']); Route::post('events/{id}/replay',[ZktecoAdminController::class,'replay']); });
@@ -48,6 +52,10 @@ Route::prefix('api')->group(function () {
         Route::get('dashboard',[ReportController::class,'dashboard']);
         Route::get('departments/{department}/dashboard',[ReportController::class,'dashboard']);
         Route::get('reports/{report}',[ReportController::class,'report']);
+        Route::post('task-views/reserve', \App\Http\Controllers\TaskIdReservationController::class);
+        Route::get('task-views/summary', [ResourceController::class, 'taskSummary']);
+        Route::get('task-views/mine', [ResourceController::class, 'ownTasks']);
+        Route::get('task-views/family/{id}', [ResourceController::class, 'taskFamily'])->where('id', '.*');
         foreach (config('mosh.spec.resources') as $resource=>$spec) {
             Route::get($resource,[ResourceController::class,'index'])->defaults('resource',$resource);
             Route::post($resource,[ResourceController::class,'store'])->defaults('resource',$resource);

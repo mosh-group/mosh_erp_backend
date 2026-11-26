@@ -1,6 +1,7 @@
 <?php
 namespace App\Support;
 use App\Models\{User,Task,Employee,HrRequest,EmploymentContract,Quotation,Invoice,FinancialDocument,Announcement,Setting,Recognition,OffboardingCase};
+use Illuminate\Database\Query\Expression;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -97,6 +98,24 @@ class BusinessRules
         foreach ($fields as $key) self::need(($old[$key]??null)===($d[$key]??null),'لا يمكن تعديل الحقل المعتمد: '.$key);
     }
     private static function employee(User $a,?array $old,array &$d,bool $derived=false): void {
+        if ($old) {
+            $oldNumber=$old['employeeNo']??null;
+            if ($oldNumber!==null && $oldNumber!=='') {
+                self::need(($d['employeeNo']??null)===$oldNumber,'رقم الموظف ثابت بعد إنشاء الملف.');
+            } elseif (array_key_exists('employeeNo',$old)) {
+                $d['employeeNo']=$oldNumber;
+            } else {
+                // Older clients may send a display number for a legacy profile with no saved number.
+                unset($d['employeeNo']);
+            }
+        } elseif (array_key_exists('employeeNo',$d)) {
+            if (is_string($d['employeeNo'])) $d['employeeNo']=trim($d['employeeNo']);
+            Validator::make($d,['employeeNo'=>'nullable|string|max:100'])->validate();
+            $number=$d['employeeNo']??'';
+            if ($number!=='') {
+                self::need(!Employee::where('data->employeeNo',$number)->exists(),'رقم الموظف مستخدم مسبقاً.');
+            }
+        }
         \App\Services\R29\Guards::employee($a,$old,$d);
         self::need(empty($old['archivedAt']), 'هذا الموظف مؤرشف؛ استعده من الأرشيف قبل تعديل ملفه.');
         foreach(['archivedAt','archivedBy'] as $field) self::need(($d[$field]??null)===($old[$field]??null),'الأرشفة من الإجراء المخصص فقط.');
@@ -112,6 +131,7 @@ class BusinessRules
 
         if ((string)$a->employee_id===(string)$d['id']) self::need(($d['active']??true)&&($d['employmentStatus']??'active')==='active','لا يمكنك تعطيل ملف حسابك الحالي.');
         if (!$derived) {
+            self::employeeRelative($old, $d);
             $custody=fn($data)=>array_values(array_filter($data['assets']??[],fn($x)=>in_array(($x['source']??''),['warehouse18','it31'],true)||!empty($x['movementId'])));
             self::need($custody($old??[])===$custody($d),'عهد المستودع وIT تعدّل من سجلاتها الأصلية فقط.');
             foreach (['leaveRecords','disciplinaryRecords','rewardRecords'] as $field) {
@@ -157,6 +177,28 @@ class BusinessRules
             foreach (array_slice($d['leaveRecords'],0,$i) as $other) if (($other['status']??'')!=='rejected') self::need($leave['startDate']>($other['endDate']??'')||$leave['endDate']<($other['startDate']??'')||(($leave['type']??'')==='ساعية'&&($other['type']??'')==='ساعية'&&(($leave['toTime']??'')<=($other['fromTime']??'')||($leave['fromTime']??'')>=($other['toTime']??''))),'توجد إجازة متداخلة.');
         }
     }
+    private static function employeeRelative(?array $old, array &$employee): void
+    {
+        if (!array_key_exists('relativeEmployeeId', $employee) && !array_key_exists('relativeRelationship', $employee)) return;
+        if (!($employee['hasRelatives'] ?? false)) {
+            $employee['relativeEmployeeId'] = $employee['relativeRelationship'] = '';
+            return;
+        }
+
+        $relativeId = trim($employee['relativeEmployeeId'] ?? '');
+        $relationship = trim($employee['relativeRelationship'] ?? '');
+        if (($old['hasRelatives'] ?? false)
+            && $relativeId === ($old['relativeEmployeeId'] ?? '')
+            && $relationship === ($old['relativeRelationship'] ?? '')) return;
+
+        self::need($relativeId !== '' && $relationship !== '', 'اختر الموظف القريب وأدخل صلة القرابة.');
+        self::need($relativeId !== (string) $employee['id'], 'اختر موظفاً آخر كقريب.');
+        $relative = Employee::find($relativeId);
+        self::need($relative && empty($relative->data['archivedAt']) && empty($relative->data['deletedAt']), 'الموظف القريب غير متاح.');
+        $employee['relativeEmployeeId'] = $relativeId;
+        $employee['relativeRelationship'] = $relationship;
+    }
+
     private static function task(User $a,?array $old,array &$d): void {
         \App\Services\R34\TaskPolicy::apply($a,$old,$d);
         R19TaskPriority::apply($a,$old,$d);
@@ -166,7 +208,7 @@ class BusinessRules
             $p=Employee::find($id); self::need((bool)$p,'الموظف غير موجود.');
             if (!$old||($old['assigneeId']??'')!==$id) self::need(($p->data['active']??true)!==false&&($p->data['employmentStatus']??'active')==='active','الموظف غير متاح للتكليف.');
             // Keep the saved executor on an approved billing handoff; all approval gates below still apply.
-            self::need(($p->data['department']??'')===($d['department']??'')||(string)(Setting::valueOf('department-managers')[$d['department']]??'')===(string)$p->id||TaskBillingHandoff::preservesExecutor($old,$d),'الموظف ليس في قسم المهمة.');
+            self::need(($p->data['department']??'')===($d['department']??'')||(string)(DepartmentManagers::effective()[$d['department']]??'')===(string)$p->id||($old && ($old['assigneeId']??'')===$id && ($old['department']??'')===($d['department']??''))||TaskBillingHandoff::preservesExecutor($old,$d),'الموظف ليس في قسم المهمة.');
         }
         if (!empty($d['parentTaskId'])) {
             self::need((string)$d['id']!==(string)$d['parentTaskId'],'المهمة لا تكون فرعاً من نفسها.');
@@ -195,7 +237,7 @@ class BusinessRules
         if (($d['employeeState']??'')==='submitted') {
             self::need(!$running,'أوقف مؤقت العمل قبل التسليم.');
             $department = $old['department'] ?? '';
-            $managerId = (string)(Setting::valueOf('department-managers')[$d['department']] ?? '');
+            $managerId = (string)(DepartmentManagers::effective()[$d['department']] ?? '');
             $isChild = !empty($old['parentTaskId']);
             $managerFinishedOwnTask = in_array($prior, ['working', 'paused'], true)
                 && ($old['status'] ?? '') === 'in_progress' && ($d['status'] ?? '') === 'in_progress'
@@ -542,7 +584,7 @@ class BusinessRules
         if ($type==='termination') {$oid='OFF-'.Str::ulid();self::derived($a,'offboarding',$oid,['id'=>$oid,'employeeId'=>$p->id,'employeeName'=>$d['name'],'reason'=>($r['data']['target']??'')?:$r['reason'],'lastWorkDay'=>$r['data']['endDate']??'','hr'=>false,'logistics'=>false,'accounting'=>false,'system'=>false,'status'=>'open','requestId'=>$id],$changes,$tx);}
     }
     public static function departments(): array {
-        return ['تكنولوجيا المعلومات','الإدارة','الموارد البشرية','المبيعات','التسويق','السوشال ميديا','التصميم','التصوير','المونتاج','الترويج','اللوجستيات','المشتريات','المحاسبة','المستودعات العامة','المهمات'];
+        return ['تكنولوجيا المعلومات','الإدارة','الموارد البشرية','المبيعات','التسويق','السوشال ميديا','التصميم','التصوير','المونتاج','الترويج','اللوجستيات','المشتريات','المحاسبة','المستودعات العامة','المهمات','MOSH MEDIA'];
     }
     public static function activeEmployee(string $id): bool {
         $p=Employee::find($id);return $p&&($p->data['active']??true)&&($p->data['employmentStatus']??'active')==='active';
@@ -618,18 +660,116 @@ class BusinessRules
             self::need($defaults->count()<=1,'اختر قالباً افتراضياً واحداً.');
             foreach ($defaults as $template) self::need(($template->data['active']??true)!==false,'القالب الافتراضي يجب أن يكون فعالاً.');
         }
-        if (collect($changes)->contains(fn($c)=>$c['resource']==='tasks')) foreach (Task::all() as $task) {
-            $d=$task->document();
-            if (in_array($d['status']??'',['completed','awaiting_invoice'],true)) self::need(!Task::where('parent_id',(string)$d['id'])->whereNotIn('status',['completed','awaiting_invoice','archived_invoiced','archived_no_invoice','cancelled'])->exists(),'أكمل المهام الفرعية أولاً.');
-            if (!empty($d['sharedDistributionChild'])) self::need(!empty($d['sharedRootTaskId']),'مرجع أصل المهمة المشتركة مطلوب.');
-            if (!empty($d['sharedRootTaskId'])) {
-                $root=Task::find($d['sharedRootTaskId']);self::need($root&&!empty($root->data['sharedDistributionRoot'])&&(string)$root->id!==(string)$d['id'],'أصل المهمة المشتركة غير صالح.');
-                $parent=Task::find($d['parentTaskId']??'');
-                self::need($parent&&((string)$parent->id===(string)$root->id||(string)($parent->data['sharedRootTaskId']??'')===(string)$root->id),'الأب لا يتبع أصل المهمة المشتركة.');
-                self::need(($d['customer']??'')===($root->data['customer']??''),'عميل المهمة المشتركة مختلف.');
+        self::taskInvariants($changes);
+    }
+
+    private static function taskInvariants(array $changes): void
+    {
+        $affected = [];
+        $changedParents = [];
+        $changedRoots = [];
+        foreach ($changes as $change) {
+            if ($change['resource'] !== 'tasks') continue;
+            $id = (string) $change['id'];
+            $before = $change['before'];
+            $after = $change['after'];
+            $affected[$id] = true;
+            foreach ([$before, $after] as $document) {
+                if (!empty($document['parentTaskId'])) $affected[(string) $document['parentTaskId']] = true;
             }
-            if (($d['status']??'')==='shared_container') self::need(!empty($d['sharedTeamContainer'])&&empty($d['assigneeId']),'الحالة لحاوية فريق غير مسندة فقط.');
+            // A newly created ID has no existing valid dependants.
+            if ($before === null) continue;
+            if ($after === null || ($before['sharedRootTaskId'] ?? '') !== ($after['sharedRootTaskId'] ?? '')) {
+                $changedParents[$id] = true;
+            }
+            $wasRoot = !empty($before['sharedDistributionRoot']);
+            $isRoot = !empty($after['sharedDistributionRoot']);
+            if ($wasRoot !== $isRoot || ($isRoot && ($before['customer'] ?? '') !== ($after['customer'] ?? ''))) {
+                $changedRoots[$id] = true;
+            }
+        }
+        if (!$affected) return;
+
+        // Read final rows, since a batch can update the same task more than once.
+        $tasks = self::taskInvariantRows('id', array_keys($affected));
+        if ($changedParents) {
+            // Older documents can still have a parent link absent from parent_id.
+            $tasks += self::taskInvariantRows(self::taskInvariantJsonColumn('parentTaskId'), array_keys($changedParents));
+        }
+        if ($changedRoots) {
+            // Root membership is stored in the document, including for nested tasks.
+            $tasks += self::taskInvariantRows(self::taskInvariantJsonColumn('sharedRootTaskId'), array_keys($changedRoots));
+        }
+
+        $completedParents = [];
+        $referenceIds = [];
+        foreach ($tasks as $id => $data) {
+            if (in_array($data['status'] ?? '', ['completed', 'awaiting_invoice'], true)) {
+                $completedParents[] = (string) ($data['id'] ?? $id);
+            }
+            if (!empty($data['sharedRootTaskId'])) {
+                foreach ([$data['parentTaskId'] ?? null, $data['sharedRootTaskId']] as $reference) {
+                    if (is_scalar($reference) && (string) $reference !== '') $referenceIds[(string) $reference] = true;
+                }
+            }
+        }
+        foreach (array_chunk($completedParents, 500) as $ids) {
+            self::need(!Task::whereIn('parent_id', $ids)
+                ->whereNotIn('status', ['completed', 'awaiting_invoice', 'archived_invoiced', 'archived_no_invoice', 'cancelled'])
+                ->exists(), 'أكمل المهام الفرعية أولاً.');
+        }
+
+        $related = $tasks + self::taskInvariantRows('id', array_keys(array_diff_key($referenceIds, $tasks)));
+        foreach ($tasks as $id => $data) {
+            $rootId = $data['sharedRootTaskId'] ?? '';
+            if (!empty($data['sharedDistributionChild'])) self::need(!empty($rootId), 'مرجع أصل المهمة المشتركة مطلوب.');
+            if (!empty($rootId)) {
+                $root = self::taskInvariantReference($related, $rootId);
+                self::need($root && !empty($root['data']['sharedDistributionRoot'])
+                    && $root['id'] !== (string) ($data['id'] ?? $id), 'أصل المهمة المشتركة غير صالح.');
+                $parent = self::taskInvariantReference($related, $data['parentTaskId'] ?? '');
+                self::need($parent && ($parent['id'] === $root['id']
+                    || (string) ($parent['data']['sharedRootTaskId'] ?? '') === $root['id']), 'الأب لا يتبع أصل المهمة المشتركة.');
+                self::need(($data['customer'] ?? '') === ($root['data']['customer'] ?? ''), 'عميل المهمة المشتركة مختلف.');
+            }
+            if (($data['status'] ?? '') === 'shared_container') {
+                self::need(!empty($data['sharedTeamContainer']) && empty($data['assigneeId']), 'الحالة لحاوية فريق غير مسندة فقط.');
+            }
         }
     }
 
+    private static function taskInvariantJsonColumn(string $key): Expression
+    {
+        $query = Task::query()->getQuery();
+        $selector = $query->getGrammar()->wrap('data->'.$key);
+        $type = match ($query->getConnection()->getDriverName()) {
+            'mysql', 'mariadb' => 'char',
+            'sqlsrv' => 'nvarchar(4000)',
+            default => 'text',
+        };
+        // Legacy documents can encode the same task ID as a number or text.
+        return new Expression("cast($selector as $type)");
+    }
+
+    private static function taskInvariantRows(string|Expression $column, array $ids): array
+    {
+        $rows = [];
+        foreach (array_chunk(array_map('strval', $ids), 500) as $chunk) {
+            foreach (Task::whereIn($column, $chunk)->get(['id', 'data']) as $task) {
+                $rows[(string) $task->id] = $task->data ?? [];
+            }
+        }
+        return $rows;
+    }
+
+    private static function taskInvariantReference(array $tasks, mixed $reference): ?array
+    {
+        if (!is_scalar($reference) || (string) $reference === '') return null;
+        $id = (string) $reference;
+        if (isset($tasks[$id])) return ['id' => $id, 'data' => $tasks[$id]];
+
+        // A database collation can match a reference with a different spelling.
+        $task = Task::find($id, ['id', 'data']);
+        return $task ? ['id' => (string) $task->id, 'data' => $task->data ?? []] : null;
+    }
 }
