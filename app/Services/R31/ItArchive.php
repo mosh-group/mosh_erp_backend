@@ -28,15 +28,90 @@ final class ItArchive
         if($kind==='assets'&&!empty($d['stockItemId'])){$d['employeeId']=self::stockHolder($d['stockItemId']);$d['custodySource']='warehouse';}
         return $d;
     }
-    public static function index(User $u,string $kind): array {self::guard($u,'list');self::kind($kind);return array_map(function($d)use($u,$kind){$v=self::project($kind,$d);return $u->allows('it','details')?$v:array_intersect_key($v,array_flip(['id','name','code','serial','service','username','employeeId','location','amount','currency','expiresOn','reminderDays','status','custodySource','_version']));},R19Store::documents('r31:it:'.$kind.':'));}
-    public static function overview(User $u): array {
-        self::guard($u,'list');$employees=[];$names=[];$inactive=[];
-        foreach(Employee::all() as $e){if(!empty($e->data['deletedAt']))continue;$active=R19HrAccess::activeEmployee($e);$employees[]=['id'=>(string)$e->id,'name'=>$e->data['name']??'','department'=>$e->data['department']??'','active'=>$active];$names[(string)$e->id]=$e->data['name']??'';if(!$active)$inactive[(string)$e->id]=true;}
-        $assets=self::index($u,'assets');$accounts=self::index($u,'accounts');$subscriptions=self::index($u,'subscriptions');$today=now()->toDateString();$alerts=[];
+    private static function listedRecords(User $user, string $kind, array $records): array
+    {
+        $details = $user->allows('it', 'details');
+        $listFields = array_flip(['id','name','code','serial','service','username','employeeId','location','amount','currency','expiresOn','reminderDays','status','custodySource','_version']);
+        return array_map(function (array $record) use ($kind, $details, $listFields) {
+            $visible = self::project($kind, $record);
+            return $details ? $visible : array_intersect_key($visible, $listFields);
+        }, $records);
+    }
+
+    public static function index(User $user, string $kind): array
+    {
+        self::guard($user, 'list');
+        self::kind($kind);
+        return self::listedRecords($user, $kind, R19Store::documents('r31:it:'.$kind.':'));
+    }
+
+    private static function employeeDeviceCustodies(Employee $employee, array $registeredStock): array
+    {
+        $deviceTypes = [
+            'لابتوب'=>'لابتوب', 'لاب توب'=>'لابتوب', 'laptop'=>'لابتوب',
+            'موبايل'=>'موبايل', 'هاتف'=>'موبايل', 'phone'=>'موبايل', 'mobile'=>'موبايل',
+            'كمبيوتر'=>'كمبيوتر', 'حاسوب'=>'كمبيوتر', 'computer'=>'كمبيوتر',
+        ];
+        $custodies = [];
+        $assets = $employee->data['assets'] ?? [];
+        if (!is_array($assets)) return [];
+        foreach ($assets as $index => $asset) {
+            if (!is_array($asset) || ($asset['source'] ?? '') === 'it31' || !is_string($asset['type'] ?? null)) continue;
+            $type = $deviceTypes[mb_strtolower(trim($asset['type']))] ?? null;
+            if ($type === null) continue;
+            $warehouse = ($asset['source'] ?? '') === 'warehouse18' || !empty($asset['movementId']);
+            $itemId = $asset['itemId'] ?? '';
+            if ($warehouse && is_scalar($itemId) && isset($registeredStock[(string) $itemId])) continue;
+            $name = $asset['name'] ?? $asset['title'] ?? $type;
+            $serial = $asset['serial'] ?? $asset['number'] ?? '';
+
+            $status = match ($asset['status'] ?? '') {
+                'معادة', 'مستردة', 'returned' => 'returned',
+                'تحتاج صيانة', 'maintenance' => 'maintenance',
+                default => 'assigned',
+            };
+            $custodies[] = [
+                'id' => (string) $employee->id.'/'.$index,
+                'employeeId' => (string) $employee->id,
+                'name' => is_string($name) && trim($name) !== '' ? $name : $type,
+                'type' => $type,
+                'serial' => is_scalar($serial) ? (string) $serial : '',
+                'issuedDate' => is_string($asset['issuedDate'] ?? null) ? $asset['issuedDate'] : '',
+                'status' => $status,
+                'custodySource' => $warehouse ? 'warehouse' : 'hr',
+            ];
+        }
+        return $custodies;
+    }
+
+    public static function overview(User $u): array
+    {
+        self::guard($u, 'list');
+        $assetRegistry = R19Store::documents('r31:it:assets:');
+        $assets = self::listedRecords($u, 'assets', $assetRegistry);
+        $registeredStock = [];
+        foreach ($assetRegistry as $asset) {
+            if (!empty($asset['stockItemId']) && ($asset['status'] ?? '') !== 'archived') {
+                $registeredStock[$asset['stockItemId']] = true;
+            }
+        }
+
+        $employees = $names = $inactive = $deviceCustodies = [];
+        foreach (Employee::all() as $employee) {
+            if (!empty($employee->data['deletedAt'])) continue;
+            $id = (string) $employee->id;
+            $active = R19HrAccess::activeEmployee($employee);
+            $employees[] = ['id'=>$id,'name'=>$employee->data['name']??'','department'=>$employee->data['department']??'','active'=>$active];
+            $names[$id] = $employee->data['name'] ?? '';
+            if (!$active) $inactive[$id] = true;
+            foreach (self::employeeDeviceCustodies($employee, $registeredStock) as $custody) $deviceCustodies[] = $custody;
+        }
+
+        $accounts=self::index($u,'accounts');$subscriptions=self::index($u,'subscriptions');$today=now()->toDateString();$alerts=[];
         foreach($subscriptions as $s){if(!in_array($s['status']??'active',['active','paused'],true)||empty($s['expiresOn']))continue;$days=(int)((strtotime($s['expiresOn'].'T00:00:00Z')-strtotime($today.'T00:00:00Z'))/86400);if($days<=(int)($s['reminderDays']??14))$alerts[]=['kind'=>'subscription','id'=>$s['id'],'title'=>$s['name'],'days'=>$days,'message'=>$days<0?'اشتراك منتهٍ — راجع التجديد أو الإلغاء':'اشتراك يقترب من الانتهاء'];}
-        foreach(['assets'=>$assets,'accounts'=>$accounts] as $kind=>$items)foreach($items as $item)if(!empty($item['employeeId'])&&isset($inactive[$item['employeeId']])&&($item['status']??'')!=='archived')$alerts[]=['kind'=>$kind,'id'=>$item['id'],'title'=>$item['name'],'employee'=>$names[$item['employeeId']]??'','message'=>$kind==='assets'?'معدات مرتبطة بموظف غير نشط — راجع الاستلام':'حساب شركة مرتبط بموظف غير نشط — راجع إيقاف الوصول أو نقل المسؤولية'];
+        foreach(['assets'=>array_merge($assets,$deviceCustodies),'accounts'=>$accounts] as $kind=>$items)foreach($items as $item)if(!empty($item['employeeId'])&&isset($inactive[$item['employeeId']])&&!in_array($item['status']??'',['archived','returned'],true))$alerts[]=['kind'=>$kind,'id'=>$item['id'],'title'=>$item['name'],'employee'=>$names[$item['employeeId']]??'','message'=>$kind==='assets'?'معدات مرتبطة بموظف غير نشط — راجع الاستلام':'حساب شركة مرتبط بموظف غير نشط — راجع إيقاف الوصول أو نقل المسؤولية'];
         $stock=[];foreach(StockItem::all() as $s)if(empty($s->data['deletedAt'])&&($s->data['tracking']??'')==='serial')$stock[]=['id'=>(string)$s->id,'name'=>$s->data['name']??'','serial'=>$s->data['serial']??''];
-        return ['today'=>$today,'employees'=>$employees,'stockAssets'=>$stock,'assets'=>$assets,'accounts'=>$accounts,'subscriptions'=>$subscriptions,'alerts'=>$alerts,'permissions'=>['create'=>$u->allows('it','create'),'edit'=>$u->allows('it','edit'),'assign'=>$u->allows('it','assign'),'details'=>$u->allows('it','details'),'attachments'=>$u->allows('it','attachments'),'manageAccounts'=>$u->globalPermission('manageITAccounts'),'viewSecrets'=>$u->globalPermission('viewITSecrets')&&$u->allows('it','details'),'audit'=>$u->globalPermission('auditLog')]];
+        return ['today'=>$today,'employees'=>$employees,'stockAssets'=>$stock,'assets'=>$assets,'deviceCustodies'=>$deviceCustodies,'accounts'=>$accounts,'subscriptions'=>$subscriptions,'alerts'=>$alerts,'permissions'=>['create'=>$u->allows('it','create'),'edit'=>$u->allows('it','edit'),'assign'=>$u->allows('it','assign'),'details'=>$u->allows('it','details'),'attachments'=>$u->allows('it','attachments'),'manageAccounts'=>$u->globalPermission('manageITAccounts'),'viewSecrets'=>$u->globalPermission('viewITSecrets')&&$u->allows('it','details'),'audit'=>$u->globalPermission('auditLog')]];
     }
     private static function validate(string $kind,array $in): array {
         $common=['id'=>'required|regex:/^[A-Za-z0-9-]{8,60}$/D','_version'=>'required|integer|min:0','name'=>'required|string|max:200','employeeId'=>'nullable|string|max:100','department'=>'nullable|string|max:150','notes'=>'nullable|string|max:5000','fileKeys'=>'sometimes|array|max:20','fileKeys.*'=>'string|max:190'];
@@ -59,7 +134,7 @@ final class ItArchive
     private static function syncCustody(User $u,array $asset,string $tx): void {
         foreach(Employee::all() as $e){$data=$e->data;$old=$data['assets']??[];$assets=[];
             foreach($old as $a){if(($a['source']??'')==='it31'&&($a['itAssetId']??'')===$asset['id'])continue;$assets[]=$a;}
-            if(empty($asset['stockItemId'])&&(string)$e->id===($asset['employeeId']??'')&&!in_array($asset['status'],['retired','archived'],true))$assets[]=['id'=>'ITASSET/'.$asset['id'],'source'=>'it31','itAssetId'=>$asset['id'],'name'=>$asset['name'],'serial'=>$asset['serial']??'','type'=>'عهدة تقنية','quantity'=>1,'issuedDate'=>substr($asset['assignedAt']??$asset['updatedAt'],0,10),'status'=>'مسلمة','notes'=>'السجل الأصلي: قسم تكنولوجيا المعلومات'];
+            if(empty($asset['stockItemId'])&&(string)$e->id===($asset['employeeId']??'')&&!in_array($asset['status'],['retired','archived'],true))$assets[]=['id'=>'ITASSET/'.$asset['id'],'source'=>'it31','itAssetId'=>$asset['id'],'name'=>$asset['name'],'serial'=>$asset['serial']??'','type'=>['laptop'=>'لابتوب','phone'=>'موبايل'][$asset['category']??'']??'عهدة تقنية','quantity'=>1,'issuedDate'=>substr($asset['assignedAt']??$asset['updatedAt'],0,10),'status'=>$asset['status']==='maintenance'?'تحتاج صيانة':'مسلمة','notes'=>'السجل الأصلي: قسم تكنولوجيا المعلومات'];
             if($old!==$assets){$data['assets']=$assets;$e->update(['data'=>$data,'version'=>$e->version+1]);Audit::record($u,'it','employees',(string)$e->id,'it-custody',null,['assetId'=>$asset['id']],$tx);}
         }
     }

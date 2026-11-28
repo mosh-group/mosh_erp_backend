@@ -26,6 +26,20 @@ final class Approvals
         if(!$visible)return null;
         return $d+['canDecide'=>($d['status']??'')==='pending'&&self::assigned($a,$d),'canExecute'=>($d['status']??'')==='approved'&&self::canStock($a,$d['from'])];
     }
+    private static function isHrDepartmentStage(string $resource,array $data): bool
+    {
+        return $resource==='hr-requests'
+            && ($data['route'][$data['stageIndex']??0]??'')==='الموارد البشرية';
+    }
+
+    private static function canDecideHrStage(User $actor,string $resource,array $data): bool
+    {
+        if (RecordAccess::own($actor,$data)) return false;
+        if (self::isHrDepartmentStage($resource,$data) && !Hierarchy::currentHrApprover($data)) {
+            return $actor->allows('hr','approve');
+        }
+        return Hierarchy::isHrApprover($actor,$data);
+    }
     public static function overview(User $a): array
     {
         abort_unless($a->active&&!$a->must_change,403);$damages=[];
@@ -34,9 +48,11 @@ final class Approvals
             foreach (['hr-requests'=>HrRequest::class, 'hr-approvals'=>HrApproval::class] as $resource => $model) {
                 foreach ($model::orderBy('created_at', 'desc')->get() as $record) {
                     $data = $record->document();
-                    if (empty($data['r34Approval']) || !RecordAccess::readable($a, $resource, $data, 'details')) continue;
-                    $canDecide = ($data['status'] ?? '') === 'pending' && Hierarchy::isHrApprover($a, $data);
-                    if ($canDecide || Hierarchy::wasHrApprover($a, $data) || (string)$a->employee_id === (string)$data['employeeId']) {
+                    $namedRoute = !empty($data['r34Approval']);
+                    if ((!$namedRoute && !self::isHrDepartmentStage($resource,$data))
+                        || !RecordAccess::readable($a,$resource,$data,'details')) continue;
+                    $canDecide = ($data['status'] ?? '') === 'pending' && self::canDecideHrStage($a,$resource,$data);
+                    if ($canDecide || ($namedRoute && (Hierarchy::wasHrApprover($a,$data) || RecordAccess::own($a,$data)))) {
                         $rows[] = $data + ['resource'=>$resource, 'canDecide'=>$canDecide];
                     }
                 }
@@ -54,14 +70,19 @@ final class Approvals
         Validator::make($in,['_version'=>'required|integer|min:1','action'=>'required|in:approve,reject','reason'=>'nullable|string|max:3000'])->validate();
         R19Store::commit($a,'r34:hr-decision:'.$resource.':'.$id,$in,function($tx)use($a,$resource,$id,$in){
             $r=Records::find($resource,$id);$d=$r->document();
-            abort_unless(RecordAccess::readable($a,$resource,$d,'details')&&Hierarchy::isHrApprover($a,$d),403);
+            abort_unless(RecordAccess::readable($a,$resource,$d,'details')&&self::canDecideHrStage($a,$resource,$d),403);
             abort_unless($r->version===(int)$in['_version']&&$d['status']==='pending',409,'تغير الطلب أو أُغلق؛ حدّث البيانات.');
             $reject=$in['action']==='reject';$note=trim((string)($in['reason']??''));abort_if($reject&&$note==='',422,'سبب الرفض مطلوب.');
             $route=$d['route']??$d['levels'];$key=$resource==='hr-requests'?'stageIndex':'currentLevel';$stage=(int)$d[$key];$last=$stage===count($route)-1;
             $status=$reject?'rejected':($last?'approved':'pending');$history=$d['history']??[];
-            $history[]=['text'=>$reject?'رفض المسؤول الأعلى':'موافقة المسؤول الأعلى','action'=>$in['action'],'note'=>$note,'stage'=>$stage,'actorId'=>(string)$a->id];
+            $fromHr = self::isHrDepartmentStage($resource,$d);
+            $label = $fromHr ? ($reject?'رفض الموارد البشرية':'موافقة الموارد البشرية') : ($reject?'رفض المسؤول الأعلى':'موافقة المسؤول الأعلى');
+            $history[]=['text'=>$label,'action'=>$in['action'],'note'=>$note,'stage'=>$stage,'actorId'=>(string)$a->id];
             $data=['status'=>$status,$key=>!$reject&&!$last?$stage+1:$stage,'history'=>$history];
-            if($resource==='hr-requests')$data+=['managerDecision'=>$in['action'],'managerDecisionBy'=>$a->name,'managerDecisionAt'=>now()->toIso8601String(),'managerNote'=>$note];
+            if ($resource==='hr-requests' && ($route[$stage]??'')==='المدير المباشر') {
+                $data += ['managerDecision'=>$reject?'rejected':'approved','managerDecisionBy'=>$a->name,
+                    'managerDecisionAt'=>now()->toIso8601String(),'managerNote'=>$note];
+            }
             $changes=[Records::change($a,['resource'=>$resource,'action'=>'update','id'=>$id,'version'=>$r->version,'data'=>$data],$tx)];
             BusinessRules::afterTransaction($a,$changes,$tx);return ['id'=>$id];
         });return Records::find($resource,$id)->document();

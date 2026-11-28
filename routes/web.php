@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AuthController,AccountController,BootstrapController,ResourceController,TransactionController,FileController,ReportController,ZktecoAdminController};
+use App\Http\Controllers\{AuthController,AccountController,BootstrapController,ResourceController,TransactionController,FileController,ReportController,ZktecoAdminController,PlatformProgramController};
 Route::prefix('api')->group(function () {
     Route::get('auth/status',[AuthController::class,'status']);
     Route::post('auth/setup',[AuthController::class,'setup'])->middleware('throttle:5,1');
@@ -38,6 +38,10 @@ Route::prefix('api')->group(function () {
         Route::put('hr/account-status/{employeeId}', [\App\Http\Controllers\HrAccountStatusController::class, 'update'])->where('employeeId', '.+');
         Route::get('bootstrap',BootstrapController::class);
         Route::get('marketing/task-tracking', \App\Http\Controllers\MarketingTaskTrackingController::class);
+        Route::get('platform/programs', [PlatformProgramController::class, 'index']);
+        Route::get('platform/programs/task-options', [PlatformProgramController::class, 'taskOptions']);
+        Route::post('platform/programs', [PlatformProgramController::class, 'store']);
+        Route::put('platform/programs/{id}', [PlatformProgramController::class, 'update'])->whereUlid('id');
         Route::prefix('zkteco')->group(function(){ Route::get('status',[ZktecoAdminController::class,'status']); Route::get('events',[ZktecoAdminController::class,'events']); Route::get('mappings',[ZktecoAdminController::class,'mappings']); Route::post('mappings',[ZktecoAdminController::class,'map']); Route::post('events/{id}/replay',[ZktecoAdminController::class,'replay']); });
         Route::post('transactions',[TransactionController::class,'store']);
         Route::post('transactions/{id}/undo',[TransactionController::class,'undo']);

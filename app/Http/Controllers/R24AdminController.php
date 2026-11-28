@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\{AdminDecision,Employee,Task,WorkPresence,SupportRequest,User,Setting};
-use App\Support\{Audit,R19Store,R19HrWorkflow,R19HrAccess,RecordAccess,TaskExecutionClock};
+use App\Support\{AdminTaskTakeover,Audit,R19Store,R19HrWorkflow,R19HrAccess,RecordAccess,TaskExecutionClock};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{DB,Hash,Validator};
 use Illuminate\Support\Str;
@@ -121,6 +121,12 @@ final class R24AdminController extends Controller
             'serverTime'=>self::now(),'sourceNote'=>'حالات النشاط مأخوذة من لوحة عملي، وليست دليلاً منفرداً على بصمة الحضور.',
             'departments'=>array_values(array_unique(array_column($employees,'department')))]);
     }
+    public function takeoverTask(Request $request)
+    {
+        return $this->ok(AdminTaskTakeover::execute($request->user(), $request->all()))
+            ->header('Cache-Control', 'private, no-store');
+    }
+
     public function task(Request $r,string $id) {
         self::requireAdmin($r->user());$row=Task::findOrFail($id);$d=$row->document();
         return $this->ok(['id'=>(string)$row->id,'title'=>$d['title']??'','department'=>$d['department']??'',

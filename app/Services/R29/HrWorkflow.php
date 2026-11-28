@@ -22,6 +22,40 @@ final class HrWorkflow
             if(self::hr($a)){ $s=self::state((string)$p->id);foreach(Rules::probation($d,self::today())as$x)if(empty($s['acknowledged'][$x['id']]))$alerts[]=$x; }}
         return ['employees'=>$people,'alerts'=>$alerts,'canCreate'=>self::hr($a,'create'),'canEdit'=>self::hr($a,'edit'),'canApprove'=>self::hr($a,'approve'),'today'=>self::today(),'departments'=>BusinessRules::departments()];
     }
+    private static function fieldClockNeedsLocation(array $profile): bool
+    {
+        $mode = $profile['workMode'] ?? '';
+        return is_string($mode) && in_array(trim($mode), ['ميداني', 'مختلط'], true);
+    }
+
+    private static function punchLocation(array $input, string $capturedAt): array
+    {
+        $location = Validator::make($input, [
+            'location' => 'required|array:latitude,longitude,accuracy',
+            'location.latitude' => 'required|numeric|between:-90,90',
+            'location.longitude' => 'required|numeric|between:-180,180',
+            'location.accuracy' => 'nullable|numeric|min:0',
+        ], [
+            'location.required' => 'حدّد موقعك لتسجيل بصمة الدوام الميداني.',
+            'location.array' => 'بيانات الموقع غير صالحة.',
+            'location.latitude.*' => 'خط العرض غير صالح.',
+            'location.longitude.*' => 'خط الطول غير صالح.',
+            'location.accuracy.*' => 'دقة الموقع غير صالحة.',
+        ])->validate()['location'];
+
+        $punch = [
+            'latitude' => (float)$location['latitude'],
+            'longitude' => (float)$location['longitude'],
+            'capturedAt' => $capturedAt,
+        ];
+        if (isset($location['accuracy'])) {
+            $accuracy = (float)$location['accuracy'];
+            abort_unless(is_finite($accuracy), 422, 'دقة الموقع غير صالحة.');
+            $punch['accuracy'] = $accuracy;
+        }
+        return $punch;
+    }
+
     public static function read(User $a,string $id,int $year=0): array {
         $p=Employee::findOrFail($id);abort_unless(self::allowed($a,$p),404);$s=self::state($id);$isHr=self::hr($a);$own=(string)$a->employee_id===$id;$year=$year?:((int)substr(self::today(),0,4));
         $profile=$isHr||$own?$p->document():array_intersect_key($p->document(),array_flip(['id','_version','name','department','jobTitle','employmentStatus','active','evaluationRecords','documents']));
@@ -30,11 +64,18 @@ final class HrWorkflow
         $certificates=[];if($isHr||$own)foreach(R19Store::documents('r29:certificate:')as$c)if(($c['employeeId']??'')===$id)$certificates[]=array_diff_key($c,array_flip(['verifyToken','signatureKey','sealKey','sealSnapshot']));
         $settlements=[];if($isHr||$own)foreach(R19Store::documents('r29:settlement:')as$x)if(($x['employeeId']??'')===$id)$settlements[]=$x;
         $career=$s['career']??[];if(!$isHr&&!$own)$career=[];
+        $canClock = $own && R19HrAccess::activeEmployee($p) && in_array(Rules::mode($p->data), ['flexible','daily'], true);
+        $attendance = ($isHr || $own) ? ($p->data['attendanceRecords'] ?? []) : [];
+        foreach ($attendance as &$record) {
+            $locations = $s['attendanceLocations'][(string)($record['id'] ?? '')] ?? [];
+            if ($locations) $record['locations'] = $locations;
+        }
+        unset($record);
         return ['employee'=>$profile,'workflowVersion'=>$s['_version'],'today'=>self::today(),'missing'=>Rules::activationMissing($p->document()),
             'capabilities'=>['edit'=>empty($p->data['archivedAt'])&&self::hr($a,'edit'),'approve'=>empty($p->data['archivedAt'])&&self::hr($a,'approve'),'evaluate'=>empty($p->data['archivedAt'])&&self::canEvaluate($a,$p),'own'=>$own,
-                'clock'=>$own&&R19HrAccess::activeEmployee($p)&&in_array(Rules::mode($p->data),['flexible','daily'],true),'contracts'=>$isHr],
+                'clock'=>$canClock,'fieldClockLocation'=>$canClock&&self::fieldClockNeedsLocation($p->data),'contracts'=>$isHr],
             'leave'=>self::leaveBalance($p,$year),'schedules'=>$s['schedules']??[],'openShift'=>$s['openShift']??null,
-            'attendance'=>($isHr||$own)?($p->data['attendanceRecords']??[]):[], 'career'=>$career,'contracts'=>$contracts,'certificates'=>$certificates,
+            'attendance'=>$attendance, 'career'=>$career,'contracts'=>$contracts,'certificates'=>$certificates,
             'settlements'=>$settlements,'criteria'=>self::template((string)($p->data['jobTitle']??'')),'evaluations'=>$p->data['evaluationRecords']??[]];
     }
     public static function leaveBalance(Employee $p,int $year): array {
@@ -92,17 +133,22 @@ final class HrWorkflow
                 $s['schedules'][]=$schedule;
             }elseif($action==='clock'){
                 $kind=$in['kind']??'';abort_unless(in_array($kind,['start','end'],true),422);$time=now()->timezone(config('app.timezone','Asia/Damascus'));
+                $location = self::fieldClockNeedsLocation($d) ? self::punchLocation($in, $time->toIso8601String()) : null;
                 if($kind==='start'){
                     abort_if(!empty($s['openShift']),409,'لديك دوام مفتوح. أنهه أولاً أو اطلب تصحيحاً من الموارد البشرية.');
                     $record=['id'=>'R29-'.Str::ulid(),'date'=>$time->format('Y-m-d'),'inTime'=>$time->format('H:i'),'outTime'=>null,'startAt'=>$time->toIso8601String(),'endAt'=>null,'source'=>'self_r29','status'=>'approved','breakMinutes'=>0,'createdBy'=>$a->name];
-                    $s['openShift']=['id'=>$record['id'],'startAt'=>$record['startAt']];$d['attendanceRecords'][]=$record;
+                    $attendanceId = $record['id'];
+                    $s['openShift']=['id'=>$attendanceId,'startAt'=>$record['startAt']];$d['attendanceRecords'][]=$record;
                 }else{
                     abort_unless(!empty($s['openShift']),409,'لا يوجد دوام مفتوح.');$found=false;
-                    foreach($d['attendanceRecords']as&$record)if(($record['id']??'')===$s['openShift']['id']){$found=true;$start=new \DateTimeImmutable($record['startAt']);$seconds=$time->getTimestamp()-$start->getTimestamp();
+                    $attendanceId = $s['openShift']['id'];
+                    foreach($d['attendanceRecords']as&$record)if(($record['id']??'')===$attendanceId){$found=true;$start=new \DateTimeImmutable($record['startAt']);$seconds=$time->getTimestamp()-$start->getTimestamp();
                         abort_unless($seconds>=0&&$seconds<=24*3600,422,'الدوام تجاوز 24 ساعة أو وقته غير صالح؛ يلزم تصحيح HR بسبب موثق.');
                         $record['endAt']=$time->toIso8601String();$record['outTime']=$time->format('H:i');$record['outDate']=$time->format('Y-m-d');$record['hours']=round($seconds/3600,4);$record['updatedBy']=$a->name;break;}unset($record);
                     abort_unless($found,409,'سجل الدوام غير موجود.');$s['openShift']=null;
-                }$changed=true;
+                }
+                if ($location !== null) $s['attendanceLocations'][$attendanceId][$kind === 'start' ? 'in' : 'out'] = $location;
+                $changed=true;
             }elseif($action==='attendance-correction'){
                 $v=Validator::make($in,['attendanceId'=>'required|string','startAt'=>'required|date','endAt'=>'required|date|after:startAt|before_or_equal:now','reason'=>'required|string|min:3|max:2000'])->validate();$found=false;
                 $start=\Carbon\Carbon::parse($v['startAt'])->timezone(config('app.timezone'));$end=\Carbon\Carbon::parse($v['endAt'])->timezone(config('app.timezone'));abort_unless($end->getTimestamp()-$start->getTimestamp()<=24*3600,422,'المدة تتجاوز 24 ساعة.');

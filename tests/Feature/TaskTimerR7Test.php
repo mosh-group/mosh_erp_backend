@@ -29,6 +29,112 @@ class TaskTimerR7Test extends TestCase
     private function login(string $name): void { $this->postJson('/api/auth/logout')->assertOk();$this->postJson('/api/auth/login',['username'=>$name,'password'=>'Test-only-Secret123!'])->assertOk(); }
     private function taskPatch(array $p,string $id='T-QA-E1'): array {return $this->patchJson('/api/tasks/'.$id,['_version'=>Task::findOrFail($id)->version,...$p])->assertOk()->json('data');}
     private function step(int $seconds): void { $this->clock+=$seconds*1000;$this->travelTo(Carbon::createFromTimestampMs($this->clock)); }
+    public function test_root_takeover_keeps_department_and_attributes_each_worker_clock(): void
+    {
+        $this->login('qa_admin');
+        $owner = Employee::create(['id' => 'OWNER/001', 'department' => 'الإدارة', 'data' => [
+            'name' => 'QA Admin', 'department' => 'الإدارة', 'active' => true, 'employmentStatus' => 'active',
+        ]]);
+        $account = \App\Models\User::where('is_root', true)->firstOrFail();
+        $account->update(['employee_id' => $owner->id, 'department' => 'الإدارة']);
+        $id = 'TASK/TAKEOVER-001';
+        $this->postJson('/api/tasks', ['id' => $id, 'title' => 'Keep all task details', 'customer' => 'QA Client',
+            'department' => 'التصميم', 'assigneeId' => 'QA-E1', 'status' => 'in_progress', 'employeeState' => 'new',
+            'notes' => 'Existing deliverables'])->assertCreated();
+
+        $this->login('qa-e1');
+        $this->taskPatch(['employeeState' => 'working'], $id);
+        $this->step(90);
+        $url = '/api/r24/admin/tasks/takeover';
+        $version = Task::findOrFail($id)->version;
+        $payload = ['taskId' => $id, '_version' => $version, 'requestId' => 'r7-owner-takeover-working'];
+        $this->postJson($url, $payload)->assertForbidden();
+
+        $this->login('qa_admin');
+        $this->patchJson('/api/tasks/'.$id, ['_version' => $version, 'employeeState' => 'paused'])->assertForbidden();
+        $this->patchJson('/api/tasks/'.$id, [
+            '_version' => $version, 'assigneeId' => $owner->id, 'employeeState' => 'new',
+        ])->assertUnprocessable();
+
+        $taken = $this->postJson($url, $payload + ['assigneeId' => 'QA-E2', 'department' => 'المحاسبة'])
+            ->assertOk()->assertJsonPath('data.id', $id)->assertJsonPath('data._version', $version + 1)
+            ->assertJsonPath('data.assigneeId', $owner->id)->assertJsonPath('data.assignee', 'QA Admin')
+            ->assertJsonPath('data.department', 'التصميم')->assertJsonPath('data.status', 'in_progress')
+            ->assertJsonPath('data.employeeState', 'new')->assertJsonPath('data.notes', 'Existing deliverables')
+            ->assertJsonPath('data.workTiming.activeStartedAt', 0)->assertJsonPath('data.workTiming.totalMs', 90000)
+            ->assertJsonPath('data.workTiming.sessions.0.workerId', 'QA-E1')
+            ->assertJsonPath('data.workTiming.sessions.0.reason', 'reassigned');
+        $this->assertStringContainsString('no-store', $taken->headers->get('Cache-Control'));
+        $history = $taken->json('data.history');
+        $this->assertSame('QA Admin', end($history)['by']);
+        $this->assertSame('QA-E1', end($history)['fromEmployeeId']);
+        $this->assertSame($owner->id, end($history)['toEmployeeId']);
+        $this->postJson($url, $payload)->assertOk()->assertJsonPath('data._version', $version + 1)
+            ->assertJsonCount(1, 'data.workTiming.sessions');
+        $this->postJson($url, array_replace($payload, ['requestId' => 'r7-owner-takeover-stale']))->assertConflict();
+
+        $event = \App\Models\AuditEvent::where(['resource' => 'tasks', 'record_id' => $id,
+            'actor_id' => $account->id, 'action' => 'update'])->sole();
+        $this->assertSame('QA-E1', $event->before_data['assigneeId']);
+        $this->assertSame($owner->id, $event->after_data['assigneeId']);
+
+        $this->login('qa-e1');
+        $this->getJson('/api/tasks/'.$id)->assertNotFound();
+        $this->login('qa_admin');
+        $mine = $this->getJson('/api/task-views/mine')->assertOk()->json('data');
+        $this->assertContains($id, array_column($mine, 'id'));
+        $working = $this->taskPatch(['employeeState' => 'working'], $id);
+        $this->assertSame($owner->id, $working['workTiming']['activeWorkerId']);
+        $this->step(20);
+        $paused = $this->taskPatch(['employeeState' => 'paused'], $id);
+        $this->assertSame(0, $paused['workTiming']['activeStartedAt']);
+        $this->assertSame(110000, $paused['workTiming']['totalMs']);
+        $this->assertSame($owner->id, $paused['workTiming']['sessions'][1]['workerId']);
+        $this->step(30);
+        $this->taskPatch(['employeeState' => 'working'], $id);
+        $this->step(40);
+        $submitted = $this->taskPatch(['employeeState' => 'submitted'], $id);
+        $this->assertSame('التصميم', $submitted['department']);
+        $this->assertSame(150000, $submitted['workTiming']['totalMs']);
+        $this->assertSame('QA-E1', $submitted['workTiming']['sessions'][0]['workerId']);
+        $this->assertSame([$this->clock - 40000, $this->clock, $owner->id], [
+            $submitted['workTiming']['sessions'][2]['startAt'], $submitted['workTiming']['sessions'][2]['endAt'],
+            $submitted['workTiming']['sessions'][2]['workerId'],
+        ]);
+    }
+
+    public function test_root_takeover_rejects_ineligible_tasks_and_missing_linked_employee(): void
+    {
+        $this->login('qa_admin');
+        $url = '/api/r24/admin/tasks/takeover';
+        $account = \App\Models\User::where('is_root', true)->firstOrFail();
+        $account->update(['employee_id' => null]);
+        $task = Task::findOrFail('T-QA-E2');
+        $payload = ['taskId' => $task->id, '_version' => $task->version, 'requestId' => 'r7-owner-takeover-invalid'];
+        $this->postJson($url, $payload)->assertUnprocessable();
+
+        $owner = Employee::create(['id' => 'OWNER/002', 'department' => 'الإدارة', 'data' => [
+            'name' => 'QA Admin', 'department' => 'الإدارة', 'active' => true, 'employmentStatus' => 'active',
+        ]]);
+        $account->update(['employee_id' => $owner->id]);
+        $original = $task->data;
+        foreach ([
+            ['employeeState' => 'submitted'],
+            ['status' => 'completed'],
+            ['sharedDistributionRoot' => true],
+            ['sharedTeamContainer' => true],
+            ['sharedNodeType' => 'team'],
+            ['assigneeId' => ''],
+        ] as $changes) {
+            $task->update(['data' => array_replace($original, $changes)]);
+            $this->postJson($url, $payload)->assertUnprocessable();
+            $this->assertSame($task->version, $task->fresh()->version);
+        }
+        $task->update(['data' => array_replace($original, ['deletedAt' => '2026-09-27'])]);
+        $this->postJson($url, $payload)->assertNotFound();
+    }
+
+
     public function test_status_only_start_creates_server_timer_without_attendance(): void
     {
         $this->taskPatch(['employeeState'=>'received']);

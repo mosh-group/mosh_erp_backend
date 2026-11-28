@@ -237,7 +237,7 @@ class StockRules
         foreach (StockMovement::where('data->type','issue')->get() as $row) {
             $m=$row->document();if (!empty($m['voided'])||empty($m['employeeId'])) continue;$item=StockItem::find($m['itemId'])?->data;if (!$item) continue;$q=self::outstanding($m);
             $by[$m['employeeId']][]=['id'=>'WHASSET/'.$m['id'],'source'=>'warehouse18','movementId'=>$m['id'],'itemId'=>$m['itemId'],'warehouseId'=>$m['from'],
-                'name'=>$item['name'],'type'=>'عهدة','serial'=>$item['serial']??'','quantity'=>$q,'issuedDate'=>$m['date'],'status'=>$q>0?'مسلمة':'معادة',
+                'name'=>$item['name'],'type'=>['laptop'=>'لابتوب','phone'=>'موبايل'][$item['category']??'']??'عهدة','serial'=>$item['serial']??'','quantity'=>$q,'issuedDate'=>$m['date'],'status'=>$q>0?'مسلمة':'معادة',
                 'notes'=>(($item['owner']??'')==='customer'?'أمانة العميل '.($item['customer']??'').' · ':'').'السجل الأصلي في المستودعات العامة'];
         }
         foreach (Employee::all() as $p) {

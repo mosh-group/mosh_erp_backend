@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Feature;
 
-use App\Models\{AuditEvent, Customer, Employee, FileLink, Setting, Task, User, WorkPresence};
+use App\Models\{AuditEvent, Customer, Employee, FileLink, Setting, StoredFile, Task, User, WorkPresence};
 use App\Support\{R19Attendance, R19HrWorkflow, R19Store};
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
@@ -106,6 +106,189 @@ class R19HrWorkflowTest extends TestCase
     private function closedDay(): void
     {
         $this->records([['id' => 'ATT-8', 'date' => '2026-10-08', 'inTime' => '09:00', 'outTime' => '19:00', 'breakMinutes' => 30, 'source' => 'zkteco', 'status' => 'recorded']]);
+    }
+
+    public function test_hr_compensation_supports_employee_ids_with_slashes(): void
+    {
+        $employeeId = 'EMP/QA-00489';
+        Employee::create(['id' => $employeeId, 'data' => ['id' => $employeeId, 'name' => 'QA employee'], 'version' => 1]);
+        $url = '/api/r19/hr/compensation?employeeId='.rawurlencode($employeeId);
+        $this->asRole('employee');
+        $this->getJson($url)->assertForbidden();
+
+        $this->asRole('hr');
+        $this->getJson('/api/r19/hr/compensation?employeeId%5B%5D=E')
+            ->assertUnprocessable()->assertJsonValidationErrors('employeeId');
+        $this->getJson($url)->assertOk()->assertJsonPath('data.employeeId', $employeeId)
+            ->assertJsonPath('data.monthlySalary', null);
+
+        // The URL selects the employee even if the body contains another ID.
+        $this->putJson($url, [
+            'employeeId' => 'E', 'monthlySalary' => '1200', 'raiseDate' => '2026-10-10',
+            'foodAllowance' => null, 'transportAllowance' => '45', 'phoneAllowance' => null,
+            'attachmentKey' => null, '_version' => 0, 'requestId' => $this->key(),
+        ])->assertOk()->assertJsonPath('data.employeeId', $employeeId)
+            ->assertJsonPath('data.monthlySalary', '1200.00');
+
+        $this->getJson($url)->assertOk()->assertJsonPath('data.transportAllowance', '45.00');
+        $this->getJson('/api/r19/hr/employees/E/compensation')->assertOk()->assertJsonPath('data.monthlySalary', null);
+    }
+
+    public function test_hr_compensation_and_its_attachment_remain_private(): void
+    {
+        $url = '/api/r19/hr/employees/E/compensation';
+        $this->getJson($url)->assertUnauthorized();
+        $this->asRole('hr');
+        $this->getJson($url)->assertOk()->assertJsonPath('data.monthlySalary', null)
+            ->assertJsonPath('data.attachment', null)->assertJsonPath('data._version', 0)
+            ->assertJsonPath('data.canEdit', true);
+
+        $fileKey = 'HR-COMPENSATION-PRIVATE';
+        $fileUrl = '/api/files/'.$fileKey;
+        $fileBytes = 'Confidential compensation attachment';
+        $upload = ['key' => $fileKey, 'kind' => 'hr-compensation', 'name' => 'private-compensation.txt',
+            'size' => strlen($fileBytes), 'sha256' => hash('sha256', $fileBytes)];
+        $uploadId = $this->postJson('/api/files-upload/start', $upload)->assertOk()->json('data.id');
+        $this->putJson("/api/files-upload/{$uploadId}/parts/0", ['base64' => base64_encode($fileBytes)])->assertOk();
+        $this->postJson("/api/files-upload/{$uploadId}/complete")->assertOk()->assertJsonPath('data.key', $fileKey);
+
+        $payload = ['monthlySalary' => '246810.35', 'raiseDate' => '2026-10-09', 'foodAllowance' => 30,
+            'transportAllowance' => '20.5', 'phoneAllowance' => null, 'attachmentKey' => $fileKey,
+            '_version' => 0, 'requestId' => 'test-compensation-0001'];
+        $saved = $this->putJson($url, $payload)->assertOk()->assertJsonPath('data.monthlySalary', '246810.35')
+            ->assertJsonPath('data.raiseDate', '2026-10-09')->assertJsonPath('data.foodAllowance', '30.00')
+            ->assertJsonPath('data.transportAllowance', '20.50')->assertJsonPath('data.phoneAllowance', null)
+            ->assertJsonPath('data.attachment.key', $fileKey)->assertJsonPath('data._version', 1);
+        $this->assertStringContainsString('no-store', $saved->headers->get('Cache-Control'));
+        $this->putJson($url, $payload)->assertOk()->assertJsonPath('data._version', 1);
+        $this->putJson($url, array_replace($payload, ['requestId' => 'test-compensation-stale']))->assertConflict();
+        $this->putJson($url, array_replace($payload, ['monthlySalary' => '-1', '_version' => 1,
+            'requestId' => 'test-compensation-negative']))->assertUnprocessable();
+        $this->getJson($fileUrl)->assertOk()->assertJsonPath('data.name', 'private-compensation.txt');
+        $this->assertStringContainsString('no-store', $this->getJson($fileUrl)->headers->get('Cache-Control'));
+        $this->assertSame($fileBytes, $this->get($fileUrl.'/content')->assertOk()->streamedContent());
+
+        $this->getJson('/api/settings/_r19_hr_compensation_E')->assertNotFound();
+        $bootstrap = $this->getJson('/api/bootstrap')->assertOk()->getContent();
+        $this->assertStringNotContainsString('246810.35', $bootstrap);
+        $this->assertStringNotContainsString($fileKey, $bootstrap);
+        $this->assertArrayNotHasKey('monthlySalary', Employee::findOrFail('E')->data);
+        $audit = AuditEvent::where('resource', 'r19-hr-compensation')->sole();
+        $this->assertNull($audit->after_data);
+
+        $this->assertFalse(StoredFile::where('logical_key', $fileKey)->exists());
+        $file = StoredFile::includingHrCompensation()->where('logical_key', $fileKey)->firstOrFail();
+        FileLink::create(['file_id' => $file->id, 'resource' => 'employees', 'record_id' => 'E']);
+        foreach (['employee', 'manager', 'admin'] as $role) {
+            $this->asRole($role);
+            $this->getJson($url)->assertForbidden();
+            $this->putJson($url, $payload)->assertForbidden();
+            $this->getJson($fileUrl)->assertNotFound();
+            $this->getJson($fileUrl.'/content')->assertNotFound();
+        }
+        $this->postJson('/api/files-upload/start', $upload)->assertForbidden();
+        $this->post('/api/files', ['file' => UploadedFile::fake()->createWithContent('unauthorized.txt', 'payload'),
+            'kind' => 'hr-compensation'])->assertForbidden();
+
+        $hr = $this->accounts['hr']->fresh();
+        $hr->update(['data' => ['moduleOverrides' => ['hr' => ['edit' => false]]]]);
+        $this->asRole('hr');
+        $this->getJson($url)->assertOk()->assertJsonPath('data.canEdit', false);
+        $this->putJson($url, $payload)->assertForbidden();
+        $this->postJson("/api/files-upload/{$uploadId}/complete")->assertForbidden();
+        $hr->update(['data' => ['moduleOverrides' => ['hr' => ['details' => false]]]]);
+        $this->asRole('hr');
+        $this->getJson($url)->assertForbidden();
+        $this->getJson($fileUrl)->assertNotFound();
+        $this->getJson($fileUrl.'/content')->assertNotFound();
+    }
+
+
+    public function test_hr_presence_uses_current_attendance_schedules_and_approved_leave(): void
+    {
+        $url = '/api/r19/hr/presence';
+        $this->getJson($url)->assertUnauthorized();
+        foreach (['employee', 'manager'] as $role) {
+            $this->asRole($role);
+            $this->getJson($url)->assertForbidden();
+        }
+
+        foreach (['E' => ['09:00', '17:00'], 'M' => ['09:00', '17:00'], 'O' => ['08:00', '11:00'], 'A' => ['13:00', '18:00']] as $id => [$start, $end]) {
+            Setting::create(['id' => 'r29:hr:'.$id, 'value' => ['schedules' => [[
+                'type' => 'weekly', 'effectiveFrom' => '2026-10-01', 'effectiveTo' => null,
+                'rows' => [['day' => 6, 'start' => $start, 'end' => $end, 'off' => false]],
+            ]]], 'version' => 1]);
+        }
+        $this->records([['date' => '2026-10-10', 'inTime' => '09:20', 'source' => 'zkteco',
+            'status' => 'recorded', 'needsHrReview' => true, 'zktecoEventCount' => 1]]);
+        $this->records([['date' => '2026-10-10', 'startAt' => '2026-10-10T06:00:00Z', 'endAt' => '2026-10-10T08:37:00Z',
+            'source' => 'self_r29', 'status' => 'approved', 'latitude' => 33.1234]], 'M');
+        $hr = Employee::findOrFail('H');
+        $hrData = $hr->data;
+        $hrData['leaveRecords'] = [['startDate' => '2026-10-10', 'endDate' => '2026-10-10',
+            'status' => 'approved', 'type' => 'سنوية', 'reason' => 'Private leave reason']];
+        $hr->update(['data' => $hrData]);
+        $this->asRole('hr');
+
+        $response = $this->getJson($url)->assertOk()->assertJsonPath('data.date', '2026-10-10')
+            ->assertJsonPath('data.asOf', '2026-10-10T12:00:00+03:00')
+            ->assertJsonPath('data.timeZone', 'Asia/Damascus')
+            ->assertJsonPath('data.counts.present', 1)->assertJsonPath('data.counts.left', 1)
+            ->assertJsonPath('data.counts.waiting', 1)->assertJsonPath('data.counts.absent', 1)
+            ->assertJsonPath('data.counts.late', 1)->assertJsonPath('data.counts.leave', 1);
+        $rows = array_column($response->json('data.rows'), null, 'employeeId');
+        $this->assertSame('present', $rows['E']['status']);
+        $this->assertSame(20, $rows['E']['delayMinutes']);
+        $this->assertSame('09:20', $rows['E']['inTime']);
+        $this->assertNull($rows['E']['outTime']);
+        $this->assertSame('11:37', $rows['M']['outTime']);
+        $this->assertSame('ساعية', $this->presenceAfterHourlyLeave($url, 'H'));
+        $this->assertStringNotContainsString('Private leave reason', $response->getContent());
+        $this->assertStringNotContainsString('33.1234', $response->getContent());
+        $this->assertStringContainsString('no-store', $response->headers->get('Cache-Control'));
+    }
+
+    private function presenceAfterHourlyLeave(string $url, string $employeeId): string
+    {
+        $employee = Employee::findOrFail($employeeId);
+        $data = $employee->data;
+        $data['leaveRecords'] = [['date' => '2026-10-10', 'status' => 'approved', 'type' => 'ساعية',
+            'fromTime' => '11:00', 'toTime' => '13:00']];
+        $employee->update(['data' => $data]);
+        $rows = array_column($this->getJson($url)->assertOk()->json('data.rows'), null, 'employeeId');
+        $this->assertSame('leave', $rows[$employeeId]['status']);
+
+        $this->travelTo(Carbon::parse('2026-10-10T13:00:00+03:00'));
+        $after = array_column($this->getJson($url)->assertOk()->json('data.rows'), null, 'employeeId');
+        $this->assertSame('unscheduled', $after[$employeeId]['status']);
+
+        return $rows[$employeeId]['leaveType'];
+    }
+
+
+    public function test_presence_preserves_overnight_arrivals_and_does_not_claim_stale_zkteco_punches(): void
+    {
+        $url = '/api/r19/hr/presence';
+        $this->travelTo(Carbon::parse('2026-10-10T01:00:00+03:00'));
+        Setting::create(['id' => 'r29:hr:E', 'value' => ['schedules' => [[
+            'type' => 'weekly', 'effectiveFrom' => '2026-10-01',
+            'rows' => [['day' => 5, 'start' => '22:00', 'end' => '06:00', 'off' => false]],
+        ]]], 'version' => 1]);
+        $this->records([['date' => '2026-10-09', 'inTime' => '22:02', 'source' => 'zkteco', 'status' => 'recorded']]);
+        $this->records([['date' => '2026-10-09', 'startAt' => '2026-10-09T22:00:00+03:00',
+            'endAt' => '2026-10-10T00:30:00+03:00', 'status' => 'approved', 'source' => 'self_r29']], 'M');
+        $this->asRole('hr');
+
+        $rows = array_column($this->getJson($url)->assertOk()->json('data.rows'), null, 'employeeId');
+        $this->assertSame('present', $rows['E']['status']);
+        $this->assertSame('2026-10-09', $rows['E']['inDate']);
+        $this->assertSame('left', $rows['M']['status']);
+        $this->assertSame('00:30', $rows['M']['outTime']);
+        $this->assertSame('2026-10-10', $rows['M']['outDate']);
+
+        $this->travelTo(Carbon::parse('2026-10-10T06:00:00+03:00'));
+        $rows = array_column($this->getJson($url)->assertOk()->json('data.rows'), null, 'employeeId');
+        $this->assertSame('review', $rows['E']['status']);
     }
 
     public function test_authentication_scope_and_private_store_are_enforced(): void
@@ -322,6 +505,80 @@ class R19HrWorkflowTest extends TestCase
         $this->assertSame(900, $monthly['basic']); $this->assertSame(960, $monthly['required']); $this->assertSame(60, $monthly['deficit']);
         $this->assertSame(90, $monthly['finalApproved']); $this->assertSame(60, $monthly['compensation']); $this->assertSame(30, $monthly['netExtra']);
         $this->assertFalse($monthly['complete']); $this->assertFalse($monthly['payrollCreated']);
+    }
+
+    public function test_field_attendance_requires_location_and_exposes_it_only_to_the_employee_and_hr(): void
+    {
+        $employee = Employee::findOrFail('E');
+        $employee->update(['data' => array_replace($employee->data, ['attendanceMode' => 'flexible', 'workMode' => ' ميداني '])]);
+        $path = '/api/r29/hr/employees/E';
+        $this->asRole('employee');
+        $this->getJson($path)->assertOk()->assertJsonPath('data.capabilities.fieldClockLocation', true);
+        $start = ['action' => 'clock', 'kind' => 'start', '_version' => 1, 'workflowVersion' => 0];
+        $this->postJson($path, $start + ['requestId' => $this->key()])->assertUnprocessable();
+        $this->postJson($path, $start + ['requestId' => $this->key(), 'location' => ['latitude' => 91, 'longitude' => 36.28]])
+            ->assertUnprocessable();
+        $start += ['requestId' => $this->key(), 'location' => ['latitude' => 33.51, 'longitude' => 36.28, 'accuracy' => 12.5]];
+        $result = $this->postJson($path, $start)->assertOk()
+            ->assertJsonPath('data.attendance.0.locations.in.capturedAt', '2026-10-10T12:00:00+03:00')
+            ->assertJsonPath('data.attendance.0.locations.in.latitude', 33.51)
+            ->assertJsonPath('data.attendance.0.locations.in.longitude', 36.28)
+            ->assertJsonPath('data.attendance.0.locations.in.accuracy', 12.5)
+            ->assertJsonMissingPath('data.employee.attendanceRecords.0.locations')
+            ->json('data');
+        $this->postJson($path, $start)->assertOk()
+            ->assertJsonCount(1, 'data.attendance')->assertJsonPath('data.attendance.0.id', $result['attendance'][0]['id']);
+
+        $this->travelTo(Carbon::parse('2026-10-10T13:30:00+03:00'));
+        $end = ['action' => 'clock', 'kind' => 'end', '_version' => $result['employee']['_version'], 'workflowVersion' => $result['workflowVersion']];
+        $this->postJson($path, $end + ['requestId' => $this->key()])->assertUnprocessable();
+        $this->postJson($path, $end + ['requestId' => $this->key(), 'location' => ['latitude' => 33.55, 'longitude' => 36.29]])
+            ->assertOk()->assertJsonPath('data.attendance.0.locations.out.capturedAt', '2026-10-10T13:30:00+03:00')
+            ->assertJsonPath('data.attendance.0.locations.out.latitude', 33.55)
+            ->assertJsonMissingPath('data.attendance.0.locations.out.accuracy')
+            ->assertJsonPath('data.attendance.0.hours', 1.5);
+
+        $this->asRole('hr');
+        $this->getJson($path)->assertOk()->assertJsonPath('data.capabilities.fieldClockLocation', false)
+            ->assertJsonPath('data.attendance.0.locations.in.latitude', 33.51)
+            ->assertJsonPath('data.attendance.0.locations.out.longitude', 36.29);
+        $this->getJson('/api/employees/E')->assertOk()->assertJsonMissingPath('data.attendanceRecords.0.locations');
+        $this->asRole('manager');
+        $this->getJson($path)->assertOk()->assertJsonPath('data.attendance', []);
+        $this->asRole('other');
+        $this->getJson($path)->assertNotFound();
+
+        $this->assertArrayNotHasKey('locations', $employee->fresh()->data['attendanceRecords'][0]);
+        foreach (AuditEvent::where('record_id', 'E')->get() as $event) {
+            $this->assertStringNotContainsString('latitude', json_encode([$event->before_data, $event->after_data]));
+        }
+        $this->assertStringNotContainsString('latitude', (string)DB::table('transactions')->where('idempotency_key', 'r19:'.$start['requestId'])->value('changes'));
+    }
+
+    public function test_office_and_fingerprint_clock_behaviour_is_preserved_and_legacy_shift_can_end_in_field_mode(): void
+    {
+        $employee = Employee::findOrFail('E');
+        $employee->update(['data' => array_replace($employee->data, ['attendanceMode' => 'fingerprint', 'workMode' => 'مختلط'])]);
+        $path = '/api/r29/hr/employees/E';
+        $this->asRole('employee');
+        $this->getJson($path)->assertOk()->assertJsonPath('data.capabilities.fieldClockLocation', false);
+        $start = ['action' => 'clock', 'kind' => 'start', '_version' => 1, 'workflowVersion' => 0];
+        $this->postJson($path, $start + ['requestId' => $this->key(), 'location' => ['latitude' => 33.51, 'longitude' => 36.28]])
+            ->assertForbidden();
+
+        $employee->update(['data' => array_replace($employee->data, ['attendanceMode' => 'daily', 'workMode' => 'مكتبي'])]);
+        $open = $this->postJson($path, $start + ['requestId' => $this->key(), 'location' => ['latitude' => 'ignored']])
+            ->assertOk()->assertJsonPath('data.capabilities.fieldClockLocation', false)
+            ->assertJsonMissingPath('data.attendance.0.locations')->json('data');
+        $employee->refresh();
+        $employee->update(['data' => array_replace($employee->data, ['workMode' => 'مختلط']), 'version' => $employee->version + 1]);
+        $this->travelTo(Carbon::parse('2026-10-10T13:00:00+03:00'));
+        $this->postJson($path, ['action' => 'clock', 'kind' => 'end', '_version' => $employee->version,
+            'workflowVersion' => $open['workflowVersion'], 'requestId' => $this->key(),
+            'location' => ['latitude' => 33.51, 'longitude' => 36.28]])
+            ->assertOk()->assertJsonPath('data.capabilities.fieldClockLocation', true)
+            ->assertJsonMissingPath('data.attendance.0.locations.in')
+            ->assertJsonPath('data.attendance.0.locations.out.latitude', 33.51);
     }
 
     public function test_read_only_reports_do_not_create_policy_approvals_or_change_attendance(): void

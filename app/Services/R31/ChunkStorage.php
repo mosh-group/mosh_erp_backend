@@ -85,9 +85,11 @@ final class ChunkStorage
         });
     }
     /** Finalizer validates/stores the file through the normal private attachment service. */
-    public function complete(string $owner,string $id,callable $finalizer): array {
-        return $this->locked($owner,$id,function($dir)use($finalizer){
-            $m=$this->load($dir);if(isset($m['result']))return $m['result'];
+    public function complete(string $owner,string $id,callable $finalizer,?callable $authorize=null): array {
+        return $this->locked($owner,$id,function($dir)use($finalizer,$authorize){
+            $m=$this->load($dir);
+            if($authorize) $authorize($m);
+            if(isset($m['result']))return $m['result'];
             if(count($m['received'])!==$m['parts'])throw new \DomainException('لم تصل كل أجزاء الملف؛ أعد المحاولة لاستكمالها.');
             $this->space($dir,$m['size']);
             if(function_exists('set_time_limit')) @set_time_limit(0);

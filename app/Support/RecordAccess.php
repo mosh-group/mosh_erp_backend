@@ -23,6 +23,10 @@ class RecordAccess
         // All active accounts need the staff directory for assignments/managers.
         // document() still removes private HR fields from other employees.
         if ($resource==='employees') return true;
+        // Self-service and a manager's assigned approval are available from their own workspaces.
+        if ($resource === 'hr-requests' && in_array($action, ['list', 'details'], true)) {
+            if (self::own($u, $d) || (($d['status'] ?? '') === 'pending' && \App\Services\R34\Hierarchy::isHrApprover($u, $d))) return true;
+        }
         // Customers are shared: denying Sales must not cancel a Marketing grant.
         if ($resource==='customers') {
             foreach (['sales','marketing','accounting'] as $customerModule) {

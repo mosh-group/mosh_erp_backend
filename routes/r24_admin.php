@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('r24/admin')->group(function(){
     Route::get('overview',[R24AdminController::class,'overview']);
     Route::get('tasks/{id}',[R24AdminController::class,'task']);
+    Route::post('tasks/takeover', [R24AdminController::class, 'takeoverTask']);
     Route::get('alerts',[R24AdminController::class,'alerts']);
     Route::post('alerts',[R24AdminController::class,'alertSend']);
     Route::get('alerts/{id}',[R24AdminController::class,'alertRecord']);

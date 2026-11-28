@@ -52,6 +52,77 @@ final class TaskReadQueryTest extends TestCase
         ]);
     }
 
+    public function test_platform_programs_persist_counts_and_preserve_task_visibility(): void
+    {
+        $this->seed();
+        $url = '/api/platform/programs';
+        $root = $this->account('platform-owner', 'root');
+        $member = $this->account('platform-member', 'mine', ['moduleOverrides' => ['platform' => [
+            'view' => true, 'dashboard' => true, 'create' => false, 'edit' => true,
+        ]]]);
+        $outside = $this->account('platform-outsider', 'mine');
+        $this->task('PLATFORM/001', ['title' => 'مرحلة التصوير', 'department' => 'MOSH MEDIA',
+            'assigneeId' => $member->employee_id, 'assignee' => 'موظف المنصة', 'notes' => 'internal-storyboard']);
+        $this->task('PLATFORM/002', ['title' => 'مراجعة حلقات', 'department' => 'MOSH MEDIA']);
+        $this->task('PLATFORM/DELETED', ['department' => 'MOSH MEDIA', 'deletedAt' => '2026-10-02']);
+        $this->task('M/0001', ['title' => 'مهمة التسويق']);
+
+        $this->getJson($url)->assertUnauthorized();
+        $this->authenticate($outside->fresh());
+        $this->getJson($url)->assertForbidden();
+        $this->getJson($url.'/task-options')->assertForbidden();
+        $this->postJson($url, [])->assertForbidden();
+
+        $this->authenticate($root->fresh());
+        $this->getJson($url)->assertOk()->assertJsonPath('data.canCreate', true)->assertJsonCount(0, 'data.programs');
+        $this->getJson($url.'/task-options?q='.urlencode('التصوير'))->assertOk()
+            ->assertJsonPath('data.tasks.0.id', 'PLATFORM/001')->assertJsonCount(1, 'data.tasks');
+        $this->getJson($url.'/task-options?q=internal-storyboard')->assertOk()->assertJsonCount(0, 'data.tasks');
+
+        $payload = ['name' => 'برنامج المنصة', 'participantCount' => 12, 'completedEpisodeCount' => 4,
+            'taskIds' => ['PLATFORM/001', 'PLATFORM/002'], 'requestId' => 'platform-test-create-0001'];
+        $this->postJson($url, array_replace($payload, ['taskIds' => ['M/0001']]))->assertUnprocessable();
+        $this->postJson($url, array_replace($payload, ['taskIds' => ['PLATFORM/DELETED']]))->assertUnprocessable();
+        $this->postJson($url, array_replace($payload, ['participantCount' => -1]))->assertUnprocessable();
+
+        $created = $this->postJson($url, $payload)->assertCreated()->assertJsonPath('data.participantCount', 12)
+            ->assertJsonPath('data.completedEpisodeCount', 4)->assertJsonPath('data.taskCount', 2)
+            ->assertJsonPath('data.tasks.0', ['id' => 'PLATFORM/001', 'title' => 'مرحلة التصوير',
+                'status' => 'in_progress', 'assignee' => 'موظف المنصة'])
+            ->assertJsonPath('data._version', 1);
+        $id = $created->json('data.id');
+        $this->assertStringContainsString('no-store', $created->headers->get('Cache-Control'));
+        $this->postJson($url, $payload)->assertCreated()->assertJsonPath('data.id', $id);
+        $this->getJson($url)->assertOk()->assertJsonCount(1, 'data.programs')->assertJsonPath('data.programs.0.id', $id);
+
+        $this->authenticate($member->fresh());
+        $this->getJson($url)->assertOk()->assertJsonPath('data.programs.0.taskCount', 1)
+            ->assertJsonPath('data.canCreate', false)->assertJsonPath('data.canEdit', true)
+            ->assertJsonMissing(['id' => 'PLATFORM/002']);
+        $this->getJson($url.'/task-options')->assertOk()->assertJsonCount(1, 'data.tasks')
+            ->assertJsonPath('data.tasks.0.id', 'PLATFORM/001');
+        $this->postJson($url, $payload)->assertForbidden();
+
+        $edit = array_replace($payload, ['participantCount' => 13, 'taskIds' => ['PLATFORM/001'],
+            '_version' => 1, 'requestId' => 'platform-test-edit-0001']);
+        $this->putJson($url.'/'.$id, array_replace($edit, ['taskIds' => ['PLATFORM/002']]))->assertUnprocessable();
+        $this->putJson($url.'/'.$id, $edit)->assertOk()->assertJsonPath('data._version', 2)
+            ->assertJsonPath('data.participantCount', 13)->assertJsonPath('data.taskCount', 1);
+        $this->putJson($url.'/'.$id, array_replace($edit, ['requestId' => 'platform-test-edit-stale']))->assertConflict();
+
+        $this->authenticate($root->fresh());
+        $this->getJson($url)->assertOk()->assertJsonPath('data.programs.0.participantCount', 13)
+            ->assertJsonPath('data.programs.0.taskCount', 2);
+        $moved = Task::findOrFail('PLATFORM/002');
+        $moved->update(['department' => 'التسويق', 'data' => array_replace($moved->data, ['department' => 'التسويق'])]);
+        $this->getJson($url)->assertOk()->assertJsonPath('data.programs.0.tasks.1.id', 'PLATFORM/002');
+        $this->getJson($url.'/task-options')->assertOk()->assertJsonCount(1, 'data.tasks');
+
+        $this->deleteJson($url.'/'.$id)->assertMethodNotAllowed();
+        $this->getJson('/api/settings/_mosh_platform_program_'.$id)->assertNotFound();
+    }
+
+
     public function test_main_task_list_pages_at_sql_and_preserves_sort_urgency_and_arabic_search(): void
     {
         $this->seed();

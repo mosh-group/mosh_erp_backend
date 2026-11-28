@@ -181,7 +181,7 @@ class BackendAuditTest extends TestCase
     public function test_b23_hr_type_validation_and_hourly_leave_effect_once(): void {
         $this->employee();
         foreach (['advance','transfer','promotion','recruitment','salary_certificate','document_update','termination'] as $type) $this->postJson('/api/hr-requests',['employeeId'=>'WORKER','type'=>$type,'reason'=>'Reason','data'=>[]])->assertUnprocessable();
-        $r=$this->create('hr-requests',['employeeId'=>'WORKER','type'=>'hourly_leave','reason'=>'Appointment','data'=>['date'=>'2026-01-05','fromTime'=>'10:00','toTime'=>'12:00']]);
+        $r=$this->create('hr-requests',['employeeId'=>'WORKER','type'=>'hourly_leave','reason'=>'Appointment','data'=>['date'=>now(config('app.timezone'))->addDay()->toDateString(),'fromTime'=>'10:00','toTime'=>'12:00']]);
         $this->change('hr-requests',$r['id'],['stageIndex'=>1])->assertOk();$this->change('hr-requests',$r['id'],['status'=>'approved'])->assertOk();
         $this->change('hr-requests',$r['id'],['status'=>'approved'])->assertOk();$leave=Employee::find('WORKER')->data['leaveRecords'];$this->assertCount(1,$leave);$this->assertEquals(2,$leave[0]['hours']);
     }

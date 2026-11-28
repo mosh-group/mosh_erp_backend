@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\{StoredFile,FileLink};
-use App\Support\{RecordAccess,Records,Audit};
+use App\Support\{RecordAccess,Records,Audit,R19HrCompensation};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -9,7 +9,13 @@ use Illuminate\Validation\Rule;
 class FileController extends Controller
 {
     private function find(Request $r,string $key): StoredFile {
-        $f=StoredFile::where('logical_key',$key)->firstOrFail();$links=FileLink::where('file_id',$f->id)->get();
+        $f = StoredFile::includingHrCompensation()->where('logical_key', $key)->firstOrFail();
+        if ($f->kind === R19HrCompensation::FILE_KIND) {
+            abort_unless(R19HrCompensation::canReadFile($r->user(), $f), 404);
+
+            return $f;
+        }
+        $links=FileLink::where('file_id',$f->id)->get();
         if($links->contains(fn($l)=>in_array($l->resource,['employment-contracts','r29-contract-scan'],true))) abort_unless(\App\Services\R29\HrWorkflow::hr($r->user()),404);
         $allowed=$r->user()->root()||($links->isEmpty()&&$f->owner_id===$r->user()->id);
         foreach ($links as $link) {
@@ -62,8 +68,9 @@ class FileController extends Controller
             abort_if($free!==false && ($size>$free || $free-$size<32*1024*1024),507,'مساحة الخادم لا تكفي لحفظ الملف.');
         }
         $v=$r->validate(['file'=>'required|file','key'=>'nullable|string|max:190','kind'=>'nullable|string|max:80']);
+        R19HrCompensation::authorizeUpload($r->user(), $v['kind'] ?? null);
         $file=$v['file'];$key=$v['key']??('FILE-'.Str::ulid());
-        abort_if(StoredFile::where('logical_key',$key)->exists(),409,'مفتاح الملف مستخدم.');
+        abort_if(StoredFile::includingHrCompensation()->where('logical_key',$key)->exists(),409,'مفتاح الملف مستخدم.');
         $name=$file->getClientOriginalName();
         $original=method_exists($file,'getClientOriginalPath')?$file->getClientOriginalPath():$name;
         abort_if($original!==$name||preg_match('/[\\\\\/\x00-\x1F\x7F]/u',$name)||in_array($name,['','.','..'],true)||mb_strlen($name)>250,422,'اسم ملف غير آمن.');
@@ -82,7 +89,13 @@ class FileController extends Controller
         catch (\Throwable $e) { Storage::disk('local')->delete($path);throw $e; }
         return $this->ok($this->metadata($f),201);
     }
-    public function show(Request $r,string $key) { return $this->ok($this->metadata($this->find($r,$key))); }
+    public function show(Request $r, string $key)
+    {
+        $file = $this->find($r, $key);
+        $response = $this->ok($this->metadata($file));
+
+        return $file->kind === R19HrCompensation::FILE_KIND ? $response->header('Cache-Control', 'private, no-store') : $response;
+    }
     public function content(Request $r,string $key) {
         $f=$this->find($r,$key);abort_unless(Storage::disk('local')->exists($f->path),404);
         return Storage::disk('local')->response($f->path,$f->name,['Content-Type'=>$f->mime,'X-Content-Type-Options'=>'nosniff','Cache-Control'=>'private, no-store'],!$r->boolean('download')&&in_array($f->mime,['image/png','image/jpeg','image/webp','image/gif','application/pdf'],true)?'inline':'attachment');
@@ -92,7 +105,9 @@ class FileController extends Controller
             // Share the record-write lock so canceling an upload cannot delete
             // a file while a task or HR request is committing its file link.
             \Illuminate\Support\Facades\DB::table('app_locks')->where('id','business')->increment('revision');
-            $visible=$this->find($r,$key);$f=StoredFile::whereKey($visible->id)->lockForUpdate()->firstOrFail();
+            $visible = $this->find($r, $key);
+            R19HrCompensation::authorizeUpload($r->user(), $visible->kind);
+            $f = StoredFile::includingHrCompensation()->whereKey($visible->id)->lockForUpdate()->firstOrFail();
             abort_unless($f->owner_id===$r->user()->id||$r->user()->root(),403);
             abort_if(FileLink::where('file_id',$f->id)->exists(),409,'أزل المرفق من السجل أولاً.');
             $path=$f->path;$f->delete();return $path;

@@ -171,8 +171,17 @@ class BusinessRules
             $key=$record['date'].'|'.($record['inTime']??$record['checkIn']??'').'|'.($record['outTime']??$record['checkOut']??'');
             self::need(!isset($attendance[$key]),'سجل الدوام مكرر.');$attendance[$key]=true;
         }
+        $oldLeaves = $old['leaveRecords'] ?? [];
+        $priorLeaves = array_column($oldLeaves, null, 'id');
+        $schedule = fn(array $leave) => array_map(fn($field)=>$leave[$field]??'', ['type','startDate','endDate','fromTime','toTime']);
         foreach ($d['leaveRecords']??[] as $i=>$leave) {
             Validator::make($leave,['startDate'=>'required|date_format:Y-m-d','endDate'=>'required|date_format:Y-m-d|after_or_equal:startDate'])->validate();
+            $prior = isset($leave['id']) ? ($priorLeaves[$leave['id']] ?? null) : ($oldLeaves[$i] ?? null);
+            if (!$derived && (!$prior || $schedule($prior) !== $schedule($leave))) {
+                $hourly = in_array($leave['type'] ?? '', ['ساعية','hourly','hourly_leave'], true);
+                if ($hourly) Validator::make($leave, ['fromTime'=>'required|date_format:H:i','toTime'=>'required|date_format:H:i|after:fromTime'])->validate();
+                self::validateLeaveStart($leave['startDate'], $hourly ? $leave['fromTime'] : '');
+            }
             if (($leave['status']??'')==='rejected') continue;
             foreach (array_slice($d['leaveRecords'],0,$i) as $other) if (($other['status']??'')!=='rejected') self::need($leave['startDate']>($other['endDate']??'')||$leave['endDate']<($other['startDate']??'')||(($leave['type']??'')==='ساعية'&&($other['type']??'')==='ساعية'&&(($leave['toTime']??'')<=($other['fromTime']??'')||($leave['fromTime']??'')>=($other['toTime']??''))),'توجد إجازة متداخلة.');
         }
@@ -204,11 +213,15 @@ class BusinessRules
         R19TaskPriority::apply($a,$old,$d);
         $statuses=['new','in_progress','completed','awaiting_invoice','invoiced','cancelled','archived_invoiced','archived_no_invoice','shared_container'];
         self::need(in_array($d['status']??'in_progress',$statuses,true),'حالة المهمة غير صالحة.');
+        $administrativeTakeover = AdminTaskTakeover::permitsAssignment($a, $old, $d);
+        if ($administrativeTakeover) {
+            unset($d['approvalRoute'], $d['approvalIndex'], $d['reviewState'], $d['managerFinalPending']);
+        }
         if ($id=$d['assigneeId']??'') {
             $p=Employee::find($id); self::need((bool)$p,'الموظف غير موجود.');
             if (!$old||($old['assigneeId']??'')!==$id) self::need(($p->data['active']??true)!==false&&($p->data['employmentStatus']??'active')==='active','الموظف غير متاح للتكليف.');
             // Keep the saved executor on an approved billing handoff; all approval gates below still apply.
-            self::need(($p->data['department']??'')===($d['department']??'')||(string)(DepartmentManagers::effective()[$d['department']]??'')===(string)$p->id||($old && ($old['assigneeId']??'')===$id && ($old['department']??'')===($d['department']??''))||TaskBillingHandoff::preservesExecutor($old,$d),'الموظف ليس في قسم المهمة.');
+            self::need(($p->data['department']??'')===($d['department']??'')||(string)(DepartmentManagers::effective()[$d['department']]??'')===(string)$p->id||($old && ($old['assigneeId']??'')===$id && ($old['department']??'')===($d['department']??''))||TaskBillingHandoff::preservesExecutor($old,$d)||$administrativeTakeover,'الموظف ليس في قسم المهمة.');
         }
         if (!empty($d['parentTaskId'])) {
             self::need((string)$d['id']!==(string)$d['parentTaskId'],'المهمة لا تكون فرعاً من نفسها.');
@@ -324,6 +337,15 @@ class BusinessRules
         $task['history'][] = ['text'=>'انتهى التنفيذ وانتقلت المهمة إلى «المهمات» للمتابعة.',
             'time'=>now()->toIso8601String(), 'by'=>$actor->name];
     }
+    private static function validateLeaveStart(string $date,string $time=''): void
+    {
+        $now = now(config('app.timezone'));
+        $today = $now->toDateString();
+        self::need($date >= $today, 'اختر تاريخ إجازة من اليوم فما بعد.');
+        if ($date === $today && $time !== '') {
+            self::need($time >= $now->format('H:i'), 'اختر وقت بداية للإذن الساعي من الوقت الحالي فما بعد.');
+        }
+    }
     private static function hrRequest(User $a,?array $old,array &$d): void {
         $routes=json_decode(file_get_contents(resource_path('hr-routes.json')),true);
         self::need(isset($routes[$d['type']]),'نوع طلب الموظف غير معروف.');
@@ -359,6 +381,10 @@ class BusinessRules
         if (in_array($d['type'],['advance','reward','deduction'],true)) Validator::make($d['data'],['amount'=>'required|numeric|gt:0|max:900000000000','currency'=>'required|in:USD,SYP,EUR,AED,SAR,LBP,JOD,TRY,EGP'])->validate();
         if (in_array($d['type'],['hourly_leave','attendance_correction'],true)) Validator::make($d['data'],['date'=>'required|date_format:Y-m-d','fromTime'=>'required|date_format:H:i','toTime'=>'required|date_format:H:i|after:fromTime'])->validate();
         $data=$d['data']??[];
+        if (!$old && in_array($d['type'], ['annual_leave','sick_leave','hourly_leave'], true)) {
+            $hourly = $d['type'] === 'hourly_leave';
+            self::validateLeaveStart($hourly ? $data['date'] : $data['startDate'], $hourly ? $data['fromTime'] : '');
+        }
         if ($d['type']==='transfer') self::need(in_array($data['target']??'',self::departments(),true),'القسم المطلوب غير موجود.');
         if (in_array($d['type'],['promotion','recruitment'],true)) Validator::make($data,['jobTitle'=>'required|string|max:500']+($d['type']==='recruitment'?['headcount'=>'required|integer|between:1,1000']:[]))->validate();
         if ($d['type']==='salary_certificate') Validator::make($data,['language'=>'required|string|max:100','target'=>'required|string|max:500'])->validate();

@@ -95,6 +95,13 @@ class ResourceController extends Controller
         $result=TransactionController::commit($r,[$op],false);
         $change=$result['changes'][0]??[];
         $data=$change['data']??null;
+        if ($action === 'create' && $op['resource'] === 'hr-requests' && $data === null && isset($op['data']['id'])) {
+            // A retry can replay an earlier receipt that omitted the employee's request.
+            $saved = Records::find('hr-requests', (string) $op['data']['id'])->document();
+            if (RecordAccess::own($r->user(), $saved) && RecordAccess::readable($r->user(), 'hr-requests', $saved, 'details')) {
+                $data = RecordAccess::document($r->user(), 'hr-requests', $saved);
+            }
+        }
         if (($change['outcome']??'')==='follow_up') $data=['id'=>$change['id'],'outcome'=>'follow_up'];
         return $this->ok($action==='delete'?null:$data,$action==='create'?201:200);
     }
